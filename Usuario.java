@@ -1,5 +1,5 @@
 public class Usuario {
-    private String user;
+   private String user;
    private String cpf;
    private String senha;
    private String sexo;
