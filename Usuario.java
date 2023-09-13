@@ -6,14 +6,17 @@ public class Usuario {
    private String email;
    private int cardCoins;
    private Deck[] baralho = new Deck [5];
+   private Inventario inventario;
 
-   public Usuario(String user, String cpf, String senha, String sexo, String email, int cardCoins) {
-    this.user = user;
-    this.cpf = cpf;
-    this.senha = senha;
-    this.sexo = sexo;
-    this.email = email;
-    this.cardCoins = cardCoins;
+    public Usuario(String user, String cpf, String senha, String sexo, String email, int cardCoins, Deck[] baralho, Inventario inventario) {
+        this.user = user;
+        this.cpf = cpf;
+        this.senha = senha;
+        this.sexo = sexo;
+        this.email = email;
+        this.cardCoins = cardCoins;
+        this.baralho = baralho;
+        this.inventario = inventario;
    }
    public String getUser(){
     return user;
@@ -51,5 +54,13 @@ public class Usuario {
    public void setCardCoins(int cardCoins) {
     this.cardCoins = cardCoins;
    }
-    
+   public Deck[] getBaralho(){
+    return baralho;
+   }
+   public Inventario getInventario(){
+    return inventario;
+   }
+   public void setInventario(Inventario inventario){
+    this.inventario = inventario;
+   }
 }

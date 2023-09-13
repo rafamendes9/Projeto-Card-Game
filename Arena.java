@@ -77,7 +77,15 @@ public class Arena {
 
     //Quais as condições para se iniciar uma partida?
     public void iniciarPartida() {
-
+        jogador1.getInventario();
+        jogador2.getInventario();
+        // Checar se os jogadores tão no msm level
+        if (Inventario.getNivel() == Inventario.getNivel()) {
+            System.out.println("A partida está iniciando...");
+            // Lógica da partida
+        } else {
+            System.out.println("Os usuários não têm o mesmo nível. A partida não pode ser iniciada.");
+        }
     }
 
     //Para finalizar uma partida é quando 

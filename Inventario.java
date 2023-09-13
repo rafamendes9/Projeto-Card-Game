@@ -37,7 +37,7 @@ public class Inventario {
     }
 
     // Método para adicionar uma carta ao inventário
-    public boolean adicionarCarta(Carta carta) {
+    public void adicionarCarta(Carta carta) {
         if (carta != null) {
             if (carta.estaDisponivel()) {
                 cartas.add(carta);

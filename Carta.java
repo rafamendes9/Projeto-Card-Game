@@ -68,5 +68,10 @@ public class Carta {
     public void setHabilidade ( String habilidade){
         this.habilidade = habilidade;
     }
+    public boolean estaDisponivel() {
+        return false;
+    }
+    public void aumentarQuantidade() {
+    }
     
 }
