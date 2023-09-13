@@ -37,15 +37,17 @@ public class Inventario {
     }
 
     // Método para adicionar uma carta ao inventário
-    public void adicionarCarta(Carta carta) {
+    public boolean adicionarCarta(Carta carta) {
         if (carta != null) {
             if (carta.estaDisponivel()) {
-                cartas.add(carta);
                 carta.aumentarQuantidade();
+                cartas.add(carta);
+                return true;
             } else {
                 // O jogador ganha cardcoins em vez da carta.
                 cardcoins += 10; // Suponhamos que 10 cardcoins sejam ganhos.
             }
         }
+        return false;
     }
 }
