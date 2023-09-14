@@ -20,7 +20,7 @@ public class Inventario {
         Inventario.cartas = cartas;
     }
 
-    public static int getNivel(){
+    public int getNivel(){
         return nivel;
     }
 
