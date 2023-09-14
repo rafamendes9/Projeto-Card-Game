@@ -44,18 +44,18 @@ public class Lobby {
     (irei modificar isso quando a interface estiver 100% adaptada com as classes)*/
 
 
-    public void criarPartida(Usuario usuario) {
+    public void criarPartida(Usuario jogador1) {
         // Verifica se há outros usuários disponíveis para uma partida
       
       //quebrei a linha para o IF não ficar muito extenso mas voces podem arrumar caso o VS CODE de vc fique dando algum bug
-        for (Usuario oponente : usuarios) {
-            if (!usuario.equals(oponente) && usuario.getDeck().equals(oponente.getDeck()) 
-            && usuario.getModalidade().equals(oponente.getModalidade()) && usuario.getNivel() == oponente.getNivel()) {
+        for (Usuario jogador2 : usuarios) {
+            if (!jogador1.equals(jogador2) && jogador1.getBaralho().equals(jogador2.getBaralho()) 
+            && jogador1.getModalidade().equals(jogador2.getModalidade()) && jogador1.getInventario().getNivel() == jogador2.getNivel()) {
 
 
                 // Encontrou um oponente com deck e modalidade correspondentes
-                usuarios.remove(oponente);
-                Arena arena = new Arena(usuario, oponente);
+                usuarios.remove(jogador2);
+                Arena arena = new Arena(jogador1, jogador2);
                 arenas.add(arena);
                 arena.iniciarPartida(); // Inicie a partida
                 return;
