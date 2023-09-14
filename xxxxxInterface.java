@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Interface extends JFrame {
+public class xxxxxInterface extends JFrame {
     private Lobby lobby;
 
     private JTextField nomeUsuario;
@@ -15,7 +15,7 @@ public class Interface extends JFrame {
 
 
     // O construtorEle recebe uma instância de Lobby como parâmetro para que a interface possa interagir com o lobby.
-    public Interface(Lobby lobby) {
+    public xxxxxInterface(Lobby lobby) {
         this.lobby = lobby;
 
         /*  Configurar a janela,  Define o título da janela, seu tamanho 
