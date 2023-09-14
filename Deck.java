@@ -1,7 +1,29 @@
-/*A classe de usuário representa o jogador, este usuário deve ter os seguintes atributos user CPF,
-senha, idade, sexo, email nível(inicialmente 1 e um inventário(que será descrita a seguir) e um vetor
-de decks(O usuário pode ter até 5 e o seu saldo em cardcoins (inicialmente igual a zero) Esta classe
-irá interagir diretamente com a maioria das outras classes */
+
 public class Deck {
-    
+    private String nome;
+    private int qtdCartas;
+    private boolean disponibilidade = false;
+    public Deck (String nome, int qtdCartas, boolean disponibilidade) {
+        this.nome = nome;
+        this.qtdCartas = qtdCartas;
+        this.disponibilidade = disponibilidade;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    public int getQtdCartas(){
+        return qtdCartas;
+    }
+    public void setQtdCartas(int qtdCartas){
+        this.qtdCartas = qtdCartas;
+    }
+    public boolean getDisponibilidade() {
+        return disponibilidade;
+    }
+    public void setDisponibilidade(boolean disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }
 }
