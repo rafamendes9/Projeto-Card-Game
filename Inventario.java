@@ -1,47 +1,45 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Inventario {
-    private static List<Carta> cartas;
-    private static int nivel;
-    private static int cardcoins;
+    private String[] cartas = new String[200];
+    private int nivel;
+    private int cardcoins;
 
-    public Inventario() {
-        Inventario.cartas = new ArrayList<>();
-        Inventario.nivel = 1;
-        Inventario.cardcoins = 0;
+    public Inventario(String[] cartas, int nivel, int cardcoins) {
+        this.cartas = cartas;
+        this.nivel = 1;
+        this.cardcoins = 0;
     }
 
-    public List<Carta> getCartas(){
+    public String[] getCartas() {
         return cartas;
     }
-
-    public void setCartas(List<Carta> cartas){
-        Inventario.cartas = cartas;
+    public void setCartas(String[] cartas) {
+        this.cartas = cartas;
     }
 
-    public int getNivel(){
+    public int getNivel() {
         return nivel;
     }
-
-    public void setNivel(int nivel){
-        Inventario.nivel = nivel;
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
     }
 
-    public int getCardcoins(){
+    public int getCardcoins() {
         return cardcoins;
     }
-
-    public void setCardcoins(int cardcoins){
-        Inventario.cardcoins = cardcoins;
+    public void setCardcoins(int cardcoins) {
+        this.cardcoins = cardcoins;
     }
 
+    
+
+    //MÉTODO PARA 2ª ENTREGA
     // Método para adicionar uma carta ao inventário
-    public boolean adicionarCarta(Carta carta) {
+    /*public boolean adicionarCarta(Carta carta) {
         if (carta != null) {
             if (carta.estaDisponivel()) {
-                carta.aumentarQuantidade();
-                cartas.add(carta);
+                for(int i = 0; i < cartas.length; i++){
+                    //adicionar cartas ao inventário
+                }
                 return true;
             } else {
                 // O jogador ganha cardcoins em vez da carta.
@@ -49,5 +47,5 @@ public class Inventario {
             }
         }
         return false;
-    }
+    }*/
 }

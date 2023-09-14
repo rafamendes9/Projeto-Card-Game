@@ -7,8 +7,8 @@ public class Carta {
     private int defesa;
     private int custo;
     private String habilidade;
-
-
+    //Futuramente um atributo TERRENO
+        
     public Carta (String nome, String imagem, String tipo, String raridade, String habilidade, int ataque, int defesa, int custo){
         this.nome = nome;
         this.imagem = imagem;
@@ -73,5 +73,4 @@ public class Carta {
     }
     public void aumentarQuantidade() {
     }
-    
 }
