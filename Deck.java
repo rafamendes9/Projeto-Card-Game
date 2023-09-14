@@ -2,6 +2,7 @@ public class Deck {
     private String nome;
     private int qtdCartas;
     private boolean disponibilidade = false;
+    
     public Deck (String nome, int qtdCartas, boolean disponibilidade) {
         this.nome = nome;
         this.qtdCartas = qtdCartas;

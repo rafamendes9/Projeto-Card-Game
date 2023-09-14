@@ -55,7 +55,7 @@ public class Lobby {
 
                 // Encontrou um oponente com deck e modalidade correspondentes
                 usuarios.remove(jogador2);
-                Arena arena = new Arena(jogador1, jogador2);
+                Arena arena = new Arena(jogador1, jogador2); //adicionar os outros atributos dos players para Arena
                 arenas.add(arena);
                 arena.iniciarPartida(); // Inicie a partida
                 return;

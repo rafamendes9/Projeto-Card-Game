@@ -74,7 +74,7 @@ public class Arena {
     public int getPontosVidaJogador2(){
         return pontosVidaJogador2;
     }
-
+    /*
     //Quais as condições para se iniciar uma partida?
     public void iniciarPartida() {
         jogador1.getInventario();
@@ -96,4 +96,5 @@ public class Arena {
 
         }
     }
+     */
 }
