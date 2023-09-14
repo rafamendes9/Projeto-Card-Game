@@ -1,4 +1,3 @@
-
 public class Deck {
     private String nome;
     private int qtdCartas;
