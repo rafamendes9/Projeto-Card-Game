@@ -41,6 +41,24 @@ public class C_Carta {
         }
     }
            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     //get set
     
     public String getNome() {

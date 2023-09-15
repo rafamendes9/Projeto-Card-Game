@@ -1,7 +1,7 @@
 public enum C2_EnumRaridadeCarta{
-    COMUM,
-    INCOMUM,
+    NORMAL,
     RARA,
-    MUITO_RARA,
-    EPICA
+    EPICA,
+    LENDARIA,
+    MITICA
 }
