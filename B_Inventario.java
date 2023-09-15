@@ -1,11 +1,11 @@
 public class B_Inventario {
     private String[] cartas = new String[200];
-    private int nivel;
+    private int nivelAtual;
     private int cardcoins;
 
     public B_Inventario(String[] cartas, int nivel, int cardcoins) {
         this.cartas = cartas;
-        this.nivel = 1;
+        this.nivelAtual = 1;
         this.cardcoins = 0;
     }
 
@@ -16,11 +16,11 @@ public class B_Inventario {
         this.cartas = cartas;
     }
 
-    public int getNivel() {
-        return nivel;
+    public int getNivelAtual() {
+        return nivelAtual;
     }
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
+    public void setNivelAtual(int nivel) {
+        this.nivelAtual = nivel;
     }
 
     public int getCardcoins() {
@@ -34,18 +34,22 @@ public class B_Inventario {
 
     //MÉTODO PARA 2ª ENTREGA
     // Método para adicionar uma carta ao inventário
-    /*public boolean adicionarCarta(Carta carta) {
-        if (carta != null) {
-            if (carta.estaDisponivel()) {
-                for(int i = 0; i < cartas.length; i++){
-                    //adicionar cartas ao inventário
-                }
+     /*Este método verifica se a nova carta não é nula, se o inventário não está cheio e, em seguida,
+     adiciona a nova carta ao inventário na próxima posição disponível. 
+     */
+       public boolean adicionarCarta(String novaCarta) {
+        if (novaCarta != null) {
+            // Verifique se o inventário não está cheio
+            if (cartas.length < 200) {
+                // Adicione a nova carta ao inventário
+                cartas[cartas.length] = novaCarta;
                 return true;
             } else {
-                // O jogador ganha cardcoins em vez da carta.
-                cardcoins += 10; // Suponhamos que 10 cardcoins sejam ganhos.
+                // O inventário está cheio, não é possível adicionar mais cartas
+                return false;
             }
         }
         return false;
-    }*/
+    }
+   
 }
