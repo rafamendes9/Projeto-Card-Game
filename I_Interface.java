@@ -176,3 +176,6 @@ Este método é chamado quando o botão "Adicionar Usuário" é clicado na inter
 
 //ideia inicial do codigo, vai ser refeita e adaptadas quando as outras classes forem desenvolvidas
 //a interface se adequa a classe LOBBY ate o momento com pequenas citaçoes de outras classe ( que ainda vão ser desenvolvidas)
+
+
+

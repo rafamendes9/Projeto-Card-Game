@@ -11,7 +11,31 @@ public class B_Inventario {
         this.cardCoins = cardCoins ;
     }
 
-    public String[] getCartas() {
+ 
+
+    //MÉTODO PARA 2ª ENTREGA
+    // Método para adicionar uma carta ao inventário
+     /*Este método verifica se a nova carta não é nula, se o inventário não está cheio e, em seguida,
+     adiciona a nova carta ao inventário na próxima posição disponível. 
+     */
+    public boolean adicionarCarta(String novaCarta) {
+        if (novaCarta != null) {
+            // Verifique se o inventário não está cheio
+            if (cartas.length < 200) {
+                // Adicione a nova carta ao inventário na próxima posição disponível
+                cartas[cartas.length - 1] = novaCarta;
+                return true;
+            } else {
+                // O inventário está cheio, não é possível adicionar mais cartas
+                return false;
+            }
+        }
+        return false;
+    }
+    
+    //GET SET
+
+       public String[] getCartas() {
         return cartas;
     }
     public void setCartas(String[] cartas) {
@@ -34,24 +58,5 @@ public class B_Inventario {
 
     
 
-    //MÉTODO PARA 2ª ENTREGA
-    // Método para adicionar uma carta ao inventário
-     /*Este método verifica se a nova carta não é nula, se o inventário não está cheio e, em seguida,
-     adiciona a nova carta ao inventário na próxima posição disponível. 
-     */
-    public boolean adicionarCarta(String novaCarta) {
-        if (novaCarta != null) {
-            // Verifique se o inventário não está cheio
-            if (cartas.length < 200) {
-                // Adicione a nova carta ao inventário na próxima posição disponível
-                cartas[cartas.length - 1] = novaCarta;
-                return true;
-            } else {
-                // O inventário está cheio, não é possível adicionar mais cartas
-                return false;
-            }
-        }
-        return false;
-    }
-   
+
 }
