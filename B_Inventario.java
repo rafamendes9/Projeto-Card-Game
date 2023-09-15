@@ -1,12 +1,14 @@
 public class B_Inventario {
     private String[] cartas = new String[200];
-    private int nivelAtual;
-    private int cardcoins;
+    private int nivelAtual = 1;
+    private int cardCoins = 0;
 
-    public B_Inventario(String[] cartas, int nivel, int cardcoins) {
+
+    
+    public B_Inventario(String[] cartas, int nivelAtual, int cardCoins) {
         this.cartas = cartas;
-        this.nivelAtual = 1;
-        this.cardcoins = 0;
+        this.nivelAtual = nivelAtual ;
+        this.cardCoins = cardCoins ;
     }
 
     public String[] getCartas() {
@@ -23,11 +25,11 @@ public class B_Inventario {
         this.nivelAtual = nivel;
     }
 
-    public int getCardcoins() {
-        return cardcoins;
+    public int getCardCoins() {
+        return cardCoins;
     }
-    public void setCardcoins(int cardcoins) {
-        this.cardcoins = cardcoins;
+    public void setCardCoins(int cardcoins) {
+        this.cardCoins = cardcoins;
     }
 
     
@@ -37,12 +39,12 @@ public class B_Inventario {
      /*Este método verifica se a nova carta não é nula, se o inventário não está cheio e, em seguida,
      adiciona a nova carta ao inventário na próxima posição disponível. 
      */
-       public boolean adicionarCarta(String novaCarta) {
+    public boolean adicionarCarta(String novaCarta) {
         if (novaCarta != null) {
             // Verifique se o inventário não está cheio
             if (cartas.length < 200) {
-                // Adicione a nova carta ao inventário
-                cartas[cartas.length] = novaCarta;
+                // Adicione a nova carta ao inventário na próxima posição disponível
+                cartas[cartas.length - 1] = novaCarta;
                 return true;
             } else {
                 // O inventário está cheio, não é possível adicionar mais cartas
