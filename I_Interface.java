@@ -4,8 +4,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class xxxxxInterface extends JFrame {
-    private Lobby lobby;
+public class I_Interface extends JFrame {
+    private F_Lobby lobby;
 
     private JTextField nomeUsuario;
     private JComboBox<String> decks;
@@ -15,7 +15,7 @@ public class xxxxxInterface extends JFrame {
 
 
     // O construtorEle recebe uma instância de Lobby como parâmetro para que a interface possa interagir com o lobby.
-    public xxxxxInterface(Lobby lobby) {
+    public I_Interface(F_Lobby lobby) {
         this.lobby = lobby;
 
         /*  Configurar a janela,  Define o título da janela, seu tamanho 
@@ -111,7 +111,7 @@ Este método é chamado quando o botão "Adicionar Usuário" é clicado na inter
         int nivel = 1; // Defina o nível do usuário conforme necessário
 
         // Crie um novo usuário com os dados fornecidos
-        Usuario novoUsuario = new Usuario(nome, deckSelecionado, modalidadeSelecionada, nivel);
+        A_Usuario novoUsuario = new A_Usuario(nome, deckSelecionado, modalidadeSelecionada, nivel);
 
         // Adicione o usuário ao lobby
         lobby.adicionarUsuario(novoUsuario);
@@ -144,8 +144,8 @@ Este método é chamado quando o botão "Adicionar Usuário" é clicado na inter
         // Verifique se há usuários suficientes para criar uma partida
         if (lobby.getUsuarios().size() >= 2) {
             // Obtenha os dois primeiros usuários da lista
-            Usuario usuario1 = lobby.getUsuarios().get(0);
-            Usuario usuario2 = lobby.getUsuarios().get(1);
+            A_Usuario usuario1 = lobby.getUsuarios().get(0);
+            A_Usuario usuario2 = lobby.getUsuarios().get(1);
 
             // Crie uma partida com esses usuários
             lobby.criarPartida(usuario1, usuario2);

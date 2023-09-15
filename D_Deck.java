@@ -1,10 +1,10 @@
-public class Deck {
+public class D_Deck {
     private String nome;
     private int qtdCartas;
     private boolean disponibilidade = false;
-    private Carta[] cartas = new Carta[60];
+    private C_Carta[] cartas = new C_Carta[60];
 
-    public Deck (String nome, int qtdCartas, boolean disponibilidade, Carta[] cartas) {
+    public D_Deck (String nome, int qtdCartas, boolean disponibilidade, C_Carta[] cartas) {
         this.nome = nome;
         this.qtdCartas = qtdCartas;
         this.disponibilidade = disponibilidade;
@@ -28,10 +28,10 @@ public class Deck {
     public void setDisponibilidade(boolean disponibilidade) {
         this.disponibilidade = disponibilidade;
     }
-    public Carta[] getCartas() {
+    public C_Carta[] getCartas() {
         return cartas;
     }
-    public void setCarta(Carta[] cartas) {
+    public void setCarta(C_Carta[] cartas) {
         this.cartas = cartas;
     }
 
@@ -43,7 +43,7 @@ public class Deck {
         }
     }
 
-    public void addCarta(Carta carta, Inventario inventario){ //recebe carta que vai ser adicionada e o inventario para remover a quantidade na classe
+    public void addCarta(C_Carta carta, B_Inventario inventario){ //recebe carta que vai ser adicionada e o inventario para remover a quantidade na classe
         //verifica se o deck estourou o limite e se a carta estiver sendo repetida 3 vezes
         //Limite definido como 120 cartas
         if (qtdCartas < 60 && !maximasRepeticoes(carta)) {
@@ -53,11 +53,11 @@ public class Deck {
         disponibilidadeCarta();
     }
 
-    public Carta removerCarta(String nome){
+    public C_Carta removerCarta(String nome){
         return null;
     }
 
-    public boolean maximasRepeticoes(Carta carta){
+    public boolean maximasRepeticoes(C_Carta carta){
         if(carta.getNome().equals("mana")){
             return false; //cartas de mana podem ser chamadas mais de 3 vezes
         }

@@ -1,10 +1,10 @@
 import java.util.Random;
 
-public class Loja {
+public class E_Loja {
     private String numeroCartao;
     private String codigoVerificador;
 
-    public Loja(String numeroCartao, String codigoVerificador) {
+    public E_Loja(String numeroCartao, String codigoVerificador) {
         this.numeroCartao = numeroCartao;
         this.codigoVerificador = codigoVerificador;
     }
@@ -25,7 +25,7 @@ public class Loja {
         this.codigoVerificador = codigoVerificador;
     }
 
-    public void compraDeBooster(Usuario usuario) {
+    public void compraDeBooster(A_Usuario usuario) {
         // Verificar se o usuário possui cardcoins suficientes para comprar um booster
         int precoBooster = 100; // Defina o preço do booster em cardcoins
         int cardcoinsDoUsuario = usuario.getCardCoins();
@@ -37,7 +37,7 @@ public class Loja {
 
             for (int i = 0; i < quantidadeCartasBooster; i++) {
                 // Simular a obtenção de cartas aleatórias
-                Carta cartaAleatoria = gerarCartaAleatoria();
+                C_Carta cartaAleatoria = gerarCartaAleatoria();
 
 
                 // desenvolvimento apos implementar ENUM na 2ª fase
@@ -63,7 +63,7 @@ public class Loja {
     }
 
   
-    public Carta gerarCartaAleatoria() {
+    public C_Carta gerarCartaAleatoria() {
         // Simulação de geração de uma carta aleatória
         Random random = new Random();
         String[] nomesCartas = {"Carta 1", "Carta 2", "Carta 3", "Carta 4", "Carta 5"};
@@ -76,7 +76,7 @@ public class Loja {
         int raridadeAleatoria = random.nextInt(5); // 0 a 4, representando raridade comum, incomum, rara, super rara, épica
 
         //esboco de nova carta
-        return new Carta(nomeAleatorio, ataqueAleatorio, defesaAleatoria, raridadeAleatoria);
+        return new C_Carta(nomeAleatorio, ataqueAleatorio, defesaAleatoria, raridadeAleatoria);
     }
 
 }

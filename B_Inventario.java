@@ -1,9 +1,9 @@
-public class Inventario {
+public class B_Inventario {
     private String[] cartas = new String[200];
     private int nivel;
     private int cardcoins;
 
-    public Inventario(String[] cartas, int nivel, int cardcoins) {
+    public B_Inventario(String[] cartas, int nivel, int cardcoins) {
         this.cartas = cartas;
         this.nivel = 1;
         this.cardcoins = 0;

@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lobby {
-    private List<Usuario> usuarios;
-    private List<Arena> arenas;
+public class F_Lobby {
+    private List<A_Usuario> usuarios;
+    private List<G_Arena> arenas;
 
 
     /*Neste construtor, duas listas vazias são inicializadas: usuarios e arenas. 
     Essas listas são usadas para rastrear os usuários no lobby e as arenas em que as partidas ocorrem.
     */
-    public Lobby() {
+    public F_Lobby() {
         usuarios = new ArrayList<>();
         arenas = new ArrayList<>();
     }
@@ -19,11 +19,11 @@ public class Lobby {
      Isso é feito simplesmente chamando o método add da lista usuarios e passando o usuario como argumento.
       Isso significa que o usuário agora está no lobby e pode ser emparelhado com outro jogador
       (deixei assim mas vai ser alterado com tiver as dificuldades da IA) */
-    public void adicionarUsuario(Usuario usuario) {
+    public void adicionarUsuario(A_Usuario usuario) {
         usuarios.add(usuario);
     }
 
-    public void adicionarBaralho(Usuario usuario) {
+    public void adicionarBaralho(A_Usuario usuario) {
         usuarios.add(usuario);
     }
 
@@ -31,8 +31,8 @@ public class Lobby {
     public void criarPartida() {
         // Verifique se há pelo menos dois jogadores no lobby
         if (usuarios.size() >= 2) {
-            Usuario jogador1 = usuarios.get(0);
-            Usuario jogador2 = usuarios.get(1);
+            A_Usuario jogador1 = usuarios.get(0);
+            A_Usuario jogador2 = usuarios.get(1);
             
             // Verifique se os jogadores têm decks disponíveis
             if (jogador1.getBaralho() != null && jogador2.getBaralho() != null) {
@@ -41,12 +41,12 @@ public class Lobby {
                 usuarios.remove(jogador2);
                 
                 // Crie uma nova arena com os jogadores
-                Arena arena = new Arena(jogador1, jogador2);
+                G_Arena arena = new G_Arena(jogador1, jogador2);
                 arenas.add(arena);
                 
                 // Acesse os decks dos jogadores
-                Deck deckJogador1 = arena.getDeckJogador1();
-                Deck deckJogador2 = arena.getDeckJogador2();
+                D_Deck deckJogador1 = arena.getDeckJogador1();
+                D_Deck deckJogador2 = arena.getDeckJogador2();
                 
                 // Agora você pode usar os decks dos jogadores como desejar
                 // ...

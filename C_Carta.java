@@ -1,4 +1,4 @@
-public class Carta {
+public class C_Carta {
     private String nome;
     private String imagem;
     private String tipo;
@@ -9,7 +9,7 @@ public class Carta {
     private String habilidade;
     //Futuramente um atributo TERRENO
         
-    public Carta (String nome, String imagem, String tipo, String raridade, String habilidade, int ataque, int defesa, int custo){
+    public C_Carta (String nome, String imagem, String tipo, String raridade, String habilidade, int ataque, int defesa, int custo){
         this.nome = nome;
         this.imagem = imagem;
         //Qual tipo será imagem?

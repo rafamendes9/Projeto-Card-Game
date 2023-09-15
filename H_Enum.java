@@ -1,4 +1,4 @@
-public class Enum {
+public class H_Enum {
     public enum CardType {
         CREATURE("Creature"),
         SPELL("Spell"),
