@@ -11,6 +11,10 @@ public class A_Usuario {
 
    // atributos adicionais
    private int idade;
+   private String modalidade; // Atributo para armazenar a modalidade de LOBBY
+
+
+
 
    public A_Usuario(String nome, String cpf, String senha, String sexo, String email, int nivel, int cardCoins, D_Deck[] baralho, B_Inventario inventario) {
       this.nome = nome;
@@ -100,10 +104,7 @@ public class A_Usuario {
   }
 
 
-
-
-
-
+ 
 
    //get set
    public String getNome(){
@@ -148,16 +149,42 @@ public class A_Usuario {
    public void setCardCoins(int cardCoins) {
     this.cardCoins = cardCoins;
    }
-   public D_Deck[] getBaralho(){
+   public void setBaralho(int indice, D_Deck novoBaralho) {
+    if (indice >= 0 && indice < 5) {
+        baralho[indice] = novoBaralho;
+    }
+}     
+
+    //indice baralho
+    public D_Deck getBaralho(int indice) {
+    if (indice >= 0 && indice < 5) {
+        return baralho[indice];
+    } else {
+        return null; // Retorna nulo se o índice estiver fora do intervalo
+    }
+    }
+
+    // Adiciona metodo para obter todos os baralhos do jogador
+    public D_Deck[] getTodosBaralhos() {
     return baralho;
-   }
+    }
+
    public B_Inventario getInventario(){
     return inventario;
    }
    public void setInventario(B_Inventario inventario){
     this.inventario = inventario;
    }
+   public String getModalidade() {
+    return modalidade;
+    }
+
+    public void setModalidade(String modalidade) {
+    this.modalidade = modalidade;
+    }
+
 }
+
 
 /* metodo 1 toString
 
