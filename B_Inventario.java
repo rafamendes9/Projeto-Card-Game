@@ -2,12 +2,16 @@ public class B_Inventario {
     private C_Carta[] cartas = new C_Carta[200]; // Alterado o tipo String para C_Carta , usado para o metodo adicionarCarta
     private int nivelAtual = 1;
     private int cardCoins = 0;
- 
+
+
+    
     public B_Inventario(C_Carta[] cartas, int nivelAtual, int cardCoins) {
         this.cartas = cartas;
         this.nivelAtual = nivelAtual ;
         this.cardCoins = cardCoins ;
     }
+
+ 
 
     // Método para adicionar uma carta ao inventário
      /*Este método verifica se a nova carta não é nula, se o inventário não está cheio e, em seguida,
@@ -49,7 +53,8 @@ public class B_Inventario {
     }
     
     //GET SET
-    public C_Carta[] getCartas() {
+
+       public C_Carta[] getCartas() {
         return cartas;
     }
     public void setCartas(C_Carta[] cartas) {

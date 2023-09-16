@@ -69,6 +69,7 @@ public class C_Carta {
     public C2_EnumRaridadeCarta getRaridade() {
         return raridade;
     }
+
     public void setRaridade(C2_EnumRaridadeCarta raridade) {
         this.raridade = raridade;
     }
@@ -104,6 +105,7 @@ public class C_Carta {
     public void setHabilidade(String habilidade) {
         this.habilidade = habilidade;
     }
+
     public int getQuantidade() {
         return quantidade;
     }

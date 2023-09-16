@@ -1,4 +1,3 @@
-import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,7 +115,4 @@ public class F_Lobby {
         }
     }
 
-    public List<A_Usuario> getUsuarios() {
-        return usuarios;
-    }
 }
