@@ -181,6 +181,7 @@ public class A_Usuario {
         this.cardCoins = cardCoins;
     }
 
+    // indice baralho
     public void setBaralho(int indice, D_Deck novoBaralho) {
         if (indice >= 0 && indice < 5) {
             baralho[indice] = novoBaralho;

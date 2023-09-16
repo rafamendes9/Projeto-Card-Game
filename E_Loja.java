@@ -47,7 +47,7 @@ public class E_Loja {
     }
 
     // metodo cria uma carta aleatória simulada com base em alguns critérios, como
-    // nome aleatório, valores de ataque, defesa e raridade aleatórios | nao coloquei o imagem random aqui
+    // nome aleatório, valores de ataque, defesa e raridade aleatórios | nao coloquei o imagem random aqui ( fase 2)
 
     public C_Carta gerarCartaAleatoria() {
         Random random = new Random();
@@ -60,6 +60,7 @@ public class E_Loja {
         C2_EnumRaridadeCarta raridadeAleatoria = gerarRaridadeAleatoria();
 
         // Criação da carta com os valores aleatórios
+        // imagem | tipo | habilidade | custo ( FASE 2) desenvolvimento ENUM !!!!!!!
         C_Carta cartaAleatoria = new C_Carta(nomeAleatorio, null, null, raridadeAleatoria, null, ataqueAleatorio,
                 defesaAleatoria, 0);
 
