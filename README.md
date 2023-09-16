@@ -1,5 +1,5 @@
 # Projeto-Card-Game
-- Projeto desenvolvido para ser usado como metodo avaliativo na Universidade Catolica de Pernambuco
+- Projeto desenvolvido para ser usado como metodo avaliativo na Universidade Catolica de Pernambuco.
 
 ### Contribuintes do Projeto
 

@@ -8,7 +8,7 @@ public class F_Lobby {
     /*
      * Neste construtor, duas listas vazias são inicializadas: usuarios e arenas.
      * Essas listas são usadas para rastrear os usuários no lobby e as arenas em que
-     * as partidas ocorrem.
+     * as partidas ocorrem
      */
     public F_Lobby() {
         usuarios = new ArrayList<>();

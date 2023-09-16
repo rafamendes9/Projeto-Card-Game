@@ -93,7 +93,7 @@ public class G_Arena {
             return;
         }
 
-        // Calcula dano com base nas características da carta de ataque
+        // Calcula dano com base nas características da carta de ataque.
         int dano = calcularDano(cartaAtaque);
 
         // Atualiza pontos de vida do jogador alvo

@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-//import colocados previamentes para futuro uso no desenvolvimento da segunda entrega
+//import colocados previamentes para futuro uso no desenvolvimento da segunda entrega.
 
 public class D_Deck {
     private String nome;

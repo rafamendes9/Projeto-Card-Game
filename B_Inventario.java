@@ -38,7 +38,7 @@ public class B_Inventario {
     //metodo verifica se o inventário já possui 3 unidades da mesma carta com base no nome da carta.
     //percorre o array de cartas no inventário e conta quantas vezes a carta com o mesmo nome é encontrada
     //Se o contador for maior ou igual a 3, significa que o inventário possui o máximo permitido daquela carta, e o método retorna (true)
-    //metodo usado em E_Loja
+    //metodo usado em E_Loja.
     public boolean possuiMaximoCarta(C_Carta carta) {
         int contador = 0;
         for (C_Carta cartaNoInventario : cartas) {

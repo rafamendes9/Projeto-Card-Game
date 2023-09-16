@@ -70,7 +70,7 @@ public class E_Loja {
         Random random = new Random();
         int valorRaridade = random.nextInt(5); // 0 a 4, representando raridade comum, incomum, rara, muito rara, épica
 
-        // Mapea o valor gerado em C2_EnumRaridadeCarta.
+        // Mapea o valor gerado em C2_EnumRaridadeCarta
         switch (valorRaridade) {
             case 0:
                 return C2_EnumRaridadeCarta.NORMAL;

@@ -218,7 +218,4 @@ public class I_Interface extends JFrame {
 
 
 
-
-
-
 */

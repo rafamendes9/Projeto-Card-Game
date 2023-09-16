@@ -9,7 +9,7 @@ public class C_Carta {
     private String habilidade;
     private int quantidade;
 
-    // Atributo adicional
+    // Atributo adicional.
     // uso na fase 2
     private String TERRENO;
 

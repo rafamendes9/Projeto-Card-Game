@@ -270,5 +270,5 @@ public class A_Usuario {
  * (pode definir sua lógica específica para atualizar o nível) com base na
  * pontuação atual.
  * No exemplo dado, quando a pontuação atinge 1000 pontos, o nível é aumentado
- * em 1.
+ * em 1
  */
