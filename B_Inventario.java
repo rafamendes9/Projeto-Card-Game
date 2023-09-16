@@ -23,12 +23,12 @@ public class B_Inventario {
             // Encontre uma posição vazia no inventário
             for (int i = 0; i < cartas.length; i++) {
                 if (cartas[i] == null) {
-                    // Adicione a nova carta à posição disponível
+                    // Adicione nova carta à posição disponível
                     cartas[i] = novaCarta;
                     return true;
                 }
             }
-            // O inventário está cheio, não é possível adicionar mais cartas
+            // O inventário cheio, não é possível adicionar mais cartas
             return false;
         }
         return false;
