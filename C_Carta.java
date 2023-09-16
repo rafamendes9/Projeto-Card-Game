@@ -33,7 +33,6 @@ public class C_Carta {
         return quantidade > 0;
     }
 
-
     //Metodo 2 aumentarQuantidade
     public void aumentarQuantidade() {
         if (quantidade < 3) {
@@ -41,48 +40,31 @@ public class C_Carta {
         }
     }
            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     //get set
-    
     public String getNome() {
         return nome;
     }
     public void setNome(String nome){
         this.nome = nome;
     }
+
     public String getImagem(){
         return imagem;
     }
     public void setImagem(String imagem){
         this.imagem = imagem;
     }
+
     public String getTipo() {
         return tipo;
     } 
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
     public C2_EnumRaridadeCarta getRaridade() {
         return raridade;
     }
-
     public void setRaridade(C2_EnumRaridadeCarta raridade) {
         this.raridade = raridade;
     }
@@ -93,24 +75,28 @@ public class C_Carta {
     public void setAtaque(int ataque) {
         this.ataque = ataque;
     }
+
     public int getDefesa() {
         return defesa;
     }
     public void setDefesa(int defesa){
-         this.defesa = defesa;
+        this.defesa = defesa;
     }
+
     public int getCusto (){
         return custo;
     }
     public void setCusto(int custo){
         this.custo = custo;
     }
+
     public String getHabilidade (){
         return habilidade;
     }
     public void setHabilidade ( String habilidade){
         this.habilidade = habilidade;
     }
+    
     public int getQuantidade() {
         return quantidade;
     }

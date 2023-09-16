@@ -22,7 +22,6 @@ public class G_Arena {
     public A_Usuario getJogador1(){
         return jogador1;
     }
-
     public void setJogador1(A_Usuario jogador1){
         this.jogador1 = jogador1;
     }
@@ -30,7 +29,6 @@ public class G_Arena {
     public A_Usuario getJogador2(){
         return jogador2;
     }
-
     public void setJogador2(A_Usuario jogador2){
         this.jogador2 = jogador2;
     }
@@ -38,7 +36,6 @@ public class G_Arena {
     public D_Deck getDeckJogador1(){
         return deckJogador1;
     }
-
     public void setDeckJogador1(D_Deck deckJogador1){
         this.deckJogador1 = deckJogador1;
     }
@@ -46,7 +43,6 @@ public class G_Arena {
     public D_Deck getDeckJogador2(){
         return deckJogador2;
     }
-
     public void setDeckJogador2(D_Deck deckJogador2){
         this.deckJogador2 = deckJogador2;
     }
@@ -54,7 +50,6 @@ public class G_Arena {
     public C_Carta[][] campoJogador1(){
         return campoJogador1;
     }
-
     public void setCampoJogador1(C_Carta[][] campoJogador1){
         this.campoJogador1 = campoJogador1;
     }
@@ -62,7 +57,6 @@ public class G_Arena {
     public C_Carta[][] campoJogador2(){
         return campoJogador2;
     }
-
     public void setCampoJogador2(C_Carta[][] campoJogador2){
         this.campoJogador2 = campoJogador2;
     }

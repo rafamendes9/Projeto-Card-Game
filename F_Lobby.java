@@ -1,3 +1,4 @@
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +8,7 @@ public class F_Lobby {
 
 
     /*Neste construtor, duas listas vazias são inicializadas: usuarios e arenas. 
-    Essas listas são usadas para rastrear os usuários no lobby e as arenas em que as partidas ocorrem.
-    */
+    Essas listas são usadas para rastrear os usuários no lobby e as arenas em que as partidas ocorrem.*/
     public F_Lobby() {
         usuarios = new ArrayList<>();
         arenas = new ArrayList<>();
@@ -38,7 +38,6 @@ public class F_Lobby {
     private void emparelharUsuarios(A_Usuario usuario) {
         for (A_Usuario oponente : usuarios) {
             if (oponente != usuario && oponente.getNivel() == usuario.getNivel() && oponente.getModalidade().equals(usuario.getModalidade())) {
-    
                 // Encontrou um oponente com deck e modalidade correspondentes
                 criarPartida(usuario, oponente);
                 return; // Pare de procurar por oponentes após emparelhar
@@ -98,6 +97,9 @@ public class F_Lobby {
         } else {
             System.out.println("Parâmetros inválidos.");
         }
-}
+    }
 
+    public List<A_Usuario> getUsuarios() {
+        return usuarios;
+    }
 }

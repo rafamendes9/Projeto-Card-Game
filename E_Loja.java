@@ -9,20 +9,7 @@ public class E_Loja {
         this.codigoVerificador = codigoVerificador;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     // metodo compra booster
-   
     public void compraDeBooster(A_Usuario usuario) {
         // Verificar se o usuário possui cardcoins suficientes para comprar um booster
         int precoBooster = 100; // Defina o preço do booster em cardcoins
@@ -60,7 +47,6 @@ public class E_Loja {
 
 
     //metodo cria uma carta aleatória simulada com base em alguns critérios, como nome aleatório, valores de ataque, defesa e raridade aleatórios
-
     public C_Carta gerarCartaAleatoria() {
         Random random = new Random();
         String[] nomesCartas = {"Carta 1", "Carta 2", "Carta 3", "Carta 4", "Carta 5"};
@@ -100,25 +86,10 @@ public class E_Loja {
         }
     }
 
-
-
-
-
-
-
-
-  
-
-
-
-
-    
-
     //get set
      public String getNumeroCartao() {
         return numeroCartao;
     }
-
     public void setNumeroCartao(String numeroCartao) {
         this.numeroCartao = numeroCartao;
     }
@@ -126,10 +97,7 @@ public class E_Loja {
     public String getCodigoVerificador() {
         return codigoVerificador;
     }
-
     public void setCodigoVerificador(String codigoVerificador) {
         this.codigoVerificador = codigoVerificador;
     }
-
-
 }

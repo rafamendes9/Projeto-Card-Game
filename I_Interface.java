@@ -84,26 +84,26 @@ public class I_Interface extends JFrame {
 
         setVisible(true);
     }
-/* OK.... vamos com calma aqui kkkk
-Este método é chamado quando o botão "Adicionar Usuário" é clicado na interface gráfica. Ele faz o seguinte: 
+    /* OK.... vamos com calma aqui kkkk
+    Este método é chamado quando o botão "Adicionar Usuário" é clicado na interface gráfica. Ele faz o seguinte: 
 
-    Obtém os valores dos campos de entrada:
+        Obtém os valores dos campos de entrada:
         nomeUsuario.getText(): Obtém o texto inserido no campo de entrada de nome do usuário.
         (String) decks.getSelectedItem(): Obtém a opção selecionada no JComboBox "decks" (provavelmente uma lista de opções de decks).
         (String) modalidades.getSelectedItem(): Obtém a opção selecionada no JComboBox "modalidades" (provavelmente uma lista de opções de modalidades).
 
-    Define o nível do usuário:
+        Define o nível do usuário:
         Neste código, o nível do usuário é definido como 1. Você pode personalizar essa parte do código para definir o nível conforme necessário.
 
-    Cria um novo usuário:
+        Cria um novo usuário:
         Um novo objeto Usuario é criado com os valores obtidos dos campos de entrada. Os parâmetros passados para o construtor são o nome do usuário, o deck selecionado, a modalidade selecionada e o nível definido.
 
-    Adiciona o usuário ao lobby:
+        Adiciona o usuário ao lobby:
         O novo usuário criado é adicionado ao lobby chamando o método adicionarUsuario() do objeto lobby (provavelmente uma instância da classe Lobby).
 
-    Limpa os campos de entrada:
+        Limpa os campos de entrada:
         Após adicionar o usuário com sucesso, o campo de entrada de nome do usuário é limpo, definindo seu texto como uma string vazia ("") usando nomeUsuario.setText("").
- */
+    */
     private void adicionarUsuario() {
         String nome = nomeUsuario.getText();
         String deckSelecionado = (String) decks.getSelectedItem();
@@ -158,8 +158,6 @@ Este método é chamado quando o botão "Adicionar Usuário" é clicado na inter
 
 
     //usei esse main para testar se tudo funciounou corretamente, mas vou deixar comentado so pra n dar dor de cabeça quando as classes definitivas estão sendo desenvolvidas
-   
-   
     /*  public static void main(String[] args) {
         // Crie uma instância do Lobby
         Lobby lobby = new Lobby();
@@ -176,6 +174,3 @@ Este método é chamado quando o botão "Adicionar Usuário" é clicado na inter
 
 //ideia inicial do codigo, vai ser refeita e adaptadas quando as outras classes forem desenvolvidas
 //a interface se adequa a classe LOBBY ate o momento com pequenas citaçoes de outras classe ( que ainda vão ser desenvolvidas)
-
-
-

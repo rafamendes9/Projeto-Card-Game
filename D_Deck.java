@@ -40,7 +40,6 @@ public class D_Deck {
     }
 
     //get set
-
     public String getNome() {
         return nome;
     }
@@ -73,5 +72,4 @@ public class D_Deck {
             disponibilidade = false;
         }
     }
-
 }

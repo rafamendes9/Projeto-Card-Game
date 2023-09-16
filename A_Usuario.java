@@ -10,13 +10,13 @@ public class A_Usuario {
    private B_Inventario inventario;
 
    // atributos adicionais
-   private int idade;
-   private String modalidade; // Atributo para armazenar a modalidade de LOBBY
+    private int idade;
+    private String modalidade; // Atributo para armazenar a modalidade de LOBBY
 
 
 
 
-   public A_Usuario(String nome, String cpf, String senha, String sexo, String email, int nivel, int cardCoins, D_Deck[] baralho, B_Inventario inventario) {
+    public A_Usuario(String nome, String cpf, String senha, String sexo, String email, int nivel, int cardCoins, D_Deck[] baralho, B_Inventario inventario) {
       this.nome = nome;
       this.cpf = cpf;
       this.senha = senha;
@@ -26,16 +26,16 @@ public class A_Usuario {
       this.cardCoins = cardCoins;
       this.baralho = baralho;
       this.inventario = inventario;
-   }
+    }
 
    //1 metodo  toString que retorna uma representação de string formatada do objeto útil para depuração e para exibir informações do usuário.
-   @Override
-   public String toString() {
+    @Override
+    public String toString() {
       return "Nome: " + nome + "\nCPF: " + cpf + "\nNível: " + nivel + "\nCardCoins: " + cardCoins;
-   }
+    }
    
-   //2 metodo para adicionar decks
-   public boolean adicionarDeck(D_Deck deck) {
+    //2 metodo para adicionar decks
+    public boolean adicionarDeck(D_Deck deck) {
       // Verifica se o usuário já possui o número máximo de decks permitidos (5)
       if (baralho.length >= 5) {
           System.out.println("Você já atingiu o número máximo de decks permitidos.");
@@ -60,10 +60,10 @@ public class A_Usuario {
       }
   
       return false; // Não foi possível adicionar o deck (nenhum espaço vazio encontrado)
-   }
+    }
   
    //3 metodo validacao 
-   public boolean validacoes() {
+    public boolean validacoes() {
       // Validação de CPF
       if (!validarCPF(cpf)) {
           System.out.println("CPF inválido.");
@@ -87,21 +87,21 @@ public class A_Usuario {
   
       // Se todas as validações passaram, retorna true
       return true;
-  }
+    }
   
   // Método para validar CPF (exemplo simples, pode ser substituído por uma lógica mais robusta)
-  private boolean validarCPF(String cpf) {
+    private boolean validarCPF(String cpf) {
       // Lógica de validação de CPF aqui (pode ser mais elaborada)
       return cpf != null && cpf.matches("\\d{11}");
-  }
+    }
   
   //4 metodo atualizar nivel | metodo exploratorio para proximas entregas
-   public void atualizarNivel(int pontuacao) {
+    public void atualizarNivel(int pontuacao) {
       // Defina sua lógica para atualizar o nível aqui | Por exemplo, se a pontuação atingir um certo limite, aumente o nível
       if (pontuacao >= 1000) { // Exemplo: Quando a pontuação atinge 1000 pontos, aumente o nível
           nivel++; // Aumente o nível em 1
       }
-  }
+    }
 
 
  
@@ -150,23 +150,23 @@ public class A_Usuario {
     this.cardCoins = cardCoins;
    }
    public void setBaralho(int indice, D_Deck novoBaralho) {
-    if (indice >= 0 && indice < 5) {
-        baralho[indice] = novoBaralho;
-    }
-}     
+        if (indice >= 0 && indice < 5) {
+            baralho[indice] = novoBaralho;
+        }
+    }     
 
     //indice baralho
     public D_Deck getBaralho(int indice) {
-    if (indice >= 0 && indice < 5) {
-        return baralho[indice];
-    } else {
-        return null; // Retorna nulo se o índice estiver fora do intervalo
-    }
+        if (indice >= 0 && indice < 5) {
+            return baralho[indice];
+        } else {
+            return null; // Retorna nulo se o índice estiver fora do intervalo
+        }
     }
 
     // Adiciona metodo para obter todos os baralhos do jogador
     public D_Deck[] getTodosBaralhos() {
-    return baralho;
+        return baralho;
     }
 
    public B_Inventario getInventario(){
