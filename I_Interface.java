@@ -209,6 +209,7 @@ public class I_Interface extends JFrame {
      * }
      
 }
+w
 
 // ideia inicial do codigo, vai ser refeita e adaptadas quando as outras classes
 // forem desenvolvidas
