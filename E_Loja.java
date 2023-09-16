@@ -10,7 +10,6 @@ public class E_Loja {
     }
 
     // metodo compra booster
-
     public void compraDeBooster(A_Usuario usuario) {
         // Verificar se o usuário possui cardcoins suficientes para comprar um booster
         int precoBooster = 100; // Define o preço do booster em cardcoins
@@ -92,7 +91,6 @@ public class E_Loja {
     public String getNumeroCartao() {
         return numeroCartao;
     }
-
     public void setNumeroCartao(String numeroCartao) {
         this.numeroCartao = numeroCartao;
     }
@@ -100,7 +98,6 @@ public class E_Loja {
     public String getCodigoVerificador() {
         return codigoVerificador;
     }
-
     public void setCodigoVerificador(String codigoVerificador) {
         this.codigoVerificador = codigoVerificador;
     }

@@ -98,5 +98,4 @@ public class D_Deck {
             disponibilidade = false;
         }
     }
-
 }
