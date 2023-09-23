@@ -18,9 +18,18 @@ public class D_Deck {
         this.cartas = cartas;
     }
 
+    //!!!!!!!!!!!!!!!!!!!URGENTE ANALISAR disponibilidadeCarta + addCarta !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   public void disponibilidadeCarta() { //metodo usado em addCarta + valida maximo de cartas no deck
+        if (qtdCartas == 60 ) {
+            disponibilidade = true;
+        } else {
+            disponibilidade = false;
+        }
+    }
+
     public void addCarta(C_Carta carta, B_Inventario inventario) { // recebe carta que vai ser adicionada e o inventario para remover a quantidade na classe
         // verifica se o deck estourou o limite e se a carta estiver sendo repetida 3 vezes
-        // Limite definido como 120 cartas
+        // Limite definido como 60 cartas
         if (qtdCartas < 60 && !maximasRepeticoes(carta)) {
             cartas[qtdCartas] = carta;
             qtdCartas++;
@@ -28,6 +37,7 @@ public class D_Deck {
         disponibilidadeCarta();
     }
 
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!URGENTE editar metodo para remover carta e voltar para class inventario + mover para class inventario como "apagar carta" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public C_Carta removerCarta(String nome) {
         return null;
     }
@@ -91,12 +101,6 @@ public class D_Deck {
         this.cartas = cartas;
     }
 
-    public void disponibilidadeCarta() {
-        if (qtdCartas >= 60 && qtdCartas < 120) {
-            disponibilidade = true;
-        } else {
-            disponibilidade = false;
-        }
-    }
+ 
 
 }

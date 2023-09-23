@@ -2,7 +2,7 @@ public class C_Carta {
     private String nome;
     private String imagem;
     private String tipo;
-    private C2_EnumRaridadeCarta raridade;
+    private J_Enum raridade;
     private int ataque;
     private int defesa;
     private int custo;
@@ -10,10 +10,10 @@ public class C_Carta {
     private int quantidade;
 
     // Atributo adicional.
-    // uso na fase 2
+    // uso na fase 3
     private String TERRENO;
 
-    public C_Carta(String nome, String imagem, String tipo, C2_EnumRaridadeCarta raridade, String habilidade,
+    public C_Carta(String nome, String imagem, String tipo, J_Enum raridade, String habilidade,
             int ataque, int defesa, int custo) {
         this.nome = nome;
         this.imagem = imagem;
@@ -33,12 +33,19 @@ public class C_Carta {
         return quantidade > 0;
     }
 
+     // !!!!!!!!!!!!!!!!!!!!!!! EDITAR PARA ACEITAR CARTA REPITIDA DO TIPO "shiny" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     // Metodo 2 aumentarQuantidade
     public void aumentarQuantidade() {
         if (quantidade < 3) {
             quantidade++;
         }
     }
+
+
+
+
+
 
     // get set
 
@@ -66,11 +73,11 @@ public class C_Carta {
         this.tipo = tipo;
     }
 
-    public C2_EnumRaridadeCarta getRaridade() {
+    public J_Enum getRaridade() {
         return raridade;
     }
 
-    public void setRaridade(C2_EnumRaridadeCarta raridade) {
+    public void setRaridade(J_Enum raridade) {
         this.raridade = raridade;
     }
 

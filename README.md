@@ -17,7 +17,7 @@
 
 - Metodos/Atributos criados mais não inicializado serão corrigidos nas proximas atualizações do desenvolvimento quando for requisitado. 
 
-- Comentarios no codigo com as terminações "fase 2,segunda fase,etc..." não devem ser levadas em consideração até as proximas demandas ou até estarem completamente desenvolvidas futuramente.
+- Comentarios no codigo com as terminações "fase 2,segunda fase,etc.../fase 3,terceira fase,etc..." não devem ser levadas em consideração até as proximas demandas ou até estarem completamente desenvolvidas futuramente.
 
 
 ### Conseiderações finais
@@ -26,3 +26,11 @@
 
 
 
+## tasks
+6 urgentes
+!usuario 
+!inventario
+!deck
+!deck
+!LOJA
+!arena

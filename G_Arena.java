@@ -27,14 +27,14 @@ public class G_Arena {
      // Construtor que aceita apenas jogadores
      //usado para lobby  em "criarPartida"
      public G_Arena(A_Usuario jogador1, A_Usuario jogador2) {
-        this.pontosVidaJogador1 = 20;
-        this.pontosVidaJogador2 = 20;
         this.jogador1 = jogador1;
         this.jogador2 = jogador2;
         this.deckJogador2 = null; // Definido como null 
         this.deckJogador1 = null; // Definido como null 
         this.campoJogador1 = new C_Carta[2][5];
         this.campoJogador2 = new C_Carta[2][5];
+        this.pontosVidaJogador1 = 20;
+        this.pontosVidaJogador2 = 20;
     }
 
     // metodos
@@ -42,26 +42,28 @@ public class G_Arena {
     public void iniciarPartida() {
         System.out.println("A partida está começando!");
 
+        //!!!!!!!!!!!!!!!!!!!URGENTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         // Configura o deck inicial dos jogadores (distribuir cartas) ( desenvolvida na entrega 2) !!!!!!!!!!!! esse metodo apenas existe ate o momento
         jogador1.configurarDeckInicial();
         jogador2.configurarDeckInicial();
 
-        // Embaralhar os decks ( desenvolvida na entrega 2) !!!!!!!!!!!! esse metodo
-        // apenas existe ate o momento
+        //embaralha deck jogadores do metodo em D_Deck
         deckJogador1.embaralhar();
         deckJogador2.embaralhar();
 
         // Realiza o sorteio para determinar quem começa
-        A_Usuario jogadorAtual = sortearPrimeiroJogador();
+        A_Usuario jogadorAtual = sortearTurnosDoPrimeiroJogador();
 
         // Loop principal da partida
         while (!verificarVitoria()) {
             System.out.println(jogadorAtual.getNome() + " está jogando...");
 
             // Permite jogador atual faça um turno (jogar cartas, atacar)
+         // ( desenvolvida na entrega 2) !!!!!!!!!!!! esse metodo apenas existe ate o
+            // momento
             jogadorAtual.fazerTurno();
 
-            // Trocar de jogador
+            // Trocar de jogador (swap do loop para troca de turnos no while)
             jogadorAtual = (jogadorAtual == jogador1) ? jogador2 : jogador1;
         }
 
@@ -132,7 +134,7 @@ public class G_Arena {
     }
 
     // ( desenvolvida na entrega 2) !!!!!!!!!!!!
-    private A_Usuario sortearPrimeiroJogador() {
+    private A_Usuario sortearTurnosDoPrimeiroJogador() {
 
         Random random = new Random();
         int numeroSorteado = random.nextInt(2); // Gera numero aleatório 0 ou 1

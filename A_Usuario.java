@@ -11,7 +11,7 @@ public class A_Usuario {
 
     // atributos adicionais
     private int idade;
-    private String modalidade; // Atributo para armazenar a modalidade de LOBBY
+    private String ModoDeJogo; // Atributo para armazenar a modalidade de LOBBY / MODO DE JOGO / mudar para classe lobby
     private int pontosVida; // Atributo para armazenar vida do jogador usado em ARENA
 
     public A_Usuario(String nome, String cpf, String senha, String sexo, String email, int nivel, int cardCoins,
@@ -42,7 +42,7 @@ public class A_Usuario {
             return false; // Não foi possível adicionar o deck
         }
 
-        // Verifica se o deck já está na lista
+        // Verifica se o deck já está na lista ( evita clone de deck)
         for (D_Deck existingDeck : baralho) {
             if (existingDeck != null && existingDeck.getNome().equals(deck.getNome())) {
                 System.out.println("Este deck já está na sua lista de decks.");
@@ -50,7 +50,7 @@ public class A_Usuario {
             }
         }
 
-        // Encontra um espaço vazio no vetor de decks
+        // Encontra um espaço vazio no vetor de decks ( remodelado para evitar criar um vetor de vazios ao editar decks novos)
         for (int i = 0; i < baralho.length; i++) {
             if (baralho[i] == null) {
                 baralho[i] = deck; // Adiciona o deck ao vetor de decks
@@ -62,6 +62,12 @@ public class A_Usuario {
         return false; // Não foi possível adicionar o deck (nenhum espaço vazio encontrado)
     }
 
+     // Método para validar CPF (modelo simples, vai ser trocado por uma melhor na segunda fase
+        private boolean validarCPF(String cpf) {
+        // Lógica de validação de CPF aqui (vai ser mais elaborada)
+        return cpf != null && cpf.matches("\\d{11}");
+    }
+
     // 3 metodo validacao
     public boolean validacoes() {
         // Validação de CPF
@@ -70,7 +76,7 @@ public class A_Usuario {
             return false;
         }
 
-        // Validação de idade
+        // Validação de idade ( maior de idade para jogar)
         if (idade < 18) {
             System.out.println("Você deve ter pelo menos 18 anos para criar uma conta.");
             return false;
@@ -88,13 +94,7 @@ public class A_Usuario {
         // Se todas as validações passaram, retorna true
         return true;
     }
-
-    // Método para validar CPF (modelo simples, vai ser trocado por uma melhor na segunda fase
-        private boolean validarCPF(String cpf) {
-        // Lógica de validação de CPF aqui (vai ser mais elaborada)
-        return cpf != null && cpf.matches("\\d{11}");
-    }
-
+  
    
     public void diminuirPontosVida(int quantidade) {
         if (quantidade > 0) {
@@ -106,7 +106,7 @@ public class A_Usuario {
         }
     }
 
-     // 4 metodo atualizar nivel | ( desenvolvida na entrega 2)
+     //!!!!!!!!!!!!!!!!!!!!!URGENTE 4 metodo atualizar nivel | ( desenvolvida na entrega 2)!!!!!!!!!!!!!!!!!!!!!!!!!!
     public void atualizarNivel(int pontuacao) {
         // Vai ser desenvolvido a lógica para atualizar o nível aqui 
         if (pontuacao >= 1000) { // Exemplo: Quando a pontuação atinge 1000 pontos, aumente o nível
@@ -124,6 +124,11 @@ public class A_Usuario {
     public void fazerTurno() {
     }
 
+
+  
+
+
+    
     // get set
     public String getNome() {
         return nome;
@@ -210,12 +215,12 @@ public class A_Usuario {
         this.inventario = inventario;
     }
 
-    public String getModalidade() {
-        return modalidade;
+    public String getModoDeJogo() {
+        return ModoDeJogo;
     }
 
-    public void setModalidade(String modalidade) {
-        this.modalidade = modalidade;
+    public void setModoDeJogo(String modalidade) {
+        this.ModoDeJogo = modalidade;
     }
 
     public int getPontosVida() {

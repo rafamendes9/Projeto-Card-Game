@@ -46,10 +46,10 @@ public class F_Lobby {
 
     private void emparelharUsuarios(A_Usuario usuario) {
         for (A_Usuario oponente : usuarios) {
-            if (oponente != usuario && oponente.getNivel() == usuario.getNivel()
-                    && oponente.getModalidade().equals(usuario.getModalidade())) {
+            if (oponente != usuario && oponente.getNivel() == usuario.getNivel()//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ver possibilidade para alterar nivel de igual para + nivel aproximado!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    && oponente.getModoDeJogo().equals(usuario.getModoDeJogo())) {
 
-                // Encontrou um oponente com deck e modalidade correspondentes
+                // Encontrou um oponente com deck e ModoDeJogo correspondentes
                 criarPartida(usuario, oponente);
                 return; // Pare de procurar por oponentes após emparelhar
             }

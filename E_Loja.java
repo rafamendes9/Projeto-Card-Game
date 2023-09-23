@@ -34,13 +34,14 @@ public class E_Loja {
                     usuario.getInventario().adicionarCarta(novaCarta);
                 }
             }
-
+           
             // Deduzir preço do booster dos cardcoins do usuário
             cardcoinsDoUsuario -= precoBooster;
             usuario.setCardCoins(cardcoinsDoUsuario);
 
             System.out.println(
                     "Compra bem-sucedida! Você recebeu " + quantidadeCartasBooster + " cartas no seu inventário.");
+
         } else {
             System.out.println("Você não possui cardcoins suficientes para comprar um booster.");
         }
@@ -49,15 +50,16 @@ public class E_Loja {
     // metodo cria uma carta aleatória simulada com base em alguns critérios, como
     // nome aleatório, valores de ataque, defesa e raridade aleatórios | nao coloquei o imagem random aqui ( fase 2)
 
+    //!!!!!!!!!!!!!!!!!!!URGENTE GERAR IMAGEM OU PEGAR EM ENUM + resto de atributos da carta!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public C_Carta gerarCartaAleatoria() {
         Random random = new Random();
-        String[] nomesCartas = { "Carta 1", "Carta 2", "Carta 3", "Carta 4", "Carta 5" };
+        String[] nomesCartas = { "Carta 1", "Carta 2", "Carta 3", "Carta 4", "Carta 5", "Carta 6" };//nome da carta random
         String nomeAleatorio = nomesCartas[random.nextInt(nomesCartas.length)];
         int ataqueAleatorio = random.nextInt(10) + 1;
         int defesaAleatoria = random.nextInt(10) + 1;
 
-        // Define os valores de raridade conforme o C2_EnumRaridadeCarta
-        C2_EnumRaridadeCarta raridadeAleatoria = gerarRaridadeAleatoria();
+        // Define os valores de raridade conforme o J_Enum
+        J_Enum raridadeAleatoria = gerarRaridadeAleatoria();
 
         // Criação da carta com os valores aleatórios
         // imagem | tipo | habilidade | custo ( FASE 2) desenvolvimento ENUM !!!!!!!
@@ -67,24 +69,24 @@ public class E_Loja {
         return cartaAleatoria;
     }
 
-    private C2_EnumRaridadeCarta gerarRaridadeAleatoria() {
+    private J_Enum gerarRaridadeAleatoria() {
         Random random = new Random();
-        int valorRaridade = random.nextInt(5); // 0 a 4, representando raridade comum, incomum, rara, muito rara, épica
+        int valorRaridade = random.nextInt(5); // 0 a 4, representando raridade NORMAL, RARA, EPICA, LENDARIA, MITICA( nomes mudados e explicado no J_Enum)
 
-        // Mapea o valor gerado em C2_EnumRaridadeCarta
+        // Mapea o valor gerado em J_Enum
         switch (valorRaridade) {
             case 0:
-                return C2_EnumRaridadeCarta.NORMAL;
+                return J_Enum.NORMAL;
             case 1:
-                return C2_EnumRaridadeCarta.RARA;
+                return J_Enum.RARA;
             case 2:
-                return C2_EnumRaridadeCarta.EPICA;
+                return J_Enum.EPICA;
             case 3:
-                return C2_EnumRaridadeCarta.LENDARIA;
+                return J_Enum.LENDARIA;
             case 4:
-                return C2_EnumRaridadeCarta.MITICA;
+                return J_Enum.MITICA;
             default:
-                // Lida com casos inesperados, se necessário
+                // Lida com casos inesperados, se necessário( caso o random bug)
                 throw new IllegalArgumentException("Valor de raridade inválido: " + valorRaridade);
         }
     }

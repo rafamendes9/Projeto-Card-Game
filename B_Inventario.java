@@ -1,5 +1,5 @@
 public class B_Inventario {
-    private C_Carta[] cartas = new C_Carta[200]; // Alterado o tipo String para C_Carta , usado para o metodo adicionarCarta
+    private C_Carta[] cartas = new C_Carta[360]; // Alterado o tipo String para C_Carta , usado para o metodo adicionarCarta / alterado de 200 para 360 ( o jogador mais ter mais cartas + cartas reservas para cada deck)
     private int nivelAtual = 1;
     private int cardCoins = 0;
 
@@ -34,7 +34,9 @@ public class B_Inventario {
         return false;
     }
 
+    // !!!!!!!!!!!!!!!!!!!!!!! EDITAR PARA ACEITAR CARTA REPITIDA DO TIPO "shiny" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+    
     //metodo verifica se o inventário já possui 3 unidades da mesma carta com base no nome da carta.
     //percorre o array de cartas no inventário e conta quantas vezes a carta com o mesmo nome é encontrada
     //Se o contador for maior ou igual a 3, significa que o inventário possui o máximo permitido daquela carta, e o método retorna (true)
