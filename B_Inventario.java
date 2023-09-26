@@ -77,3 +77,8 @@ public class B_Inventario {
         this.cardCoins = cardcoins;
     }
 }
+
+
+
+
+//espaço para novos metodo de desenvolvimento 2 entrega !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -1,5 +1,6 @@
 import java.util.Random;
 
+
 public class E_Loja {
     private String numeroCartao;
     private String codigoVerificador;
@@ -180,7 +181,7 @@ public class E_Loja {
   }
 
 
-  
+
    // booster especial para a carta "SHINY"
 
     public void boosterEspecial(A_Usuario usuario) {
@@ -203,12 +204,11 @@ public class E_Loja {
 
 
 
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!criar shiny !!!!!!!!!!!!!!!!!!!!!!!!!
-
-            // Verificar se a carta é única com 1% de probabilidade
-            if (Random.nextDouble() <= 0.01) {
+             // Verificar se a carta é única com 1% de probabilidade
+            Random random;
+            if (random.nextDouble() <= 0.01) {
                 // Adicione uma carta única ao inventário do usuário
-                usuario.getInventario().adicionarCartaShiny(novaCarta); // criar shiny !!!!!!!!!!!!!!!!!!!!!!!!!
+                usuario.getInventario().adicionarCartaShiny(novaCarta); 
 
 
 
