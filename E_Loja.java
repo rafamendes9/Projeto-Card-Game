@@ -205,10 +205,10 @@ public class E_Loja {
 
 
              // Verificar se a carta é única com 1% de probabilidade
-            Random random;
+            Random random = new Random();
             if (random.nextDouble() <= 0.01) {
                 // Adicione uma carta única ao inventário do usuário
-                usuario.getInventario().adicionarCartaShiny(novaCarta); 
+                usuario.getInventario().adicionarCartaShiny(novaCarta);  //verificar dps se está certo ou se vai entar em confito
 
 
 
