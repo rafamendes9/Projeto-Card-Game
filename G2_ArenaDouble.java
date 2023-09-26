@@ -21,6 +21,63 @@ public class G2_ArenaDouble extends G_Arena{
         this.pontosVidaJogador3 = 20;
         this.pontosVidaJogador4 = 20;
     }
+
+    public A_Usuario getJogador3() {
+        return jogador3;
+    }
+    public void setJogador3(A_Usuario jogador3) {
+        this.jogador3 = jogador3;
+    }
+
+      public A_Usuario getJogador4() {
+        return jogador4;
+    }
+
+    public void setJogador4(A_Usuario jogador4) {
+        this.jogador4 = jogador4;
+    }
+
+    public D_Deck getDeckJogador3() {
+        return deckJogador3;
+    }
+    public void setDeckJogador3(D_Deck deckJogador3) {
+        this.deckJogador3 = deckJogador3;
+    }
+
+    public D_Deck getDeckJogador4() {
+        return deckJogador4;
+    }
+    public void setDeckJogador4(D_Deck deckJogador4) {
+        this.deckJogador4 = deckJogador4;
+    }
+
+    public C_Carta[][] getCampoJogador3() {
+        return campoJogador3;
+    }
+    public void setCampoJogador3(C_Carta[][] campoJogador3) {
+        this.campoJogador3 = campoJogador3;
+    }
+
+    public C_Carta[][] getCampoJogador4() {
+        return campoJogador4;
+    }
+    public void setCampoJogador4(C_Carta[][] campoJogador4) {
+        this.campoJogador4 = campoJogador4;
+    }
+
+    public int getPontosVidaJogador3() {
+        return pontosVidaJogador3;
+    }
+    public void setPontosVidaJogador3(int pontosVidaJogador3) {
+        this.pontosVidaJogador3 = pontosVidaJogador3;
+    }
+
+    public int getPontosVidaJogador4() {
+        return pontosVidaJogador4;
+    }
+    public void setPontosVidaJogador4(int pontosVidaJogador4) {
+        this.pontosVidaJogador4 = pontosVidaJogador4;
+    }
     //PEQUENA IDEIA DE COMO FUNCIONARIA O MODO DE JOGO 2PV2P
     /*
     @Override
