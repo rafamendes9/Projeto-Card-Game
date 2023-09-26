@@ -208,7 +208,7 @@ public class E_Loja {
             Random random = new Random();
             if (random.nextDouble() <= 0.01) {
                 // Adicione uma carta única ao inventário do usuário
-                usuario.getInventario().adicionarCartaShiny(novaCarta);  //verificar dps se está certo ou se vai entar em confito
+                usuario.getInventario().adicionarCarta(novaCarta);  //verificar dps se está certo ou se vai entar em confito
 
 
 
