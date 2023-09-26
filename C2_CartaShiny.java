@@ -14,4 +14,6 @@ public class C2_CartaShiny extends C_Carta {
         int index = random.nextInt(habilidades.length);
         this.setHabilidade(this.getHabilidade() + ", " + habilidades[index].toString());
     }
+    
+
 }

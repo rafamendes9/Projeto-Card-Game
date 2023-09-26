@@ -8,7 +8,7 @@ public class E2_Loja extends E_Loja {
     public void boosterEspecial(A_Usuario usuario) {
     // Preço do booster especial (50% mais caro que o comum)
     
-    int precoBoosterEspecial = (int) (precoBoosterComum * 1.5); //dessa forma altera o valor do booster sem mexer diretamente no metodo
+    int precoBoosterEspecial = (int) (getPrecoBoosterComum() * 1.5); //dessa forma altera o valor do booster sem mexer diretamente no metodo
 
     // Verificar se o usuário possui cardcoins suficientes para comprar o booster especial
     int cardcoinsDoUsuario = usuario.getCardCoins();
@@ -24,14 +24,25 @@ public class E2_Loja extends E_Loja {
              // Verificar se a carta é única com 1% de probabilidade
             Random random = new Random();
             if (random.nextDouble() <= 0.01) {
+            // Crie uma carta aleatória normal
+            C_Carta novaCartaNormal  = gerarCartaAleatoria(); 
 
 
+            C2_CartaShiny novaCartaShiny = new C2_CartaShiny(
+                          novaCartaNormal.getNome(),
+                          novaCartaNormal.getImagem(),
+                          novaCartaNormal.getTipo(),
+                          novaCartaNormal.getRaridade(),
+                          novaCartaNormal.getHabilidade(),
+                          novaCartaNormal.getAtaque(),
+                          novaCartaNormal.getDefesa(),
+                          novaCartaNormal.getCusto()
+    );
+            
+            
+            usuario.getInventario().adicionarCartaShiny(novaCartaShiny);
 
-                // Adicione uma carta única ao inventário do usuário
-                usuario.getInventario().adicionarCartaShiny(novaCarta);  //verificar dps se está certo ou se vai entar em confito
-
-
-
+            
             } else {
                 // Adicionar a carta ao inventário do usuário
                 usuario.getInventario().adicionarCarta(novaCarta);

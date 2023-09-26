@@ -97,5 +97,6 @@ public void adicionarCartaShiny(C2_CartaShiny novaCartaShiny) {
         }
     }
 }
-}
 
+
+}
