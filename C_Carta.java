@@ -9,9 +9,10 @@ public class C_Carta {
     private String habilidade;
     private int quantidade;
 
-    // Atributo adicional.
-    // uso na fase 3
-    private String TERRENO;
+    /*  
+        Atributo adicional. Uso na fase 3.
+        private String TERRENO;
+    */
 
     public C_Carta(String nome, String imagem, String tipo, J_Enum raridade, String habilidade,
             int ataque, int defesa, int custo) {
@@ -41,11 +42,6 @@ public class C_Carta {
             quantidade++;
         }
     }
-
-
-
-
-
 
     // get set
 
