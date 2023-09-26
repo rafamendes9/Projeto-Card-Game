@@ -57,8 +57,8 @@ public class E_Loja {
 
     //!!!!!!!!!!!!!!!!!!!URGENTE GERAR IMAGEM OU PEGAR EM ENUM + resto de atributos da carta!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     
-    
-    /*public C_Carta gerarCartaAleatoria() {
+   /* 
+   public C_Carta gerarCartaAleatoria() {
         Random random = new Random();
         String[] nomesCartas = { "Carta 1", "Carta 2", "Carta 3", "Carta 4", "Carta 5", "Carta 6" };//nome da carta random
         String nomeAleatorio = nomesCartas[random.nextInt(nomesCartas.length)];
@@ -75,7 +75,7 @@ public class E_Loja {
 
         return cartaAleatoria;
     }
- 
+  
     private J_Enum gerarRaridadeAleatoria() {
         Random random = new Random();
         int valorRaridade = random.nextInt(5); // 0 a 4, representando raridade NORMAL, RARA, EPICA, LENDARIA, MITICA( nomes mudados e explicado no J_Enum)
@@ -183,60 +183,6 @@ public class E_Loja {
 
 
    // booster especial para a carta "SHINY"
-
-    public void boosterEspecial(A_Usuario usuario) {
-    // Preço do booster especial (50% mais caro que o comum)
-    
-    int precoBoosterEspecial = (int) (precoBoosterComum * 1.5); //dessa forma altera o valor do booster sem mexer diretamente no metodo
-
-    // Verificar se o usuário possui cardcoins suficientes para comprar o booster especial
-    int cardcoinsDoUsuario = usuario.getCardCoins();
-    if (cardcoinsDoUsuario >= precoBoosterEspecial) {
-
-        int quantidadeCartasBooster = 12; // Um booster contém 12 cartas aleatórias
-
-        for (int i = 0; i < quantidadeCartasBooster; i++) {
-            // Simula obtenção de cartas aleatórias com base nas probabilidades de raridade
-            C_Carta novaCarta = gerarCartaAleatoria();
-
-
-
-
-
-
-             // Verificar se a carta é única com 1% de probabilidade
-            Random random = new Random();
-            if (random.nextDouble() <= 0.01) {
-                // Adicione uma carta única ao inventário do usuário
-                usuario.getInventario().adicionarCarta(novaCarta);  //verificar dps se está certo ou se vai entar em confito
-
-
-
-
-
-
-
-
-            } else {
-                // Adicionar a carta ao inventário do usuário
-                usuario.getInventario().adicionarCarta(novaCarta);
-            }
-        }
-
-        // Deduzir preço do booster especial dos cardcoins do usuário
-        cardcoinsDoUsuario -= precoBoosterEspecial;
-        usuario.setCardCoins(cardcoinsDoUsuario);
-
-        System.out.println(
-                "Compra bem-sucedida! Você recebeu " + quantidadeCartasBooster + " cartas no seu inventário.");
-    } else {
-        System.out.println("Você não possui cardcoins suficientes para comprar o booster especial.");
-    }
-}
-
-
-
-
 
 
 }

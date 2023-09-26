@@ -83,24 +83,19 @@ public class B_Inventario {
 
 //espaço para novos metodo de desenvolvimento 2 entrega !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-public boolean adicionarCarta(C_Carta novaCarta) {
-    if (novaCarta != null) {
-        if (novaCarta instanceof C2_CartaShiny) {
-            // Tratar a carta "shiny" de acordo com a lógica específica, q vai ser necessário
-            // Exemplo: adicionar regra de cartas "shiny" passar do limite de 3 mas n passa de limite de inventario
-        }
+
+
+public void adicionarCartaShiny(C2_CartaShiny novaCartaShiny) {
+    if (novaCartaShiny != null) {
         // Encontre uma posição vazia no inventário
         for (int i = 0; i < cartas.length; i++) {
             if (cartas[i] == null) {
-                // Adicione nova carta à posição disponível
-                cartas[i] = novaCarta;
-                return true;
+                // Adicione a nova carta "shiny" à posição disponível
+                cartas[i] = novaCartaShiny;
+                break; // Sai do loop após adicionar a carta
             }
         }
-        // O inventário está cheio, não é possível adicionar mais cartas
-        return false;
     }
-    return false;
-    }
+}
 }
 
