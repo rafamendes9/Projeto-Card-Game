@@ -4,6 +4,10 @@ public class E_Loja {
     private String numeroCartao;
     private String codigoVerificador;
 
+    //novos atributos da 2 entrega
+    private boolean promocao = false; // definido nao por padrao por n ter promocao / ainda sem uso em codigo da classe e metodo ( 3 entrega)
+    private int precoBoosterComum = 100; // Preço do booster comum, definido como atributo de classe para facilitar a modificar varios metodos de compra
+
     public E_Loja(String numeroCartao, String codigoVerificador) {
         this.numeroCartao = numeroCartao;
         this.codigoVerificador = codigoVerificador;
@@ -13,10 +17,10 @@ public class E_Loja {
 
     public void compraDeBooster(A_Usuario usuario) {
         // Verificar se o usuário possui cardcoins suficientes para comprar um booster
-        int precoBooster = 100; // Define o preço do booster em cardcoins
+        
         int cardcoinsDoUsuario = usuario.getCardCoins();
 
-        if (cardcoinsDoUsuario >= precoBooster) { // verifica se o usuário tem cardcoins suficientes para comprar um booster
+        if (cardcoinsDoUsuario >= precoBoosterComum) { // verifica se o usuário tem cardcoins suficientes para comprar um booster
 
             int quantidadeCartasBooster = 12; // Um booster contém 12 cartas aleatórias
 
@@ -36,7 +40,7 @@ public class E_Loja {
             }
            
             // Deduzir preço do booster dos cardcoins do usuário
-            cardcoinsDoUsuario -= precoBooster;
+            cardcoinsDoUsuario -= precoBoosterComum;
             usuario.setCardCoins(cardcoinsDoUsuario);
 
             System.out.println(
@@ -51,7 +55,9 @@ public class E_Loja {
     // nome aleatório, valores de ataque, defesa e raridade aleatórios | nao coloquei o imagem random aqui ( fase 2)
 
     //!!!!!!!!!!!!!!!!!!!URGENTE GERAR IMAGEM OU PEGAR EM ENUM + resto de atributos da carta!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public C_Carta gerarCartaAleatoria() {
+    
+    
+    /*public C_Carta gerarCartaAleatoria() {
         Random random = new Random();
         String[] nomesCartas = { "Carta 1", "Carta 2", "Carta 3", "Carta 4", "Carta 5", "Carta 6" };//nome da carta random
         String nomeAleatorio = nomesCartas[random.nextInt(nomesCartas.length)];
@@ -68,7 +74,7 @@ public class E_Loja {
 
         return cartaAleatoria;
     }
-
+ 
     private J_Enum gerarRaridadeAleatoria() {
         Random random = new Random();
         int valorRaridade = random.nextInt(5); // 0 a 4, representando raridade NORMAL, RARA, EPICA, LENDARIA, MITICA( nomes mudados e explicado no J_Enum)
@@ -89,7 +95,7 @@ public class E_Loja {
                 // Lida com casos inesperados, se necessário( caso o random bug)
                 throw new IllegalArgumentException("Valor de raridade inválido: " + valorRaridade);
         }
-    }
+    }*/
 
     // get set
     public String getNumeroCartao() {
@@ -107,5 +113,130 @@ public class E_Loja {
     public void setCodigoVerificador(String codigoVerificador) {
         this.codigoVerificador = codigoVerificador;
     }
+
+    //get/set entrega 2 inserido por preco boster ser atributo da classe ao inves de local
+    public int getPrecoBoosterComum() {
+        return precoBoosterComum;
+    }
+
+    public void setPrecoBoosterComum(int precoBoosterComum) {
+        this.precoBoosterComum = precoBoosterComum;
+    }
+
+    public boolean getPromocao() {
+        return promocao;
+    }
+    
+    public void setPromocao(boolean promocao) {
+        this.promocao = promocao;
+    }
+
+
+
+//espaço para novos metodo de desenvolvimento 2 entrega !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    //metodo extra para verificar promocao
+    public boolean isPromocao() {
+    return promocao = true;
+    }
+
+
+    //agora o metodo recebe valores aleatorios de raridade fixo ( definido no enum)
+    public C_Carta gerarCartaAleatoria() {
+    Random random = new Random();
+    String[] nomesCartas = { "Carta 1", "Carta 2", "Carta 3", "Carta 4", "Carta 5", "Carta 6" }; // Nome da carta random
+    String nomeAleatorio = nomesCartas[random.nextInt(nomesCartas.length)];
+    int ataqueAleatorio = random.nextInt(10) + 1;
+    int defesaAleatoria = random.nextInt(10) + 1;
+
+    // Gera uma raridade aleatória com base nas probabilidades do J_Enum
+    J_Enum raridadeAleatoria = gerarRaridadeAleatoria();
+
+    // Criação da carta com os valores aleatórios e a raridade
+    // imagem | tipo | habilidade | custo ( FASE 2) desenvolvimento ENUM !!!!!!!
+    C_Carta cartaAleatoria = new C_Carta(nomeAleatorio, null, null, raridadeAleatoria, null, ataqueAleatorio,
+            defesaAleatoria, 0);
+
+    return cartaAleatoria;
+  }  
+
+    //metodo refeito para se adequar a raridade fixa
+    private J_Enum gerarRaridadeAleatoria() { 
+    Random random = new Random();
+    double valorProbabilidade = random.nextDouble(); // Gera um valor de probabilidade aleatório entre 0 e 1
+
+    // Mapeia o valor gerado para a raridade com base nas probabilidades do J_Enum
+    if (valorProbabilidade <= J_Enum.MITICA.getDropProbabilidade()) {
+        return J_Enum.MITICA;
+    } else if (valorProbabilidade <= J_Enum.LENDARIA.getDropProbabilidade()) {
+        return J_Enum.LENDARIA;
+    } else if (valorProbabilidade <= J_Enum.EPICA.getDropProbabilidade()) {
+        return J_Enum.EPICA;
+    } else if (valorProbabilidade <= J_Enum.RARA.getDropProbabilidade()) {
+        return J_Enum.RARA;
+    } else {
+        return J_Enum.NORMAL;
+    }
+  }
+
+
+  
+   // booster especial para a carta "SHINY"
+
+    public void boosterEspecial(A_Usuario usuario) {
+    // Preço do booster especial (50% mais caro que o comum)
+    
+    int precoBoosterEspecial = (int) (precoBoosterComum * 1.5); //dessa forma altera o valor do booster sem mexer diretamente no metodo
+
+    // Verificar se o usuário possui cardcoins suficientes para comprar o booster especial
+    int cardcoinsDoUsuario = usuario.getCardCoins();
+    if (cardcoinsDoUsuario >= precoBoosterEspecial) {
+
+        int quantidadeCartasBooster = 12; // Um booster contém 12 cartas aleatórias
+
+        for (int i = 0; i < quantidadeCartasBooster; i++) {
+            // Simula obtenção de cartas aleatórias com base nas probabilidades de raridade
+            C_Carta novaCarta = gerarCartaAleatoria();
+
+
+
+
+
+
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!criar shiny !!!!!!!!!!!!!!!!!!!!!!!!!
+
+            // Verificar se a carta é única com 1% de probabilidade
+            if (Random.nextDouble() <= 0.01) {
+                // Adicione uma carta única ao inventário do usuário
+                usuario.getInventario().adicionarCartaShiny(novaCarta); // criar shiny !!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+            } else {
+                // Adicionar a carta ao inventário do usuário
+                usuario.getInventario().adicionarCarta(novaCarta);
+            }
+        }
+
+        // Deduzir preço do booster especial dos cardcoins do usuário
+        cardcoinsDoUsuario -= precoBoosterEspecial;
+        usuario.setCardCoins(cardcoinsDoUsuario);
+
+        System.out.println(
+                "Compra bem-sucedida! Você recebeu " + quantidadeCartasBooster + " cartas no seu inventário.");
+    } else {
+        System.out.println("Você não possui cardcoins suficientes para comprar o booster especial.");
+    }
+}
+
+
+
+
+
 
 }
