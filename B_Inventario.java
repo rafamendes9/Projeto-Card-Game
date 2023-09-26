@@ -76,7 +76,7 @@ public class B_Inventario {
     public void setCardCoins(int cardcoins) {
         this.cardCoins = cardcoins;
     }
-}
+
 
 
 
@@ -101,4 +101,6 @@ public boolean adicionarCarta(C_Carta novaCarta) {
         return false;
     }
     return false;
+    }
 }
+
