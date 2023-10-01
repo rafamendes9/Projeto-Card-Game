@@ -118,7 +118,7 @@ public class F_Lobby {
     /* 
     public void adicionarUsuario(A_Usuario usuario) {
     // Se o modo de jogo for em dupla, agrupar os jogadores em times
-    if (usuario.getModoDeJogo() == ModoDeJogo.MODO_DUPLA) {
+    if (usuario.getModoDeJogo() == J_Enum.MODO_DUPLA) {
         // Seleciona aleatoriamente um número de time (0 ou 1)
         int numeroTime = new Random().nextInt(2);
         usuario.setEmTime(true);
