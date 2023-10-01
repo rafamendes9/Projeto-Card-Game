@@ -115,4 +115,35 @@ public class F_Lobby {
         }
     }
 
+    /* 
+    public void adicionarUsuario(A_Usuario usuario) {
+    // Se o modo de jogo for em dupla, agrupar os jogadores em times
+    if (usuario.getModoDeJogo() == ModoDeJogo.MODO_DUPLA) {
+        // Seleciona aleatoriamente um número de time (0 ou 1)
+        int numeroTime = new Random().nextInt(2);
+        usuario.setEmTime(true);
+        usuario.setNumeroTime(numeroTime);
+    }
+
+    private void emparelharNeoUsuarios(A_Usuario player) {
+        if (!usuario.isEmTime()) {
+            emparelharUsuarios(player);
+        } else {
+            // Modo em dupla: emparelhar jogadores em times diferentes
+            for (A_Usuario oponente : usuarios) {
+                if (oponente != usuario && oponente.isEmTime() && oponente.getNumeroTime() != usuario.getNumeroTime()) {
+                    // Encontrou um oponente em time diferente
+                    criarPartida(usuario, oponente);
+                    return; // Pare de procurar por oponentes após emparelhar
+                }
+            }
+            // Se nenhum oponente foi encontrado, aguarde até que um esteja disponível
+            System.out.println("Aguardando oponente...");
+        }
+    }
+    
+    // Restante do código...
+
+    emparelharNeoUsuarios(A_Usuario player);
+    */
 }

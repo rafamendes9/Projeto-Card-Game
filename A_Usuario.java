@@ -13,6 +13,8 @@ public class A_Usuario {
     private int idade;
     private String ModoDeJogo; // Atributo para armazenar a modalidade de LOBBY / MODO DE JOGO / mudar para classe lobby
     private int pontosVida; // Atributo para armazenar vida do jogador usado em ARENA
+    private boolean emTime; // Atributo utilizado no novo modo de Jogo 2Px2P
+    private int numeroTime; // Atributo utilizado no novo modo de Jogo 2Px2P
 
     public A_Usuario(String nome, String cpf, String senha, String sexo, String email, int nivel, int cardCoins,
             D_Deck[] baralho, B_Inventario inventario) {
@@ -233,6 +235,23 @@ public class A_Usuario {
 
     public Object getDeckJogador() {
         return null;
+    }
+
+    //Modo em Dupla 2Px2P
+    public boolean isEmTime() {
+        return emTime;
+    }
+
+    public void setEmTime(boolean emTime) {
+        this.emTime = emTime;
+    }
+
+    public int getNumeroTime() {
+        return numeroTime;
+    }
+
+    public void setNumeroTime(int numeroTime) {
+        this.numeroTime = numeroTime;
     }
 
 }

@@ -28,4 +28,10 @@ public enum J_Enum {
     VENENO,
     ESCUDOREFLETOR
     }
+
+    public enum ModoDeJogo {
+        MODO_DUPLA,
+        MODO_SOLO;
+    }
+    
 }
