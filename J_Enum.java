@@ -26,7 +26,18 @@ public enum J_Enum {
     UNIR,
     CURA,
     VENENO,
-    ESCUDOREFLETOR
+    ESCUDOREFLETOR;
+    }
+
+    public enum Tipo {
+    FOGO,
+    AGUA,
+    PEDRA,
+    VENTO,
+    RAIO,
+    METAL,
+    LUZ,
+    TREVAS;
     }
 
     public enum ModoDeJogo {
