@@ -1,4 +1,4 @@
-public enum J_Enum {
+public enum I_Enum {
     /* foi trocado os nomes do enum  de Comum | Incomum | Rara | Muito rara |  Épica
     para fins mais esteticos e de facil entendimento.
 */
@@ -11,7 +11,7 @@ public enum J_Enum {
     private double dropProbabilidade; // Probabilidade de drop
 
     // Construtor privado para associar a probabilidade a cada raridade
-    private J_Enum(double dropProbabilidade) {
+    private I_Enum(double dropProbabilidade) {
         this.dropProbabilidade = dropProbabilidade;
     }
 
