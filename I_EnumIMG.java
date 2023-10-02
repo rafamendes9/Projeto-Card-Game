@@ -1,4 +1,4 @@
-public enum J_EnumIMG {
+public enum I_EnumIMG {
     BLADEMASTER("img\\Blademaster.gif", 0.2),
     Bloodmage("img\\Bloodmage.gif", 0.3),
 
@@ -52,7 +52,7 @@ public enum J_EnumIMG {
     private double dropProbabilidade; // Probabilidade de drop
 
     // Construtor privado para associar o caminho da imagem e a probabilidade
-    private J_EnumIMG(String imagePath, double dropProbabilidade) {
+    private I_EnumIMG(String imagePath, double dropProbabilidade) {
         this.imagePath = imagePath;
         this.dropProbabilidade = dropProbabilidade;
     }

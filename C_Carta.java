@@ -2,7 +2,7 @@ public class C_Carta {
     private String nome;
     private String imagem;
     private String tipo;
-    private I_Enum raridade;
+    private H_Enum raridade;
     private int ataque;
     private int defesa;
     private int custo;
@@ -14,7 +14,7 @@ public class C_Carta {
         private String TERRENO;
     */
 
-    public C_Carta(String nome, String imagem, String tipo, I_Enum raridade, String habilidade,
+    public C_Carta(String nome, String imagem, String tipo, H_Enum raridade, String habilidade,
             int ataque, int defesa, int custo) {
         this.nome = nome;
         this.imagem = imagem;
@@ -69,11 +69,11 @@ public class C_Carta {
         this.tipo = tipo;
     }
 
-    public I_Enum getRaridade() {
+    public H_Enum getRaridade() {
         return raridade;
     }
 
-    public void setRaridade(I_Enum raridade) {
+    public void setRaridade(H_Enum raridade) {
         this.raridade = raridade;
     }
 

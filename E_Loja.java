@@ -152,7 +152,7 @@ public class E_Loja {
     int custoAleatorio = random.nextInt(10) + 1;
 
     // Gera uma raridade aleatória com base nas probabilidades do J_Enum
-    I_Enum raridadeAleatoria = gerarRaridadeAleatoria();
+    H_Enum raridadeAleatoria = gerarRaridadeAleatoria();
 
     // Criação da carta com os valores aleatórios e a raridade
     // imagem | tipo | habilidade | custo ( FASE 2) desenvolvimento ENUM !!!!!!!
@@ -163,21 +163,21 @@ public class E_Loja {
   }  
 
     //metodo refeito para se adequar a raridade fixa
-    private I_Enum gerarRaridadeAleatoria() { 
+    private H_Enum gerarRaridadeAleatoria() { 
     Random random = new Random();
     double valorProbabilidade = random.nextDouble(); // Gera um valor de probabilidade aleatório entre 0 e 1
 
     // Mapeia o valor gerado para a raridade com base nas probabilidades do J_Enum
-    if (valorProbabilidade <= I_Enum.MITICA.getDropProbabilidade()) {
-        return I_Enum.MITICA;
-    } else if (valorProbabilidade <= I_Enum.LENDARIA.getDropProbabilidade()) {
-        return I_Enum.LENDARIA;
-    } else if (valorProbabilidade <= I_Enum.EPICA.getDropProbabilidade()) {
-        return I_Enum.EPICA;
-    } else if (valorProbabilidade <= I_Enum.RARA.getDropProbabilidade()) {
-        return I_Enum.RARA;
+    if (valorProbabilidade <= H_Enum.MITICA.getDropProbabilidade()) {
+        return H_Enum.MITICA;
+    } else if (valorProbabilidade <= H_Enum.LENDARIA.getDropProbabilidade()) {
+        return H_Enum.LENDARIA;
+    } else if (valorProbabilidade <= H_Enum.EPICA.getDropProbabilidade()) {
+        return H_Enum.EPICA;
+    } else if (valorProbabilidade <= H_Enum.RARA.getDropProbabilidade()) {
+        return H_Enum.RARA;
     } else {
-        return I_Enum.NORMAL;
+        return H_Enum.NORMAL;
     }
   }
 
