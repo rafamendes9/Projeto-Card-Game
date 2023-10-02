@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class G2_ArenaDouble extends G_Arena{
     private A_Usuario jogador3;  // Novos jogadores
     private A_Usuario jogador4;
@@ -20,6 +22,23 @@ public class G2_ArenaDouble extends G_Arena{
         this.campoJogador4 = new C_Carta[2][5];
         this.pontosVidaJogador3 = 20;
         this.pontosVidaJogador4 = 20;
+    }
+
+    //POSSIVELMENTE O ATRIBUTO DEVA VIRAR PROTECTED
+    protected A_Usuario sortearTurnosDoPrimeiroJogador() {
+
+        Random random = new Random();
+        int numeroSorteado = random.nextInt(4); // Gera numero aleatório 0 ou 1
+
+        if (numeroSorteado == 0) {
+            return jogador1; // Jogador1 começa se o número for 0.
+        } else if(numeroSorteado == 1) {
+            return jogador2; // Jogador2 começa se o número for 1.
+        }else if(numeroSorteado == 3){
+            return jogador3;
+        }else{
+            return jogador4;
+        }
     }
 
     public A_Usuario getJogador3() {
