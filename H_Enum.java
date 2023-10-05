@@ -20,6 +20,7 @@ public enum H_Enum {
         return dropProbabilidade;
     }
 
+
     public enum Habilidade {
     AMEDRONTAR,
     ATROPELAR,
