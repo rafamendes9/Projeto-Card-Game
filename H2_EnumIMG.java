@@ -1,5 +1,5 @@
 public enum H2_EnumIMG {
-    BLADEMASTER("img\\Blademaster.gif", 0.2),
+    BLADEMASTER("img\\Blademaster.gif", 0.3),
     Bloodmage("img\\Bloodmage.gif", 0.3),
     Arthas("img\\Arthas.png", 0.3),
     Chieftain("img\\Chieftain.gif", 0.3),
