@@ -1,7 +1,6 @@
 public enum H2_EnumIMG {
     BLADEMASTER("img\\Blademaster.gif", 0.2),
     Bloodmage("img\\Bloodmage.gif", 0.3),
-
     Arthas("img\\Arthas.png", 0.3),
     Chieftain("img\\Chieftain.gif", 0.3),
     Demonhunter("img\\Demonhunter.gif", 0.3),
@@ -14,7 +13,6 @@ public enum H2_EnumIMG {
     monster6("img\\monster6.gif", 0.3),
     monster7("img\\monster7.gif", 0.3),
     monster8("img\\monster8.gif", 0.3),
-
     monster9("img\\monster9.gif", 0.3),
     monster10("img\\monster10.gif", 0.3),
     monster11("img\\monster11.gif", 0.3),
@@ -25,8 +23,6 @@ public enum H2_EnumIMG {
     monster16("img\\monster16.gif", 0.3),
     monster17("img\\monster17.gif", 0.3),
     monster18("img\\monster18.gif", 0.3),
-
-    TheOlho("img\\TheOlho.gif", 0.3),
     Wc3Alchemist("img\\Wc3Alchemist.gif", 0.3),
     Wc3Archmage("img\\Wc3Archmage.gif", 0.3),
     Wc3BTNBansheeRanger("img\\Wc3BTNBansheeRanger.gif", 0.3),
