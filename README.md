@@ -36,6 +36,10 @@
 !arena Configura o deck inicial dos jogadores (distribuir cartas)
 !Enum  Verificar colocar vários enum em uma única classe enum ou criar vários enums separados
 !MUDAR metodo remorção para usar pilha ( simplifica o metodo )
+!enum img precisa ser implementado
+
+
+
 
 
 #
