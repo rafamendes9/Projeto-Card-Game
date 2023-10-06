@@ -45,3 +45,8 @@
 #### 3 classe abstrata e interface( n é a interface grafica)
 
 #### 4 aplicar um padrao de projeto( n pode ser go horse) + apresentar
+
+#
+
+## bla bla psicopatia plena
+

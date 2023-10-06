@@ -31,9 +31,9 @@ public class G2_ArenaDouble extends G_Arena{
         int numeroSorteado = random.nextInt(4); // Gera numero aleatório 0 ou 1
 
         if (numeroSorteado == 0) {
-            return jogador1; // Jogador1 começa se o número for 0.
+            return super.getJogador1(); // Jogador1 começa se o número for 0.
         } else if(numeroSorteado == 1) {
-            return jogador2; // Jogador2 começa se o número for 1.
+            return super.getJogador2(); // Jogador2 começa se o número for 1.
         }else if(numeroSorteado == 3){
             return jogador3;
         }else{
