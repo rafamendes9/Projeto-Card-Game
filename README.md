@@ -35,3 +35,13 @@
 !LOJA   GERAR IMAGEM OU PEGAR EM ENUM + resto de atributos da carta + gerar habilidade no gerar carta
 !arena Configura o deck inicial dos jogadores (distribuir cartas)
 !Enum  Verificar colocar vários enum em uma única classe enum ou criar vários enums separados
+!MUDAR metodo remorção para usar pilha ( simplifica o metodo )
+
+
+#
+
+## entregas
+
+#### 3 classe abstrata e interface( n é a interface grafica)
+
+#### 4 aplicar um padrao de projeto( n pode ser go horse) + apresentar
