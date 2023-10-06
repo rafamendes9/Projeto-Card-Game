@@ -25,20 +25,24 @@ public class G2_ArenaDouble extends G_Arena{
     }
 
     //POSSIVELMENTE O ATRIBUTO DEVA VIRAR PROTECTED
+    @Override
     protected A_Usuario sortearTurnosDoPrimeiroJogador() {
 
         Random random = new Random();
         int numeroSorteado = random.nextInt(4); // Gera numero aleatório 0 ou 1
+        A_Usuario jogadorSorteado = new A_Usuario(null, null, null, null, null, numeroSorteado, numeroSorteado, null, null);
 
         if (numeroSorteado == 0) {
-            return jogador1; // Jogador1 começa se o número for 0.
+            jogadorSorteado = super.getJogador1(); // Jogador1 começa se o número for 0.
         } else if(numeroSorteado == 1) {
-            return jogador2; // Jogador2 começa se o número for 1.
+            jogadorSorteado = super.getJogador2(); // Jogador2 começa se o número for 1.
+        }else if(numeroSorteado == 2){
+            jogadorSorteado = jogador3;
         }else if(numeroSorteado == 3){
-            return jogador3;
-        }else{
-            return jogador4;
+            jogadorSorteado = jogador4;
         }
+
+        return jogadorSorteado;
     }
 
     public A_Usuario getJogador3() {
