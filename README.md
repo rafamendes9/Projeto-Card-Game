@@ -26,8 +26,7 @@
 
 
 
-## tasks
-6 urgentes
+## tasks urgentes
 !usuario  4 metodo atualizar nivel 
 !inventario EDITAR PARA ACEITAR CARTA REPITIDA DO TIPO "shiny"
 !deck ANALISAR disponibilidadeCarta + addCarta
@@ -54,3 +53,8 @@
 
 ## bla bla psicopatia plena
 
+slide 10 feito "inicio"
+
+slide 10 feito "turno" * comentado
+
+slide 12 feito "inicio" *comentado
