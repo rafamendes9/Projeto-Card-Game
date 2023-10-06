@@ -134,7 +134,7 @@ public class G_Arena {
     }
 
     // ( desenvolvida na entrega 2) !!!!!!!!!!!!
-    protected A_Usuario sortearTurnosDoPrimeiroJogador() {
+    private A_Usuario sortearTurnosDoPrimeiroJogador() {
 
         Random random = new Random();
         int numeroSorteado = random.nextInt(2); // Gera numero aleatório 0 ou 1
