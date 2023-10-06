@@ -1,6 +1,3 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 //import colocados previamentes para futuro uso no desenvolvimento da segunda entrega.
