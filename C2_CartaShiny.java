@@ -9,7 +9,7 @@ public class C2_CartaShiny extends C_Carta {
 
     private void adicionarHabilidadeExtra() {
         // Pega uma habilidade extra aleatória do enum Habilidade
-        H_Enum.Habilidade[] habilidades = H_Enum.Habilidade.values();
+        H3_EnumHabilidade[] habilidades = H3_EnumHabilidade.values();
         Random random = new Random();
         int index = random.nextInt(habilidades.length);
         this.setHabilidade(this.getHabilidade() + ", " + habilidades[index].toString());

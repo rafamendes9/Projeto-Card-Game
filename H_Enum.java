@@ -20,27 +20,6 @@ public enum H_Enum {
         return dropProbabilidade;
     }
 
-
-    public enum Habilidade {
-    AMEDRONTAR,
-    ATROPELAR,
-    UNIR,
-    CURA,
-    VENENO,
-    ESCUDOREFLETOR;
-    }
-
-    public enum Tipo {
-    FOGO,
-    AGUA,
-    PEDRA,
-    VENTO,
-    RAIO,
-    METAL,
-    LUZ,
-    TREVAS;
-    }
-
     public enum ModoDeJogo {
         MODO_DUPLA,
         MODO_SOLO;
