@@ -58,3 +58,5 @@ slide 10 feito "inicio"
 slide 10 feito "turno" * comentado
 
 slide 12 feito "inicio" *comentado
+
+METODOS REPITIDOS EM ARENA ( FIM DO TURNO FOI CRIADO A PARTE AGR MAS JA FAZ PARTE DE UM GRANDE METODO ANTIGO EM ENTREGA 1 Q FAZIA ALGO SIMILAR)
