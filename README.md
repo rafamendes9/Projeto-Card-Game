@@ -22,7 +22,6 @@
 
 
 ## tasks urgentes
-!usuario  4 metodo atualizar nivel +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)
 
 !deck ANALISAR disponibilidadeCarta + addCarta ( n lembro disso TEM Q REVER)
 
@@ -31,12 +30,13 @@
 
 
 !LOJA  resto de atributos da carta + gerar habilidade no gerar carta
+!enums  precisam ser implementado
 
 
-!enum img precisa ser implementado
 
-!arena Configura o deck inicial dos jogadores (distribuir cartas)
-
+!usuario  4 metodo atualizar nivel +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)
+!!!!!!tasks CORREALACIONADAS !!!!!!!!!
+!arena Configura o deck inicial dos jogadores (distribuir cartas) +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)
 
 
 
