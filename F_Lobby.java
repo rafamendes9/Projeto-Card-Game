@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class F_Lobby {
     private List<A_Usuario> usuarios;
@@ -115,35 +117,39 @@ public class F_Lobby {
         }
     }
 
-    /* 
-    public void adicionarUsuario(A_Usuario usuario) {
-    // Se o modo de jogo for em dupla, agrupar os jogadores em times
-    if (usuario.getModoDeJogo() == J_Enum.MODO_DUPLA) {
-        // Seleciona aleatoriamente um número de time (0 ou 1)
-        int numeroTime = new Random().nextInt(2);
-        usuario.setEmTime(true);
-        usuario.setNumeroTime(numeroTime);
-    }
+    
+     // Método para criar partidas em dupla aleatoriamente.
+     
+    public void criarPartidasEmDuplaAleatoriamente() {
+        if (usuarios.size() >= 4) {
+            // Embaralhe a lista de usuários para selecionar aleatoriamente
+            Collections.shuffle(usuarios);
 
-    private void emparelharNeoUsuarios(A_Usuario player) {
-        if (!usuario.isEmTime()) {
-            emparelharUsuarios(player);
+            // Divida os 4 jogadores em 2 times aleatórios
+            A_Usuario jogador1 = usuarios.get(0);
+            A_Usuario jogador2 = usuarios.get(1);
+            A_Usuario jogador3 = usuarios.get(2);
+            A_Usuario jogador4 = usuarios.get(3);
+
+            // Defina os times aleatoriamente
+            int random = new Random().nextInt(2); // 0 ou 1
+            jogador1.setNumeroTime(random);
+            jogador2.setNumeroTime(random);
+            random = 1 - random; // Inverte para 1 ou 0
+            jogador3.setNumeroTime(random);
+            jogador4.setNumeroTime(random);
+
+            // Remova os jogadores da lista de usuários
+            usuarios.remove(jogador1);
+            usuarios.remove(jogador2);
+            usuarios.remove(jogador3);
+            usuarios.remove(jogador4);
+
+            // Crie duas partidas em dupla com esses jogadores
+            criarPartida(jogador1, jogador2);
+            criarPartida(jogador3, jogador4);
         } else {
-            // Modo em dupla: emparelhar jogadores em times diferentes
-            for (A_Usuario oponente : usuarios) {
-                if (oponente != usuario && oponente.isEmTime() && oponente.getNumeroTime() != usuario.getNumeroTime()) {
-                    // Encontrou um oponente em time diferente
-                    criarPartida(usuario, oponente);
-                    return; // Pare de procurar por oponentes após emparelhar
-                }
-            }
-            // Se nenhum oponente foi encontrado, aguarde até que um esteja disponível
-            System.out.println("Aguardando oponente...");
+            System.out.println("Não há jogadores suficientes para criar partidas em dupla.");
         }
     }
-    
-    // Restante do código...
-
-    emparelharNeoUsuarios(A_Usuario player);
-    */
 }
