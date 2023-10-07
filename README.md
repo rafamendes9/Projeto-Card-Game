@@ -22,9 +22,10 @@
 
 
 ## tasks urgentes
-!usuario  4 metodo atualizar nivel 
+!usuario  4 metodo atualizar nivel +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)
 
-!deck ANALISAR disponibilidadeCarta + addCarta
+!deck ANALISAR disponibilidadeCarta + addCarta ( n lembro disso TEM Q REVER)
+
 
 !deck editar metodo para remover carta e voltar para class inventario + mover para class inventario como "apagar carta"
 
