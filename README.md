@@ -23,14 +23,21 @@
 
 ## tasks urgentes
 !usuario  4 metodo atualizar nivel 
-!inventario EDITAR PARA ACEITAR CARTA REPITIDA DO TIPO "shiny"
+
 !deck ANALISAR disponibilidadeCarta + addCarta
+
 !deck editar metodo para remover carta e voltar para class inventario + mover para class inventario como "apagar carta"
-!LOJA   GERAR IMAGEM OU PEGAR EM ENUM + resto de atributos da carta + gerar habilidade no gerar carta
+
+!LOJA  resto de atributos da carta + gerar habilidade no gerar carta
+
 !arena Configura o deck inicial dos jogadores (distribuir cartas)
-!Enum  Verificar colocar vários enum em uma única classe enum ou criar vários enums separados
+
+!Enum  implementar so enums
+
 !MUDAR metodo remorção para usar pilha ( simplifica o metodo )
+
 !enum img precisa ser implementado
+
 
 
 

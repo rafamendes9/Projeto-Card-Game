@@ -36,7 +36,7 @@ public class B_Inventario {
     }
 
     // !!!!!!!!!!!!!!!!!!!!!!! EDITAR PARA ACEITAR CARTA REPITIDA DO TIPO "shiny" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+    //resolvido no metodo abaixo
     
     //metodo verifica se o inventário já possui 3 unidades da mesma carta com base no nome da carta.
     //percorre o array de cartas no inventário e conta quantas vezes a carta com o mesmo nome é encontrada

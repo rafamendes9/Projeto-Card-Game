@@ -36,6 +36,7 @@ public class C_Carta {
     }
 
      // !!!!!!!!!!!!!!!!!!!!!!! EDITAR PARA ACEITAR CARTA REPITIDA DO TIPO "shiny" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //resolvido no metodo em Inventario especifico para shiny
 
     // Metodo 2 aumentarQuantidade
     public void aumentarQuantidade() {
