@@ -36,7 +36,7 @@ public class D_Deck {
         disponibilidadeCarta();
     }
 
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!URGENTE editar metodo para remover carta e voltar para class inventario + mover para class inventario como "apagar carta" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!URGENTE deck editar metodo para remover carta(atualmente ele apaga a carta) e voltar para class inventario + mover metodo atual para class inventario como "apagar carta"" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public C_Carta removerCarta(String nome) {
         return null;
     }
@@ -103,3 +103,23 @@ public class D_Deck {
  
 
 }
+
+//possivel correção parcial para task 2 ( criar o metodo pilha)
+/*public void cancelar(int codigo){
+    boolean achou = false;
+    int i = 0;
+    for(; i < quantidadeitens; i++){
+      if(carrinho[i].getCodigo() == codigo){
+        achou = true;
+        carrinho[i] = null;
+        quantidadeitens--;
+      }
+    }
+    if(achou){
+      for(int j = i; j < carrinho.length - 1; j++){
+        carrinho[j] = carrinho[j+1];
+      }
+      System.out.println("Item cancelado da compra");
+    }else
+      System.out.println("Item não encontrado");
+  } */
