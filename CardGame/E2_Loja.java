@@ -1,3 +1,4 @@
+package CardGame;
 import java.util.Random;
 
 public class E2_Loja extends E_Loja {

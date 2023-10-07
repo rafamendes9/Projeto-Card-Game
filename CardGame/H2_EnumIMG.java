@@ -1,3 +1,4 @@
+package CardGame;
 public enum H2_EnumIMG {
     monster1("img\\monster1.gif", 0.3),
     monster2("img\\monster2.gif", 0.3),

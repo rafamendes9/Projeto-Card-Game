@@ -1,3 +1,4 @@
+package CardGame;
 import java.util.Random;
 
 //import colocados previamentes para futuro uso no desenvolvimento da segunda entrega.

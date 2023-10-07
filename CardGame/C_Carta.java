@@ -1,3 +1,4 @@
+package CardGame;
 public class C_Carta {
     private String nome;
     private String imagem;

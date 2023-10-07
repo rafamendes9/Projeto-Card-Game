@@ -1,5 +1,4 @@
 # Projeto-Card-Game
-- Projeto desenvolvido para ser usado como metodo avaliativo na Universidade Catolica de Pernambuco.
 
 ### Contribuintes do Projeto
 
@@ -19,10 +18,6 @@
 
 - Comentarios no codigo com as terminações "fase 2,segunda fase,etc.../fase 3,terceira fase,etc..." não devem ser levadas em consideração até as proximas demandas ou até estarem completamente desenvolvidas futuramente.
 
-
-### Conseiderações finais
-
-- Como colegas da cadeira ficamos muito gratos por voce "usuario" ler nosso codigo e pedimos apenas a sua contribuição dando uma pequena "estrelinha" no canto superior direito na aba do seu github.
 
 
 
@@ -53,10 +48,5 @@
 
 ## bla bla psicopatia plena
 
-slide 10 feito "inicio"
-
-slide 10 feito "turno" * comentado
-
-slide 12 feito "inicio" *comentado
 
 METODOS REPITIDOS EM ARENA ( FIM DO TURNO FOI CRIADO A PARTE AGR MAS JA FAZ PARTE DE UM GRANDE METODO ANTIGO EM ENTREGA 1 Q FAZIA ALGO SIMILAR)

@@ -1,3 +1,4 @@
+package CardGame;
 import java.util.Random;
 
 public class G2_ArenaDouble extends G_Arena{

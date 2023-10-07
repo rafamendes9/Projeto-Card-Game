@@ -1,3 +1,4 @@
+package CardGame;
 public class B_Inventario {
     private C_Carta[] cartas = new C_Carta[360]; // Alterado o tipo String para C_Carta , usado para o metodo adicionarCarta / alterado de 200 para 360 ( o jogador mais ter mais cartas + cartas reservas para cada deck)
     private int nivelAtual = 1;

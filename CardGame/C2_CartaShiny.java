@@ -1,3 +1,4 @@
+package CardGame;
 import java.util.Random;
 
 public class C2_CartaShiny extends C_Carta {

@@ -1,3 +1,4 @@
+package CardGame;
 public class A_Usuario {
     private String nome;
     private String cpf;

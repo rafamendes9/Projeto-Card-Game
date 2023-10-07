@@ -1,3 +1,4 @@
+package CardGame;
 public enum H4_EnumTipo {
     
 

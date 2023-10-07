@@ -1,3 +1,4 @@
+package CardGame;
 public enum H_Enum {
     /* foi trocado os nomes do enum  de Comum | Incomum | Rara | Muito rara |  Épica
     para fins mais esteticos e de facil entendimento.
