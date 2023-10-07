@@ -2,12 +2,12 @@ package CardGame;
 public class C_Carta {
     private String nome;
     private String imagem;
-    private String tipo;
+    private H4_EnumTipo  tipo;
     private H_Enum raridade;
     private int ataque;
     private int defesa;
     private int custo;
-    private String habilidade;
+    private H3_EnumHabilidade habilidade;
     private int quantidade;
 
     /*  
@@ -15,7 +15,7 @@ public class C_Carta {
         private String TERRENO;
     */
 
-    public C_Carta(String nome, String imagem, String tipo, H_Enum raridade, String habilidade,
+    public C_Carta(String nome, String imagem, H4_EnumTipo tipo, H_Enum raridade, H3_EnumHabilidade habilidade,
             int ataque, int defesa, int custo) {
         this.nome = nome;
         this.imagem = imagem;
@@ -63,11 +63,11 @@ public class C_Carta {
         this.imagem = imagem;
     }
 
-    public String getTipo() {
+    public H4_EnumTipo  getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(H4_EnumTipo  tipo) {
         this.tipo = tipo;
     }
 
@@ -103,11 +103,11 @@ public class C_Carta {
         this.custo = custo;
     }
 
-    public String getHabilidade() {
+    public H3_EnumHabilidade getHabilidade() {
         return habilidade;
     }
 
-    public void setHabilidade(String habilidade) {
+    public void setHabilidade(H3_EnumHabilidade habilidade) {
         this.habilidade = habilidade;
     }
 

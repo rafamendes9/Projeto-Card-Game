@@ -153,15 +153,21 @@ public class E_Loja {
     int custoAleatorio = random.nextInt(10) + 1;
 
     // Gera uma raridade aleatória com base nas probabilidades do J_Enum
-    H_Enum raridadeAleatoria = gerarRaridadeAleatoria();
+    H_Enum raridadeAleatoria = gerarRaridadeAleatoria();//implementa raridade para a carta
 
     // Obtenha um caminho de imagem aleatório usando o método gerarImagemAleatoria()
     String imagemAleatoria = gerarImagemAleatoria();//implementa imagem para a carta
 
+    // Obtenha uma habilidade aleatório usando o método gerarHabilidadeAleatorio()
+    H3_EnumHabilidade habilidadeAleatorio = gerarHabilidadeAleatorio();//implementa habilidade para a carta
+    
+    // Obtenha um tipo aleatório usando o método gerarTipoAleatorio()
+    H4_EnumTipo tipoAleatorio = gerarTipoAleatorio();//implementa tipo para a carta
+
 
     // Criação da carta com os valores aleatórios e a raridade
     // imagem | tipo | habilidade | custo ( FASE 2) desenvolvimento ENUM !!!!!!!
-    C_Carta cartaAleatoria = new C_Carta(nomeAleatorio, imagemAleatoria, null, raridadeAleatoria, null, ataqueAleatorio,
+    C_Carta cartaAleatoria = new C_Carta(nomeAleatorio, imagemAleatoria, tipoAleatorio, raridadeAleatoria, habilidadeAleatorio, ataqueAleatorio,
             defesaAleatoria, custoAleatorio);
 
     return cartaAleatoria;
@@ -191,6 +197,61 @@ public class E_Loja {
     H2_EnumIMG[] imagens = H2_EnumIMG.values();
     int indiceAleatorio = random.nextInt(imagens.length);
     return imagens[indiceAleatorio].getImagePath();
+}
+
+
+ private H3_EnumHabilidade gerarHabilidadeAleatorio() {
+        Random random = new Random();
+        int valorHabilidade = random.nextInt(6); // 0 a 5, representando habilidade  AMEDRONTAR, ATROPELAR, METAL, UNIR, CURA, VENENO, ESCUDOREFLETOR
+
+        // Mapea o valor gerado em H3_EnumHabilidade
+        switch (valorHabilidade) {
+            case 0:
+                return H3_EnumHabilidade.AMEDRONTAR;
+            case 1:
+                return H3_EnumHabilidade.ATROPELAR;
+            case 2:
+                return H3_EnumHabilidade.UNIR;
+            case 3:
+                return H3_EnumHabilidade.CURA;
+            case 4:
+                return H3_EnumHabilidade.VENENO;
+            case 5:
+                return H3_EnumHabilidade.ESCUDOREFLETOR;
+                           
+            default:
+                // Lida com casos inesperados, se necessário( caso o random bug)
+                throw new IllegalArgumentException("Valor de Habilidade inválido: " + valorHabilidade);
+        }
+}
+
+ private H4_EnumTipo gerarTipoAleatorio() {
+        Random random = new Random();
+        int valorTipo = random.nextInt(8); // 0 a 7, representando tipo  FOGO, AGUA, METAL, PEDRA, VENTO, RAIO, LUZ, TREVAS
+
+        // Mapea o valor gerado em H4_EnumTipo
+        switch (valorTipo) {
+            case 0:
+                return H4_EnumTipo.FOGO;
+            case 1:
+                return H4_EnumTipo.AGUA;
+            case 2:
+                return H4_EnumTipo.METAL;
+            case 3:
+                return H4_EnumTipo.PEDRA;
+            case 4:
+                return H4_EnumTipo.VENTO;
+            case 5:
+                return H4_EnumTipo.VENTO;
+            case 6:
+                return H4_EnumTipo.VENTO;
+            case 7:
+                return H4_EnumTipo.VENTO;
+                
+            default:
+                // Lida com casos inesperados, se necessário( caso o random bug)
+                throw new IllegalArgumentException("Valor do Tipo inválido: " + valorTipo);
+        }
 }
 
 

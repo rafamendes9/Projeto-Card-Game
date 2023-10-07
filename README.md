@@ -30,7 +30,8 @@
 
 
 !LOJA  resto de atributos da carta + gerar habilidade no gerar carta
-!enums  precisam ser implementado
+!enum  ModoDeJogo precisa ser usado
+!enum  habilidade modificou C2_CartaShiny (TEM Q REVER)
 !enum habilidade precisa ser desenvolvido(ele apenas existe mas habilidade n possuem efeito)
 
 
