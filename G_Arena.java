@@ -246,7 +246,7 @@ public class G_Arena {
     }
     
 
-    //metodos novos
+    //metodos novos ( coisas mto separadas foram desenvolvidas separadamente com seus pares)
 
     public void saque(A_Usuario jogador) {
         Random random = new Random();
