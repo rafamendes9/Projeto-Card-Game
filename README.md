@@ -31,6 +31,7 @@
 
 !LOJA  resto de atributos da carta + gerar habilidade no gerar carta
 !enums  precisam ser implementado
+!enum habilidade precisa ser desenvolvido(ele apenas existe mas habilidade n possuem efeito)
 
 
 

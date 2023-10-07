@@ -155,9 +155,13 @@ public class E_Loja {
     // Gera uma raridade aleatória com base nas probabilidades do J_Enum
     H_Enum raridadeAleatoria = gerarRaridadeAleatoria();
 
+    // Obtenha um caminho de imagem aleatório usando o método gerarImagemAleatoria()
+    String imagemAleatoria = gerarImagemAleatoria();//implementa imagem para a carta
+
+
     // Criação da carta com os valores aleatórios e a raridade
     // imagem | tipo | habilidade | custo ( FASE 2) desenvolvimento ENUM !!!!!!!
-    C_Carta cartaAleatoria = new C_Carta(nomeAleatorio, null, null, raridadeAleatoria, null, ataqueAleatorio,
+    C_Carta cartaAleatoria = new C_Carta(nomeAleatorio, imagemAleatoria, null, raridadeAleatoria, null, ataqueAleatorio,
             defesaAleatoria, custoAleatorio);
 
     return cartaAleatoria;
@@ -182,9 +186,13 @@ public class E_Loja {
     }
   }
 
+  private String gerarImagemAleatoria() {//chama as imagens do enum de forma aleatoria
+    Random random = new Random();
+    H2_EnumIMG[] imagens = H2_EnumIMG.values();
+    int indiceAleatorio = random.nextInt(imagens.length);
+    return imagens[indiceAleatorio].getImagePath();
+}
 
-
-   // booster especial para a carta "SHINY"
 
 
 }
