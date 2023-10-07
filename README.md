@@ -28,7 +28,7 @@
 
 
 !deck editar metodo para remover carta(atualmente ele apaga a carta) e voltar para class inventario + mover metodo atual para class inventario como "apagar carta"
-!MUDAR metodo remorção para usar pilha ( simplifica o metodo )
+!MUDAR metodo remorção para usar pilha ( simplifica o metodo ) (Possivel correção parcial em andamento)
 
 !LOJA  resto de atributos da carta + gerar habilidade no gerar carta
 
