@@ -29,16 +29,15 @@
 !MUDAR metodo remorção para usar pilha ( simplifica o metodo ) (Possivel correção parcial em andamento)
 
 
-!LOJA  resto de atributos da carta + gerar habilidade no gerar carta
-!enum  ModoDeJogo precisa ser usado
-!enum  habilidade modificou C2_CartaShiny (TEM Q REVER)
+!LOJA  resto de atributos da carta + gerar habilidade no gerar carta*****
+!enum  habilidade modificou C2_CartaShiny (TEM Q REVER)*****
 !enum habilidade precisa ser desenvolvido(ele apenas existe mas habilidade n possuem efeito)
 
+!C2_CartaShiny setar o gerar habilidadeAleatoria no construtos de add habilidadeExtre;
 
-
-!usuario  4 metodo atualizar nivel +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)
+!usuario  4 metodo atualizar nivel +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)****
 !!!!!!tasks CORREALACIONADAS !!!!!!!!!
-!arena Configura o deck inicial dos jogadores (distribuir cartas) +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)
+!arena Configura o deck inicial dos jogadores (distribuir cartas) +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)*****
 
 
 

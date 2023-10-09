@@ -31,8 +31,10 @@ public class C2_CartaShiny extends C_Carta {
     H3_EnumHabilidade habilidadeExtra, int ataque, int defesa, int custo) {
     super(nome, imagem, tipo, raridade, habilidadeExtra, ataque + 1, defesa + 1, custo);
     this.adicionarHabilidadeExtra(habilidadeExtra);
+
 }
 
+//!!!!!!!!!!!! setar aleatorio !!!!!!!!!!!!!! colocar metodo no construtor
     private void adicionarHabilidadeExtra(H3_EnumHabilidade habilidadeExtra) {
         this.setHabilidade(habilidadeExtra);
     }
