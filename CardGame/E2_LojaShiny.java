@@ -1,8 +1,8 @@
 package CardGame;
 import java.util.Random;
 
-public class E2_Loja extends E_Loja {
-    public E2_Loja(String numeroCartao, String codigoVerificador) {
+public class E2_LojaShiny extends E_Loja {
+    public E2_LojaShiny(String numeroCartao, String codigoVerificador) {
         super(numeroCartao, codigoVerificador);
        }
 
