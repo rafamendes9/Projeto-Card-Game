@@ -77,7 +77,7 @@ public class F_Lobby {
     public void criarPartida(A_Usuario jogador1, A_Usuario jogador2) {
         if (jogador1 != null && jogador2 != null) {
             // Verifique se os jogadores têm decks disponíveis
-            if (jogador1.getBaralho(0) != null && jogador2.getBaralho(0) != null) {
+            if (jogador1.getIndiceBaralho(0) != null && jogador2.getIndiceBaralho(0) != null) {
                 // Remova os jogadores da lista de usuários
                 usuarios.remove(jogador1);
                 usuarios.remove(jogador2);
@@ -104,9 +104,9 @@ public class F_Lobby {
     public void adicionarBaralho(A_Usuario usuario, D_Deck baralho) {
         if (usuario != null && baralho != null) {
             // Verifique se o jogador já tem um baralho carregado
-            if (usuario.getBaralho(0) == null) {
+            if (usuario.getIndiceBaralho(0) == null) {
                 // Associe o baralho ao jogador
-                usuario.setBaralho(0, baralho);
+                usuario.setIndiceBaralho(0, baralho);
                 // Adicione o jogador à lista de usuários do lobby
                 usuarios.add(usuario);
                 System.out.println("Baralho adicionado com sucesso!");

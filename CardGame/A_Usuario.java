@@ -7,8 +7,12 @@ public class A_Usuario {
     private String email;
     private int nivel = 1;
     private int cardCoins = 0;
-    private D_Deck[] baralho = new D_Deck[5];
+    private D_Deck[] indiceBaralho = new D_Deck[5];
     private B_Inventario inventario;
+
+    /*
+     * Deck(indiceBaralho)
+     */
 
     // atributos adicionais
     private int idade;
@@ -18,7 +22,7 @@ public class A_Usuario {
     private int numeroTime; // Atributo utilizado no novo modo de Jogo 2Px2P
 
     public A_Usuario(String nome, String cpf, String senha, String sexo, String email, int nivel, int cardCoins,
-            D_Deck[] baralho, B_Inventario inventario) {
+            D_Deck[] indiceBaralho, B_Inventario inventario) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
@@ -26,7 +30,7 @@ public class A_Usuario {
         this.email = email;
         this.nivel = nivel;
         this.cardCoins = cardCoins;
-        this.baralho = baralho;
+        this.indiceBaralho = indiceBaralho;
         this.inventario = inventario;
     }
 
@@ -40,13 +44,13 @@ public class A_Usuario {
     // 2 metodo para adicionar decks
     public boolean adicionarDeck(D_Deck deck) {
         // Verifica se o usuário já possui o número máximo de decks permitidos (5)
-        if (baralho.length >= 5) {
+        if (indiceBaralho.length >= 5) {
             System.out.println("Você já atingiu o número máximo de decks permitidos.");
             return false; // Não foi possível adicionar o deck
         }
 
         // Verifica se o deck já está na lista ( evita clone de deck)
-        for (D_Deck existingDeck : baralho) {
+        for (D_Deck existingDeck : indiceBaralho) {
             if (existingDeck != null && existingDeck.getNome().equals(deck.getNome())) {
                 System.out.println("Este deck já está na sua lista de decks.");
                 return false; // Não foi possível adicionar o deck
@@ -54,9 +58,9 @@ public class A_Usuario {
         }
 
         // Encontra um espaço vazio no vetor de decks ( remodelado para evitar criar um vetor de vazios ao editar decks novos)
-        for (int i = 0; i < baralho.length; i++) {
-            if (baralho[i] == null) {
-                baralho[i] = deck; // Adiciona o deck ao vetor de decks
+        for (int i = 0; i < indiceBaralho.length; i++) {
+            if (indiceBaralho[i] == null) {
+                indiceBaralho[i] = deck; // Adiciona o deck ao vetor de decks
                 System.out.println("Deck adicionado com sucesso.");
                 return true; // Deck adicionado com sucesso
             }
@@ -128,6 +132,27 @@ public class A_Usuario {
     }
 
 
+    public C_Carta[] cartasDoBaralho(D_Deck[] indiceBaralho) {
+        if (indiceBaralho.length >= 1 && indiceBaralho.length <= 4) {
+            switch (indiceBaralho.length) {
+                case 0:
+                    return indiceBaralho[0].getCartas();
+                case 1:
+                    return indiceBaralho[1].getCartas();
+                case 2:
+                    return indiceBaralho[2].getCartas();
+                case 3:
+                    return indiceBaralho[3].getCartas();
+                case 4:
+                    return indiceBaralho[4].getCartas();
+                default:
+                    System.out.println("Cartas a serem sacadas");
+                    break;
+            }
+        }
+        return null;  // Handle other cases or return appropriate value
+    }
+    
   
 
 
@@ -190,16 +215,16 @@ public class A_Usuario {
     }
 
     // indice baralho
-    public void setBaralho(int indice, D_Deck novoBaralho) {
+    public void setIndiceBaralho(int indice, D_Deck novoBaralho) {
         if (indice >= 0 && indice < 5) {
-            baralho[indice] = novoBaralho;
+            indiceBaralho[indice] = novoBaralho;
         }
     }
 
     // indice baralho
-    public D_Deck getBaralho(int indice) {
+    public D_Deck getIndiceBaralho(int indice) {
         if (indice >= 0 && indice < 5) {
-            return baralho[indice];
+            return indiceBaralho[indice];
         } else {
             return null; // Retorna nulo se o índice estiver fora do intervalo
         }
@@ -207,7 +232,7 @@ public class A_Usuario {
 
     // Adiciona metodo para obter todos os baralhos do jogador
     public D_Deck[] getTodosBaralhos() {
-        return baralho;
+        return indiceBaralho;
     }
 
     public B_Inventario getInventario() {

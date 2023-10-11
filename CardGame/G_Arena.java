@@ -255,7 +255,7 @@ public class G_Arena {
 
         // Seleciona 7 cartas aleatórias do deck
         for (int i = 0; i < 7; i++) {
-            C_Carta carta = jogador.getDeck().sacarCartaAleatoria();
+            C_Carta carta = jogador.getIndiceBaralho(i).sacarCartaAleatoria();
             if (carta != null) {
                 // Adiciona a carta à mão
                 jogador.adicionarCartaNaMao(carta);
