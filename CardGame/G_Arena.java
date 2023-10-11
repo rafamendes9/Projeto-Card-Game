@@ -475,6 +475,48 @@ public class G_Arena {
 
 
 
+
+
+
+/* metodo re feito para a 2 entrega ( refeito abaixo)
+
+    // ( desenvolvida na entrega 2) !!!!!!!!!!!!
+    private A_Usuario determinarVencedor() {
+
+        if (jogador1.getPontosVida() > jogador2.getPontosVida()) {
+            return jogador1; // Jogador1 vence se tiver mais pontos de vida.
+        } else if (jogador2.getPontosVida() > jogador1.getPontosVida()) {
+            return jogador2; // Jogador2 vence se tiver mais pontos de vida.
+        } else {
+            return null; // O jogo é um empate se ambos os jogadores tiverem a mesma quantidade de pontos
+                         // de vida.
+        }
+    }
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
     //PEQUENA IDEIA DE COMO FUNCIONARIA O MODO DE JOGO PVP
     /*    public void saque(A_Usuario jogador) {
