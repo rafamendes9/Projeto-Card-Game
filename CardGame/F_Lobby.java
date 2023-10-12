@@ -106,7 +106,7 @@ public class F_Lobby {
             // Verifique se o jogador já tem um baralho carregado
             if (usuario.getIndiceBaralho(0) == null) {
                 // Associe o baralho ao jogador
-                usuario.setIndiceBaralho(0, baralho);
+                usuario.setIndiceBaralhoNovo(0, baralho);
                 // Adicione o jogador à lista de usuários do lobby
                 usuarios.add(usuario);
                 System.out.println("Baralho adicionado com sucesso!");

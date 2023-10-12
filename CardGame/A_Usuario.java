@@ -152,12 +152,9 @@ public class A_Usuario {
         return null;  
     }
 
-    public C_Carta sacarCartaAleatoria(int a){
-        C_Carta[] baralhoEscolhido = escolherCartasDoIndiceBaralho(a);
-        for (int i = 0; i < baralhoEscolhido.length; i++) {
-            
-        }
-    }
+
+    
+    
     
   
     // get set
@@ -218,7 +215,7 @@ public class A_Usuario {
     }
 
     // indice baralho
-    public void setIndiceBaralho(int indice, D_Deck novoBaralho) {
+    public void setIndiceBaralhoNovo(int indice, D_Deck novoBaralho) {
         if (indice >= 0 && indice < 5) {
             indiceBaralho[indice] = novoBaralho;
         }
@@ -227,11 +224,14 @@ public class A_Usuario {
     // indice baralho
     public D_Deck getIndiceBaralho(int indice) {
         if (indice >= 0 && indice < 5) {
-            return indiceBaralho[indice];
+            D_Deck test = indiceBaralho[indice];
+            return test;
         } else {
             return null; // Retorna nulo se o índice estiver fora do intervalo
         }
     }
+
+   
 
     // Adiciona metodo para obter todos os baralhos do jogador
     public D_Deck[] getTodosBaralhos() {

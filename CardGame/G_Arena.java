@@ -12,8 +12,8 @@ public class G_Arena {
     private int pontosVidaJogador2;
 
     //atributos novos
-    private C_Carta[] maoJogador1;
-    private C_Carta[] maoJogador2;
+    private C_Carta[] maoJogador = new C_Carta[11];
+ 
     private int manaMaxima;
     private C_Carta[] cemiterioJogador1 = new C_Carta[100];
     private C_Carta[] cemiterioJogador2 = new C_Carta[100];
@@ -30,8 +30,8 @@ public class G_Arena {
         this.campoJogador2 = new C_Carta[2][5];
         this.pontosVidaJogador1 = 20;
         this.pontosVidaJogador2 = 20;
-        this.maoJogador1 = new C_Carta[10]; // Vetor de até 10 posições para a mão do jogador 1
-        this.maoJogador2 = new C_Carta[10]; // Vetor de até 10 posições para a mão do jogador 2
+        this.maoJogador = new C_Carta[10]; // Vetor de até 10 posições para a mão do jogador 1
+       
         this.manaMaxima = 0; // Inicialmente, a mana máxima é zero
         this.cemiterioJogador1 = new C_Carta[100]; // Vetor de tamanho 100 para o cemitério do jogador 1
         this.cemiterioJogador2 = new C_Carta[100]; // Vetor de tamanho 100 para o cemitério do jogador 2
@@ -263,16 +263,53 @@ public class G_Arena {
 
     //metodos novos ( coisas mto separadas foram desenvolvidas separadamente com seus pares)
 
+
+
+
+
+
+    // Metodo para adicionar uma carta à mão do jogador atual
+    public void adicionarCartaNaMaoJogador1(C_Carta carta, int posicao) {
+        if (posicao >= 0 && posicao < maoJogador1.length) {
+            maoJogador1[posicao] = carta;
+        } else {
+            System.out.println("Posição de mão inválida.");
+        }
+    }
+    
+    // Método para encontrar a próxima posição vazia na mão do jogador 1
+    private int encontrarProximaPosicaoVaziaNaMaoJogador1() {
+        for (int i = 0; i < maoJogador1.length; i++) {
+            if (maoJogador1[i] == null) {
+                return i; // Encontrou uma posição vazia
+            }
+        }
+        return -1; // Nenhuma posição vazia encontrada
+    }
+
+    public boolean temEspacoNaMaoJogador1() {
+        for (C_Carta carta : maoJogador1) {
+            if (carta == null) {
+                return true; // Encontrou uma posição vazia na mão
+            }
+        }
+        return false; // Não há espaço vazio na mão
+    }
+    
+
     public void saque(A_Usuario jogador) {
         Random random = new Random();
         int numCartasRetornadas = 0;
 
         // Seleciona 7 cartas aleatórias do deck
         for (int i = 0; i < 7; i++) {
-            C_Carta carta = jogador.getIndiceBaralho(i).escolherCartasDoIndiceBaralho();
+            C_Carta[] carta = jogador.getIndiceBaralho(i).getCartas();
             if (carta != null) {
-                // Adiciona a carta à mão
-                jogador.adicionarCartaNaMao(carta);
+                // Encontra a próxima posição vazia na mão do jogador
+                int posicaoNaMao = encontrarProximaPosicaoVaziaNaMaoJogador1();
+
+                // Adiciona a carta à mão do jogador na posição encontrada
+                adicionarCartaNaMaoJogador1(carta, posicaoNaMao);
             }
         }
 
@@ -285,7 +322,7 @@ public class G_Arena {
                 // Sacar uma nova carta aleatória
                 C_Carta novaCarta = jogador.getDeck().sacarCartaAleatoria();
                 if (novaCarta != null) {
-                    jogador.adicionarCartaNaMao(novaCarta);
+                    jogador.adicionarCartaNaMaoJogador1(novaCarta);
                     numCartasRetornadas++;
                 }
             }
