@@ -39,7 +39,7 @@
 !!!!!!tasks CORREALACIONADAS !!!!!!!!!
 !arena Configura o deck inicial dos jogadores (distribuir cartas) +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)*****
 
-
+!G_Arena verificar método para índice de baralho(índice fixo no momentos)
 
 
 #

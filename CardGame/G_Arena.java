@@ -53,15 +53,29 @@ public class G_Arena {
         
     }
 
+
+    public void escolherMaoDoUsuario(A_Usuario jogador, int a){
+        jogador.escolherCartasDoIndiceBaralho(a);
+    }
+
+
+
+
+
+
+
+
     // metodos
 
     public void iniciarPartida() {
+        
         System.out.println("A partida está começando!");
 
         //!!!!!!!!!!!!!!!!!!!URGENTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         // Configura o deck inicial dos jogadores (distribuir cartas) ( desenvolvida na entrega 2) !!!!!!!!!!!! esse metodo apenas existe ate o momento
-        jogador1.configurarDeckInicial();
-        jogador2.configurarDeckInicial();
+        escolherMaoDoUsuario(jogador1, 2);
+        escolherMaoDoUsuario(jogador2, 2);
+
 
         //embaralha deck jogadores do metodo em D_Deck
         deckJogador1.embaralhar();
@@ -255,7 +269,7 @@ public class G_Arena {
 
         // Seleciona 7 cartas aleatórias do deck
         for (int i = 0; i < 7; i++) {
-            C_Carta carta = jogador.getIndiceBaralho(i).sacarCartaAleatoria();
+            C_Carta carta = jogador.getIndiceBaralho(i).escolherCartasDoIndiceBaralho();
             if (carta != null) {
                 // Adiciona a carta à mão
                 jogador.adicionarCartaNaMao(carta);

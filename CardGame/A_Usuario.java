@@ -123,18 +123,13 @@ public class A_Usuario {
 
     // ( desenvolvida na entrega 2) !!!!!!!!!!!! esse metodo apenas existe ate o momento
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!! metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2)
-    public void configurarDeckInicial() {
-    }
-
-    // ( desenvolvida na entrega 2) !!!!!!!!!!!! esse metodo apenas existe ate o momento
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!! metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2)
     public void fazerTurno() {
     }
 
 
-    public C_Carta[] cartasDoBaralho(D_Deck[] indiceBaralho) {
-        if (indiceBaralho.length >= 1 && indiceBaralho.length <= 4) {
-            switch (indiceBaralho.length) {
+    public C_Carta[] escolherCartasDoIndiceBaralho(int i) {
+        if (i >= 0 && i <= 4) {
+            switch (i) {
                 case 0:
                     return indiceBaralho[0].getCartas();
                 case 1:
@@ -146,17 +141,21 @@ public class A_Usuario {
                 case 4:
                     return indiceBaralho[4].getCartas();
                 default:
-                    System.out.println("Cartas a serem sacadas");
+                    System.out.println("Escolha quais cartas serão sacadas. E escolha entre 0 a 4.");
                     break;
             }
         }
-        return null;  // Handle other cases or return appropriate value
+        return null;  
+    }
+
+    public C_Carta sacarCartaAleatoria(int a){
+        C_Carta[] baralhoEscolhido = escolherCartasDoIndiceBaralho(a);
+        for (int i = 0; i < baralhoEscolhido.length; i++) {
+            
+        }
     }
     
   
-
-
-    
     // get set
     public String getNome() {
         return nome;
