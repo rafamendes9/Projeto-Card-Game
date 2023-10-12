@@ -261,6 +261,17 @@ public class G_Arena {
     }
     
 
+
+
+
+
+
+
+    
+     public C_Carta[] getMao() {
+        return maoJogador;
+    }
+
     //metodos novos ( coisas mto separadas foram desenvolvidas separadamente com seus pares)
 
 
@@ -269,18 +280,19 @@ public class G_Arena {
 
 
     // Metodo para adicionar uma carta à mão do jogador atual
-    public void adicionarCartaNaMaoJogador1(C_Carta carta, int posicao) {
-        if (posicao >= 0 && posicao < maoJogador1.length) {
-            maoJogador1[posicao] = carta;
-        } else {
-            System.out.println("Posição de mão inválida.");
-        }
+   public void adicionarCartaNaMao(A_Usuario jogador, C_Carta[] carta, int posicaoNaMao) {
+    if (posicaoNaMao >= 0 && posicaoNaMao < jogador.getMao().length) {
+        jogador.getMao()[posicaoNaMao] = carta;
+    } else {
+        System.out.println("Posição de mão inválida.");
     }
+}
+
     
     // Método para encontrar a próxima posição vazia na mão do jogador 1
     private int encontrarProximaPosicaoVaziaNaMaoJogador1() {
-        for (int i = 0; i < maoJogador1.length; i++) {
-            if (maoJogador1[i] == null) {
+        for (int i = 0; i < maoJogador.length; i++) {
+            if (maoJogador[i] == null) {
                 return i; // Encontrou uma posição vazia
             }
         }
@@ -288,7 +300,7 @@ public class G_Arena {
     }
 
     public boolean temEspacoNaMaoJogador1() {
-        for (C_Carta carta : maoJogador1) {
+        for (C_Carta carta : maoJogador) {
             if (carta == null) {
                 return true; // Encontrou uma posição vazia na mão
             }
@@ -309,7 +321,8 @@ public class G_Arena {
                 int posicaoNaMao = encontrarProximaPosicaoVaziaNaMaoJogador1();
 
                 // Adiciona a carta à mão do jogador na posição encontrada
-                adicionarCartaNaMaoJogador1(carta, posicaoNaMao);
+                adicionarCartaNaMao(jogador, carta, posicaoNaMao);
+
             }
         }
 

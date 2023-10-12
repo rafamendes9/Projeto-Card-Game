@@ -283,6 +283,10 @@ public class A_Usuario {
         this.numeroTime = numeroTime;
     }
 
+    public Object getMao() {
+        return null;
+    }
+
 }
 
 /*
