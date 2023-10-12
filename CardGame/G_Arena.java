@@ -309,7 +309,7 @@ public class G_Arena {
                 int posicaoNaMao = encontrarProximaPosicaoVaziaNaMaoJogador1();
 
                 // Adiciona a carta à mão do jogador na posição encontrada
-                adicionarCartaNaMaoJogador1(carta, posicaoNaMao);
+                adicionarCartaNaMao(carta);
             }
         }
 
@@ -322,7 +322,7 @@ public class G_Arena {
                 // Sacar uma nova carta aleatória
                 C_Carta novaCarta = jogador.getDeck().sacarCartaAleatoria();
                 if (novaCarta != null) {
-                    jogador.adicionarCartaNaMaoJogador1(novaCarta);
+                    jogador.adicionarCartaNaMao(novaCarta);
                     numCartasRetornadas++;
                 }
             }
@@ -331,6 +331,13 @@ public class G_Arena {
 
 
 
+    public void adicionarCartaNaMao(C_Carta cartaNova){
+        for (int i = 0; i < maoJogador.length; i++) {
+            if (maoJogador[i] == null) {
+                maoJogador[i] = cartaNova;
+            }
+        }
+    }
 
 
 
