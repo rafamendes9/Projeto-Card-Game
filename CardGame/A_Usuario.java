@@ -126,6 +126,10 @@ public class A_Usuario {
     public void fazerTurno() {
     }
 
+    public void adicionarCardCoins(int x){
+        cardCoins += x;
+    }
+
 
     public C_Carta[] escolherCartasDoIndiceBaralho(int i) {
         if (i >= 0 && i <= 4) {

@@ -20,10 +20,4 @@ public enum H_Enum {
     public double getDropProbabilidade() {
         return dropProbabilidade;
     }
-
-    public enum ModoDeJogo {
-        MODO_DUPLA,
-        MODO_SOLO;
-    }
-    
 }
