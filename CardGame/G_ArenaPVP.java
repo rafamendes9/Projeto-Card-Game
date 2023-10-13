@@ -97,6 +97,7 @@ public class G_ArenaPVP {
             jogadorAtual = (jogadorAtual == jogador1) ? jogador2 : jogador1;
         }
 
+        
         // Determina o vencedor da partida
         A_Usuario vencedor = determinarVencedor();
 
@@ -108,9 +109,31 @@ public class G_ArenaPVP {
         }
     }
 
+
+
+
+
+
+
     private boolean verificarVitoria() {
         return jogador1.getPontosVida() <= 0 || jogador2.getPontosVida() <= 0;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void atacarJogador(A_Usuario jogadorAtacante, A_Usuario jogadorAlvo, C_Carta cartaAtaque) {
         // Verifica se jogadores e carta de ataque são válidos
@@ -412,17 +435,6 @@ private int escolherPosicaoParaRetornar(A_Usuario jogador) {
         return -1;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -835,141 +847,4 @@ private int escolherPosicaoParaRetornar(A_Usuario jogador) {
         return vencedor;
     }
 
-
-
-
-
-
-
-/* metodo re feito para a 2 entrega ( refeito abaixo)
-
-    // ( desenvolvida na entrega 2) !!!!!!!!!!!!
-    private A_Usuario determinarVencedor() {
-
-        if (jogador1.getPontosVida() > jogador2.getPontosVida()) {
-            return jogador1; // Jogador1 vence se tiver mais pontos de vida.
-        } else if (jogador2.getPontosVida() > jogador1.getPontosVida()) {
-            return jogador2; // Jogador2 vence se tiver mais pontos de vida.
-        } else {
-            return null; // O jogo é um empate se ambos os jogadores tiverem a mesma quantidade de pontos
-                         // de vida.
-        }
-    }
-
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-    //PEQUENA IDEIA DE COMO FUNCIONARIA O MODO DE JOGO PVP
-    /*    public void saque(A_Usuario jogador) {
-        Random random = new Random();
-        int numCartasRetornadas = 0;
-
-        // Seleciona 7 cartas aleatórias do deck
-        for (int i = 0; i < 7; i++) {
-            C_Carta carta = jogador.getDeck().sacarCartaAleatoria();
-            if (carta != null) {
-                // Adiciona a carta à mão
-                jogador.adicionarCartaNaMao(carta);
-            }
-        }
-
-        // O jogador pode retornar até 5 cartas para o deck
-        while (numCartasRetornadas < 5 && jogador.getNumCartasNaMao() > 0) {
-            // Escolhe aleatoriamente uma carta da mão para retornar ao deck
-            C_Carta cartaRetornada = jogador.retornarCartaParaDeck(random.nextInt(jogador.getNumCartasNaMao()));
-            
-            if (cartaRetornada != null) {
-                // Sacar uma nova carta aleatória
-                C_Carta novaCarta = jogador.getDeck().sacarCartaAleatoria();
-                if (novaCarta != null) {
-                    jogador.adicionarCartaNaMao(novaCarta);
-                    numCartasRetornadas++;
-                }
-            }
-        }
-    }
-
-    public void inicio() {
-        // Sorteia aleatoriamente o jogador que irá começar
-        Random random = new Random();
-        int num = random.nextInt(2);
-        if (num == 0) {
-            // Jogador1 começa
-            turno(jogador1, jogador2);
-        } else {
-            // Jogador2 começa
-            turno(jogador2, jogador1);
-        }
-    }
-
-    public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {
-        // Realiza as ações do turno para o jogador atual
-        compra(jogadorAtual);
-        posicionamento(jogadorAtual);
-        ataque(jogadorAtual, outroJogador);
-        fimDoTurno(jogadorAtual, outroJogador);
-    }
-
-    public void compra(A_Usuario jogador) {
-        // Verifica se há pelo menos uma carta no deck
-        if (jogador.getDeck().getNumCartas() > 0) {
-            // Sacar uma carta aleatória do deck
-            C_Carta cartaSaque = jogador.getDeck().sacarCartaAleatoria();
-            jogador.adicionarCartaNaMao(cartaSaque);
-            // Renova a mana máxima
-            jogador.aumentarManaMaxima();
-        }
-    }
-
-    public void posicionamento(A_Usuario jogador) {
-        // Verifica se há mana disponível para posicionar uma carta
-        if (jogador.getManaAtual() > 0) {
-            // Coloca uma carta no campo (posição fixa, segunda linha do campo)
-            C_Carta carta = jogador.escolherCartaParaPosicionar();
-            if (carta != null) {
-                jogador.posicionarCartaNoCampo(carta);
-                jogador.diminuirManaAtual(carta.getCustoMana());
-            }
-        }
-    }
-
-    public void ataque(A_Usuario jogadorAtacante, A_Usuario jogadorAlvo) {
-        // Implementar a lógica para o ataque
-        // ...
-    }
-
-    public void fimDoTurno(A_Usuario jogadorAtual, A_Usuario outroJogador) {
-        // Verificar se algum dos jogadores tem menos de 1 ponto de vida
-        if (jogadorAtual.getPontosVida() < 1) {
-            System.out.println(outroJogador.getNome() + " é o vencedor!");
-            outroJogador.adicionarCardCoins(100);
-            jogadorAtual.adicionarCardCoins(10);
-        } else if (outroJogador.getPontosVida() < 1) {
-            System.out.println(jogadorAtual.getNome() + " é o vencedor!");
-            jogadorAtual.adicionarCardCoins(100);
-            outroJogador.adicionarCardCoins(10);
-        }
-    } */
-
+}
