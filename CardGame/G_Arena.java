@@ -274,22 +274,6 @@ public class G_Arena {
     }
 
     //metodos novos ( coisas mto separadas foram desenvolvidas separadamente com seus pares)
-
-
-
-
-
-
-    // Metodo para adicionar uma carta à mão do jogador atual
-   public void adicionarCartaNaMao(A_Usuario jogador, C_Carta[] carta, int posicaoNaMao) {
-    if (posicaoNaMao >= 0 && posicaoNaMao < jogador.getMao().length) {
-        jogador.getMao()[posicaoNaMao] = carta;
-    } else {
-        System.out.println("Posição de mão inválida.");
-    }
-}
-
-    
     // Método para encontrar a próxima posição vazia na mão do jogador 1
     private int encontrarProximaPosicaoVaziaNaMaoJogador() {
         for (int i = 0; i < maoJogador.length; i++) {
@@ -414,6 +398,106 @@ public class G_Arena {
 
 
 
+    /*
+     * 
+
+
+    public void iniciarPartida() {
+        System.out.println("A partida está começando!");
+
+        escolherMaoDoUsuario(jogador1, 2);
+        escolherMaoDoUsuario(jogador2, 2);
+
+        deckJogador1.embaralhar();
+        deckJogador2.embaralhar();
+
+        Usuario jogadorAtual = sortearTurnosDoPrimeiroJogador();
+
+        while (!verificarVitoria()) {
+            System.out.println(jogadorAtual.getNome() + " está jogando...");
+            turno(jogadorAtual, (jogadorAtual == jogador1) ? jogador2 : jogador1);
+            jogadorAtual = (jogadorAtual == jogador1) ? jogador2 : jogador1;
+        }
+
+        determinarVencedor();
+    }
+
+    public void turno(Usuario jogadorAtual, Usuario outroJogador) {
+        System.out.println(jogadorAtual.getNome() + " está jogando...");
+        comprarCartaAleatoria(jogadorAtual);
+        posicionarManaOuCarta(jogadorAtual);
+        atacar(outroJogador, jogadorAtual);
+        removerCartasComMenosDeUmPonto(jogadorAtual);
+        removerCartasComMenosDeUmPonto(outroJogador);
+    }
+
+    private void comprarCartaAleatoria(Usuario jogador) {
+        if (jogador.getDeck().getNumCartas() > 0) {
+            Carta cartaSaque = jogador.getDeck().sacarCartaAleatoria();
+            jogador.adicionarCartaNaMao(cartaSaque);
+            jogador.renovarManaMaxima();
+        }
+    }
+
+    private void posicionarManaOuCarta(Usuario jogador) {
+        if (jogador.getManaAtual() > 0) {
+            jogador.posicionarManaNoCampo();
+        } else {
+            Carta carta = jogador.escolherCartaParaPosicionar();
+            if (carta != null) {
+                jogador.posicionarCartaNoCampo(carta);
+                jogador.diminuirManaAtual(carta.getCustoMana());
+            }
+        }
+    }
+
+    private void atacar(A_Usuario jogadorAtacante, A_Usuario jogadorAlvo) {
+        // Verifica se jogadores e carta de ataque são válidos
+        if (jogadorAtacante == null || jogadorAlvo == null) {
+            System.out.println("Ataque inválido. Verifique os jogadores.");
+            return;
+        }
+
+        // Calcula o dano fixo de 5 pontos
+        int dano = 5;
+
+        // Atualiza pontos de vida do jogador alvo
+        jogadorAlvo.diminuirPontosVida(dano);
+
+        System.out.println(jogadorAtacante.getNome() + " atacou " + jogadorAlvo.getNome() + " causando " + dano + " de dano.");
+
+        // Verifica se o jogador alvo ficou sem pontos de vida
+        if (jogadorAlvo.getPontosVida() <= 0) {
+            System.out.println(jogadorAlvo.getNome() + " ficou sem pontos de vida.");
+        }
+    }
+
+
+
+    private void removerCartasComMenosDeUmPonto(Usuario jogador) {
+        for (int linha = 0; linha < jogador.getCampo().length; linha++) {
+            for (int coluna = 0; coluna < jogador.getCampo()[linha].length; coluna++) {
+                Carta carta = jogador.getCampo()[linha][coluna];
+                if (carta != null && carta.getPontosVida() < 1) {
+                    jogador.moverCartaParaCemiterio(carta);
+                    jogador.getCampo()[linha][coluna] = null;
+                }
+            }
+        }
+    }
+
+    private void determinarVencedor() {
+        if (jogador1.getPontosVida() > jogador2.getPontosVida()) {
+            System.out.println("A partida terminou! O vencedor é: " + jogador1.getNome());
+        } else if (jogador2.getPontosVida() > jogador1.getPontosVida()) {
+            System.out.println("A partida terminou! O vencedor é: " + jogador2.getNome());
+        } else {
+            System.out.println("A partida terminou em empate!");
+        }
+    }
+}
+
+     */
 
 
 
