@@ -1,6 +1,7 @@
 package CardGame;
 
 import java.util.List;
+import java.util.Random;
 
 public class A_Usuario {
     private String nome;
@@ -180,6 +181,24 @@ public class A_Usuario {
             return null; // Ou lança uma exceção, dependendo do comportamento desejado
         }
     }
+
+    
+    
+    public C_Carta sacarCartaAleatoriaDoDeck() {
+    Random random = new Random();
+    int tamanhoDoDeck = deck.size();
+    
+    if (tamanhoDoDeck > 0) {
+        int indiceAleatorio = random.nextInt(tamanhoDoDeck);
+        C_Carta carta = deck.remove(indiceAleatorio); // Remove a carta do deck
+        return carta;
+    } else {
+        // Lida com o caso em que o deck está vazio (nenhuma carta para sacar)
+        return null;
+    }
+}
+
+
 
     
     

@@ -320,6 +320,10 @@ public class G_ArenaPVP {
     }
     
 
+
+
+    
+
     private int contarCartasNaMao(A_Usuario jogador) {
         C_Carta[] maoJogador = (jogador == jogador1) ? maoJogador1 : maoJogador2;
         int numCartas = 0;
@@ -333,6 +337,27 @@ public class G_ArenaPVP {
         return numCartas;
     }
     
+
+
+    private void adicionarCartaTrocadaNaMaoJogador(A_Usuario jogador, C_Carta carta, int posicaoNaMao) {
+        // Implementação específica para adicionar uma única carta trocada à mão do jogador
+        C_Carta[] maoDoJogador = escolherMaoDoJogador(jogador);
+    
+        // Verifica se a posiçãoNaMao é válida e se o jogador possui uma mão
+        if (posicaoNaMao >= 0 && posicaoNaMao < maoDoJogador.length && maoDoJogador != null) {
+            // Verifica se a posição já está ocupada na mão do jogador
+            if (maoDoJogador[posicaoNaMao] == null) {
+                maoDoJogador[posicaoNaMao] = carta;
+                System.out.println("Carta trocada adicionada à mão do jogador " + jogador.getNome());
+            } else {
+                System.out.println("Posição na mão do jogador já ocupada.");
+            }
+        } else {
+            System.out.println("Posição de mão inválida.");
+        }
+    }
+
+
 
 
 
@@ -362,10 +387,11 @@ public class G_ArenaPVP {
 
         if (cartaRetornada != null) {
             // Sacar uma nova carta aleatória
-            C_Carta novaCarta = jogador.getDeck().sacarCartaAleatoria();
+            C_Carta novaCarta = jogador.sacarCartaAleatoriaDoDeck();
+
             if (novaCarta != null) {
                 // Adiciona a carta à mão do jogador com base no jogador
-                adicionarCartaNaMaoJogador(jogador, novaCarta);
+                adicionarCartaTrocadaNaMaoJogador(jogador, novaCarta, numCartasRetornadas);
                 numCartasRetornadas++;
             }
         }
