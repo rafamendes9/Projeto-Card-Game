@@ -364,8 +364,7 @@ public class G_ArenaPVP {
 
 
     public void saque(A_Usuario jogador) {
-        Random random = new Random();
-        int numCartasRetornadas = 0;
+       int numCartasRetornadas = 0;
     
         // Seleciona 7 cartas aleatórias do deck
         for (int i = 0; i < 7; i++) {
