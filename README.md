@@ -39,6 +39,7 @@
 
 !G_Arena verificar método para índice de baralho(índice fixo no momentos)
 
+!G2_ArenaDoble metodo Saque vai ser reescrito para receber a mao de 4 players
 
 #
 

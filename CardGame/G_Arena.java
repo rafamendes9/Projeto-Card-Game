@@ -291,7 +291,7 @@ public class G_Arena {
 
     
     // Método para encontrar a próxima posição vazia na mão do jogador 1
-    private int encontrarProximaPosicaoVaziaNaMaoJogador1() {
+    private int encontrarProximaPosicaoVaziaNaMaoJogador() {
         for (int i = 0; i < maoJogador.length; i++) {
             if (maoJogador[i] == null) {
                 return i; // Encontrou uma posição vazia
@@ -309,7 +309,7 @@ public class G_Arena {
         return false; // Não há espaço vazio na mão
     }
     
-
+/*
     public void saque(A_Usuario jogador) {
         Random random = new Random();
         int numCartasRetornadas = 0;
@@ -342,6 +342,7 @@ public class G_Arena {
             }
         }
     }
+*/
 
 
 
@@ -352,6 +353,75 @@ public class G_Arena {
             }
         }
     }
+
+
+    public void saque(A_Usuario jogador) {
+        Random random = new Random();
+        int numCartasRetornadas = 0;
+    
+        // Seleciona 7 cartas aleatórias do deck
+        for (int i = 0; i < 7; i++) {
+            C_Carta[] carta = jogador.getIndiceBaralho(i).getCartas();
+            if (carta != null) {
+                // Encontra a próxima posição vazia na mão do jogador
+                int posicaoNaMao = encontrarProximaPosicaoVaziaNaMao(jogador);
+    
+                // Adiciona a carta à mão do jogador com base na condição
+                if (jogador == jogador1) {
+                    adicionarCartaNaMaoJogador1(carta, posicaoNaMao);
+                } else if (jogador == jogador2) {
+                    adicionarCartaNaMaoJogador2(carta, posicaoNaMao);
+                }
+            }
+        }
+    
+        // O jogador pode retornar até 5 cartas para o deck
+        while (numCartasRetornadas < 5 && jogador.getNumCartasNaMao() > 0) {
+            // Escolhe aleatoriamente uma carta da mão para retornar ao deck
+            C_Carta cartaRetornada = jogador.retornarCartaParaDeck(random.nextInt(jogador.getNumCartasNaMao()));
+    
+            if (cartaRetornada != null) {
+                // Sacar uma nova carta aleatória
+                C_Carta novaCarta = jogador.getDeck().sacarCartaAleatoria();
+                if (novaCarta != null) {
+                    // Adiciona a carta à mão do jogador com base na condição
+                    if (jogador == jogador1) {
+                        adicionarCartaNaMaoJogador1(novaCarta);
+                    } else if (jogador == jogador2) {
+                        adicionarCartaNaMaoJogador2(novaCarta);
+                    }
+                    numCartasRetornadas++;
+                }
+            }
+        }
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
