@@ -12,6 +12,7 @@ public class G_Arena {
     private int pontosVidaJogador2;
 
     //atributos novos
+    //deve ser movido para Usuário
     private C_Carta[] maoJogador = new C_Carta[11];
  
     private int manaMaxima;
@@ -383,11 +384,13 @@ public class G_Arena {
     }
     
     private void posicionarManaOuCarta(A_Usuario jogador) {
+        //Não temos atributo Mana em Usuário
         if (jogador.getManaAtual() > 0) {
             // Coloque uma mana no campo
             jogador.posicionarManaNoCampo();
         } else {
             // Coloque uma carta no campo (segunda linha)
+            //refazer o método para definir qual classe terá a função
             C_Carta carta = jogador.escolherCartaParaPosicionar();
             if (carta != null) {
                 jogador.posicionarCartaNoCampo(carta);
@@ -410,6 +413,7 @@ public class G_Arena {
 
     
     private void atacar(A_Usuario jogadorAlvo, A_Usuario jogadorAtacante) {
+        //não temos atributo campo em Usuário, necessário alterar o caminho de chamada de função
         C_Carta[][] campoJogadorAlvo = jogadorAlvo.getCampo();
         C_Carta[][] campoJogadorAtacante = jogadorAtacante.getCampo();
     
@@ -430,6 +434,7 @@ public class G_Arena {
                         cartaAlvo.diminuirPontosVida(dano);
     
                         // Verifique se a carta alvo chegou a 0 ou menos pontos de vida
+                        //criar atributo pontos de vida para Cartas
                         if (cartaAlvo.getPontosVida() <= 0) {
                             // Mova a carta alvo para o cemitério (pode haver métodos específicos para isso)
                             jogadorAlvo.moverCartaParaCemiterio(cartaAlvo);
