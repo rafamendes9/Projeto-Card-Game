@@ -321,6 +321,19 @@ public class G_Arena {
     }
     
 
+    private int contarCartasNaMao(A_Usuario jogador) {
+        C_Carta[] maoJogador = (jogador == jogador1) ? maoJogador1 : maoJogador2;
+        int numCartas = 0;
+    
+        for (C_Carta carta : maoJogador) {
+            if (carta != null) {
+                numCartas++;
+            }
+        }
+    
+        return numCartas;
+    }
+    
 
 
 
@@ -343,9 +356,11 @@ public class G_Arena {
             }
         }
     
-        // O jogador pode retornar até 5 cartas para o deck
-        while (numCartasRetornadas < 5 && jogador.getNumCartasNaMao() > 0) {
+        // O jogador pode TROCAR (retornar) até 5 cartas (da sua mao) para o deck
+        while (numCartasRetornadas < 5 && contarCartasNaMao(jogador) > 0) {
         // Escolhe aleatoriamente uma carta da mão para retornar ao deck
+
+        
         C_Carta cartaRetornada = jogador.retornarCartaParaDeck(random.nextInt(jogador.getNumCartasNaMao()));
 
         if (cartaRetornada != null) {

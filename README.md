@@ -25,10 +25,6 @@
 
 !deck ANALISAR disponibilidadeCarta + addCarta ( n lembro disso TEM Q REVER)
 
-!deck editar metodo para remover carta(atualmente ele apaga a carta) e voltar para class inventario + mover metodo atual para class inventario como "apagar carta"
-!MUDAR metodo remorção para usar pilha ( simplifica o metodo ) (Possivel correção parcial em andamento)
-
-
 !LOJA  resto de atributos da carta + gerar habilidade no gerar carta*****
 !enum habilidade precisa ser desenvolvido(ele apenas existe mas habilidade n possuem efeito)
 
