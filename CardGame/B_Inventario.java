@@ -54,6 +54,21 @@ public class B_Inventario {
         }
         return false;
     }
+
+    
+    public C_Carta apagarCarta(String nome) {
+        // Lógica para apagar a carta do inventário
+        // Você pode remover a carta com o nome especificado e retorná-la
+        // ou simplesmente marcá-la como null no array de cartas e retornar.
+        for (int i = 0; i < cartas.length; i++) {
+            if (cartas[i] != null && cartas[i].getNome().equals(nome)) {
+                C_Carta cartaRemovida = cartas[i];
+                cartas[i] = null;  // Marcar a carta como removida
+                return cartaRemovida;
+            }
+        }
+        return null;  // Carta não encontrada
+    }
     
     //GET SET
 

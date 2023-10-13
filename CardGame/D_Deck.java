@@ -36,11 +36,6 @@ public class D_Deck {
         disponibilidadeCarta();
     }
 
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!URGENTE deck editar metodo para remover carta(atualmente ele apaga a carta) e voltar para class inventario + mover metodo atual para class inventario como "apagar carta"" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public C_Carta removerCarta(String nome) {
-        return null;
-    }
-
     public boolean maximasRepeticoes(C_Carta carta) {
         if (carta.getNome().equals("mana")) {
             return false; // cartas de mana(futuramente  "private String TERRENO;"") podem ser chamadas mais de 3 vezes
@@ -64,6 +59,21 @@ public class D_Deck {
             cartas[i] = cartas[j];
             cartas[j] = temp;
         }
+    }
+
+    
+    public void removerCarta(String nome, B_Inventario inventario) {
+        // Encontre a carta no deck pelo nome
+        for (int i = 0; i < qtdCartas; i++) {
+            if (cartas[i] != null && cartas[i].getNome().equals(nome)) {
+                C_Carta cartaRemovida = cartas[i];
+                cartas[i] = null;  // Marcar a carta como removida do deck
+                inventario.adicionarCarta(cartaRemovida);  // Adicionar a carta ao inventário
+                qtdCartas--;
+                return;  // Carta removida com sucesso
+            }
+        }
+        System.out.println("Carta não encontrada no deck: " + nome);
     }
 
     // get set
