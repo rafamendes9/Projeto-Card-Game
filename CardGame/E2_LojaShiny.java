@@ -30,15 +30,14 @@ public class E2_LojaShiny extends E_Loja {
 
 
             C2_CartaShiny novaCartaShiny = new C2_CartaShiny(
-                          novaCartaNormal.getNome(),
-                          novaCartaNormal.getImagem(),
-                          novaCartaNormal.getTipo(),
-                          novaCartaNormal.getRaridade(),
-                          novaCartaNormal.getHabilidade(),
-                          novaCartaNormal.getAtaque(),
-                          novaCartaNormal.getDefesa(),
-                          novaCartaNormal.getCusto()
-    );
+                novaCartaNormal.getNome(),
+                novaCartaNormal.getImagem(),
+                novaCartaNormal.getTipo(),
+                novaCartaNormal.getRaridade(),
+                novaCartaNormal.getAtaque(),
+                novaCartaNormal.getDefesa(),
+                novaCartaNormal.getCusto()
+            );
             
             
             usuario.getInventario().adicionarCartaShiny(novaCartaShiny);

@@ -30,10 +30,8 @@
 
 
 !LOJA  resto de atributos da carta + gerar habilidade no gerar carta*****
-!enum  habilidade modificou C2_CartaShiny (TEM Q REVER)*****
 !enum habilidade precisa ser desenvolvido(ele apenas existe mas habilidade n possuem efeito)
 
-!C2_CartaShiny setar o gerar habilidadeAleatoria no construtos de add habilidadeExtre;
 
 !usuario  4 metodo atualizar nivel +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)****
 !!!!!!tasks CORREALACIONADAS !!!!!!!!!
@@ -50,9 +48,3 @@
 
 #### 4 aplicar um padrao de projeto( n pode ser go horse) + apresentar
 
-#
-
-## bla bla psicopatia plena
-
-
-METODOS REPITIDOS EM ARENA ( FIM DO TURNO FOI CRIADO A PARTE AGR MAS JA FAZ PARTE DE UM GRANDE METODO ANTIGO EM ENTREGA 1 Q FAZIA ALGO SIMILAR)
