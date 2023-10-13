@@ -1,7 +1,7 @@
 package CardGame;
 import java.util.Random;
 
-public class G2_ArenaDouble extends G_Arena{
+public class G2_Arena2V2 extends G_ArenaPVP{
     private A_Usuario jogador3;  // Novos jogadores
     private A_Usuario jogador4;
     private D_Deck deckJogador3;
@@ -14,7 +14,7 @@ public class G2_ArenaDouble extends G_Arena{
     //novo atributo para criar em lobby
     private F_Lobby lobby; // Adicione um atributo para a referência do lobby
 
-    public G2_ArenaDouble(A_Usuario jogador1, A_Usuario jogador2, A_Usuario jogador3, A_Usuario jogador4,
+    public G2_Arena2V2(A_Usuario jogador1, A_Usuario jogador2, A_Usuario jogador3, A_Usuario jogador4,
             D_Deck deckJogador1, D_Deck deckJogador2, D_Deck deckJogador3, D_Deck deckJogador4, C_Carta[][] campoJogador3,
             C_Carta[][] campoJogador4, int pontosVidaJogador3, int pontosVidaJogador4, F_Lobby lobby) {
         super(jogador1, jogador2, deckJogador1, deckJogador2);

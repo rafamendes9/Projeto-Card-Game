@@ -1,7 +1,7 @@
 package CardGame;
 import java.util.Random;
 
-public class G_Arena {
+public class G_ArenaPVP {
     private A_Usuario jogador1;
     private A_Usuario jogador2;
     private D_Deck deckJogador1;
@@ -22,7 +22,7 @@ public class G_Arena {
     // Construtores 
 
     
-    public G_Arena(A_Usuario jogador1, A_Usuario jogador2, D_Deck deckJogador1, D_Deck deckJogador2) {
+    public G_ArenaPVP(A_Usuario jogador1, A_Usuario jogador2, D_Deck deckJogador1, D_Deck deckJogador2) {
         this.jogador1 = jogador1;
         this.jogador2 = jogador2;
         this.deckJogador1 = deckJogador1;
@@ -42,7 +42,7 @@ public class G_Arena {
 
      // Construtor que aceita apenas jogadores
      //usado para lobby  em "criarPartida"
-     public G_Arena(A_Usuario jogador1, A_Usuario jogador2) {
+     public G_ArenaPVP(A_Usuario jogador1, A_Usuario jogador2) {
         this.jogador1 = jogador1;
         this.jogador2 = jogador2;
         this.deckJogador2 = null; // Definido como null 
