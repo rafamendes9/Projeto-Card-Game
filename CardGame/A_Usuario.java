@@ -1,4 +1,7 @@
 package CardGame;
+
+import java.util.List;
+
 public class A_Usuario {
     private String nome;
     private String cpf;
@@ -20,6 +23,9 @@ public class A_Usuario {
     private int pontosVida; // Atributo para armazenar vida do jogador usado em ARENA
     private boolean emTime; // Atributo utilizado no novo modo de Jogo 2Px2P
     private int numeroTime; // Atributo utilizado no novo modo de Jogo 2Px2P
+
+    private List<C_Carta> deck;
+    private List<C_Carta> mao;
 
     public A_Usuario(String nome, String cpf, String senha, String sexo, String email, int nivel, int cardCoins,
             D_Deck[] indiceBaralho, B_Inventario inventario) {
@@ -152,6 +158,28 @@ public class A_Usuario {
         return null;  
     }
 
+
+
+
+
+
+    public C_Carta retornarCartaParaDeck(int posicao) {
+        if (posicao >= 0 && posicao < mao.size()) {
+            // Pega a carta da mão na posição especificada
+            C_Carta carta = mao.get(posicao);
+
+            // Remove a carta da mão
+            mao.remove(posicao);
+
+            // Adiciona a carta de volta ao deck (baralho)
+            deck.add(carta);
+
+           return carta;
+        } else {
+            System.out.println("Posição de mão inválida.");
+            return null; // Ou lança uma exceção, dependendo do comportamento desejado
+        }
+    }
 
     
     

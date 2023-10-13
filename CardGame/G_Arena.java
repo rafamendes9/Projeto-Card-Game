@@ -72,10 +72,9 @@ public class G_Arena {
         
         System.out.println("A partida está começando!");
 
-        //!!!!!!!!!!!!!!!!!!!URGENTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // Configura o deck inicial dos jogadores (distribuir cartas) ( desenvolvida na entrega 2) !!!!!!!!!!!! esse metodo apenas existe ate o momento
-        escolherMaoDoUsuario(jogador1, 2);
-        escolherMaoDoUsuario(jogador2, 2);
+        
+        escolherMaoDoUsuario(jogador1, 1);
+        escolherMaoDoUsuario(jogador2, 1);
 
 
         //embaralha deck jogadores do metodo em D_Deck
@@ -359,13 +358,11 @@ public class G_Arena {
         // O jogador pode TROCAR (retornar) até 5 cartas (da sua mao) para o deck
         while (numCartasRetornadas < 5 && contarCartasNaMao(jogador) > 0) {
         // Escolhe aleatoriamente uma carta da mão para retornar ao deck
-
-        
-        C_Carta cartaRetornada = jogador.retornarCartaParaDeck(random.nextInt(jogador.getNumCartasNaMao()));
+        C_Carta cartaRetornada = jogador.retornarCartaParaDeck(escolherPosicaoParaRetornar(jogador));
 
         if (cartaRetornada != null) {
             // Sacar uma nova carta aleatória
-             C_Carta[] novaCarta = jogador.getIndiceBaralho(i).getCartas();!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            C_Carta novaCarta = jogador.getDeck().sacarCartaAleatoria();
             if (novaCarta != null) {
                 // Adiciona a carta à mão do jogador com base no jogador
                 adicionarCartaNaMaoJogador(jogador, novaCarta);
@@ -376,6 +373,20 @@ public class G_Arena {
 }
     
 
+private int escolherPosicaoParaRetornar(A_Usuario jogador) {
+    // Obtém o número de cartas na mão do jogador
+    int numCartasNaMao = contarCartasNaMao(jogador);
+
+    if (numCartasNaMao > 0) {
+        // Escolhe aleatoriamente um índice válido na mão do jogador
+        Random random = new Random();
+        int posicaoEscolhida = random.nextInt(numCartasNaMao);
+        return posicaoEscolhida;
+    } else {
+        // Se não houver cartas na mão do jogador, retorne -1 para indicar que não há cartas para retornar
+        return -1;
+    }
+}
 
 
 

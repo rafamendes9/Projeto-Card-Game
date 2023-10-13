@@ -23,15 +23,9 @@
 
 ## tasks urgentes
 
-!LOJA  resto de atributos da carta + gerar habilidade no gerar carta*****
 !enum habilidade precisa ser desenvolvido(ele apenas existe mas habilidade n possuem efeito)
 
-
 !usuario  4 metodo atualizar nivel +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)****
-!!!!!!tasks CORREALACIONADAS !!!!!!!!!
-!arena Configura o deck inicial dos jogadores (distribuir cartas) +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)*****
-
-!G_Arena verificar método para índice de baralho(índice fixo no momentos)
 
 !G2_ArenaDoble metodo Saque vai ser reescrito para receber a mao de 4 players
 
