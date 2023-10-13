@@ -16,13 +16,11 @@ public class D_Deck {
         this.cartas = cartas;
     }
 
-    //!!!!!!!!!!!!!!!!!!!URGENTE ANALISAR disponibilidadeCarta + addCarta !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //( n lembro disso TEM Q REVER)
-   public void disponibilidadeCarta() { //metodo usado em addCarta + valida maximo de cartas no deck
-        if (qtdCartas == 60 ) {
-            disponibilidade = true;
-        } else {
+   public void isDeckDisponivel() { //metodo usado em addCarta + valida maximo de cartas no deck
+        if (qtdCartas < 60 ) {
             disponibilidade = false;
+        } else {
+            disponibilidade = true;
         }
     }
 
@@ -33,7 +31,7 @@ public class D_Deck {
             cartas[qtdCartas] = carta;
             qtdCartas++;
         }
-        disponibilidadeCarta();
+        isDeckDisponivel(); //atualiza a diponibilidade da carta com o acréscimo de uma nova
     }
 
     public boolean maximasRepeticoes(C_Carta carta) {

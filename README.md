@@ -23,8 +23,6 @@
 
 ## tasks urgentes
 
-!deck ANALISAR disponibilidadeCarta + addCarta ( n lembro disso TEM Q REVER)
-
 !LOJA  resto de atributos da carta + gerar habilidade no gerar carta*****
 !enum habilidade precisa ser desenvolvido(ele apenas existe mas habilidade n possuem efeito)
 
