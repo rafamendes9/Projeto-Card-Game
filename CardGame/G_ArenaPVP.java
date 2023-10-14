@@ -350,14 +350,20 @@ public class G_ArenaPVP {
 
 
 
-
-
-
+ private C_Carta[][] campoJogador3;
+    private C_Carta[][] campoJogador4;
 
     
-
+    
+    
     public void atacar(A_Usuario jogadorAlvo, A_Usuario jogadorAtacante) {
-        //não tem atributo campo em Usuário, necessário alterar o caminho de chamada de função
+        //escolhe os jogador correspondente               
+      //  jogadorAlvo = (jogadorAlvo == jogador1) ? jogador2 : jogador1;
+       // jogadorAtacante = (jogadorAtacante == jogador2) ? jogador1 : jogador2;
+
+
+
+
         C_Carta[][] campoJogadorAlvo = jogadorAlvo.getCampo();
         C_Carta[][] campoJogadorAtacante = jogadorAtacante.getCampo();
     
@@ -483,8 +489,8 @@ public class G_ArenaPVP {
 
 
 
-        // fim do turno add xp do jogador
         
+
 
     public void fimDeTurno() {
     // Verificar se algum jogador tem menos de 1 ponto de vida
@@ -493,9 +499,12 @@ public class G_ArenaPVP {
 
             // Vencedor ganha 100 card coins
             jogador2.adicionarCardCoins(100);
+            jogador2.atualizarNivel(1000);
 
             // Perdedor ganha 10 card coins
             jogador1.adicionarCardCoins(10);
+            jogador1.atualizarNivel(500);
+
 
             // Encerrar o jogo ou fazer outras ações de final de jogo
             // Pode ser uma boa ideia lançar uma exceção ou chamar um método de encerramento aqui
@@ -505,9 +514,11 @@ public class G_ArenaPVP {
 
             // Vencedor ganha 100 card coins
             jogador1.adicionarCardCoins(100);
+            jogador1.atualizarNivel(1000);
 
             // Perdedor ganha 10 card coins
             jogador2.adicionarCardCoins(10);
+            jogador2.atualizarNivel(500);
 
             System.exit(0);
         }
