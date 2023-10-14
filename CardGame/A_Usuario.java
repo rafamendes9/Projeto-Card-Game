@@ -77,7 +77,7 @@ public class A_Usuario {
     }
 
      // Método para validar CPF (modelo simples, vai ser trocado por uma melhor na segunda fase
-        private boolean validarCPF(String cpf) {
+        public boolean validarCPF(String cpf) {
         // Lógica de validação de CPF aqui (vai ser mais elaborada)
         return cpf != null && cpf.matches("\\d{11}");
     }

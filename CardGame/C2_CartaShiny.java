@@ -43,7 +43,7 @@ public class C2_CartaShiny extends C_Carta {
         this.habilidadeExtra = habilidadeExtra;
     }
 
-     private H3_EnumHabilidade gerarHabilidadeAleatoriaExtra() {
+     public H3_EnumHabilidade gerarHabilidadeAleatoriaExtra() {
         Random random = new Random();
         int valorHabilidade = random.nextInt(6); // 0 a 5, representando habilidades
 

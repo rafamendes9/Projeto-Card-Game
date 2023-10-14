@@ -50,8 +50,8 @@ public class G2_Arena2V2 extends G_ArenaPVP{
         return jogadorSorteado;
     }
 
-    /*
-     * @Override
+    
+      @Override
         public void iniciarPartida() {
             System.out.println("A partida está começando!");
     
@@ -65,40 +65,40 @@ public class G2_Arena2V2 extends G_ArenaPVP{
             while (!super.verificarVitoria()) {
                 System.out.println(jogadorAtual.getNome() + " está jogando...");
     
-                // Adicione lógica para o novo jogador (jogador3 e jogador4)
-                if (jogadorAtual == jogador1 || jogadorAtual == jogador2) {
-                    turno(jogadorAtual, (jogadorAtual == jogador1) ? jogador2 : jogador1);
+                if (jogadorAtual == super.getJogador1() || jogadorAtual == super.getJogador2()) {
+                    turno(jogadorAtual, (jogadorAtual == super.getJogador1()) ? super.getJogador2() : super.getJogador1());
                 } else {
                     // Jogadores 3 e 4 estão juntos e possuem aliados
-                    turno(jogadorAtual, jogador3, new A_Usuario[]{jogador4});
+                    turno(jogadorAtual, (jogadorAtual == jogador3) ? jogador4 : jogador3);
                 }
     
                 fimDeTurno();
-                jogadorAtual = (jogadorAtual == jogador1) ? jogador2 : (jogadorAtual == jogador2) ? jogador3 : jogador4;
+                jogadorAtual = (jogadorAtual == super.getJogador1()) ? super.getJogador2() : (jogadorAtual == super.getJogador2()) ? jogador3 : jogador4;
             }
     
             determinarVencedor();
         }
 
     @Overload
-    public void turno(A_Usuario jogadorAtual, A_Usuario aliado, A_Usuario[] inimigos) {
+    public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {//toda essa loucura faz parte de (TURNO) até (moverCartaParaCemiterio)
         System.out.println(jogadorAtual.getNome() + " está jogando...");
+    
+        // Compra
         comprarCartaAleatoria(jogadorAtual);
+    
+        // Posicionamento
         posicionarManaOuCarta(jogadorAtual);
-        atacar(aliado, inimigos, jogadorAtual);
+    
+        // Ataque
+        atacar(outroJogador, jogadorAtual);
+    
+        // Remover cartas com menos de 1 ponto de vida do campo e enviá-las para o cemitério
         removerCartasComMenosDeUmPonto(jogadorAtual);
-
-        // Adicione lógica para aliados
-        for (A_Usuario aliadoAtual : inimigos) {
-            comprarCartaAleatoria(aliadoAtual);
-            posicionarManaOuCarta(aliadoAtual);
-            atacar(jogadorAtual, new A_Usuario[]{}, aliadoAtual);
-            removerCartasComMenosDeUmPonto(aliadoAtual);
-        }
+        removerCartasComMenosDeUmPonto(outroJogador);
     }
 
     @Override
-    private void atacar(A_Usuario jogadorAtacante, A_Usuario[] aliados, A_Usuario jogadorAlvo) {
+    public void atacar(A_Usuario jogadorAtacante, A_Usuario[] aliados, A_Usuario jogadorAlvo) {
         // Verifica se jogadores e carta de ataque são válidos
         if (jogadorAtacante == null || jogadorAlvo == null) {
             System.out.println("Ataque inválido. Verifique os jogadores.");
@@ -160,7 +160,7 @@ public class G2_Arena2V2 extends G_ArenaPVP{
             }
         }
     }
-     */
+     
     
     
     public A_Usuario getJogador3() {

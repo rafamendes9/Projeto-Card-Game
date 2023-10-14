@@ -175,7 +175,7 @@ public class E_Loja {
   }  
 
     //metodo refeito para se adequar a raridade fixa
-    private H_Enum gerarRaridadeAleatoria() { 
+    public H_Enum gerarRaridadeAleatoria() { 
     Random random = new Random();
     double valorProbabilidade = random.nextDouble(); // Gera um valor de probabilidade aleatório entre 0 e 1
 
@@ -193,7 +193,7 @@ public class E_Loja {
     }
   }
 
-  private String gerarImagemAleatoria() {//chama as imagens do enum de forma aleatoria
+  public String gerarImagemAleatoria() {//chama as imagens do enum de forma aleatoria
     Random random = new Random();
     H2_EnumIMG[] imagens = H2_EnumIMG.values();
     int indiceAleatorio = random.nextInt(imagens.length);
@@ -201,7 +201,7 @@ public class E_Loja {
 }
 
 
- private H3_EnumHabilidade gerarHabilidadeAleatorio() {
+ public H3_EnumHabilidade gerarHabilidadeAleatorio() {
         Random random = new Random();
         int valorHabilidade = random.nextInt(6); // 0 a 5, representando habilidade  AMEDRONTAR, ATROPELAR, METAL, UNIR, CURA, VENENO, ESCUDOREFLETOR
 
@@ -226,7 +226,7 @@ public class E_Loja {
         }
 }
 
- private H4_EnumTipo gerarTipoAleatorio() {
+ public H4_EnumTipo gerarTipoAleatorio() {
         Random random = new Random();
         int valorTipo = random.nextInt(8); // 0 a 7, representando tipo  FOGO, AGUA, METAL, PEDRA, VENTO, RAIO, LUZ, TREVAS
 

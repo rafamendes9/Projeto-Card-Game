@@ -47,7 +47,7 @@ public class F_Lobby {
      * "Aguardando oponente...".
      */
 
-    private void emparelharUsuarios(A_Usuario usuario) {
+    public void emparelharUsuarios(A_Usuario usuario) {
         for (A_Usuario oponente : usuarios) {
             if (oponente != usuario && oponente.getNivel() == usuario.getNivel()//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ver possibilidade para alterar nivel de igual para + nivel aproximado!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     && oponente.getModoDeJogo().equals(usuario.getModoDeJogo())) {
