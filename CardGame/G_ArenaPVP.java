@@ -293,8 +293,8 @@ public class G_ArenaPVP {
      public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {//toda essa loucura faz parte de (TURNO) até (moverCartaParaCemiterio)
         System.out.println(jogadorAtual.getNome() + " está jogando...");
     
-        // Compra
-        comprarCartaAleatoria(jogadorAtual);
+        // Sacar carta
+        saque(jogadorAtual);
     
         // Posicionamento
         posicionarManaOuCarta(jogadorAtual);
@@ -303,22 +303,13 @@ public class G_ArenaPVP {
         atacar(outroJogador, jogadorAtual);
     
         // Remover cartas com menos de 1 ponto de vida do campo e enviá-las para o cemitério
-        removerCartasComMenosDeUmPonto(jogadorAtual);
-        removerCartasComMenosDeUmPonto(outroJogador);
+        removerCartasComMenosDeUmPonto(campoJogador1, jogadorAtual);
+        removerCartasComMenosDeUmPonto(campoJogador2, outroJogador);
     }
 
 
 
 
-
-
-    public void comprarCartaAleatoria(A_Usuario jogador) {
-        if (jogador.getDeck().getNumCartas() > 0) {
-            C_Carta cartaSaque = jogador.getDeck().sacarCartaAleatoria();
-            jogador.adicionarCartaNaMao(cartaSaque);
-            jogador.renovarManaMaxima();
-        }
-    }
 
     public void posicionarManaOuCarta(A_Usuario jogador) {
         //Não temos atributo Mana em Usuário
