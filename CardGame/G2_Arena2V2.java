@@ -31,7 +31,7 @@ public class G2_Arena2V2 extends G_ArenaPVP{
 
     //POSSIVELMENTE O ATRIBUTO DEVA VIRAR PROTECTED
     @Override
-    protected A_Usuario sortearTurnosDoPrimeiroJogador() {
+    public A_Usuario sortearTurnosDoPrimeiroJogador() {
 
         Random random = new Random();
         int numeroSorteado = random.nextInt(4); // Gera numero aleatório 0 ou 1
