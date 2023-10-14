@@ -15,7 +15,8 @@ public class G_ArenaPVP {
     //deve ser movido para Usuário
     private C_Carta[] maoJogador1 = new C_Carta[11];
     private C_Carta[] maoJogador2 = new C_Carta[11];
-    private int manaMaxima;
+    private int manaMaxima = 0;
+    private int mana = 0;
     private C_Carta[] cemiterioJogador1 = new C_Carta[120];
     private C_Carta[] cemiterioJogador2 = new C_Carta[120];
 
@@ -33,7 +34,7 @@ public class G_ArenaPVP {
         this.pontosVidaJogador2 = 20;
         this.maoJogador1 = new C_Carta[11]; // Vetor de até 11 posições para a mão do jogador 1
         this.maoJogador2 = new C_Carta[11]; // Vetor de até 11 posições para a mão do jogador 2
-        this.manaMaxima = 0; // Inicialmente, a mana máxima é zero
+        this.manaMaxima = manaMaxima; // Inicialmente, a mana máxima é zero
         this.cemiterioJogador1 = new C_Carta[120]; // Vetor de tamanho 100 para o cemitério do jogador 1
         this.cemiterioJogador2 = new C_Carta[120]; // Vetor de tamanho 100 para o cemitério do jogador 2
 
@@ -224,9 +225,14 @@ public class G_ArenaPVP {
 // !!!!!!!!!!!!!!!!! FIM DE SAQUE !!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
     
 
+
+
      public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {//toda essa loucura faz parte de (TURNO) até (moverCartaParaCemiterio)
         System.out.println(jogadorAtual.getNome() + " está jogando...");
-    
+        
+        //cada turno jogador deve ganhar + 1 de mana para usar
+        mana++;// LOGICA PREVIA DE MANA ENQUANTO NÂO SE REQUER LOGICA ESPEFICA EM SLIDE !!!!!!!
+        manaMaxima = mana;
         // Sacar carta
         saque(jogadorAtual);
     
@@ -299,6 +305,13 @@ public class G_ArenaPVP {
         return pontosVidaJogador2;
     }
     
+     public int getmanaMaxima() {
+        return manaMaxima;
+    }
+
+    public void setmanaMaxima(int manaMaxima) {
+        this.manaMaxima = manaMaxima;
+    }
     
     
     
@@ -314,10 +327,10 @@ public class G_ArenaPVP {
 
 
     public void posicionarManaOuCarta(A_Usuario jogador) {
-        //Não temos atributo Mana em Usuário
-        if (jogador.getManaAtual() > 0) {
+        //para colocar carta no campo REQUER RECURSO ( chamado de mana )
+        if (jogador.getmanaMaxima() = 0) {
             // Coloque uma mana no campo
-            jogador.posicionarManaNoCampo();
+            jogador.posicionarManaNoCampo();// so pode colocar exclusivamente cartas q n tem mana ( metodo carta = zero de mana )
         } else {
             // Coloque uma carta no campo (segunda linha)
             //refazer o método para definir qual classe terá a função

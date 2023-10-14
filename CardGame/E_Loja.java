@@ -152,6 +152,7 @@ public class E_Loja {
     int defesaAleatoria = random.nextInt(10) + 1;
     int custoAleatorio = random.nextInt(10) + 1; 
     int pontoVidaCarta = random.nextInt(10) + 1; 
+    int mana = random.nextInt(10) + 2; 
 
     // Gera uma raridade aleatória com base nas probabilidades do J_Enum
     H_EnumRaridade raridadeAleatoria = gerarRaridadeAleatoria();//implementa raridade para a carta
@@ -169,7 +170,7 @@ public class E_Loja {
     // Criação da carta com os valores aleatórios e a raridade
     // imagem | tipo | habilidade | custo ( FASE 2) desenvolvimento ENUM !!!!!!!
     C_Carta cartaAleatoria = new C_Carta(nomeAleatorio, imagemAleatoria, tipoAleatorio, raridadeAleatoria, habilidadeAleatorio, ataqueAleatorio,
-            defesaAleatoria, custoAleatorio, pontoVidaCarta);
+            defesaAleatoria, custoAleatorio, pontoVidaCarta, mana);
 
     return cartaAleatoria;
   }  

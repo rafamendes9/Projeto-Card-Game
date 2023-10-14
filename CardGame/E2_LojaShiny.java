@@ -37,7 +37,9 @@ public class E2_LojaShiny extends E_Loja {
                 novaCartaNormal.getAtaque(),
                 novaCartaNormal.getDefesa(),
                 novaCartaNormal.getCusto(),
-                novaCartaNormal.getpontoVidaCarta()
+                novaCartaNormal.getpontoVidaCarta(),
+                novaCartaNormal.getmana()
+
             );
             
             

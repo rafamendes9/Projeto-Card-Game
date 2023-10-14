@@ -10,6 +10,7 @@ public class C_Carta {
     private H3_EnumHabilidade habilidade;
     private int quantidade;
     private int pontoVidaCarta;
+    private int mana;
     
     /*  
     Atributo adicional. Uso na fase 3.
@@ -17,7 +18,7 @@ public class C_Carta {
     */
     
     public C_Carta(String nome, String imagem, H4_EnumTipo tipo, H_EnumRaridade raridade, H3_EnumHabilidade habilidade,
-            int ataque, int defesa, int custo, int pontoVidaCarta) {
+            int ataque, int defesa, int custo, int pontoVidaCarta, int mana) {
         this.nome = nome;
         this.imagem = imagem;
         this.tipo = tipo;
@@ -28,6 +29,7 @@ public class C_Carta {
         this.habilidade = habilidade;
         this.quantidade = 0; // Inicialmente, a quantidade é 0.
         this.pontoVidaCarta = pontoVidaCarta;
+        this.mana = mana;
 
     }
 
@@ -124,6 +126,9 @@ public class C_Carta {
 
     public int getpontoVidaCarta() {
         return pontoVidaCarta;
+    }
+    public int getmana() {
+        return mana;
     }
 
     // esse SETTER permite definir o valor da variável da variavel "quantidade"
