@@ -330,7 +330,7 @@ public class G_ArenaPVP {
         //para colocar carta no campo REQUER RECURSO ( chamado de mana )
         if (jogador.getmanaMaxima() = 0) {
             // Coloque uma mana no campo
-            jogador.posicionarManaNoCampo();// so pode colocar exclusivamente cartas q n tem mana ( metodo carta = zero de mana )
+            posicionarManaNoCampo(jogador);// so pode colocar exclusivamente cartas q n tem mana ( metodo carta = zero de mana )
         } else {
             // Coloque uma carta no campo (segunda linha)
             //refazer o método para definir qual classe terá a função
@@ -344,7 +344,13 @@ public class G_ArenaPVP {
 
 
 
+ public void posicionarManaNoCampo (A_Usuario jogador){
 
+    // vc tem q corre a MAO e achar primeira carta de mana e jogar ela em Campo do JOGADOR
+    // if carta == mana ( O )
+    //return Campo do JOGADOR
+
+ }
 
 
 
