@@ -407,8 +407,7 @@ public class G_ArenaPVP {
     
 
 
-    //checa se matou a carta !!!!!!
-
+    //checa se matou a carta ( isso garante que a carta vai para o cemiterio caso tenha uma carta espcial do tipo magia)!!!!!!
      public void removerCartasComMenosDeUmPonto(C_Carta[][] campoJogador, A_Usuario jogador) {
         for (int linha = 0; linha < campoJogador.length; linha++) {
             for (int coluna = 0; coluna < campoJogador[linha].length; coluna++) {
