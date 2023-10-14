@@ -500,15 +500,6 @@ public class G_ArenaPVP {
 
 
 
-    public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {
-        System.out.println(jogadorAtual.getNome() + " está jogando...");
-        comprarCartaAleatoria(jogadorAtual);
-        posicionarManaOuCarta(jogadorAtual);
-        atacar(outroJogador, jogadorAtual);
-        removerCartasComMenosDeUmPonto(jogadorAtual);
-        removerCartasComMenosDeUmPonto(outroJogador);
-    }
-
 
     private void comprarCartaAleatoria(A_Usuario jogador) {
         if (jogador.getDeck().getNumCartas() > 0) {
@@ -589,17 +580,48 @@ public class G_ArenaPVP {
 
     //checa se matou a carta !!!!!!
 
-    private void removerCartasComMenosDeUmPonto(A_Usuario jogador) {
-        for (int linha = 0; linha < jogador.getCampo().length; linha++) {
-            for (int coluna = 0; coluna < jogador.getCampo()[linha].length; coluna++) {
-                C_Carta carta = jogador.getCampo()[linha][coluna];
-                if (carta != null && carta.getPontosVida() < 1) {
-                    jogador.moverCartaParaCemiterio(carta);
-                    jogador.getCampo()[linha][coluna] = null;
+     private void removerCartasComMenosDeUmPonto(C_Carta[][] campoJogador, A_Usuario jogador) {
+        for (int linha = 0; linha < campoJogador.length; linha++) {
+            for (int coluna = 0; coluna < campoJogador[linha].length; coluna++) {
+                C_Carta carta = campoJogador[linha][coluna];
+                
+                // Verifica se há uma carta na posição atual do campo
+                if (carta != null) {
+
+                    if (jogador == jogador1) {
+
+                    
+                    // Verifica se a carta tem menos de um ponto de vida
+                    if (carta.getpontoVidaCarta() < 1) {
+                        // Move a carta para o cemitério (assumindo que você tem um vetor para o cemitério)
+                        moverCartaParaCemiterio(carta, jogador1);
+                        
+                        // Remove a carta do campo
+                        campoJogador[linha][coluna] = null;
+                    }
+
+                }
+                    if (jogador == jogador2) {
+
+                    
+                    // Verifica se a carta tem menos de um ponto de vida
+                    if (carta.getpontoVidaCarta() < 1) {
+                        // Move a carta para o cemitério (assumindo que você tem um vetor para o cemitério)
+                        moverCartaParaCemiterio(carta, jogador2);
+                        
+                        // Remove a carta do campo
+                        campoJogador[linha][coluna] = null;
+                    }
+
+                }
+
+
+
                 }
             }
         }
     }
+
 
    
     private A_Usuario determinarVencedor() {
@@ -714,47 +736,7 @@ public class G_ArenaPVP {
 
 // isso aqui mata a carta e leva pro cemiterio
 
-    private void removerCartasComMenosDeUmPonto(C_Carta[][] campoJogador, A_Usuario jogador) {
-        for (int linha = 0; linha < campoJogador.length; linha++) {
-            for (int coluna = 0; coluna < campoJogador[linha].length; coluna++) {
-                C_Carta carta = campoJogador[linha][coluna];
-                
-                // Verifica se há uma carta na posição atual do campo
-                if (carta != null) {
-
-                    if (jogador == jogador1) {
-
-                    
-                    // Verifica se a carta tem menos de um ponto de vida
-                    if (carta.getpontoVidaCarta() < 1) {
-                        // Move a carta para o cemitério (assumindo que você tem um vetor para o cemitério)
-                        moverCartaParaCemiterio(carta, jogador1);
-                        
-                        // Remove a carta do campo
-                        campoJogador[linha][coluna] = null;
-                    }
-
-                }
-                    if (jogador == jogador2) {
-
-                    
-                    // Verifica se a carta tem menos de um ponto de vida
-                    if (carta.getpontoVidaCarta() < 1) {
-                        // Move a carta para o cemitério (assumindo que você tem um vetor para o cemitério)
-                        moverCartaParaCemiterio(carta, jogador2);
-                        
-                        // Remove a carta do campo
-                        campoJogador[linha][coluna] = null;
-                    }
-
-                }
-
-
-
-                }
-            }
-        }
-    }
+   
     
 
     private void moverCartaParaCemiterio(C_Carta carta, A_Usuario jogador) {
