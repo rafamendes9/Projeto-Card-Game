@@ -224,6 +224,23 @@ public class G_ArenaPVP {
 // !!!!!!!!!!!!!!!!! FIM DE SAQUE !!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
     
 
+     public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {//toda essa loucura faz parte de (TURNO) até (moverCartaParaCemiterio)
+        System.out.println(jogadorAtual.getNome() + " está jogando...");
+    
+        // Sacar carta
+        saque(jogadorAtual);
+    
+        // Posicionamento
+        posicionarManaOuCarta(jogadorAtual);
+    
+        // Ataque
+        atacar(outroJogador, jogadorAtual);
+    
+        // Remover cartas com menos de 1 ponto de vida do campo e enviá-las para o cemitério
+        removerCartasComMenosDeUmPonto(campoJogador1, jogadorAtual);
+        removerCartasComMenosDeUmPonto(campoJogador2, outroJogador);
+    }
+
 
     // get set
     public A_Usuario getJogador1() {
@@ -290,22 +307,7 @@ public class G_ArenaPVP {
 
 
 
-     public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {//toda essa loucura faz parte de (TURNO) até (moverCartaParaCemiterio)
-        System.out.println(jogadorAtual.getNome() + " está jogando...");
-    
-        // Sacar carta
-        saque(jogadorAtual);
-    
-        // Posicionamento
-        posicionarManaOuCarta(jogadorAtual);
-    
-        // Ataque
-        atacar(outroJogador, jogadorAtual);
-    
-        // Remover cartas com menos de 1 ponto de vida do campo e enviá-las para o cemitério
-        removerCartasComMenosDeUmPonto(campoJogador1, jogadorAtual);
-        removerCartasComMenosDeUmPonto(campoJogador2, outroJogador);
-    }
+
 
 
 
@@ -348,10 +350,6 @@ public class G_ArenaPVP {
     
     public void atacar(A_Usuario jogadorAlvo, A_Usuario jogadorAtacante) {
         //escolhe os jogador correspondente               
-      //  jogadorAlvo = (jogadorAlvo == jogador1) ? jogador2 : jogador1;
-       // jogadorAtacante = (jogadorAtacante == jogador2) ? jogador1 : jogador2;
-
-       
         C_Carta[][] campoJogadorAlvo = new C_Carta[2][5];
         C_Carta[][] campoJogadorAtacante = new C_Carta[2][5];
         if (jogadorAlvo == jogador1) {
@@ -374,7 +372,7 @@ public class G_ArenaPVP {
                     if (cartaAlvo != null) {
                                                 
                         // Reduz os pontos de vida da carta alvo com o dano calculado
-                        cartaAlvo.diminuirPontosVidaCarta(cartaAtacante.getAtaque());
+                        cartaAlvo.calculoDeDiminuirPontosVidaCarta(cartaAtacante.getAtaque());
     
                         // Verifique se a carta alvo chegou a 0 ou menos pontos de vida
                         //criar atributo pontos de vida para Cartas

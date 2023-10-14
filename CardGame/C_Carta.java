@@ -140,38 +140,11 @@ public class C_Carta {
     }
 
     // metodo para  diminuir a vida da carta usado em arena
-    public void diminuirPontosVidaCarta(int dano){
+    public void calculoDeDiminuirPontosVidaCarta(int dano){
         dano -= defesa;
         int vidaSobrando = dano - pontoVidaCarta ;
         setpontoVidaCarta(vidaSobrando);
 
     }
 
-
-
-
 }
-// Metodo 1 estaDisponivel
-/*
- * verifica se a quantidade de cartas desse tipo é maior que 0. Se a quantidade
- * for maior que 0, significa que pelo menos uma carta desse tipo está
- * disponível.
- * O método retorna true nesse caso, indicando que a carta está disponível. Caso
- * contrário, retorna false
- */
-
-// Metodo 2 aumentarQuantidade
-/*
- * é usado para aumentar a quantidade de cartas desse tipo. Ele verifica se a
- * quantidade atual é menor do que 3 (o limite máximo permitido, exceto para
- * manas).
- * Se for menor que 3, ele aumenta a quantidade em 1. Isso permite que os
- * jogadores colecionem até 3 cartas de um tipo específico
- */
-
-/*
- * métodos são úteis para controlar a quantidade de cartas de um tipo específico
- * e garantir que as regras de limite sejam seguidas.
- * Se os jogadores tentarem adicionar mais cartas do que o permitido, uma
- * exceção será lançada para indicar que algo está errado
- */
