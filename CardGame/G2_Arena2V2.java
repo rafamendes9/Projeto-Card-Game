@@ -50,6 +50,119 @@ public class G2_Arena2V2 extends G_ArenaPVP{
         return jogadorSorteado;
     }
 
+    /*
+     * @Override
+        public void iniciarPartida() {
+            System.out.println("A partida está começando!");
+    
+            escolherMaoDoUsuario(super.getJogador1(), 2);
+            escolherMaoDoUsuario(super.getJogador2(), 2);
+            escolherMaoDoUsuario(jogador3, 2);
+            escolherMaoDoUsuario(jogador4, 2);
+    
+            A_Usuario jogadorAtual = sortearTurnosDoPrimeiroJogador();
+    
+            while (!super.verificarVitoria()) {
+                System.out.println(jogadorAtual.getNome() + " está jogando...");
+    
+                // Adicione lógica para o novo jogador (jogador3 e jogador4)
+                if (jogadorAtual == jogador1 || jogadorAtual == jogador2) {
+                    turno(jogadorAtual, (jogadorAtual == jogador1) ? jogador2 : jogador1);
+                } else {
+                    // Jogadores 3 e 4 estão juntos e possuem aliados
+                    turno(jogadorAtual, jogador3, new A_Usuario[]{jogador4});
+                }
+    
+                fimDeTurno();
+                jogadorAtual = (jogadorAtual == jogador1) ? jogador2 : (jogadorAtual == jogador2) ? jogador3 : jogador4;
+            }
+    
+            determinarVencedor();
+        }
+
+    @Overload
+    public void turno(A_Usuario jogadorAtual, A_Usuario aliado, A_Usuario[] inimigos) {
+        System.out.println(jogadorAtual.getNome() + " está jogando...");
+        comprarCartaAleatoria(jogadorAtual);
+        posicionarManaOuCarta(jogadorAtual);
+        atacar(aliado, inimigos, jogadorAtual);
+        removerCartasComMenosDeUmPonto(jogadorAtual);
+
+        // Adicione lógica para aliados
+        for (A_Usuario aliadoAtual : inimigos) {
+            comprarCartaAleatoria(aliadoAtual);
+            posicionarManaOuCarta(aliadoAtual);
+            atacar(jogadorAtual, new A_Usuario[]{}, aliadoAtual);
+            removerCartasComMenosDeUmPonto(aliadoAtual);
+        }
+    }
+
+    @Override
+    private void atacar(A_Usuario jogadorAtacante, A_Usuario[] aliados, A_Usuario jogadorAlvo) {
+        // Verifica se jogadores e carta de ataque são válidos
+        if (jogadorAtacante == null || jogadorAlvo == null) {
+            System.out.println("Ataque inválido. Verifique os jogadores.");
+            return;
+        }
+
+        // Calcula o dano fixo de 5 pontos
+        int dano = 5;
+
+        // Atualiza pontos de vida do jogador alvo
+        jogadorAlvo.diminuirPontosVida(dano);
+
+        System.out.println(jogadorAtacante.getNome() + " atacou " + jogadorAlvo.getNome() + " causando " + dano + " de dano.");
+
+        // Verifica se o jogador alvo ficou sem pontos de vida
+        if (jogadorAlvo.getPontosVida() <= 0) {
+            System.out.println(jogadorAlvo.getNome() + " ficou sem pontos de vida.");
+        }
+
+        // Ataque dos aliados
+        for (A_Usuario aliado : aliados) {
+                int danoAliado = 3;  // Dano do aliado
+                jogadorAlvo.diminuirPontosVida(danoAliado);
+                System.out.println(aliado.getNome() + " (aliado de " + jogadorAtacante.getNome() + ") atacou " +
+                jogadorAlvo.getNome() + " causando " + danoAliado + " de dano.");
+
+            // Verifica se o jogador alvo ficou sem pontos de vida
+            if (jogadorAlvo.getPontosVida() <= 0) {
+                System.out.println(jogadorAlvo.getNome() + " ficou sem pontos de vida.");
+            }
+        }
+    }
+
+    @Override
+    public void saque(A_Usuario jogador) {
+        int numCartasRetornadas = 0;
+
+        // Seleciona 7 cartas aleatórias do deck
+        for (int i = 0; i < 7; i++) {
+            if (jogador.getDeck().getNumCartas() > 0) {
+                // Sacar uma carta aleatória do deck
+                C_Carta cartaSaque = jogador.getDeck().sacarCartaAleatoria();
+                jogador.adicionarCartaNaMao(cartaSaque);
+            }
+        }
+
+        // O jogador pode retornar até 5 cartas para o deck
+        while (numCartasRetornadas < 5 && jogador.getNumCartasNaMao() > 0) {
+            // Escolhe aleatoriamente uma carta da mão para retornar ao deck
+            C_Carta cartaRetornada = jogador.retornarCartaParaDeck((int) (Math.random() * jogador.getNumCartasNaMao()));
+
+            if (cartaRetornada != null) {
+                // Sacar uma nova carta aleatória
+                C_Carta novaCarta = jogador.getDeck().sacarCartaAleatoria();
+                if (novaCarta != null) {
+                    jogador.adicionarCartaNaMao(novaCarta);
+                    numCartasRetornadas++;
+                }
+            }
+        }
+    }
+     */
+    
+    
     public A_Usuario getJogador3() {
         return jogador3;
     }
