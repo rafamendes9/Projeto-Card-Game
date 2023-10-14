@@ -476,7 +476,166 @@ public class G_ArenaPVP {
 
 
 
+
+
+
+     public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {//toda essa loucura faz parte de (TURNO) até (moverCartaParaCemiterio)
+        System.out.println(jogadorAtual.getNome() + " está jogando...");
     
+        // Compra
+        comprarCartaAleatoria(jogadorAtual);
+    
+        // Posicionamento
+        posicionarManaOuCarta(jogadorAtual);
+    
+        // Ataque
+        atacar(outroJogador, jogadorAtual);
+    
+        // Remover cartas com menos de 1 ponto de vida do campo e enviá-las para o cemitério
+        removerCartasComMenosDeUmPonto(jogadorAtual);
+        removerCartasComMenosDeUmPonto(outroJogador);
+    }
+
+
+
+
+
+    public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {
+        System.out.println(jogadorAtual.getNome() + " está jogando...");
+        comprarCartaAleatoria(jogadorAtual);
+        posicionarManaOuCarta(jogadorAtual);
+        atacar(outroJogador, jogadorAtual);
+        removerCartasComMenosDeUmPonto(jogadorAtual);
+        removerCartasComMenosDeUmPonto(outroJogador);
+    }
+
+
+    private void comprarCartaAleatoria(A_Usuario jogador) {
+        if (jogador.getDeck().getNumCartas() > 0) {
+            C_Carta cartaSaque = jogador.getDeck().sacarCartaAleatoria();
+            jogador.adicionarCartaNaMao(cartaSaque);
+            jogador.renovarManaMaxima();
+        }
+    }
+
+    private void posicionarManaOuCarta(A_Usuario jogador) {
+        //Não temos atributo Mana em Usuário
+        if (jogador.getManaAtual() > 0) {
+            // Coloque uma mana no campo
+            jogador.posicionarManaNoCampo();
+        } else {
+            // Coloque uma carta no campo (segunda linha)
+            //refazer o método para definir qual classe terá a função
+            C_Carta carta = jogador.escolherCartaParaPosicionar();
+            if (carta != null) {
+                jogador.posicionarCartaNoCampo(carta);
+                jogador.diminuirManaAtual(carta.getCustoMana());
+            }
+        }
+    }
+
+
+    
+
+    private void atacar(A_Usuario jogadorAlvo, A_Usuario jogadorAtacante) {
+        //não tem atributo campo em Usuário, necessário alterar o caminho de chamada de função
+        C_Carta[][] campoJogadorAlvo = jogadorAlvo.getCampo();
+        C_Carta[][] campoJogadorAtacante = jogadorAtacante.getCampo();
+    
+        for (int linha = 0; linha < campoJogadorAtacante.length; linha++) {
+            for (int coluna = 0; coluna < campoJogadorAtacante[linha].length; coluna++) {
+                C_Carta cartaAtacante = campoJogadorAtacante[linha][coluna];
+                if (cartaAtacante != null) {
+                    
+                    C_Carta cartaAlvo = encontrarCartaAlvo(campoJogadorAlvo, linha, coluna);
+    
+                    if (cartaAlvo != null) {
+                                                
+                        // Reduz os pontos de vida da carta alvo com o dano calculado
+                        cartaAlvo.diminuirPontosVidaCarta(cartaAtacante.getAtaque());
+    
+                        // Verifique se a carta alvo chegou a 0 ou menos pontos de vida
+                        //criar atributo pontos de vida para Cartas
+                        if (cartaAlvo.getpontoVidaCarta() <= 0) {
+                            // Mova a carta alvo para o cemitério (pode haver métodos específicos para isso)
+                            moverCartaParaCemiterio(cartaAlvo, jogadorAlvo);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+     private C_Carta encontrarCartaAlvo(C_Carta[][] campoJogadorAlvo, int linhaAtacante, int colunaAtacante) {
+        // Verifique se a posição de ataque é válida
+        if (linhaAtacante >= 0 && linhaAtacante < campoJogadorAlvo.length) {
+            // A linha de ataque é válida
+    
+            // Obtenha a carta na mesma posição (mesma linha) do campo do jogador alvo
+            C_Carta cartaAlvo = campoJogadorAlvo[linhaAtacante][colunaAtacante];
+    
+            // Verifique se há uma carta na posição de ataque do jogador alvo
+            if (cartaAlvo != null) {
+                return cartaAlvo; // Retorne a carta alvo encontrada
+            }
+        }
+    
+        // Se não houver carta alvo na posição de ataque, retorne null
+        return null;
+    }
+    
+
+
+    //checa se matou a carta !!!!!!
+
+    private void removerCartasComMenosDeUmPonto(A_Usuario jogador) {
+        for (int linha = 0; linha < jogador.getCampo().length; linha++) {
+            for (int coluna = 0; coluna < jogador.getCampo()[linha].length; coluna++) {
+                C_Carta carta = jogador.getCampo()[linha][coluna];
+                if (carta != null && carta.getPontosVida() < 1) {
+                    jogador.moverCartaParaCemiterio(carta);
+                    jogador.getCampo()[linha][coluna] = null;
+                }
+            }
+        }
+    }
+
+   
+    private A_Usuario determinarVencedor() {
+        A_Usuario vencedor = null;
+    
+        if (jogador1.getPontosVida() > jogador2.getPontosVida()) {
+            vencedor = jogador1; // Jogador1 vence se tiver mais pontos de vida.
+        } else if (jogador2.getPontosVida() > jogador1.getPontosVida()) {
+            vencedor = jogador2; // Jogador2 vence se tiver mais pontos de vida.
+        } else {
+            // O jogo é um empate se ambos os jogadores tiverem a mesma quantidade de pontos de vida.
+            System.out.println("A partida terminou em empate!");
+            return null;
+        }
+    
+        System.out.println("A partida terminou! O vencedor é: " + vencedor.getNome());
+    
+        // Aqui você pode adicionar a lógica para recompensar o vencedor e o perdedor com card coins.
+        int cardCoinsVencedor = 100;
+        int cardCoinsPerdedor = 10;
+    
+        vencedor.adicionarCardCoins(cardCoinsVencedor);
+        if (vencedor == jogador1) {
+            jogador2.adicionarCardCoins(cardCoinsPerdedor);
+        } else {
+            jogador1.adicionarCardCoins(cardCoinsPerdedor);
+        }
+    
+        return vencedor;
+    }
+
+
+
+
+
+        
 
     public void fimDeTurno() {
     // Verificar se algum jogador tem menos de 1 ponto de vida
@@ -504,88 +663,6 @@ public class G_ArenaPVP {
             System.exit(0);
         }
     }
-
-    public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {
-        System.out.println(jogadorAtual.getNome() + " está jogando...");
-        comprarCartaAleatoria(jogadorAtual);
-        posicionarManaOuCarta(jogadorAtual);
-        atacar(outroJogador, jogadorAtual);
-        removerCartasComMenosDeUmPonto(jogadorAtual);
-        removerCartasComMenosDeUmPonto(outroJogador);
-    }
-
-
-    protected void comprarCartaAleatoria(A_Usuario jogador) {
-        if (jogador.getDeck().getNumCartas() > 0) {
-            C_Carta cartaSaque = jogador.getDeck().sacarCartaAleatoria();
-            jogador.adicionarCartaNaMao(cartaSaque);
-            jogador.renovarManaMaxima();
-        }
-    }
-
-    protected void posicionarManaOuCarta(A_Usuario jogador) {
-        if (jogador.getManaAtual() > 0) {
-            jogador.posicionarManaNoCampo();
-        } else {
-            C_Carta carta = jogador.escolherCartaParaPosicionar();
-            if (carta != null) {
-                jogador.posicionarCartaNoCampo(carta);
-                jogador.diminuirManaAtual(carta.getCustoMana());
-            }
-        }
-    }
-
-    protected void atacar(A_Usuario jogadorAtacante, A_Usuario jogadorAlvo) {
-        // Verifica se jogadores e carta de ataque são válidos
-        if (jogadorAtacante == null || jogadorAlvo == null) {
-            System.out.println("Ataque inválido. Verifique os jogadores.");
-            return;
-        }
-
-        // Calcula o dano fixo de 5 pontos
-        int dano = 5;
-
-        // Atualiza pontos de vida do jogador alvo
-        jogadorAlvo.diminuirPontosVida(dano);
-
-        System.out.println(jogadorAtacante.getNome() + " atacou " + jogadorAlvo.getNome() + " causando " + dano + " de dano.");
-
-        // Verifica se o jogador alvo ficou sem pontos de vida
-        if (jogadorAlvo.getPontosVida() <= 0) {
-            System.out.println(jogadorAlvo.getNome() + " ficou sem pontos de vida.");
-        }
-    }
-
-
-
-    protected void removerCartasComMenosDeUmPonto(Usuario jogador) {
-        for (int linha = 0; linha < jogador.getCampo().length; linha++) {
-            for (int coluna = 0; coluna < jogador.getCampo()[linha].length; coluna++) {
-                C_Carta carta = jogador.getCampo()[linha][coluna];
-                if (carta != null && carta.getPontosVida() < 1) {
-                    jogador.moverCartaParaCemiterio(carta);
-                    jogador.getCampo()[linha][coluna] = null;
-                }
-            }
-        }
-    }
-
-    protected void determinarVencedor() {
-        if (jogador1.getPontosVida() > jogador2.getPontosVida()) {
-            System.out.println("A partida terminou! O vencedor é: " + jogador1.getNome());
-        } else if (jogador2.getPontosVida() > jogador1.getPontosVida()) {
-            System.out.println("A partida terminou! O vencedor é: " + jogador2.getNome());
-        } else {
-            System.out.println("A partida terminou em empate!");
-        }
-    }
-
-
-
-
-
-
-
 
 
 
@@ -622,106 +699,9 @@ public class G_ArenaPVP {
 
   
 
-    public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {//toda essa loucura faz parte de (TURNO) até (moverCartaParaCemiterio)
-        System.out.println(jogadorAtual.getNome() + " está jogando...");
+   
     
-        // Compra
-        comprarCartaAleatoria(jogadorAtual);
-    
-        // Posicionamento
-        posicionarManaOuCarta(jogadorAtual);
-    
-        // Ataque
-        atacar(outroJogador, jogadorAtual);
-    
-        // Remover cartas com menos de 1 ponto de vida do campo e enviá-las para o cemitério
-        removerCartasComMenosDeUmPonto(jogadorAtual);
-        removerCartasComMenosDeUmPonto(outroJogador);
-    }
-    
-    private void comprarCartaAleatoria(A_Usuario jogador) {
-        if (jogador.getDeck().getNumCartas() > 0) {
-            C_Carta cartaSaque = jogador.getDeck().sacarCartaAleatoria();
-            jogador.adicionarCartaNaMao(cartaSaque);
-            jogador.renovarManaMaxima();
-        }
-    }
-    
-    private void posicionarManaOuCarta(A_Usuario jogador) {
-        //Não temos atributo Mana em Usuário
-        if (jogador.getManaAtual() > 0) {
-            // Coloque uma mana no campo
-            jogador.posicionarManaNoCampo();
-        } else {
-            // Coloque uma carta no campo (segunda linha)
-            //refazer o método para definir qual classe terá a função
-            C_Carta carta = jogador.escolherCartaParaPosicionar();
-            if (carta != null) {
-                jogador.posicionarCartaNoCampo(carta);
-                jogador.diminuirManaAtual(carta.getCustoMana());
-            }
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    private void atacar(A_Usuario jogadorAlvo, A_Usuario jogadorAtacante) {
-        //não tem atributo campo em Usuário, necessário alterar o caminho de chamada de função
-        C_Carta[][] campoJogadorAlvo = jogadorAlvo.getCampo();
-        C_Carta[][] campoJogadorAtacante = jogadorAtacante.getCampo();
-    
-        for (int linha = 0; linha < campoJogadorAtacante.length; linha++) {
-            for (int coluna = 0; coluna < campoJogadorAtacante[linha].length; coluna++) {
-                C_Carta cartaAtacante = campoJogadorAtacante[linha][coluna];
-                if (cartaAtacante != null) {
-                    
-                    C_Carta cartaAlvo = encontrarCartaAlvo(campoJogadorAlvo, linha, coluna);
-    
-                    if (cartaAlvo != null) {
-                                                
-                        // Reduz os pontos de vida da carta alvo com o dano calculado
-                        cartaAlvo.diminuirPontosVidaCarta(cartaAtacante.getAtaque());
-    
-                        // Verifique se a carta alvo chegou a 0 ou menos pontos de vida
-                        //criar atributo pontos de vida para Cartas
-                        if (cartaAlvo.getpontoVidaCarta() <= 0) {
-                            // Mova a carta alvo para o cemitério (pode haver métodos específicos para isso)
-                            moverCartaParaCemiterio(cartaAlvo, jogadorAlvo);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    private C_Carta encontrarCartaAlvo(C_Carta[][] campoJogadorAlvo, int linhaAtacante, int colunaAtacante) {
-        // Verifique se a posição de ataque é válida
-        if (linhaAtacante >= 0 && linhaAtacante < campoJogadorAlvo.length) {
-            // A linha de ataque é válida
-    
-            // Obtenha a carta na mesma posição (mesma linha) do campo do jogador alvo
-            C_Carta cartaAlvo = campoJogadorAlvo[linhaAtacante][colunaAtacante];
-    
-            // Verifique se há uma carta na posição de ataque do jogador alvo
-            if (cartaAlvo != null) {
-                return cartaAlvo; // Retorne a carta alvo encontrada
-            }
-        }
-    
-        // Se não houver carta alvo na posição de ataque, retorne null
-        return null;
-    }
+   
     
 
 
@@ -732,7 +712,7 @@ public class G_ArenaPVP {
 
 
 
-
+// isso aqui mata a carta e leva pro cemiterio
 
     private void removerCartasComMenosDeUmPonto(C_Carta[][] campoJogador, A_Usuario jogador) {
         for (int linha = 0; linha < campoJogador.length; linha++) {
@@ -802,33 +782,5 @@ public class G_ArenaPVP {
 
     //metodo refeito para segunda entrega (baseado no slide)
 
-    private A_Usuario determinarVencedor() {
-        A_Usuario vencedor = null;
     
-        if (jogador1.getPontosVida() > jogador2.getPontosVida()) {
-            vencedor = jogador1; // Jogador1 vence se tiver mais pontos de vida.
-        } else if (jogador2.getPontosVida() > jogador1.getPontosVida()) {
-            vencedor = jogador2; // Jogador2 vence se tiver mais pontos de vida.
-        } else {
-            // O jogo é um empate se ambos os jogadores tiverem a mesma quantidade de pontos de vida.
-            System.out.println("A partida terminou em empate!");
-            return null;
-        }
-    
-        System.out.println("A partida terminou! O vencedor é: " + vencedor.getNome());
-    
-        // Aqui você pode adicionar a lógica para recompensar o vencedor e o perdedor com card coins.
-        int cardCoinsVencedor = 100;
-        int cardCoinsPerdedor = 10;
-    
-        vencedor.adicionarCardCoins(cardCoinsVencedor);
-        if (vencedor == jogador1) {
-            jogador2.adicionarCardCoins(cardCoinsPerdedor);
-        } else {
-            jogador1.adicionarCardCoins(cardCoinsPerdedor);
-        }
-    
-        return vencedor;
-    }
-
 }
