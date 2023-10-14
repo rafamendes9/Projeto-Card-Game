@@ -29,7 +29,7 @@ public class C2_CartaShiny extends C_Carta {
 
     private H3_EnumHabilidade habilidadeExtra;
 
-    public C2_CartaShiny(String nome, String imagem, H4_EnumTipo tipo, H_Enum raridade,
+    public C2_CartaShiny(String nome, String imagem, H4_EnumTipo tipo, H_EnumRaridade raridade,
             int ataque, int defesa, int custo, int pontoVidaCarta) {
         super(nome, imagem, tipo, raridade, null, ataque + 1, defesa + 1, custo, pontoVidaCarta +2);
         this.habilidadeExtra = gerarHabilidadeAleatoriaExtra();

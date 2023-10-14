@@ -1,5 +1,5 @@
 package CardGame;
-public enum H_Enum {
+public enum H_EnumRaridade {
     /* foi trocado os nomes do enum  de Comum | Incomum | Rara | Muito rara |  Épica
     para fins mais esteticos e de facil entendimento.
 */
@@ -12,7 +12,7 @@ public enum H_Enum {
     private double dropProbabilidade; // Probabilidade de drop
 
     // Construtor privado para associar a probabilidade a cada raridade
-    private H_Enum(double dropProbabilidade) {
+    private H_EnumRaridade(double dropProbabilidade) {
         this.dropProbabilidade = dropProbabilidade;
     }
 
@@ -21,3 +21,5 @@ public enum H_Enum {
         return dropProbabilidade;
     }
 }
+
+
