@@ -34,7 +34,6 @@ public class G_ArenaPVP {
         this.pontosVidaJogador2 = 20;
         this.maoJogador1 = new C_Carta[11]; // Vetor de até 11 posições para a mão do jogador 1
         this.maoJogador2 = new C_Carta[11]; // Vetor de até 11 posições para a mão do jogador 2
-        this.manaMaxima = manaMaxima; // Inicialmente, a mana máxima é zero
         this.cemiterioJogador1 = new C_Carta[120]; // Vetor de tamanho 100 para o cemitério do jogador 1
         this.cemiterioJogador2 = new C_Carta[120]; // Vetor de tamanho 100 para o cemitério do jogador 2
 
@@ -231,8 +230,10 @@ public class G_ArenaPVP {
         System.out.println(jogadorAtual.getNome() + " está jogando...");
         
         //cada turno jogador deve ganhar + 1 de mana para usar
-        mana++;// LOGICA PREVIA DE MANA ENQUANTO NÂO SE REQUER LOGICA ESPEFICA EM SLIDE !!!!!!!
-        manaMaxima = mana;
+        int novaMana = mana ++;
+        jogadorAtual.setManaDoJogador( novaMana);// LOGICA PREVIA DE MANA ENQUANTO NÂO SE REQUER LOGICA ESPEFICA EM SLIDE !!!!!!!
+        manaMaxima = jogadorAtual.getManaDoJogador( );
+        
         // Sacar carta
         saque(jogadorAtual);
     
@@ -305,7 +306,7 @@ public class G_ArenaPVP {
         return pontosVidaJogador2;
     }
     
-     public int getmanaMaxima() {
+     public int getmanaMaxima(A_Usuario jogador) {
         return manaMaxima;
     }
 
@@ -328,7 +329,19 @@ public class G_ArenaPVP {
 
     public void posicionarManaOuCarta(A_Usuario jogador) {
         //para colocar carta no campo REQUER RECURSO ( chamado de mana )
-        if (jogador.getmanaMaxima() = 0) {
+
+
+
+
+
+
+        if (jogador.manaMaxima = 0) {
+
+
+
+
+
+
             // Coloque uma mana no campo
             posicionarManaNoCampo(jogador);// so pode colocar exclusivamente cartas q n tem mana ( metodo carta = zero de mana )
         } else {
@@ -343,14 +356,50 @@ public class G_ArenaPVP {
     }
 
 
+public void posicionarManaNoCampo(A_Usuario jogador) {
+    //escolhe o (jogador) pra não usar if e else
+    C_Carta[] maoJogador = (jogador == jogador1) ? maoJogador1 : maoJogador2;
+    C_Carta[][] campoJogador = (jogador == jogador1) ? campoJogador1 : campoJogador2;
+    
+    // Percorre a mão do jogador para encontrar a primeira carta de mana (custo de mana igual a 0)
+    for (int i = 0; i < maoJogador.length; i++) {
+        C_Carta carta = maoJogador[i];
+        if (carta != null && carta.getCustoMana() == 0) {
+            // Encontra uma carta de mana na mão, agora vai colocar no campo
+            // Encontre a primeira posição vazia no campo
+            int linha = -1;// representa que ainda não encontrou uma posição vazia no campo. Começa assumindo que não encontramos nenhuma posição vazia no campo até que o contrário seja demonstrado.
+            int coluna = -1;
 
- public void posicionarManaNoCampo (A_Usuario jogador){
+            for (int l = 0; l < campoJogador.length; l++) {
+                for (int c = 0; c < campoJogador[l].length; c++) {
+                    if (campoJogador[l][c] == null) {
+                        linha = l;
+                        coluna = c;
+                        break; // Sai do loop após encontrar a primeira posição vazia
+                    }
+                }
+                if (linha != -1) {
+                    break; // Saia do loop externo após encontrar a primeira posição vazia
+                }
+            }
 
-    // vc tem q corre a MAO e achar primeira carta de mana e jogar ela em Campo do JOGADOR
-    // if carta == mana ( O )
-    //return Campo do JOGADOR
+            // Verifica se encontra uma posição vazia no campo
+            if (linha != -1 && coluna != -1) {
+                // Coloque a carta de mana no campo
+                campoJogador[linha][coluna] = carta;
+                // Remova a carta de mana da mão do jogador
+                maoJogador[i] = null;
+                System.out.println("Uma carta de mana foi colocada no campo do jogador " + jogador.getNome());
+            } else {
+                System.out.println("Não há espaço no campo para a carta de mana.");
+            }
 
- }
+            // Uma vez que encontramos e posicionamos a primeira carta de mana, podemos parar o loop
+            break;
+        }
+    }
+}
+
 
 
 

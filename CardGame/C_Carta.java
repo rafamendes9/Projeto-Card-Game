@@ -127,7 +127,7 @@ public class C_Carta {
     public int getpontoVidaCarta() {
         return pontoVidaCarta;
     }
-    public int getmana() {
+    public int getCustoMana() {
         return mana;
     }
 

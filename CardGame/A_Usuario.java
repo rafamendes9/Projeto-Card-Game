@@ -24,6 +24,9 @@ public class A_Usuario {
     private int pontosVida; // Atributo para armazenar vida do jogador usado em ARENA
     private boolean emTime; // Atributo utilizado no novo modo de Jogo 2Px2P
     private int numeroTime; // Atributo utilizado no novo modo de Jogo 2Px2P
+    private int manaDoJogador;
+
+    
 
     private List<C_Carta> deck;
     private List<C_Carta> mao;
@@ -330,6 +333,13 @@ public class A_Usuario {
         return null;
     }
 
+    public int getManaDoJogador() {
+        return manaDoJogador;
+    }
+
+    public void setManaDoJogador(int manaDoJogador) {
+        this.manaDoJogador = manaDoJogador;
+    }
     
 
 }
