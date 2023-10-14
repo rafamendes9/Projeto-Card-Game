@@ -350,8 +350,7 @@ public class G_ArenaPVP {
 
 
 
- private C_Carta[][] campoJogador3;
-    private C_Carta[][] campoJogador4;
+
 
     
     
@@ -361,11 +360,18 @@ public class G_ArenaPVP {
       //  jogadorAlvo = (jogadorAlvo == jogador1) ? jogador2 : jogador1;
        // jogadorAtacante = (jogadorAtacante == jogador2) ? jogador1 : jogador2;
 
-
-
-
-        C_Carta[][] campoJogadorAlvo = jogadorAlvo.getCampo();
-        C_Carta[][] campoJogadorAtacante = jogadorAtacante.getCampo();
+       
+        C_Carta[][] campoJogadorAlvo = new C_Carta[2][5];
+        C_Carta[][] campoJogadorAtacante = new C_Carta[2][5];
+        if (jogadorAlvo == jogador1) {
+            jogadorAtacante = jogador2;
+            campoJogadorAlvo = campoJogador1;
+            campoJogadorAtacante = campoJogador2; 
+        }else if(jogadorAlvo == jogador2){
+            jogadorAtacante = jogador1;
+            campoJogadorAlvo = campoJogador2;
+            campoJogadorAtacante = campoJogador1;
+        }
     
         for (int linha = 0; linha < campoJogadorAtacante.length; linha++) {
             for (int coluna = 0; coluna < campoJogadorAtacante[linha].length; coluna++) {
