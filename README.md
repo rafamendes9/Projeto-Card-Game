@@ -23,8 +23,6 @@
 
 !enum habilidade precisa ser desenvolvido(ele apenas existe mas habilidade n possuem efeito)
 
-!usuario  4 metodo atualizar nivel +  metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2) + ( TEM Q REVER)****
-
 !G2_ArenaDoble metodo Saque vai ser reescrito para receber a mao de 4 players
 
 #

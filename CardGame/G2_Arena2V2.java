@@ -87,7 +87,7 @@ public class G2_Arena2V2 extends G_ArenaPVP{
         comprarCartaAleatoria(jogadorAtual);
     
         // Posicionamento
-        posicionarManaOuCarta(jogadorAtual);
+        posicionarManaOuCartaNoCampo(jogadorAtual);
     
         // Ataque
         atacar(outroJogador, jogadorAtual);

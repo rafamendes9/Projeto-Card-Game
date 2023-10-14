@@ -53,89 +53,6 @@ public class E_Loja {
         }
     }
 
-    // metodo cria uma carta aleatória simulada com base em alguns critérios, como
-    // nome aleatório, valores de ataque, defesa e raridade aleatórios | nao coloquei o imagem random aqui ( fase 2)
-
-    //!!!!!!!!!!!!!!!!!!!URGENTE GERAR IMAGEM OU PEGAR EM ENUM + resto de atributos da carta!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    
-   /* 
-   public C_Carta gerarCartaAleatoria() {
-        Random random = new Random();
-        String[] nomesCartas = { "Carta 1", "Carta 2", "Carta 3", "Carta 4", "Carta 5", "Carta 6" };//nome da carta random
-        String nomeAleatorio = nomesCartas[random.nextInt(nomesCartas.length)];
-        int ataqueAleatorio = random.nextInt(10) + 1;
-        int defesaAleatoria = random.nextInt(10) + 1;
-
-        // Define os valores de raridade conforme o J_Enum
-        J_Enum raridadeAleatoria = gerarRaridadeAleatoria();
-
-        // Criação da carta com os valores aleatórios
-        // imagem | tipo | habilidade | custo ( FASE 2) desenvolvimento ENUM !!!!!!!
-        C_Carta cartaAleatoria = new C_Carta(nomeAleatorio, null, null, raridadeAleatoria, null, ataqueAleatorio,
-                defesaAleatoria, 0);
-
-        return cartaAleatoria;
-    }
-  
-    private J_Enum gerarRaridadeAleatoria() {
-        Random random = new Random();
-        int valorRaridade = random.nextInt(5); // 0 a 4, representando raridade NORMAL, RARA, EPICA, LENDARIA, MITICA( nomes mudados e explicado no J_Enum)
-
-        // Mapea o valor gerado em J_Enum
-        switch (valorRaridade) {
-            case 0:
-                return J_Enum.NORMAL;
-            case 1:
-                return J_Enum.RARA;
-            case 2:
-                return J_Enum.EPICA;
-            case 3:
-                return J_Enum.LENDARIA;
-            case 4:
-                return J_Enum.MITICA;
-            default:
-                // Lida com casos inesperados, se necessário( caso o random bug)
-                throw new IllegalArgumentException("Valor de raridade inválido: " + valorRaridade);
-        }
-    }*/
-
-    // get set
-    public String getNumeroCartao() {
-        return numeroCartao;
-    }
-
-    public void setNumeroCartao(String numeroCartao) {
-        this.numeroCartao = numeroCartao;
-    }
-
-    public String getCodigoVerificador() {
-        return codigoVerificador;
-    }
-
-    public void setCodigoVerificador(String codigoVerificador) {
-        this.codigoVerificador = codigoVerificador;
-    }
-
-    //get/set entrega 2 inserido por preco boster ser atributo da classe ao inves de local
-    public int getPrecoBoosterComum() {
-        return precoBoosterComum;
-    }
-
-    public void setPrecoBoosterComum(int precoBoosterComum) {
-        this.precoBoosterComum = precoBoosterComum;
-    }
-
-    public boolean getPromocao() {
-        return promocao;
-    }
-    
-    public void setPromocao(boolean promocao) {
-        this.promocao = promocao;
-    }
-
-
-
-//espaço para novos metodo de desenvolvimento 2 entrega !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     //metodo extra para verificar promocao
     public boolean isPromocao() {
@@ -255,6 +172,43 @@ public class E_Loja {
                 throw new IllegalArgumentException("Valor do Tipo inválido: " + valorTipo);
         }
 }
+
+
+
+    // get set
+    public String getNumeroCartao() {
+        return numeroCartao;
+    }
+
+    public void setNumeroCartao(String numeroCartao) {
+        this.numeroCartao = numeroCartao;
+    }
+
+    public String getCodigoVerificador() {
+        return codigoVerificador;
+    }
+
+    public void setCodigoVerificador(String codigoVerificador) {
+        this.codigoVerificador = codigoVerificador;
+    }
+
+    //get/set entrega 2 inserido por preco boster ser atributo da classe ao inves de local
+    public int getPrecoBoosterComum() {
+        return precoBoosterComum;
+    }
+
+    public void setPrecoBoosterComum(int precoBoosterComum) {
+        this.precoBoosterComum = precoBoosterComum;
+    }
+
+    public boolean getPromocao() {
+        return promocao;
+    }
+    
+    public void setPromocao(boolean promocao) {
+        this.promocao = promocao;
+    }
+
 
 
 
