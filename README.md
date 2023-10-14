@@ -6,8 +6,6 @@
 
 - https://github.com/VictorSantos674
 
-- https://github.com/joao-carlos-pires
-
 
 ### OBS Importantes
 

@@ -9,14 +9,15 @@ public class C_Carta {
     private int custo;
     private H3_EnumHabilidade habilidade;
     private int quantidade;
-
+    private int pontoVidaCarta;
+    
     /*  
-        Atributo adicional. Uso na fase 3.
-        private String TERRENO;
+    Atributo adicional. Uso na fase 3.
+    private String TERRENO;
     */
-
+    
     public C_Carta(String nome, String imagem, H4_EnumTipo tipo, H_Enum raridade, H3_EnumHabilidade habilidade,
-            int ataque, int defesa, int custo) {
+            int ataque, int defesa, int custo, int pontoVidaCarta) {
         this.nome = nome;
         this.imagem = imagem;
         this.tipo = tipo;
@@ -26,6 +27,8 @@ public class C_Carta {
         this.custo = custo;
         this.habilidade = habilidade;
         this.quantidade = 0; // Inicialmente, a quantidade é 0.
+        this.pontoVidaCarta = pontoVidaCarta;
+
     }
 
     // metodos
@@ -115,6 +118,14 @@ public class C_Carta {
         return quantidade;
     }
 
+    public void setpontoVidaCarta(int pontoVidaCarta) {
+        this.pontoVidaCarta = pontoVidaCarta;
+    }
+
+    public int getpontoVidaCarta() {
+        return pontoVidaCarta;
+    }
+
     // esse SETTER permite definir o valor da variável da variavel "quantidade"
     // metodo inclui uma verificação para garantir que a quantidade esteja dentro do
     // intervalo de 0 a 3
@@ -127,6 +138,18 @@ public class C_Carta {
             throw new IllegalArgumentException("A quantidade deve estar entre 0 e 3.");
         }
     }
+
+    // metodo para  diminuir a vida da carta usado em arena
+    public void diminuirPontosVidaCarta(int dano){
+        dano -= defesa;
+        int vidaSobrando = dano - pontoVidaCarta ;
+        setpontoVidaCarta(vidaSobrando);
+
+    }
+
+
+
+
 }
 // Metodo 1 estaDisponivel
 /*

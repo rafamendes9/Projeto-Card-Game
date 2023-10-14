@@ -16,8 +16,8 @@ public class G_ArenaPVP {
     private C_Carta[] maoJogador1 = new C_Carta[11];
     private C_Carta[] maoJogador2 = new C_Carta[11];
     private int manaMaxima;
-    private C_Carta[] cemiterioJogador1 = new C_Carta[100];
-    private C_Carta[] cemiterioJogador2 = new C_Carta[100];
+    private C_Carta[] cemiterioJogador1 = new C_Carta[120];
+    private C_Carta[] cemiterioJogador2 = new C_Carta[120];
 
     // Construtores 
 
@@ -34,8 +34,8 @@ public class G_ArenaPVP {
         this.maoJogador1 = new C_Carta[11]; // Vetor de até 11 posições para a mão do jogador 1
         this.maoJogador2 = new C_Carta[11]; // Vetor de até 11 posições para a mão do jogador 2
         this.manaMaxima = 0; // Inicialmente, a mana máxima é zero
-        this.cemiterioJogador1 = new C_Carta[100]; // Vetor de tamanho 100 para o cemitério do jogador 1
-        this.cemiterioJogador2 = new C_Carta[100]; // Vetor de tamanho 100 para o cemitério do jogador 2
+        this.cemiterioJogador1 = new C_Carta[120]; // Vetor de tamanho 100 para o cemitério do jogador 1
+        this.cemiterioJogador2 = new C_Carta[120]; // Vetor de tamanho 100 para o cemitério do jogador 2
 
       
     }
@@ -67,7 +67,7 @@ public class G_ArenaPVP {
 
 
     // metodos
-
+/*
     public void iniciarPartida() {
         
         System.out.println("A partida está começando!");
@@ -91,7 +91,7 @@ public class G_ArenaPVP {
             // Permite jogador atual faça um turno (jogar cartas, atacar)
          // ( desenvolvida na entrega 2) !!!!!!!!!!!! esse metodo apenas existe ate o
             // momento
-            jogadorAtual.fazerTurno();
+            turno(jogadorAtual, outroJogador);
 
             // Trocar de jogador (swap do loop para troca de turnos no while)
             jogadorAtual = (jogadorAtual == jogador1) ? jogador2 : jogador1;
@@ -108,6 +108,8 @@ public class G_ArenaPVP {
             System.out.println("A partida terminou em empate!");
         }
     }
+    
+    */
 
 
 
@@ -415,15 +417,50 @@ public class G_ArenaPVP {
 
 
 
-    /*
-     * 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!       vitinho             !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    
     public void iniciarPartida() {
         System.out.println("A partida está começando!");
 
         escolherMaoDoUsuario(jogador1, 2);
         escolherMaoDoUsuario(jogador2, 2);
 
-        Usuario jogadorAtual = sortearTurnosDoPrimeiroJogador();
+        A_Usuario jogadorAtual = sortearTurnosDoPrimeiroJogador();
 
         while (!verificarVitoria()) {
             System.out.println(jogadorAtual.getNome() + " está jogando...");
@@ -434,6 +471,12 @@ public class G_ArenaPVP {
 
         determinarVencedor();
     }
+
+
+
+
+
+    
 
     public void fimDeTurno() {
     // Verificar se algum jogador tem menos de 1 ponto de vida
@@ -462,7 +505,7 @@ public class G_ArenaPVP {
         }
     }
 
-    public void turno(Usuario jogadorAtual, Usuario outroJogador) {
+    public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {
         System.out.println(jogadorAtual.getNome() + " está jogando...");
         comprarCartaAleatoria(jogadorAtual);
         posicionarManaOuCarta(jogadorAtual);
@@ -472,7 +515,7 @@ public class G_ArenaPVP {
     }
 
 
-    protected void comprarCartaAleatoria(Usuario jogador) {
+    protected void comprarCartaAleatoria(A_Usuario jogador) {
         if (jogador.getDeck().getNumCartas() > 0) {
             C_Carta cartaSaque = jogador.getDeck().sacarCartaAleatoria();
             jogador.adicionarCartaNaMao(cartaSaque);
@@ -480,7 +523,7 @@ public class G_ArenaPVP {
         }
     }
 
-    protected void posicionarManaOuCarta(Usuario jogador) {
+    protected void posicionarManaOuCarta(A_Usuario jogador) {
         if (jogador.getManaAtual() > 0) {
             jogador.posicionarManaNoCampo();
         } else {
@@ -536,7 +579,43 @@ public class G_ArenaPVP {
             System.out.println("A partida terminou em empate!");
         }
     }
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  RAFA    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
 
 
 
@@ -598,7 +677,7 @@ public class G_ArenaPVP {
 
     
     private void atacar(A_Usuario jogadorAlvo, A_Usuario jogadorAtacante) {
-        //não temos atributo campo em Usuário, necessário alterar o caminho de chamada de função
+        //não tem atributo campo em Usuário, necessário alterar o caminho de chamada de função
         C_Carta[][] campoJogadorAlvo = jogadorAlvo.getCampo();
         C_Carta[][] campoJogadorAtacante = jogadorAtacante.getCampo();
     
@@ -606,23 +685,19 @@ public class G_ArenaPVP {
             for (int coluna = 0; coluna < campoJogadorAtacante[linha].length; coluna++) {
                 C_Carta cartaAtacante = campoJogadorAtacante[linha][coluna];
                 if (cartaAtacante != null) {
-                    // Verifique se esta carta pode atacar (pode haver regras específicas para isso)
-    
-                    // Encontre a carta alvo para o ataque (pode haver regras específicas para isso)
+                    
                     C_Carta cartaAlvo = encontrarCartaAlvo(campoJogadorAlvo, linha, coluna);
     
                     if (cartaAlvo != null) {
-                        // Calcule o dano com base na diferença entre ataque e defesa
-                        int dano = cartaAtacante.getAtaque() - cartaAlvo.getDefesa();
-                        
-                        // Reduza os pontos de vida da carta alvo com o dano calculado
-                        cartaAlvo.diminuirPontosVida(dano);
+                                                
+                        // Reduz os pontos de vida da carta alvo com o dano calculado
+                        cartaAlvo.diminuirPontosVidaCarta(cartaAtacante.getAtaque());
     
                         // Verifique se a carta alvo chegou a 0 ou menos pontos de vida
                         //criar atributo pontos de vida para Cartas
-                        if (cartaAlvo.getPontosVida() <= 0) {
+                        if (cartaAlvo.getpontoVidaCarta() <= 0) {
                             // Mova a carta alvo para o cemitério (pode haver métodos específicos para isso)
-                            jogadorAlvo.moverCartaParaCemiterio(cartaAlvo);
+                            moverCartaParaCemiterio(cartaAlvo, jogadorAlvo);
                         }
                     }
                 }
@@ -659,26 +734,49 @@ public class G_ArenaPVP {
 
 
 
-    private void removerCartasComMenosDeUmPonto(C_Carta[][] campoJogador) {
+    private void removerCartasComMenosDeUmPonto(C_Carta[][] campoJogador, A_Usuario jogador) {
         for (int linha = 0; linha < campoJogador.length; linha++) {
             for (int coluna = 0; coluna < campoJogador[linha].length; coluna++) {
                 C_Carta carta = campoJogador[linha][coluna];
                 
                 // Verifica se há uma carta na posição atual do campo
                 if (carta != null) {
+
+                    if (jogador == jogador1) {
+
+                    
                     // Verifica se a carta tem menos de um ponto de vida
-                    if (carta.getPontosVida() < 1) {
+                    if (carta.getpontoVidaCarta() < 1) {
                         // Move a carta para o cemitério (assumindo que você tem um vetor para o cemitério)
-                        moverCartaParaCemiterio(carta);
+                        moverCartaParaCemiterio(carta, jogador1);
                         
                         // Remove a carta do campo
                         campoJogador[linha][coluna] = null;
                     }
+
+                }
+                    if (jogador == jogador2) {
+
+                    
+                    // Verifica se a carta tem menos de um ponto de vida
+                    if (carta.getpontoVidaCarta() < 1) {
+                        // Move a carta para o cemitério (assumindo que você tem um vetor para o cemitério)
+                        moverCartaParaCemiterio(carta, jogador2);
+                        
+                        // Remove a carta do campo
+                        campoJogador[linha][coluna] = null;
+                    }
+
+                }
+
+
+
                 }
             }
         }
     }
     
+
     private void moverCartaParaCemiterio(C_Carta carta, A_Usuario jogador) {
         // Verifique qual jogador é dono da carta
         if (jogador == jogador1) {

@@ -128,11 +128,7 @@ public class A_Usuario {
         }
     }
 
-    // ( desenvolvida na entrega 2) !!!!!!!!!!!! esse metodo apenas existe ate o momento
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!! metodo vinculado a debate em uso de novos metodos de Arena ( coisas do slide da entrega 2)
-    public void fazerTurno() {
-    }
-
+  
     public void adicionarCardCoins(int x){
         cardCoins += x;
     }
@@ -333,6 +329,8 @@ public class A_Usuario {
     public Object getMao() {
         return null;
     }
+
+    
 
 }
 
