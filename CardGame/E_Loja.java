@@ -179,10 +179,11 @@ public H4_EnumTipo gerarTipoAleatorio() {
         // metodo que chama outro metodo em inventario, ele aumenta o tamnho do vetor "inventario de cartas" em 30 e custa um valor em card coins
         public void aumentarTamanhoDoInventario(B_Inventario inventario, int novoTamanho, A_Usuario usuario) {
             novoTamanho = 30;// define o aumento em 30 o tamanho do vetor
-           // Verifica se o usuário possui cardcoins suficientes
-            if (usuario.getCardCoins() >= 1000) {
+           int valorDaCompra = 1000;// define o valor a se pagar 
+            // Verifica se o usuário possui cardcoins suficientes
+            if (usuario.getCardCoins() >= valorDaCompra) {
             // Subtrai o custo do aumento do tamanho dos cardcoins do usuário
-            usuario.setCardCoins(usuario.getCardCoins() - 1000);
+            usuario.setCardCoins(usuario.getCardCoins() - valorDaCompra);
 
             // Chama o método para aumentar o tamanho do inventário
             inventario.aumentarTamanhoDoVetor(novoTamanho);

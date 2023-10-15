@@ -71,19 +71,28 @@ public void adicionarCartaShiny(C2_CartaShiny novaCartaShiny) {
     }
 
    //metodo usado para apagar carta definitiva do inventario ( ainda não implementado por falta da class interface) 
-    public C_Carta apagarCarta(String nome) {
-        // Lógica para apagar a carta do inventário
-        // Você pode remover a carta com o nome especificado e retorná-la
-        // ou simplesmente marcá-la como null no array de cartas e retornar.
-        for (int i = 0; i < cartas.length; i++) {
-            if (cartas[i] != null && cartas[i].getNome().equals(nome)) {
-                C_Carta cartaRemovida = cartas[i];
-                cartas[i] = null;  // Marcar a carta como removida
-                return cartaRemovida;
+   //metodo ao apagar retorna um valor em dinheiro para o usuario
+   public C_Carta apagarCarta(String nome, A_Usuario usuario) {
+    for (int i = 0; i < cartas.length; i++) {
+        if (cartas[i] != null && cartas[i].getNome().equals(nome)) {
+            C_Carta cartaRemovida = cartas[i];
+            cartaRemovida = null;
+            
+            // Compacta o vetor após a remoção ( tira espaços vazios )
+            for (int j = i; j < cartas.length - 1; j++) {
+                cartas[j] = cartas[j + 1];
             }
+            cartas[cartas.length - 1] = null; // Define o último elemento como null
+            
+            // Adiciona valor em cardcoins ao usuário
+            int valorCardcoins = 10; // Define o valor a ser adicionado em cardcoins
+            usuario.setCardCoins(usuario.getCardCoins() + valorCardcoins);
+
+            return cartaRemovida;
         }
-        return null;  // Carta não encontrada
     }
+    return null;  // Carta não encontrada
+}
     
 
     // Método para aumentar o tamanho do vetor 
