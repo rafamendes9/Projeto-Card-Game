@@ -153,18 +153,18 @@ public class A_Usuario {
     
     
     public C_Carta sacarCartaAleatoriaDoDeckREROLL() {
-    Random random = new Random();
-    int tamanhoDoDeck = deck.size();
-    
-    if (tamanhoDoDeck > 0) {
-        int indiceAleatorio = random.nextInt(tamanhoDoDeck);
-        C_Carta carta = deck.remove(indiceAleatorio); // Remove a carta do deck
-        return carta;
-    } else {
-        // Lida com o caso em que o deck está vazio (nenhuma carta para sacar)
-        return null;
+        Random random = new Random();
+        int tamanhoDoDeck = deck.size();
+        
+        if (tamanhoDoDeck > 0) {
+            int indiceAleatorio = random.nextInt(tamanhoDoDeck);
+            C_Carta carta = deck.remove(indiceAleatorio); // Remove a carta do deck
+            return carta;
+        } else {
+            // Lida com o caso em que o deck está vazio (nenhuma carta para sacar)
+            return null;
+        }
     }
-}
 
   
     // get set

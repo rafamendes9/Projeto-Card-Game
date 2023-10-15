@@ -20,6 +20,7 @@ public class G_ArenaPVP {
     private C_Carta[] cemiterioJogador1 = new C_Carta[120];
     private C_Carta[] cemiterioJogador2 = new C_Carta[120];
     
+    
     // Construtores 
 
     
@@ -227,129 +228,129 @@ public class G_ArenaPVP {
 
 //!!!!!!!!!!!!!!!!!!!!!!!      INICIO DE posicionarManaOuCartaNoCampo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-public void posicionarManaOuCartaNoCampo(A_Usuario jogador) {// por enquanto as cartas vai ser jogadas de forma automatica ( a primeira carta q achar q corresponde ao q se pede) !!!!!!!!!!!
-    //para colocar carta no campo REQUER RECURSO ( chamado de mana )
-    
-    if (manaMaxima == 0) {
-        // Coloque uma mana no campo
-        posicionarManaNoCampo(jogador);// so pode colocar exclusivamente cartas q n tem mana ( metodo carta = zero de mana )
-    } else {
-        // Coloque uma carta no campo
+    public void posicionarManaOuCartaNoCampo(A_Usuario jogador) {// por enquanto as cartas vai ser jogadas de forma automatica ( a primeira carta q achar q corresponde ao q se pede) !!!!!!!!!!!
+        //para colocar carta no campo REQUER RECURSO ( chamado de mana )
         
-        C_Carta carta = escolherCartaParaPosicionar(jogador);// por enquanto as cartas vai ser jogadas de forma automatica !!!!!!!!!!!
-        if (carta != null) {
-            posicionarCartaNoCampo(jogador); // por enquanto as cartas vai ser jogadas de forma automatica !!!!!!!!!!!
-            diminuirManaAtual(carta.getCustoMana(), jogador);
+        if (manaMaxima == 0) {
+            // Coloque uma mana no campo
+            posicionarManaNoCampo(jogador);// so pode colocar exclusivamente cartas q n tem mana ( metodo carta = zero de mana )
+        } else {
+            // Coloque uma carta no campo
+            
+            C_Carta carta = escolherCartaParaPosicionar(jogador);// por enquanto as cartas vai ser jogadas de forma automatica !!!!!!!!!!!
+            if (carta != null) {
+                posicionarCartaNoCampo(jogador); // por enquanto as cartas vai ser jogadas de forma automatica !!!!!!!!!!!
+                diminuirManaAtual(carta.getCustoMana(), jogador);
+            }
         }
     }
-}
-//metodo que faz a AÇÂO DE COLOCAR A CARTA NO CAMPO(nesse caso se for a CARTA MANA)
-public void posicionarManaNoCampo(A_Usuario jogador) {
-    //escolhe o (jogador) pra não usar if e else
-    C_Carta[] maoJogador = (jogador == jogador1) ? maoJogador1 : maoJogador2;
-    C_Carta[][] campoJogador = (jogador == jogador1) ? campoJogador1 : campoJogador2;
-    
-    // Percorre a mão do jogador para encontrar a primeira carta de mana (custo de mana igual a 0)
-    for (int i = 0; i < maoJogador.length; i++) {
-        C_Carta carta = maoJogador[i];
-        if (carta != null && carta.getCustoMana() == 0) {
-            // Encontra uma carta de mana na mão, agora vai colocar no campo
-            // Encontre a primeira posição vazia no campo
-            int linha = -1;// representa que ainda não encontrou uma posição vazia no campo. Começa assumindo que não encontramos nenhuma posição vazia no campo até que o contrário seja demonstrado.
-            int coluna = -1;
-            
-            for (int l = 0; l < campoJogador.length; l++) {
-                for (int c = 0; c < campoJogador[l].length; c++) {
-                    if (campoJogador[l][c] == null) {
-                        linha = l;
-                        coluna = c;
-                        break; // Sai do loop após encontrar a primeira posição vazia
+    //metodo que faz a AÇÂO DE COLOCAR A CARTA NO CAMPO(nesse caso se for a CARTA MANA)
+    public void posicionarManaNoCampo(A_Usuario jogador) {
+        //escolhe o (jogador) pra não usar if e else
+        C_Carta[] maoJogador = (jogador == jogador1) ? maoJogador1 : maoJogador2;
+        C_Carta[][] campoJogador = (jogador == jogador1) ? campoJogador1 : campoJogador2;
+        
+        // Percorre a mão do jogador para encontrar a primeira carta de mana (custo de mana igual a 0)
+        for (int i = 0; i < maoJogador.length; i++) {
+            C_Carta carta = maoJogador[i];
+            if (carta != null && carta.getCustoMana() == 0) {
+                // Encontra uma carta de mana na mão, agora vai colocar no campo
+                // Encontre a primeira posição vazia no campo
+                int linha = -1;// representa que ainda não encontrou uma posição vazia no campo. Começa assumindo que não encontramos nenhuma posição vazia no campo até que o contrário seja demonstrado.
+                int coluna = -1;
+                
+                for (int l = 0; l < campoJogador.length; l++) {
+                    for (int c = 0; c < campoJogador[l].length; c++) {
+                        if (campoJogador[l][c] == null) {
+                            linha = l;
+                            coluna = c;
+                            break; // Sai do loop após encontrar a primeira posição vazia
+                        }
+                    }
+                    if (linha != -1) {
+                        break; // Saia do loop externo após encontrar a primeira posição vazia
                     }
                 }
-                if (linha != -1) {
-                    break; // Saia do loop externo após encontrar a primeira posição vazia
-                }
-            }
 
-            // Verifica se encontra uma posição vazia no campo
-            if (linha != -1 && coluna != -1) {
-                // Coloque a carta de mana no campo
-                campoJogador[linha][coluna] = carta;
-                // Remova a carta de mana da mão do jogador
-                maoJogador[i] = null;
-                System.out.println("Uma carta de mana foi colocada no campo do jogador " + jogador.getNome());
-            } else {
-                System.out.println("Não há espaço no campo para a carta de mana.");
+                // Verifica se encontra uma posição vazia no campo
+                if (linha != -1 && coluna != -1) {
+                    // Coloque a carta de mana no campo
+                    campoJogador[linha][coluna] = carta;
+                    // Remova a carta de mana da mão do jogador
+                    maoJogador[i] = null;
+                    System.out.println("Uma carta de mana foi colocada no campo do jogador " + jogador.getNome());
+                } else {
+                    System.out.println("Não há espaço no campo para a carta de mana.");
+                }
+                
+                // Uma vez que encontramos e posicionamos a primeira carta de mana, podemos parar o loop
+                break;
             }
-            
-            // Uma vez que encontramos e posicionamos a primeira carta de mana, podemos parar o loop
-            break;
         }
     }
-}
-//metodo que faz a AÇÂO DE COLOCAR A CARTA NO CAMPO
-public void posicionarCartaNoCampo(A_Usuario jogador) {
-    //escolhe o (jogador) pra não usar if e else
-    C_Carta[] maoJogador = (jogador == jogador1) ? maoJogador1 : maoJogador2;
-    C_Carta[][] campoJogador = (jogador == jogador1) ? campoJogador1 : campoJogador2;
-    
-    for (int i = 0; i < maoJogador.length; i++) {
-        C_Carta carta = maoJogador[i];
-        if (carta != null && carta.getCustoMana() != 0) {
-            // Encontre a primeira posição vazia no campo
-            int linha = -1;// representa que ainda não encontrou uma posição vazia no campo. Começa assumindo que não encontramos nenhuma posição vazia no campo até que o contrário seja demonstrado.
-            int coluna = -1;
-            
-            for (int l = 0; l < campoJogador.length; l++) {
-                for (int c = 0; c < campoJogador[l].length; c++) {
-                    if (campoJogador[l][c] == null) {
-                        linha = l;
-                        coluna = c;
-                        break; // Sai do loop após encontrar a primeira posição vazia
+    //metodo que faz a AÇÂO DE COLOCAR A CARTA NO CAMPO
+    public void posicionarCartaNoCampo(A_Usuario jogador) {
+        //escolhe o (jogador) pra não usar if e else
+        C_Carta[] maoJogador = (jogador == jogador1) ? maoJogador1 : maoJogador2;
+        C_Carta[][] campoJogador = (jogador == jogador1) ? campoJogador1 : campoJogador2;
+        
+        for (int i = 0; i < maoJogador.length; i++) {
+            C_Carta carta = maoJogador[i];
+            if (carta != null && carta.getCustoMana() != 0) {
+                // Encontre a primeira posição vazia no campo
+                int linha = -1;// representa que ainda não encontrou uma posição vazia no campo. Começa assumindo que não encontramos nenhuma posição vazia no campo até que o contrário seja demonstrado.
+                int coluna = -1;
+                
+                for (int l = 0; l < campoJogador.length; l++) {
+                    for (int c = 0; c < campoJogador[l].length; c++) {
+                        if (campoJogador[l][c] == null) {
+                            linha = l;
+                            coluna = c;
+                            break; // Sai do loop após encontrar a primeira posição vazia
+                        }
+                    }
+                    if (linha != -1) {
+                        break; // Saia do loop externo após encontrar a primeira posição vazia
                     }
                 }
-                if (linha != -1) {
-                    break; // Saia do loop externo após encontrar a primeira posição vazia
+                
+                // Verifica se encontra uma posição vazia no campo
+                if (linha != -1 && coluna != -1) {
+                    // Coloque a carta de mana no campo
+                    campoJogador[linha][coluna] = carta;
+                    // Remova a carta de mana da mão do jogador
+                    maoJogador[i] = null;
+                    System.out.println("A carta " + jogador.getNome() + " foi colocada no campo do jogador.");
+                } else {
+                    System.out.println("Não há espaço no campo para a carta de mana.");
                 }
+                
+                // Uma vez que encontramos e posicionamos a primeira carta de mana, podemos parar o loop
+                break;
             }
-            
-            // Verifica se encontra uma posição vazia no campo
-            if (linha != -1 && coluna != -1) {
-                // Coloque a carta de mana no campo
-                campoJogador[linha][coluna] = carta;
-                // Remova a carta de mana da mão do jogador
-                maoJogador[i] = null;
-                System.out.println("A carta " + jogador.getNome() + " foi colocada no campo do jogador.");
-            } else {
-                System.out.println("Não há espaço no campo para a carta de mana.");
-            }
-            
-            // Uma vez que encontramos e posicionamos a primeira carta de mana, podemos parar o loop
-            break;
         }
     }
-}
-//metodo para achar a carta que vai ser posicionada
-public C_Carta escolherCartaParaPosicionar(A_Usuario jogador) {
-    //feito assim pra n usar IF ou ELSE em mao do jogador
-    C_Carta[] maoJogador = (jogador == jogador1) ? maoJogador1 : maoJogador2;
-    // Itera pela mão do jogador para encontrar uma carta que possa ser posicionada
-    for (C_Carta carta : maoJogador) {
-        if (carta != null && carta.getCustoMana() <= manaMaxima) {
-            return carta; // Retorna a primeira carta encontrada que pode ser posicionada
+    //metodo para achar a carta que vai ser posicionada
+    public C_Carta escolherCartaParaPosicionar(A_Usuario jogador) {
+        //feito assim pra n usar IF ou ELSE em mao do jogador
+        C_Carta[] maoJogador = (jogador == jogador1) ? maoJogador1 : maoJogador2;
+        // Itera pela mão do jogador para encontrar uma carta que possa ser posicionada
+        for (C_Carta carta : maoJogador) {
+            if (carta != null && carta.getCustoMana() <= manaMaxima) {
+                return carta; // Retorna a primeira carta encontrada que pode ser posicionada
+            }
+        }
+        
+        return null; // Retorna null se nenhuma carta puder ser posicionada
+    }
+    //Metodo diminui a manaMaxima do jogador atual ao jogar uma carta
+    public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
+        if (custoMana <= manaMaxima) {
+            manaMaxima -= custoMana; // Diminui a mana máxima do jogador pelo custo da carta
+        } else {
+            System.out.println("Erro: Tentativa de gastar mais mana do que o jogador possui.");
         }
     }
-    
-    return null; // Retorna null se nenhuma carta puder ser posicionada
-}
-//Metodo diminui a manaMaxima do jogador atual ao jogar uma carta
-public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
-    if (custoMana <= manaMaxima) {
-        manaMaxima -= custoMana; // Diminui a mana máxima do jogador pelo custo da carta
-    } else {
-        System.out.println("Erro: Tentativa de gastar mais mana do que o jogador possui.");
-    }
-}
 //!!!!!!!!!!!!!!!!!!!!!!!      FIM DE posicionarManaOuCartaNoCampo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -393,7 +394,7 @@ public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
             }
         }
     }
-   public C_Carta encontrarCartaAlvo(C_Carta[][] campoJogadorAlvo, int linhaAtacante, int colunaAtacante) {
+    public C_Carta encontrarCartaAlvo(C_Carta[][] campoJogadorAlvo, int linhaAtacante, int colunaAtacante) {
         // Verifique se a posição de ataque é válida
         if (linhaAtacante >= 0 && linhaAtacante < campoJogadorAlvo.length) {
             // A linha de ataque é válida
@@ -411,7 +412,7 @@ public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
         return null;
     }
       //checa se matou a carta ( isso garante que a carta vai para o cemiterio caso tenha uma carta espcial do tipo magia)!!!!!!
-     public void removerCartasComMenosDeUmPonto(C_Carta[][] campoJogador, A_Usuario jogador) {
+    public void removerCartasComMenosDeUmPonto(C_Carta[][] campoJogador, A_Usuario jogador) {
         for (int linha = 0; linha < campoJogador.length; linha++) {
             for (int coluna = 0; coluna < campoJogador[linha].length; coluna++) {
                 C_Carta carta = campoJogador[linha][coluna];
@@ -482,7 +483,7 @@ public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
     }
 
 
-     public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {//toda essa loucura faz parte de (TURNO) até (moverCartaParaCemiterio)
+    public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {//toda essa loucura faz parte de (TURNO) até (moverCartaParaCemiterio)
         System.out.println(jogadorAtual.getNome() + " está jogando...");
         
         //cada turno jogador deve ganhar + 1 de mana para usar
@@ -507,17 +508,17 @@ public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
 
     
 
-//meotodo finaliza um turno e passa para checar DENTRO da partida quem está sem vida e chama determinarVencedor
- public void fimDeTurno() {
-    // Verificar se algum jogador tem menos de 1 ponto de vida
+    //meotodo finaliza um turno e passa para checar DENTRO da partida quem está sem vida e chama determinarVencedor
+    public void fimDeTurno() {
+        // Verificar se algum jogador tem menos de 1 ponto de vida
         if (jogador1.getPontosVida() < 1) {
             System.out.println("A partida terminou! O vencedor é: " + jogador2.getNome());
             determinarVencedor();
 
         } else if (jogador2.getPontosVida() < 1) {
             System.out.println("A partida terminou! O vencedor é: " + jogador1.getNome());
-             determinarVencedor();
-         
+            determinarVencedor();
+            
         }
     }
 
@@ -535,7 +536,8 @@ public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
             System.out.println("A partida terminou em empate!");
             return null;
         }
-     if (jogador1.getPontosVida() < 1) {
+
+        if (jogador1.getPontosVida() < 1) {
             System.out.println("A partida terminou! O vencedor é: " + jogador2.getNome());
 
             // Vencedor ganha 100 card coins
@@ -565,9 +567,6 @@ public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
         }
         return vencedor;
     }
-
-
-
 
 
     // get set
@@ -633,5 +632,69 @@ public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
 
     public void setmanaMaxima(int manaMaxima) {
         this.manaMaxima = manaMaxima;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public C_Carta[][] getCampoJogador1() {
+        return campoJogador1;
+    }
+
+    public C_Carta[][] getCampoJogador2() {
+        return campoJogador2;
+    }
+
+    public void setPontosVidaJogador1(int pontosVidaJogador1) {
+        this.pontosVidaJogador1 = pontosVidaJogador1;
+    }
+
+    public void setPontosVidaJogador2(int pontosVidaJogador2) {
+        this.pontosVidaJogador2 = pontosVidaJogador2;
+    }
+
+    public C_Carta[] getMaoJogador1() {
+        return maoJogador1;
+    }
+
+    public void setMaoJogador1(C_Carta[] maoJogador1) {
+        this.maoJogador1 = maoJogador1;
+    }
+
+    public C_Carta[] getMaoJogador2() {
+        return maoJogador2;
+    }
+
+    public void setMaoJogador2(C_Carta[] maoJogador2) {
+        this.maoJogador2 = maoJogador2;
+    }
+
+    public int getManaMaxima() {
+        return manaMaxima;
+    }
+
+    public void setManaMaxima(int manaMaxima) {
+        this.manaMaxima = manaMaxima;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    public C_Carta[] getCemiterioJogador1() {
+        return cemiterioJogador1;
+    }
+
+    public void setCemiterioJogador1(C_Carta[] cemiterioJogador1) {
+        this.cemiterioJogador1 = cemiterioJogador1;
+    }
+
+    public C_Carta[] getCemiterioJogador2() {
+        return cemiterioJogador2;
+    }
+
+    public void setCemiterioJogador2(C_Carta[] cemiterioJogador2) {
+        this.cemiterioJogador2 = cemiterioJogador2;
     }
 }
