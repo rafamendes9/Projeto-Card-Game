@@ -60,7 +60,7 @@ public class D_Deck {
         }
     }
 
-    
+    //metodo para remover carta do deck ( baralho ) e retorna para inventario
     public void removerCarta(String nome, B_Inventario inventario) {
         // Encontre a carta no deck pelo nome
         for (int i = 0; i < qtdCartas; i++) {

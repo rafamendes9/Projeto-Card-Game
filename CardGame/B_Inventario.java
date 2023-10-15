@@ -1,6 +1,6 @@
 package CardGame;
 public class B_Inventario {
-    private C_Carta[] cartas = new C_Carta[360]; // Alterado o tipo String para C_Carta , usado para o metodo adicionarCarta / alterado de 200 para 360 ( o jogador mais ter mais cartas + cartas reservas para cada deck)
+    private C_Carta[] cartas; // Alterado o tipo String para C_Carta , inicialmente com 360 espaços( o jogador mais ter mais cartas + cartas reservas para cada deck) + fução para aumentar o espaço
     private int nivelAtual = 1;
     private int cardCoins = 0;
 
@@ -10,6 +10,7 @@ public class B_Inventario {
         this.cartas = cartas;
         this.nivelAtual = nivelAtual ;
         this.cardCoins = cardCoins ;
+        cartas = new C_Carta[360];
     }
 
  
@@ -84,6 +85,25 @@ public void adicionarCartaShiny(C2_CartaShiny novaCartaShiny) {
         return null;  // Carta não encontrada
     }
     
+
+    // Método para aumentar o tamanho do vetor 
+    public void aumentarTamanhoDoVetor(int novoTamanho) {
+        int tamanhoAtual = cartas.length; // Obtem o tamanho atual do vetor
+
+        if (novoTamanho > tamanhoAtual) {
+            int tamanhoDesejado = tamanhoAtual + novoTamanho; // Calcula o tamanho desejado ( no caso +30)
+            C_Carta[] novoVetor = new C_Carta[tamanhoDesejado]; // Cria novo vetor com o tamanho desejado
+    
+            // Copia os elementos do vetor original para o novo vetor
+            for (int i = 0; i < tamanhoAtual; i++) {
+                novoVetor[i] = cartas[i];
+            }
+    
+            cartas = novoVetor; // Atualiza a referência para o novo vetor
+        }
+    }
+
+
     //GET SET
 
        public C_Carta[] getCartas() {
