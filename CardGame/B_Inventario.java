@@ -17,6 +17,7 @@ public class B_Inventario {
     // Método para adicionar uma carta ao inventário
      /*Este método verifica se a nova carta não é nula, se o inventário não está cheio e, em seguida,
      adiciona a nova carta ao inventário na próxima posição disponível. 
+     chama um IF para verificar se tem carta repitida
      */
     //metodo usado em E_Loja
     public boolean adicionarCarta(C_Carta novaCarta) {
@@ -24,6 +25,8 @@ public class B_Inventario {
             // Encontre uma posição vazia no inventário
             for (int i = 0; i < cartas.length; i++) {
                 if (cartas[i] == null) {
+                   
+                   if(possuiMaximoCarta(novaCarta))
                     // Adicione nova carta à posição disponível
                     cartas[i] = novaCarta;
                     return true;
@@ -35,9 +38,20 @@ public class B_Inventario {
         return false;
     }
 
-    // !!!!!!!!!!!!!!!!!!!!!!! EDITAR PARA ACEITAR CARTA REPITIDA DO TIPO "shiny" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //resolvido no metodo abaixo
-    
+    // Método para adicionar uma carta shiny ao inventário ( sem restrição de carta normal)
+public void adicionarCartaShiny(C2_CartaShiny novaCartaShiny) {
+    if (novaCartaShiny != null) {
+        // Encontre uma posição vazia no inventário
+        for (int i = 0; i < cartas.length; i++) {
+            if (cartas[i] == null) {
+                // Adicione a nova carta "shiny" à posição disponível
+                cartas[i] = novaCartaShiny;
+                break; // Sai do loop após adicionar a carta
+            }
+        }
+    }
+}
+
     //metodo verifica se o inventário já possui 3 unidades da mesma carta com base no nome da carta.
     //percorre o array de cartas no inventário e conta quantas vezes a carta com o mesmo nome é encontrada
     //Se o contador for maior ou igual a 3, significa que o inventário possui o máximo permitido daquela carta, e o método retorna (true)
@@ -55,7 +69,7 @@ public class B_Inventario {
         return false;
     }
 
-    
+   //metodo usado para apagar carta definitiva do inventario ( ainda não implementado por falta da class interface) 
     public C_Carta apagarCarta(String nome) {
         // Lógica para apagar a carta do inventário
         // Você pode remover a carta com o nome especificado e retorná-la
@@ -92,27 +106,6 @@ public class B_Inventario {
     public void setCardCoins(int cardcoins) {
         this.cardCoins = cardcoins;
     }
-
-
-
-
-
-//espaço para novos metodo de desenvolvimento 2 entrega !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-public void adicionarCartaShiny(C2_CartaShiny novaCartaShiny) {
-    if (novaCartaShiny != null) {
-        // Encontre uma posição vazia no inventário
-        for (int i = 0; i < cartas.length; i++) {
-            if (cartas[i] == null) {
-                // Adicione a nova carta "shiny" à posição disponível
-                cartas[i] = novaCartaShiny;
-                break; // Sai do loop após adicionar a carta
-            }
-        }
-    }
-}
 
 
 }

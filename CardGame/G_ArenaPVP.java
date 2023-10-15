@@ -129,7 +129,7 @@ public class G_ArenaPVP {
 
             if (cartaRetornada != null) {
                 // Sacar uma nova carta aleatória
-                C_Carta novaCarta = jogador.sacarCartaAleatoriaDoDeck();
+                C_Carta novaCarta = jogador.sacarCartaAleatoriaDoDeckREROLL();
 
                 if (novaCarta != null) {
                     // Adiciona a carta à mão do jogador com base no jogador

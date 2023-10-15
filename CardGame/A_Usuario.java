@@ -14,10 +14,6 @@ public class A_Usuario {
     private D_Deck[] indiceBaralho = new D_Deck[5];
     private B_Inventario inventario;
 
-    /*
-     * Deck(indiceBaralho)
-     */
-
     // atributos adicionais
     private int idade;
     private String ModoDeJogo; // Atributo para armazenar a modalidade de LOBBY / MODO DE JOGO / mudar para classe lobby
@@ -25,9 +21,6 @@ public class A_Usuario {
     private boolean emTime; // Atributo utilizado no novo modo de Jogo 2Px2P
     private int numeroTime; // Atributo utilizado no novo modo de Jogo 2Px2P
     private int manaDoJogador;
-
-    
-
     private List<C_Carta> deck;
     private List<C_Carta> mao;
 
@@ -43,15 +36,9 @@ public class A_Usuario {
         this.indiceBaralho = indiceBaralho;
         this.inventario = inventario;
     }
+   
 
-    // 1 metodo toString que retorna uma representação de string formatada do objeto
-    // útil para depuração e para exibir informações do usuário.
-    @Override
-    public String toString() {
-        return "Nome: " + nome + "\nCPF: " + cpf + "\nNível: " + nivel + "\nCardCoins: " + cardCoins;
-    }
-
-    // 2 metodo para adicionar decks
+    // metodo para adicionar decks
     public boolean adicionarDeck(D_Deck deck) {
         // Verifica se o usuário já possui o número máximo de decks permitidos (5)
         if (indiceBaralho.length >= 5) {
@@ -85,7 +72,7 @@ public class A_Usuario {
         return cpf != null && cpf.matches("\\d{11}");
     }
 
-    // 3 metodo validacao
+    //  metodo validacao
     public boolean validacoes() {
         // Validação de CPF
         if (!validarCPF(cpf)) {
@@ -106,27 +93,13 @@ public class A_Usuario {
             return false;
         }
 
-        // Adicione outras validações conforme necessário
-
         // Se todas as validações passaram, retorna true
         return true;
     }
   
    
-    public void diminuirPontosVida(int quantidade) {
-        if (quantidade > 0) {
-            pontosVida -= quantidade;
-            if (pontosVida < 0) {
-                pontosVida = 0; // Garante que os pontos de vida nao fique negativo
-
-            }
-        }
-    }
-
-     //!!!!!!!!!!!!!!!!!!!!!URGENTE 4 metodo atualizar nivel | ( desenvolvida na entrega 2)!!!!!!!!!!!!!!!!!!!!!!!!!!
     public void atualizarNivel(int pontuacao) {
-        // Vai ser desenvolvido a lógica para atualizar o nível aqui 
-        if (pontuacao >= 1000) { // Exemplo: Quando a pontuação atinge 1000 pontos, aumente o nível
+           if (pontuacao >= 1000) { // Exemplo: Quando a pontuação atinge 1000 pontos, aumente o nível
             nivel++; // Aumente o nível em 1
         }
     }
@@ -159,10 +132,6 @@ public class A_Usuario {
     }
 
 
-
-
-
-
     public C_Carta retornarCartaParaDeck(int posicao) {
         if (posicao >= 0 && posicao < mao.size()) {
             // Pega a carta da mão na posição especificada
@@ -183,7 +152,7 @@ public class A_Usuario {
 
     
     
-    public C_Carta sacarCartaAleatoriaDoDeck() {
+    public C_Carta sacarCartaAleatoriaDoDeckREROLL() {
     Random random = new Random();
     int tamanhoDoDeck = deck.size();
     
@@ -197,11 +166,6 @@ public class A_Usuario {
     }
 }
 
-
-
-    
-    
-    
   
     // get set
     public String getNome() {

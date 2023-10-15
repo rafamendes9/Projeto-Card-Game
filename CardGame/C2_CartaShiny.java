@@ -2,45 +2,32 @@ package CardGame;
 
 import java.util.Random;
 
-//import java.util.Random;
-
-//classe antiga
-/*import java.util.Random;
-
-public class C2_CartaShiny extends C_Carta {
-    public C2_CartaShiny(String nome, String imagem, H4_EnumTipo tipo, H_Enum raridade,
-    H3_EnumHabilidade habilidade, int ataque, int defesa, int custo) {
-        super(nome, imagem, tipo, raridade, habilidade, ataque + 1, defesa + 1, custo);
-        this.adicionarHabilidadeExtra();
-    }
-
-    private void adicionarHabilidadeExtra() {
-        // Pega uma habilidade extra aleatória do enum Habilidade
-        H3_EnumHabilidade[] habilidades = H3_EnumHabilidade.values();
-        Random random = new Random();
-        int index = random.nextInt(habilidades.length);
-        this.setHabilidade(this.getHabilidade() + ", " + habilidades[index].toString());
-    }
-    
-
-}*/
-//classe apos task de colocar enumHabilidade passando dentro de carta
 public class C2_CartaShiny extends C_Carta {
 
     private H3_EnumHabilidade habilidadeExtra;
+    
 
     public C2_CartaShiny(String nome, String imagem, H4_EnumTipo tipo, H_EnumRaridade raridade,
             int ataque, int defesa, int custo, int pontoVidaCarta, int mana) {
         super(nome, imagem, tipo, raridade, null, ataque + 1, defesa + 1, custo, pontoVidaCarta +2, mana - 1);
         this.habilidadeExtra = gerarHabilidadeAleatoriaExtra();
+        nomearShiny();    
     }
 
-    public H3_EnumHabilidade getHabilidadeExtra() {
-        return habilidadeExtra;
+    //metodo usado para adicionar uma raridade ao nome de forma que ele se apresente ainda mais UNICO
+    public void nomearShiny() {
+        Random random = new Random();
+        char caractereShiny = (char) (random.nextInt(26) + 'A'); // Gera uma letra maiúscula aleatória (A-Z)
+        setNome(getNome() + caractereShiny); // Atualiza o atributo 'nome' com o caractere aleatório
     }
+    
 
-    public void setHabilidadeExtra(H3_EnumHabilidade habilidadeExtra) {
-        this.habilidadeExtra = habilidadeExtra;
+    @Override
+    public void aumentarQuantidade() {
+        int aux = super.getQuantidade();
+        aux++;
+            super.setQuantidadee(aux);
+        
     }
 
      public H3_EnumHabilidade gerarHabilidadeAleatoriaExtra() {
@@ -63,5 +50,14 @@ public class C2_CartaShiny extends C_Carta {
             default:
                 throw new IllegalArgumentException("Valor de Habilidade inválido: " + valorHabilidade);
         }
+    }
+
+    //get set
+    public H3_EnumHabilidade getHabilidadeExtra() {
+        return habilidadeExtra;
+    }
+
+    public void setHabilidadeExtra(H3_EnumHabilidade habilidadeExtra) {
+        this.habilidadeExtra = habilidadeExtra;
     }
 }

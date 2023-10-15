@@ -12,10 +12,7 @@ public class C_Carta {
     private int pontoVidaCarta;
     private int mana;
     
-    /*  
-    Atributo adicional. Uso na fase 3.
-    private String TERRENO;
-    */
+   
     
     public C_Carta(String nome, String imagem, H4_EnumTipo tipo, H_EnumRaridade raridade, H3_EnumHabilidade habilidade,
             int ataque, int defesa, int custo, int pontoVidaCarta, int mana) {
@@ -30,20 +27,34 @@ public class C_Carta {
         this.quantidade = 0; // Inicialmente, a quantidade é 0.
         this.pontoVidaCarta = pontoVidaCarta;
         this.mana = mana;
-
+        
     }
 
-    // metodos
+    
 
-    // Metodo 1 estaDisponivel
+   // Metodo  estaDisponivel ( perguntar para o professor onde implementar esse metodo)
+/*
+ * verifica se a quantidade de cartas desse tipo é maior que 0. Se a quantidade
+ * for maior que 0, significa que pelo menos uma carta desse tipo está
+ * disponível.
+ * O método retorna true nesse caso, indicando que a carta está disponível. Caso
+ * contrário, retorna false
+ */
     public boolean estaDisponivel() {
         return quantidade > 0;
     }
 
-     // !!!!!!!!!!!!!!!!!!!!!!! EDITAR PARA ACEITAR CARTA REPITIDA DO TIPO "shiny" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //resolvido no metodo em Inventario especifico para shiny
+     
 
-    // Metodo 2 aumentarQuantidade
+    // Metodo 2 aumentarQuantidade ( perguntar para o professor onde implementar esse metodo)
+/*
+ * é usado para aumentar a quantidade de cartas desse tipo. Ele verifica se a
+ * quantidade atual é menor do que 3 (o limite máximo permitido, exceto para
+ * manas).
+ * Se for menor que 3, ele aumenta a quantidade em 1. Isso permite que os
+ * jogadores colecionem até 3 cartas de um tipo específico
+ */
+
     public void aumentarQuantidade() {
         if (quantidade < 3) {
             quantidade++;
@@ -119,6 +130,9 @@ public class C_Carta {
     public int getQuantidade() {
         return quantidade;
     }
+    public void setQuantidadee(int quantidade) {
+        this.quantidade = quantidade;
+    }
 
     public void setpontoVidaCarta(int pontoVidaCarta) {
         this.pontoVidaCarta = pontoVidaCarta;
@@ -153,3 +167,5 @@ public class C_Carta {
     }
 
 }
+
+

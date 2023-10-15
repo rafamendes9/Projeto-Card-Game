@@ -1,8 +1,6 @@
 package CardGame;
 import java.util.Random;
 
-//import colocados previamentes para futuro uso no desenvolvimento da segunda entrega.
-
 public class D_Deck {
     private String nome;
     private int qtdCartas;
@@ -15,16 +13,9 @@ public class D_Deck {
         this.disponibilidade = disponibilidade;
         this.cartas = cartas;
     }
-
-   public void isDeckDisponivel() { //metodo usado em addCarta + valida maximo de cartas no deck
-        if (qtdCartas < 60 ) {
-            disponibilidade = false;
-        } else {
-            disponibilidade = true;
-        }
-    }
-
-    public void addCarta(C_Carta carta, B_Inventario inventario) { // recebe carta que vai ser adicionada e o inventario para remover a quantidade na classe
+    
+    // metodo recebe carta que vai ser adicionada de  inventario 
+    public void addCarta(C_Carta carta, B_Inventario inventario) { 
         // verifica se o deck estourou o limite e se a carta estiver sendo repetida 3 vezes
         // Limite definido como 60 cartas
         if (qtdCartas < 60 && !maximasRepeticoes(carta)) {
@@ -33,10 +24,20 @@ public class D_Deck {
         }
         isDeckDisponivel(); //atualiza a diponibilidade da carta com o acréscimo de uma nova
     }
+    //metodo usado em addCarta + valida maximo de cartas no deck
+    public void isDeckDisponivel() { 
+        if (qtdCartas < 60 ) {
+            disponibilidade = false;
+        } else {
+            disponibilidade = true;
+        }
+    }
 
+
+    // metodo para verificar se o deck( baralho)se repete mais de 3 vezes
     public boolean maximasRepeticoes(C_Carta carta) {
         if (carta.getNome().equals("mana")) {
-            return false; // cartas de mana(futuramente  "private String TERRENO;"") podem ser chamadas mais de 3 vezes
+            return false; 
         }
         int contador = 0;
         for (int i = 0; i < qtdCartas; i++) { // compara carta recebida com as outras que já estão no vetor
@@ -111,23 +112,3 @@ public class D_Deck {
  
 
 }
-
-//possivel correção parcial para task 2 ( criar o metodo pilha)
-/*public void cancelar(int codigo){
-    boolean achou = false;
-    int i = 0;
-    for(; i < quantidadeitens; i++){
-      if(carrinho[i].getCodigo() == codigo){
-        achou = true;
-        carrinho[i] = null;
-        quantidadeitens--;
-      }
-    }
-    if(achou){
-      for(int j = i; j < carrinho.length - 1; j++){
-        carrinho[j] = carrinho[j+1];
-      }
-      System.out.println("Item cancelado da compra");
-    }else
-      System.out.println("Item não encontrado");
-  } */
