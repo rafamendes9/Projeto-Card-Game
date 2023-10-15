@@ -305,5 +305,4 @@ public class A_Usuario {
         this.manaDoJogador = manaDoJogador;
     }
     
-
 }
