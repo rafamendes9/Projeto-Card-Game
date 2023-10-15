@@ -549,7 +549,7 @@ public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
 
             // Encerrar o jogo ou fazer outras ações de final de jogo
             // Pode ser uma boa ideia lançar uma exceção ou chamar um método de encerramento aqui
-            System.exit(0);
+           
         } else if (jogador2.getPontosVida() < 1) {
             System.out.println("A partida terminou! O vencedor é: " + jogador1.getNome());
 
@@ -561,7 +561,7 @@ public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
             jogador2.adicionarCardCoins(10);
             jogador2.atualizarNivel(500);
 
-            System.exit(0);
+            
         }
         return vencedor;
     }
