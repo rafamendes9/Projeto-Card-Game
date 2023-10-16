@@ -23,7 +23,6 @@
 
 !enum habilidade precisa ser desenvolvido(ele apenas existe mas habilidade n possuem efeito)
 
-!G2_ArenaDoble metodo Saque vai ser reescrito para receber a mao de 4 players
 
 #
 
