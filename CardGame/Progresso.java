@@ -1,20 +1,14 @@
 package CardGame;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public abstract class Progresso {
-    private H5_EnumPremiacoes[] premiacoes; // Vetor de premiações
-    private int premiacaoAtual; // Premiação atual
+    private ArrayList<String> premiacoes; // Lista de premiações
+    private int premiacaoAtual; // Contador de premiações
 
     public Progresso() {
-        this.premiacoes = new H5_EnumPremiacoes[60];
-        // Inicialize o vetor de premiações com algum valor padrão
-        Arrays.fill(premiacoes, H5_EnumPremiacoes.VAZIO);
+        this.premiacoes = new ArrayList<>();
         this.premiacaoAtual = 0;
-    }
-
-    public int getPremiacaoAtual(){
-        return premiacaoAtual;
     }
 
     // Método abstrato para entregar uma premiação
@@ -22,4 +16,20 @@ public abstract class Progresso {
 
     // Método abstrato para fazer progresso no passe
     public abstract void progresso();
+
+    // Método para verificar se o próximo nível é um múltiplo de 5
+    protected boolean isProximoNivelMultiploDe5() {
+        return (premiacaoAtual + 1) % 5 == 0;
+    }
+
+    // Método para adicionar uma premiação ao passe
+    protected void adicionarPremiacao(String premiacao) {
+        premiacoes.add(premiacao);
+        premiacaoAtual++;
+    }
+
+    // Método para obter o índice da premiação atual
+    protected int getPremiacaoAtual() {
+        return premiacaoAtual;
+    }
 }

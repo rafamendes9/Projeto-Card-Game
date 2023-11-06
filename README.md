@@ -6,6 +6,8 @@
 
 - https://github.com/VictorSantos674
 
+- https://github.com/pedrocerquinho
+
 
 ### OBS Importantes
 
@@ -16,6 +18,7 @@
 
 - Comentarios no codigo com as terminações "fase 2,segunda fase,etc.../fase 3,terceira fase,etc..." não devem ser levadas em consideração até as proximas demandas ou até estarem completamente desenvolvidas futuramente.
 
+-Premiações dos passes: Boost de mana, pack de cardcoins, criar uma gema do game(cardgems), XP
 
 
 
