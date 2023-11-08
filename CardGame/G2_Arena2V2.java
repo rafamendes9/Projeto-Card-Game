@@ -447,9 +447,11 @@ public class G2_Arena2V2 extends G_ArenaPVP{
             // Vencedores ganham 100 card coins
             super.getJogador2().adicionarCardCoins(100);
             super.getJogador2().atualizarNivel(1000);
+            super.getJogador2().setWins(super.getJogador2().getWins() + 1);
 
             super.getJogador1().adicionarCardCoins(100);
             super.getJogador1().atualizarNivel(1000);
+            super.getJogador1().setWins(super.getJogador1().getWins() + 1);
 
             // Perdedores ganham 10 card coins
             jogador3.adicionarCardCoins(10);
@@ -464,9 +466,11 @@ public class G2_Arena2V2 extends G_ArenaPVP{
             // Vencedor ganha 100 card coins
             jogador3.adicionarCardCoins(100);
             jogador3.atualizarNivel(1000);
+            jogador3.setWins(jogador3.getWins() + 1);
 
             jogador4.adicionarCardCoins(100);
             jogador4.atualizarNivel(1000);
+            jogador4.setWins(jogador4.getWins() + 1);
 
             // Perdedor ganha 10 card coins
             super.getJogador1().adicionarCardCoins(10);

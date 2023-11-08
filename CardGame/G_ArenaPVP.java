@@ -543,6 +543,7 @@ public class G_ArenaPVP {
             // Vencedor ganha 100 card coins
             jogador2.adicionarCardCoins(100);
             jogador2.atualizarNivel(1000);
+            jogador2.setWins(jogador2.getWins() + 1);
 
             // Perdedor ganha 10 card coins
             jogador1.adicionarCardCoins(10);
@@ -558,6 +559,7 @@ public class G_ArenaPVP {
             // Vencedor ganha 100 card coins
             jogador1.adicionarCardCoins(100);
             jogador1.atualizarNivel(1000);
+            jogador1.setWins(jogador1.getWins() + 1);
 
             // Perdedor ganha 10 card coins
             jogador2.adicionarCardCoins(10);

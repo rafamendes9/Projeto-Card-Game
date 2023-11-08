@@ -20,9 +20,9 @@
 
 
 
--Premiações dos passes: Boost de mana, pack de cardcoins, criar uma gema do game(cardgems), XP
+-Criar produtos na E2_LojaShiny para apenas serem compradas com as cardgems
 
--Fazer um score dos players pra contar suas vitórias e assim definir qual passe ele vai ganhar
+-Fazer um score dos players pra contar suas vitórias(OK) e assim definir qual passe ele vai ganhar
 
 -Excessões: timeOutException - 3minuto de espera, irrregularDeckException - qntdd de cartas no deck (mín=45 & máx=60), insuficientCoinsException - não tem cardcoins o suficiente pra fzr uma compra
 

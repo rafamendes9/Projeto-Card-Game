@@ -11,8 +11,10 @@ public class A_Usuario {
     private String email;
     private int nivel = 1;
     private int cardCoins = 0;
+    private int cardgems = 0;
     private D_Deck[] indiceBaralho = new D_Deck[5];
     private B_Inventario inventario;
+    private int wins = 0;
 
     // atributos adicionais
     private int idade;
@@ -222,6 +224,22 @@ public class A_Usuario {
 
     public void setCardCoins(int cardCoins) {
         this.cardCoins = cardCoins;
+    }
+
+    public int getCardgems() {
+        return cardgems;
+    }
+
+    public void setCardgems(int cardgems) {
+        this.cardgems = cardgems;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public void setWins(int wins) {
+        this.wins = wins;
     }
 
     // indice baralho
