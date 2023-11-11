@@ -2,7 +2,7 @@ package CardGame;
 
 import java.util.Random;
 
-public class C2_CartaShiny extends C_Carta {
+public class C2_CartaShiny extends C_Carta{
 
     private H3_EnumHabilidade habilidadeExtra;
     
@@ -24,10 +24,10 @@ public class C2_CartaShiny extends C_Carta {
 
     @Override
     public void aumentarQuantidade() {
+        // Implementação específica para a classe C2_CartaShiny
         int aux = super.getQuantidade();
         aux++;
-            super.setQuantidadee(aux);
-        
+        super.setQuantidadee(aux);
     }
 
      public H3_EnumHabilidade gerarHabilidadeAleatoriaExtra() {
@@ -49,6 +49,18 @@ public class C2_CartaShiny extends C_Carta {
                 return H3_EnumHabilidade.ESCUDOREFLETOR;
             default:
                 throw new IllegalArgumentException("Valor de Habilidade inválido: " + valorHabilidade);
+        }
+    }
+
+    //Método que foi criado pela interface 
+    @Override
+    public void ativar() {
+        // Implementação da ativação da habilidade da carta shiny
+        super.ativar(); // Chama a implementação da classe base (C_Carta)
+        
+        if (habilidadeExtra != null) {
+            // Lógica específica para a ativação da habilidade extra da carta shiny
+            System.out.println("Ativando habilidade extra da carta shiny: " + habilidadeExtra);
         }
     }
 

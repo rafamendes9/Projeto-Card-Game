@@ -1,5 +1,5 @@
 package CardGame;
-public class C_Carta {
+public class C_Carta implements C3_AtivacaoCarta{
     private String nome;
     private String imagem;
     private H4_EnumTipo  tipo;
@@ -60,6 +60,18 @@ public class C_Carta {
             quantidade++;
         }
     }
+
+
+    //Método que foi criado pela interface
+    @Override
+    public void ativar() {
+        // Implementação da ativação da habilidade da carta comum
+        if (habilidade != null) {
+            // Lógica específica para a ativação da habilidade da carta comum
+            System.out.println("Ativando habilidade da carta comum: " + habilidade);
+        }
+    }
+
 
     // get set
 
