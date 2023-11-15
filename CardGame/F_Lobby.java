@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class F_Lobby {
     private List<A_Usuario> usuarios;
-    private List<G_ArenaPVP> arenas;
+    private List<G1_ArenaPVP> arenas;
 
     /*
      * Neste construtor, duas listas vazias são inicializadas: usuarios e arenas.
@@ -83,7 +83,7 @@ public class F_Lobby {
                 usuarios.remove(jogador2);
 
                 // Crie uma nova arena com os jogadores
-                G_ArenaPVP arena = new G_ArenaPVP(jogador1, jogador2);
+                G1_ArenaPVP arena = new G1_ArenaPVP(jogador1, jogador2);
 
                 arenas.add(arena);
 

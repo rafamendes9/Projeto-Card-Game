@@ -1,12 +1,9 @@
 package CardGame;
 public enum H3_EnumHabilidade {
-    
     AMEDRONTAR,  
     ATROPELAR,   
-    UNIR,  
+    ARMADURA,  
     CURA,  
     VENENO, 
-    ESCUDOREFLETOR; 
-
-   
+    ESCUDOREFLETOR;    
 }

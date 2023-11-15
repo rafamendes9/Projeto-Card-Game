@@ -40,7 +40,7 @@ public class C2_CartaShiny extends C_Carta{
             case 1:
                 return H3_EnumHabilidade.ATROPELAR;
             case 2:
-                return H3_EnumHabilidade.UNIR;
+                return H3_EnumHabilidade.ARMADURA;
             case 3:
                 return H3_EnumHabilidade.CURA;
             case 4:
@@ -54,9 +54,9 @@ public class C2_CartaShiny extends C_Carta{
 
     //Método que foi criado pela interface 
     @Override
-    public void ativar() {
+    public void ativar(H3_EnumHabilidade habilidade) {
         // Implementação da ativação da habilidade da carta shiny
-        super.ativar(); // Chama a implementação da classe base (C_Carta)
+        super.ativar(habilidade); // Chama a implementação da classe base (C_Carta)
         
         if (habilidadeExtra != null) {
             // Lógica específica para a ativação da habilidade extra da carta shiny

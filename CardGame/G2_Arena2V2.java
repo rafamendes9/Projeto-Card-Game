@@ -1,7 +1,7 @@
 package CardGame;
 import java.util.Random;
 
-public class G2_Arena2V2 extends G_ArenaPVP{
+public class G2_Arena2V2 extends G1_ArenaPVP{
     private A_Usuario jogador3;  // Novos jogadores
     private A_Usuario jogador4;
     private D_Deck deckJogador3;
@@ -334,8 +334,13 @@ public class G2_Arena2V2 extends G_ArenaPVP{
                     C_Carta cartaAlvo = encontrarCartaAlvo(campoJogadorAlvo, linha, coluna);
     
                     if (cartaAlvo != null) {
-                                                
+                                            
+                        K_Feitico.ativarHabilidade(cartaAtacante.getHabilidade(), cartaAtacante);
                         // Reduz os pontos de vida da carta alvo com o dano calculado
+                        if (cartaAtacante instanceof C2_CartaShiny) {
+                            C2_CartaShiny cartaShiny = (C2_CartaShiny) cartaAtacante;
+                            K_Feitico.ativarHabilidade(cartaShiny.getHabilidadeExtra(), cartaShiny);
+                        }
                         cartaAlvo.calculoDeDiminuirPontosVidaCarta(cartaAtacante.getAtaque());
     
                         // Verifique se a carta alvo chegou a 0 ou menos pontos de vida

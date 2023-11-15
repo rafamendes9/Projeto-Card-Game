@@ -64,11 +64,11 @@ public class C_Carta implements C3_AtivacaoCarta{
 
     //Método que foi criado pela interface
     @Override
-    public void ativar() {
+    public void ativar(H3_EnumHabilidade habilidade) {
         // Implementação da ativação da habilidade da carta comum
         if (habilidade != null) {
             // Lógica específica para a ativação da habilidade da carta comum
-            System.out.println("Ativando habilidade da carta comum: " + habilidade);
+            System.out.println("Ativando habilidade da carta: " + habilidade);
         }
     }
 
@@ -179,5 +179,3 @@ public class C_Carta implements C3_AtivacaoCarta{
     }
 
 }
-
-

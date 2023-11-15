@@ -40,18 +40,18 @@ public class B_Inventario {
     }
 
     // Método para adicionar uma carta shiny ao inventário ( sem restrição de carta normal)
-public void adicionarCartaShiny(C2_CartaShiny novaCartaShiny) {
-    if (novaCartaShiny != null) {
-        // Encontre uma posição vazia no inventário
-        for (int i = 0; i < cartas.length; i++) {
-            if (cartas[i] == null) {
-                // Adicione a nova carta "shiny" à posição disponível
-                cartas[i] = novaCartaShiny;
-                break; // Sai do loop após adicionar a carta
+    public void adicionarCartaShiny(C2_CartaShiny novaCartaShiny) {
+        if (novaCartaShiny != null) {
+            // Encontre uma posição vazia no inventário
+            for (int i = 0; i < cartas.length; i++) {
+                if (cartas[i] == null) {
+                    // Adicione a nova carta "shiny" à posição disponível
+                    cartas[i] = novaCartaShiny;
+                    break; // Sai do loop após adicionar a carta
+                }
             }
         }
     }
-}
 
     //metodo verifica se o inventário já possui 3 unidades da mesma carta com base no nome da carta.
     //percorre o array de cartas no inventário e conta quantas vezes a carta com o mesmo nome é encontrada
@@ -115,7 +115,7 @@ public void adicionarCartaShiny(C2_CartaShiny novaCartaShiny) {
 
     //GET SET
 
-       public C_Carta[] getCartas() {
+    public C_Carta[] getCartas() {
         return cartas;
     }
     public void setCartas(C_Carta[] cartas) {
@@ -135,6 +135,4 @@ public void adicionarCartaShiny(C2_CartaShiny novaCartaShiny) {
     public void setCardCoins(int cardcoins) {
         this.cardCoins = cardcoins;
     }
-
-
 }

@@ -1,7 +1,7 @@
 package CardGame;
 import java.util.Random;
 
-public class G_ArenaPVP {
+public class G1_ArenaPVP {
     private A_Usuario jogador1;
     private A_Usuario jogador2;
     private D_Deck deckJogador1;
@@ -24,7 +24,7 @@ public class G_ArenaPVP {
     // Construtores 
 
     
-    public G_ArenaPVP(A_Usuario jogador1, A_Usuario jogador2, D_Deck deckJogador1, D_Deck deckJogador2) {
+    public G1_ArenaPVP(A_Usuario jogador1, A_Usuario jogador2, D_Deck deckJogador1, D_Deck deckJogador2) {
         this.jogador1 = jogador1;
         this.jogador2 = jogador2;
         this.deckJogador1 = deckJogador1;
@@ -43,7 +43,7 @@ public class G_ArenaPVP {
 
      // Construtor que aceita apenas jogadores
      //usado para lobby  em "criarPartida"
-     public G_ArenaPVP(A_Usuario jogador1, A_Usuario jogador2) {
+     public G1_ArenaPVP(A_Usuario jogador1, A_Usuario jogador2) {
         this.jogador1 = jogador1;
         this.jogador2 = jogador2;
         this.deckJogador2 = null; // Definido como null 
@@ -380,6 +380,8 @@ public class G_ArenaPVP {
     
                     if (cartaAlvo != null) {
                                                 
+                        cartaAtacante.ativar(cartaAtacante.getHabilidade());
+                        K_Feitico.ativarHabilidade(cartaAtacante.getHabilidade(), cartaAtacante);
                         // Reduz os pontos de vida da carta alvo com o dano calculado
                         cartaAlvo.calculoDeDiminuirPontosVidaCarta(cartaAtacante.getAtaque());
     

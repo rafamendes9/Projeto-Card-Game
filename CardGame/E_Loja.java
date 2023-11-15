@@ -129,7 +129,7 @@ public H3_EnumHabilidade gerarHabilidadeAleatorio() {
         case 1:
         return H3_EnumHabilidade.ATROPELAR;
         case 2:
-        return H3_EnumHabilidade.UNIR;
+        return H3_EnumHabilidade.ARMADURA;
         case 3:
         return H3_EnumHabilidade.CURA;
         case 4:
