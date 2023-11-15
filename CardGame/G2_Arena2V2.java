@@ -450,9 +450,31 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
             System.out.println("A partida terminou! Os vencedores são: " + super.getJogador2().getNome() + " e " + super.getJogador1().getNome());
 
             // Vencedores ganham 100 card coins
+            //Entrega dos passes
+            if (super.getJogador1().getWins() % 7 == 0) {
+                PassePremium passePremium = new PassePremium();
+                passePremium.entregarPremiacao(super.getJogador2());
+                passePremium.setPremiacaoAtual(passePremium.getPremiacaoAtual() + 1);
+            } else if(super.getJogador1().getWins() % 3 == 0){
+                PasseComum passeComum = new PasseComum();
+                passeComum.entregarPremiacao(super.getJogador2());
+                passeComum.setPremiacaoAtual(passeComum.getPremiacaoAtual() + 1);
+            }
+
             super.getJogador2().adicionarCardCoins(100);
             super.getJogador2().atualizarNivel(1000);
             super.getJogador2().setWins(super.getJogador2().getWins() + 1);
+
+            //Entrega dos passes
+            if (super.getJogador1().getWins() % 7 == 0) {
+                PassePremium passePremium = new PassePremium();
+                passePremium.entregarPremiacao(super.getJogador1());
+                passePremium.setPremiacaoAtual(passePremium.getPremiacaoAtual() + 1);
+            } else if(super.getJogador1().getWins() % 3 == 0){
+                PasseComum passeComum = new PasseComum();
+                passeComum.entregarPremiacao(super.getJogador1());
+                passeComum.setPremiacaoAtual(passeComum.getPremiacaoAtual() + 1);
+            }
 
             super.getJogador1().adicionarCardCoins(100);
             super.getJogador1().atualizarNivel(1000);
@@ -468,27 +490,46 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
         } else if (jogador3.getPontosVida() < 1 || jogador4.getPontosVida() < 1) {
             System.out.println("A partida terminou! Os vencedores são: " + jogador4.getNome() + " e " + jogador3.getNome());
 
-            // Vencedor ganha 100 card coins
+            // Vencedores ganham 100 card coins
+            //Entrega dos passes
+            if (jogador3.getWins() % 7 == 0) {
+                PassePremium passePremium = new PassePremium();
+                passePremium.entregarPremiacao(jogador3);
+                passePremium.setPremiacaoAtual(passePremium.getPremiacaoAtual() + 1);
+            } else if(jogador3.getWins() % 3 == 0){
+                PasseComum passeComum = new PasseComum();
+                passeComum.entregarPremiacao(jogador3);
+                passeComum.setPremiacaoAtual(passeComum.getPremiacaoAtual() + 1);
+            }
             jogador3.adicionarCardCoins(100);
             jogador3.atualizarNivel(1000);
             jogador3.setWins(jogador3.getWins() + 1);
 
+            //Entrega dos passes
+            if (jogador4.getWins() % 7 == 0) {
+                PassePremium passePremium = new PassePremium();
+                passePremium.entregarPremiacao(jogador4);
+                passePremium.setPremiacaoAtual(passePremium.getPremiacaoAtual() + 1);
+            } else if(jogador4.getWins() % 3 == 0){
+                PasseComum passeComum = new PasseComum();
+                passeComum.entregarPremiacao(jogador4);
+                passeComum.setPremiacaoAtual(passeComum.getPremiacaoAtual() + 1);
+            }
             jogador4.adicionarCardCoins(100);
             jogador4.atualizarNivel(1000);
             jogador4.setWins(jogador4.getWins() + 1);
 
-            // Perdedor ganha 10 card coins
+            // Perdedores ganham 10 card coins
             super.getJogador1().adicionarCardCoins(10);
             super.getJogador1().atualizarNivel(500);
 
             super.getJogador2().adicionarCardCoins(10);
             super.getJogador2().atualizarNivel(500);
-
         }
         return vencedor;
     }
     
-    
+    // get e set
     public A_Usuario getJogador3() {
         return jogador3;
     }

@@ -4,8 +4,8 @@ public class PassePremium extends Progresso{
     
     @Override
     public void entregarPremiacao(A_Usuario jogador) {
-        // Entrega um booster especial para níveis múltiplos de 5      
-        System.out.println("Nível múltiplo de 5. Entregando booster especial.");
+        // Entrega um booster especial para níveis múltiplos de 7    
+        System.out.println("Nível múltiplo de 7. Entregando booster especial.");
         packCardCoins(jogador);
         packCardGems(jogador);
         ganhoDeXP(jogador);

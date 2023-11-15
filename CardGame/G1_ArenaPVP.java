@@ -529,12 +529,13 @@ public class G1_ArenaPVP {
         if (jogador1.getPontosVida() < 1) {
             System.out.println("A partida terminou! O vencedor é: " + jogador2.getNome());
 
-            // Vencedor ganha 100 card coins
-            if (jogador2.getWins() % 5 == 0) {
+            // Vencedores ganham 100 card coins
+            //Entrega dos passes
+            if (jogador2.getWins() % 7 == 0) {
                 PassePremium passePremium = new PassePremium();
                 passePremium.entregarPremiacao(jogador2);
                 passePremium.setPremiacaoAtual(passePremium.getPremiacaoAtual() + 1);
-            } else {
+            } else if(jogador2.getWins() % 3 == 0){
                 PasseComum passeComum = new PasseComum();
                 passeComum.entregarPremiacao(jogador2);
                 passeComum.setPremiacaoAtual(passeComum.getPremiacaoAtual() + 1);
@@ -544,7 +545,7 @@ public class G1_ArenaPVP {
             jogador2.atualizarNivel(1000);
             jogador2.setWins(jogador2.getWins() + 1);
 
-            // Perdedor ganha 10 card coins
+            // Perdedores ganham 10 card coins
             jogador1.adicionarCardCoins(10);
             jogador1.atualizarNivel(500);
 
@@ -555,20 +556,27 @@ public class G1_ArenaPVP {
         } else if (jogador2.getPontosVida() < 1) {
             System.out.println("A partida terminou! O vencedor é: " + jogador1.getNome());
 
-            // Vencedor ganha 100 card coins
+            // Vencedores ganham 100 card coins
+            //Entrega dos passes
+            if (jogador1.getWins() % 7 == 0) {
+                PassePremium passePremium = new PassePremium();
+                passePremium.entregarPremiacao(jogador1);
+                passePremium.setPremiacaoAtual(passePremium.getPremiacaoAtual() + 1);
+            } else if(jogador1.getWins() % 3 == 0){
+                PasseComum passeComum = new PasseComum();
+                passeComum.entregarPremiacao(jogador1);
+                passeComum.setPremiacaoAtual(passeComum.getPremiacaoAtual() + 1);
+            }
             jogador1.adicionarCardCoins(100);
             jogador1.atualizarNivel(1000);
             jogador1.setWins(jogador1.getWins() + 1);
 
-            // Perdedor ganha 10 card coins
+            // Perdedores ganham 10 card coins
             jogador2.adicionarCardCoins(10);
             jogador2.atualizarNivel(500);
-
-            
         }
         return vencedor;
     }
-
 
     // get set
     public A_Usuario getJogador1() {

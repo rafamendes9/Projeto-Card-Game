@@ -3,8 +3,8 @@ public class PasseComum extends Progresso{
     
     @Override
     public void entregarPremiacao(A_Usuario jogador) {
-        // Entrega um booster comum
-        System.out.println("Entregando booster comum.");
+        // Entrega um booster especial para níveis múltiplos de 3
+        System.out.println("Nível múltiplo de 3. Entregando booster comum.");
         packCardCoins(jogador);
         packCardGems(jogador);
         ganhoDeXP(jogador);
