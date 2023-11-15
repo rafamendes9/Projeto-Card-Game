@@ -18,13 +18,9 @@
 
 - Comentarios no codigo com as terminações "fase 2,segunda fase,etc.../fase 3,terceira fase,etc..." não devem ser levadas em consideração até as proximas demandas ou até estarem completamente desenvolvidas futuramente.
 
-
-
--Criar produtos na E2_LojaShiny para apenas serem compradas com as cardgems
-
 -Definir qual passe ele vai ganhar pela quantidade de passes que já ganhou
 
--Excessões: timeOutException - 3minuto de espera, irrregularDeckException - qntdd de cartas no deck (mín=45 & máx=60), insuficientCoinsException - não tem cardcoins o suficiente pra fzr uma compra
+-Excessões: timeOutException - 3 minutos de espera;
 
 ## tasks urgentes
 

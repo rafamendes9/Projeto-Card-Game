@@ -15,7 +15,7 @@ public class D_Deck {
     }
     
     // metodo recebe carta que vai ser adicionada de  inventario 
-    public void addCarta(C_Carta carta, B_Inventario inventario) { 
+    public void addCarta(C_Carta carta, B_Inventario inventario) throws J2_IrregularDeckException { 
         // verifica se o deck estourou o limite e se a carta estiver sendo repetida 3 vezes
         // Limite definido como 60 cartas
         if (qtdCartas < 60 && !maximasRepeticoes(carta)) {
@@ -25,12 +25,19 @@ public class D_Deck {
         isDeckDisponivel(); //atualiza a diponibilidade da carta com o acréscimo de uma nova
     }
     //metodo usado em addCarta + valida maximo de cartas no deck
-    public void isDeckDisponivel() { 
-        if (qtdCartas < 60 ) {
-            disponibilidade = false;
-        } else {
-            disponibilidade = true;
-        }
+    public void isDeckDisponivel() throws J2_IrregularDeckException{
+        try {
+            if (qtdCartas > 60 ) {
+                disponibilidade = false;
+            } else if (qtdCartas < 45) {
+                disponibilidade = false;
+            }else{
+                disponibilidade = true;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } 
+        
     }
 
 

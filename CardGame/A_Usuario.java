@@ -11,7 +11,7 @@ public class A_Usuario {
     private String email;
     private int nivel = 1;
     private int cardCoins = 0;
-    private int cardgems = 0;
+    private int cardGems = 0;
     private D_Deck[] indiceBaralho = new D_Deck[5];
     private B_Inventario inventario;
     private int wins = 0;
@@ -173,7 +173,6 @@ public class A_Usuario {
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -181,7 +180,6 @@ public class A_Usuario {
     public String getCpf() {
         return cpf;
     }
-
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
@@ -189,7 +187,6 @@ public class A_Usuario {
     public String getSenha() {
         return senha;
     }
-
     public void setSenha(String senha) {
         this.senha = senha;
     }
@@ -197,7 +194,6 @@ public class A_Usuario {
     public String getSexo() {
         return sexo;
     }
-
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
@@ -205,7 +201,6 @@ public class A_Usuario {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -213,31 +208,27 @@ public class A_Usuario {
     public int getNivel() {
         return nivel;
     }
-
     public void setNivel(int nivel) {
         this.nivel = nivel;
+    }
+
+    public int getCardGems() {
+        return cardGems;
+    }
+    public void setCardGems(int cardgems) {
+        this.cardGems = cardgems;
     }
 
     public int getCardCoins() {
         return cardCoins;
     }
-
     public void setCardCoins(int cardCoins) {
         this.cardCoins = cardCoins;
-    }
-
-    public int getCardgems() {
-        return cardgems;
-    }
-
-    public void setCardgems(int cardgems) {
-        this.cardgems = cardgems;
-    }
+    }   
 
     public int getWins() {
         return wins;
     }
-
     public void setWins(int wins) {
         this.wins = wins;
     }

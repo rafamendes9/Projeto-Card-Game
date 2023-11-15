@@ -17,12 +17,12 @@ public class E_Loja {
 
     // metodo compra booster
 
-    public void compraDeBooster(A_Usuario usuario) {
+    public void compraDeBooster(A_Usuario usuario) throws J1_InsufficientCoinsException {
         // Verificar se o usuário possui cardcoins suficientes para comprar um booster
         
-        int cardcoinsDoUsuario = usuario.getCardCoins();
-
-        if (cardcoinsDoUsuario >= precoBoosterComum) { // verifica se o usuário tem cardcoins suficientes para comprar um booster
+        int cardcoinsDoUsuario = usuario.getCardGems();
+        try {
+            if (cardcoinsDoUsuario >= precoBoosterComum) { // verifica se o usuário tem cardcoins suficientes para comprar um booster
 
             int quantidadeCartasBooster = 12; // Um booster contém 12 cartas aleatórias
 
@@ -45,11 +45,10 @@ public class E_Loja {
             cardcoinsDoUsuario -= precoBoosterComum;
             usuario.setCardCoins(cardcoinsDoUsuario);
 
-            System.out.println(
-                    "Compra bem-sucedida! Você recebeu " + quantidadeCartasBooster + " cartas no seu inventário.");
-
-        } else {
-            System.out.println("Você não possui cardcoins suficientes para comprar um booster.");
+            System.out.println("Compra bem-sucedida! Você recebeu " + quantidadeCartasBooster + " cartas no seu inventário.");
+        }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -181,9 +180,9 @@ public H4_EnumTipo gerarTipoAleatorio() {
             novoTamanho = 30;// define o aumento em 30 o tamanho do vetor
            int valorDaCompra = 1000;// define o valor a se pagar 
             // Verifica se o usuário possui cardcoins suficientes
-            if (usuario.getCardCoins() >= valorDaCompra) {
+            if (usuario.getCardGems() >= valorDaCompra) {
             // Subtrai o custo do aumento do tamanho dos cardcoins do usuário
-            usuario.setCardCoins(usuario.getCardCoins() - valorDaCompra);
+            usuario.setCardCoins(usuario.getCardGems() - valorDaCompra);
 
             // Chama o método para aumentar o tamanho do inventário
             inventario.aumentarTamanhoDoVetor(novoTamanho);

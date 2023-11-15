@@ -3,25 +3,42 @@ package CardGame;
 public class PassePremium extends Progresso{
     
     @Override
-    public void entregarPremiacao() {
-        // Entrega um booster comum para níveis não múltiplos de 5
-        // Entrega um booster especial para níveis múltiplos de 5
-        // Isso pode incluir a lógica para abrir os boosters
-        int nivelAtual = getPremiacaoAtual() + 1; // Nível atual (1-60)
-        
-        if (nivelAtual % 5 == 0) {
-            System.out.println("Nível múltiplo de 5. Entregando booster especial.");
-        } else {
-            System.out.println("Entregando booster comum.");
-        }
+    public void entregarPremiacao(A_Usuario jogador) {
+        // Entrega um booster especial para níveis múltiplos de 5      
+        System.out.println("Nível múltiplo de 5. Entregando booster especial.");
+        packCardCoins(jogador);
+        packCardGems(jogador);
+        ganhoDeXP(jogador);
+        adicionarBoostMana(jogador);
+        progresso(jogador);
     }
 
     @Override
-    public void progresso() {
+    public void progresso(A_Usuario jogador) {
         // Incrementa o progresso (nível) do passe premium
-        // Ganhar uma partida representa dois níveis ganhos
-        // O usuário avança dois níveis a cada vitória
-        entregarPremiacao();
-        System.out.println("Ganhou uma partida. Avançou dois níveis.");
+        // Ganhar uma partida representa um passe ganho
+        // O usuário avança um nível em cada vitória
+        setPremiacaoAtual(getPremiacaoAtual() + 1);
+        System.out.println("Ganhou uma partida. Avançou um nível.");
+    }
+
+    public void packCardCoins(A_Usuario jogador){
+        // Adicionar um valor específico de coins ao jogador
+        jogador.setCardCoins(3000 + jogador.getCardCoins()); // Exemplo: adiciona 1000 coins
+    }
+
+    public void packCardGems(A_Usuario jogador){
+        // Adicionar um valor específico de gemas ao jogador
+        jogador.setCardGems(30 + jogador.getCardGems()); // Exemplo: adiciona 10 gemas
+    }
+
+    public void ganhoDeXP(A_Usuario jogador){
+        // Adicionar um valor específico de experiência ao jogador
+        jogador.setNivel(600 + jogador.getNivel()); // Exemplo: adiciona 200xp
+    }
+
+    public void adicionarBoostMana(A_Usuario jogador) {
+        // Adicionar um valor específico de mana ao jogador
+        jogador.setManaDoJogador(jogador.getManaDoJogador() + 15); // Exemplo: adiciona 5 de mana
     }
 }

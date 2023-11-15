@@ -86,7 +86,7 @@ public class B_Inventario {
             
             // Adiciona valor em cardcoins ao usuário
             int valorCardcoins = 10; // Define o valor a ser adicionado em cardcoins
-            usuario.setCardCoins(usuario.getCardCoins() + valorCardcoins);
+            usuario.setCardCoins(usuario.getCardGems() + valorCardcoins);
 
             return cartaRemovida;
         }

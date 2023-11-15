@@ -55,13 +55,7 @@ public class G1_ArenaPVP {
         
     }
 
-
-    
-    
-    
-    // metodos
-    
-    
+    // metodos    
      public void iniciarPartida() { // LOOP PRINCIPAL DO JOGO !!!!!!!!!!!!!!!!!!!!!!!!!
         System.out.println("A partida está começando!");
 
@@ -80,13 +74,9 @@ public class G1_ArenaPVP {
         determinarVencedor();
     }
 
-    
-    
     public void escolherMaoDoUsuario(A_Usuario jogador, int a){
         jogador.escolherCartasDoIndiceBaralho(a);
     }
-
-
 
     public boolean verificarVitoria() {
         return jogador1.getPontosVida() <= 0 || jogador2.getPontosVida() <= 0;
@@ -104,7 +94,6 @@ public class G1_ArenaPVP {
         }
     }
 
-    
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!COMEÇO DE SAQUE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!       
  //saque e sub metodos de saque ( colados )   
     public void saque(A_Usuario jogador) {
@@ -140,6 +129,7 @@ public class G1_ArenaPVP {
             }
         }
     }
+
 // Método para encontrar a próxima posição vazia na mão do jogador 1
     public int encontrarProximaPosicaoVaziaNaMaoJogador(A_Usuario jogador) {
         C_Carta[] maoJogador = (jogador == jogador1) ? maoJogador1 : maoJogador2;
@@ -151,10 +141,12 @@ public class G1_ArenaPVP {
         }
         return -1; // Nenhuma posição vazia encontrada
     }
+
 //Método que adiciona a carta na mao do jogador em especifico
     public C_Carta[] escolherMaoDoJogador(A_Usuario jogador) {
         return (jogador == jogador1) ? maoJogador1 : maoJogador2;
     }
+
 //Método adiciona a cara para a mao
     public void adicionarCartaNaMaoJogador(A_Usuario jogador, C_Carta[] cartas, int posicaoNaMao) {
         // Obtem a mão do jogador com base no jogador passado como argumento
@@ -176,6 +168,7 @@ public class G1_ArenaPVP {
             System.out.println("Posição de mão inválida.");
         }
     }
+
 //Método conta o numero de cartas na mão
     public int contarCartasNaMao(A_Usuario jogador) {
         C_Carta[] maoJogador = (jogador == jogador1) ? maoJogador1 : maoJogador2;
@@ -189,6 +182,7 @@ public class G1_ArenaPVP {
     
         return numCartas;
     }
+
 //Método especifico para adicionar a carta na mao do jogador ( dentro do while de SAQUE) esse metodo coloca as cartas trocadas
     public void adicionarCartaTrocadaNaMaoJogador(A_Usuario jogador, C_Carta carta, int posicaoNaMao) {
         // Implementação específica para adicionar uma única carta trocada à mão do jogador
@@ -207,6 +201,7 @@ public class G1_ArenaPVP {
             System.out.println("Posição de mão inválida.");
         }
     }
+
 //Metodo pega o indice do vetor mao e retorna ele para escolher quais cartas vao retornar ( cartas vao dar REROLL)
     public int escolherPosicaoDaCartaQueVaiRetornarParaDeck(A_Usuario jogador) {
         // Obtém o número de cartas na mão do jogador
@@ -224,13 +219,10 @@ public class G1_ArenaPVP {
     }
 // !!!!!!!!!!!!!!!!! FIM DE SAQUE !!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
     
-
-
 //!!!!!!!!!!!!!!!!!!!!!!!      INICIO DE posicionarManaOuCartaNoCampo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     public void posicionarManaOuCartaNoCampo(A_Usuario jogador) {// por enquanto as cartas vai ser jogadas de forma automatica ( a primeira carta q achar q corresponde ao q se pede) !!!!!!!!!!!
         //para colocar carta no campo REQUER RECURSO ( chamado de mana )
-        
         if (manaMaxima == 0) {
             // Coloque uma mana no campo
             posicionarManaNoCampo(jogador);// so pode colocar exclusivamente cartas q n tem mana ( metodo carta = zero de mana )
@@ -244,6 +236,7 @@ public class G1_ArenaPVP {
             }
         }
     }
+
     //metodo que faz a AÇÂO DE COLOCAR A CARTA NO CAMPO(nesse caso se for a CARTA MANA)
     public void posicionarManaNoCampo(A_Usuario jogador) {
         //escolhe o (jogador) pra não usar if e else
@@ -288,6 +281,7 @@ public class G1_ArenaPVP {
             }
         }
     }
+
     //metodo que faz a AÇÂO DE COLOCAR A CARTA NO CAMPO
     public void posicionarCartaNoCampo(A_Usuario jogador) {
         //escolhe o (jogador) pra não usar if e else
@@ -330,6 +324,7 @@ public class G1_ArenaPVP {
             }
         }
     }
+
     //metodo para achar a carta que vai ser posicionada
     public C_Carta escolherCartaParaPosicionar(A_Usuario jogador) {
         //feito assim pra n usar IF ou ELSE em mao do jogador
@@ -343,6 +338,7 @@ public class G1_ArenaPVP {
         
         return null; // Retorna null se nenhuma carta puder ser posicionada
     }
+
     //Metodo diminui a manaMaxima do jogador atual ao jogar uma carta
     public void diminuirManaAtual(int custoMana, A_Usuario jogador) {
         if (custoMana <= manaMaxima) {
@@ -396,6 +392,7 @@ public class G1_ArenaPVP {
             }
         }
     }
+
     public C_Carta encontrarCartaAlvo(C_Carta[][] campoJogadorAlvo, int linhaAtacante, int colunaAtacante) {
         // Verifique se a posição de ataque é válida
         if (linhaAtacante >= 0 && linhaAtacante < campoJogadorAlvo.length) {
@@ -413,7 +410,8 @@ public class G1_ArenaPVP {
         // Se não houver carta alvo na posição de ataque, retorne null
         return null;
     }
-      //checa se matou a carta ( isso garante que a carta vai para o cemiterio caso tenha uma carta espcial do tipo magia)!!!!!!
+
+    //checa se matou a carta ( isso garante que a carta vai para o cemiterio caso tenha uma carta espcial do tipo magia)!!!!!!
     public void removerCartasComMenosDeUmPonto(C_Carta[][] campoJogador, A_Usuario jogador) {
         for (int linha = 0; linha < campoJogador.length; linha++) {
             for (int coluna = 0; coluna < campoJogador[linha].length; coluna++) {
@@ -453,13 +451,7 @@ public class G1_ArenaPVP {
             }
         }
     }
-
-
-
 //!!!!!!!!!!!!!!!!!!!!!!!      FIM DE atacar !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
 // metodo isso aqui mata a carta e leva pro cemiterio 
     public void moverCartaParaCemiterio(C_Carta carta, A_Usuario jogador) {
         // Verifique qual jogador é dono da carta
@@ -484,7 +476,6 @@ public class G1_ArenaPVP {
         }
     }
 
-
     public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {//toda essa loucura faz parte de (TURNO) até (moverCartaParaCemiterio)
         System.out.println(jogadorAtual.getNome() + " está jogando...");
         
@@ -507,9 +498,6 @@ public class G1_ArenaPVP {
         removerCartasComMenosDeUmPonto(campoJogador2, outroJogador);
     }
 
-
-    
-
     //meotodo finaliza um turno e passa para checar DENTRO da partida quem está sem vida e chama determinarVencedor
     public void fimDeTurno() {
         // Verificar se algum jogador tem menos de 1 ponto de vida
@@ -524,8 +512,7 @@ public class G1_ArenaPVP {
         }
     }
 
-
-//metodo determinar quem ganhou o jogo quando sai do LOOP da PARTIDA
+    //metodo determinar quem ganhou o jogo quando sai do LOOP da PARTIDA
     public A_Usuario determinarVencedor() {
         A_Usuario vencedor = null;
     
@@ -543,6 +530,16 @@ public class G1_ArenaPVP {
             System.out.println("A partida terminou! O vencedor é: " + jogador2.getNome());
 
             // Vencedor ganha 100 card coins
+            if (jogador2.getWins() % 5 == 0) {
+                PassePremium passePremium = new PassePremium();
+                passePremium.entregarPremiacao(jogador2);
+                passePremium.setPremiacaoAtual(passePremium.getPremiacaoAtual() + 1);
+            } else {
+                PasseComum passeComum = new PasseComum();
+                passeComum.entregarPremiacao(jogador2);
+                passeComum.setPremiacaoAtual(passeComum.getPremiacaoAtual() + 1);
+            }
+
             jogador2.adicionarCardCoins(100);
             jogador2.atualizarNivel(1000);
             jogador2.setWins(jogador2.getWins() + 1);
@@ -577,7 +574,6 @@ public class G1_ArenaPVP {
     public A_Usuario getJogador1() {
         return jogador1;
     }
-
     public void setJogador1(A_Usuario jogador1) {
         this.jogador1 = jogador1;
     }
@@ -585,7 +581,6 @@ public class G1_ArenaPVP {
     public A_Usuario getJogador2() {
         return jogador2;
     }
-
     public void setJogador2(A_Usuario jogador2) {
         this.jogador2 = jogador2;
     }
@@ -593,7 +588,6 @@ public class G1_ArenaPVP {
     public D_Deck getDeckJogador1() {
         return deckJogador1;
     }
-
     public void setDeckJogador1(D_Deck deckJogador1) {
         this.deckJogador1 = deckJogador1;
     }
@@ -601,7 +595,6 @@ public class G1_ArenaPVP {
     public D_Deck getDeckJogador2() {
         return deckJogador2;
     }
-
     public void setDeckJogador2(D_Deck deckJogador2) {
         this.deckJogador2 = deckJogador2;
     }
@@ -609,7 +602,6 @@ public class G1_ArenaPVP {
     public C_Carta[][] getcampoJogador1() {
         return campoJogador1;
     }
-
     public void setCampoJogador1(C_Carta[][] campoJogador1) {
         this.campoJogador1 = campoJogador1;
     }
@@ -617,7 +609,6 @@ public class G1_ArenaPVP {
     public C_Carta[][] getcampoJogador2() {
         return campoJogador2;
     }
-
     public void setCampoJogador2(C_Carta[][] campoJogador2) {
         this.campoJogador2 = campoJogador2;
     }
@@ -625,15 +616,13 @@ public class G1_ArenaPVP {
     public int getPontosVidaJogador1() {
         return pontosVidaJogador1;
     }
-
     public int getPontosVidaJogador2() {
         return pontosVidaJogador2;
     }
     
-     public int getmanaMaxima(A_Usuario jogador) {
+    public int getmanaMaxima(A_Usuario jogador) {
         return manaMaxima;
     }
-
     public void setmanaMaxima(int manaMaxima) {
         this.manaMaxima = manaMaxima;
     }
@@ -661,7 +650,6 @@ public class G1_ArenaPVP {
     public C_Carta[] getMaoJogador1() {
         return maoJogador1;
     }
-
     public void setMaoJogador1(C_Carta[] maoJogador1) {
         this.maoJogador1 = maoJogador1;
     }
@@ -669,7 +657,6 @@ public class G1_ArenaPVP {
     public C_Carta[] getMaoJogador2() {
         return maoJogador2;
     }
-
     public void setMaoJogador2(C_Carta[] maoJogador2) {
         this.maoJogador2 = maoJogador2;
     }
@@ -677,7 +664,6 @@ public class G1_ArenaPVP {
     public int getManaMaxima() {
         return manaMaxima;
     }
-
     public void setManaMaxima(int manaMaxima) {
         this.manaMaxima = manaMaxima;
     }
@@ -689,7 +675,6 @@ public class G1_ArenaPVP {
     public C_Carta[] getCemiterioJogador1() {
         return cemiterioJogador1;
     }
-
     public void setCemiterioJogador1(C_Carta[] cemiterioJogador1) {
         this.cemiterioJogador1 = cemiterioJogador1;
     }
@@ -697,7 +682,6 @@ public class G1_ArenaPVP {
     public C_Carta[] getCemiterioJogador2() {
         return cemiterioJogador2;
     }
-
     public void setCemiterioJogador2(C_Carta[] cemiterioJogador2) {
         this.cemiterioJogador2 = cemiterioJogador2;
     }
