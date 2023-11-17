@@ -578,6 +578,10 @@ public class G1_ArenaPVP {
         return vencedor;
     }
 
+
+
+
+    
     // get set
     public A_Usuario getJogador1() {
         return jogador1;
