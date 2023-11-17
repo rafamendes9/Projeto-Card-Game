@@ -46,8 +46,13 @@ public class F_Lobby {
      * Se nenhum oponente compatível for encontrado, printa a mensagem
      * "Aguardando oponente...".
      */
+    public void adicionarCronometro() {
+        K2_Cronometro cronometro = new K2_Cronometro();
+        cronometro.iniciar();
+    }
 
     public void emparelharUsuarios(A_Usuario usuario) {
+        adicionarCronometro(); // Adiciona o cronômetro ao iniciar a procura por oponente
         for (A_Usuario oponente : usuarios) {
             if (oponente != usuario && oponente.getNivel() == usuario.getNivel()//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ver possibilidade para alterar nivel de igual para + nivel aproximado!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     && oponente.getModoDeJogo().equals(usuario.getModoDeJogo())) {
@@ -56,9 +61,9 @@ public class F_Lobby {
                 criarPartida(usuario, oponente);
                 return; // Pare de procurar por oponentes após emparelhar
             }
+            // Se nenhum oponente foi encontrado, aguarde até que um esteja disponível
+            System.out.println("Aguardando oponente...");
         }
-        // Se nenhum oponente foi encontrado, aguarde até que um esteja disponível
-        System.out.println("Aguardando oponente...");
     }
 
     /*
