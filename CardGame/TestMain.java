@@ -2,7 +2,9 @@ package CardGame;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
+import java.io.FileWriter; // ler o Json ( objeto)
+
+import com.google.gson.Gson; // converte Json em objeto
 
 public class TestMain {
     public static void main(String[] args) {
@@ -13,15 +15,17 @@ public class TestMain {
 
        
 
-        List<A_Usuario> userJson = new ArrayList<A_Usuario>();
+        List<A_Usuario> users = new ArrayList<A_Usuario>();
 
-        userJson.add(user1);
-        userJson.add(user2);
+        users.add(user1);
+        users.add(user2);
 
 
 
-        String gsonTeste = new Gson().toJson(userJson);
+        String gsonTeste = new Gson().toJson(users);
         
 System.out.println(gsonTeste);
     }
+
+    FileWriter lerJson = new FileWriter(testeeee,)
 }
