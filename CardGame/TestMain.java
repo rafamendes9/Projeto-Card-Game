@@ -50,12 +50,8 @@ public class TestMain {
                         StandardCharsets.UTF_8)
         );
 
-        
+     
     }
-
    
-        String jsonContent = readResourceFile(getResourcePath("DADOS.json"));
-
-        System.out.println(jsonContent);
      
 }
