@@ -3,6 +3,8 @@ package CardGame;
 import java.util.List;
 import java.util.Random;
 
+import com.google.gson.Gson;
+
 public class A_Usuario {
     private String nome;
     private String cpf;
@@ -152,7 +154,18 @@ public class A_Usuario {
         }
     }
 
-    
+    // Método para converter um objeto A_Usuario em uma representação JSON
+    public String toJson() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
+
+    //Tentativa 2 de implementar o Json
+    // Método estático para criar um objeto A_Usuario a partir de uma string JSON
+    public static A_Usuario fromJson(String json) {
+        Gson gson = new Gson();
+        return gson.fromJson(json, A_Usuario.class);
+    }
     
     public C_Carta sacarCartaAleatoriaDoDeckREROLL() {
         Random random = new Random();
