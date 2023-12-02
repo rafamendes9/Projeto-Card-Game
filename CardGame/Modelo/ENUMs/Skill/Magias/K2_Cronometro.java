@@ -1,4 +1,6 @@
-package Modelo;
+package Modelo.ENUMs.Skill.Magias;
+
+import Modelo.Exceptions.J3_TimeOutException;
 
 public class K2_Cronometro {
     private int minutos;

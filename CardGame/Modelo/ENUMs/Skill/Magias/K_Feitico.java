@@ -1,4 +1,7 @@
-package Modelo;
+package Modelo.ENUMs.Skill.Magias;
+
+import Modelo.Cards.C_Carta;
+import Modelo.ENUMs.H3_EnumHabilidade;
 
 public class K_Feitico {
     public static void ativarHabilidade(H3_EnumHabilidade habilidade, C_Carta carta) {

@@ -1,5 +1,10 @@
-package Modelo;
+package Modelo.Shops;
 import java.util.Random;
+
+import Modelo.Cards.C2_CartaShiny;
+import Modelo.Cards.C_Carta;
+import Modelo.Exceptions.J4_InsufficientGemsException;
+import Modelo.USER.A_Usuario;
 
 public class E2_LojaShiny extends E_Loja {
     public E2_LojaShiny(String numeroCartao, String codigoVerificador) {

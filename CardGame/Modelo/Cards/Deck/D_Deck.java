@@ -1,5 +1,9 @@
-package Modelo;
+package Modelo.Cards.Deck;
 import java.util.Random;
+
+import Modelo.Cards.C_Carta;
+import Modelo.Cards.Inventory.B_Inventario;
+import Modelo.Exceptions.J2_IrregularDeckException;
 
 public class D_Deck {
     private String nome;

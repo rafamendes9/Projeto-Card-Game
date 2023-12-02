@@ -1,5 +1,14 @@
-package Modelo;
+package Modelo.ModoDeJogo;
 import java.util.Random;
+
+import Controlador.F_Lobby;
+import Modelo.Cards.C2_CartaShiny;
+import Modelo.Cards.C_Carta;
+import Modelo.Cards.Deck.D_Deck;
+import Modelo.ENUMs.Skill.Magias.K_Feitico;
+import Modelo.Pass.PasseComum;
+import Modelo.Pass.PassePremium;
+import Modelo.USER.A_Usuario;
 
 public class G2_Arena2V2 extends G1_ArenaPVP{
     private A_Usuario jogador3;  // Novos jogadores

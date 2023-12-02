@@ -1,6 +1,10 @@
-package Modelo;
+package Modelo.Cards;
 
 import java.util.Random;
+
+import Modelo.ENUMs.H3_EnumHabilidade;
+import Modelo.ENUMs.H4_EnumTipo;
+import Modelo.ENUMs.H_EnumRaridade;
 
 public class C2_CartaShiny extends C_Carta{
 

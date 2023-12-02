@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.ENUMs;
 public enum H_EnumRaridade {
     /* foi trocado os nomes do enum  de Comum | Incomum | Rara | Muito rara |  Épica
     para fins mais esteticos e de facil entendimento.

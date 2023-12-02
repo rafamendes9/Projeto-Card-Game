@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.Exceptions;
 
 public class J3_TimeOutException extends Exception{
     public J3_TimeOutException() {

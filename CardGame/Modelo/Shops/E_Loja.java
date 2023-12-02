@@ -1,5 +1,14 @@
-package Modelo;
+package Modelo.Shops;
 import java.util.Random;
+
+import Modelo.Cards.C_Carta;
+import Modelo.Cards.Inventory.B_Inventario;
+import Modelo.ENUMs.H2_EnumIMG;
+import Modelo.ENUMs.H3_EnumHabilidade;
+import Modelo.ENUMs.H4_EnumTipo;
+import Modelo.ENUMs.H_EnumRaridade;
+import Modelo.Exceptions.J1_InsufficientCoinsException;
+import Modelo.USER.A_Usuario;
 
 
 public class E_Loja {

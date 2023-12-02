@@ -7,10 +7,9 @@ import java.util.List;
 import java.util.Scanner;
 import com.google.gson.Gson;
 
-import Modelo.A_Usuario;
-import Modelo.F_Lobby;
+import Modelo.USER.A_Usuario;
 
-public class C4_InterfaceUserMenu {
+public class InterfaceUserMenu {
 
 
     //testando o cadastro para colocar JSON

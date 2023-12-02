@@ -1,4 +1,10 @@
-package Modelo;
+package Modelo.Cards;
+
+import Modelo.Cards.Specials.C3_AtivacaoCarta;
+import Modelo.ENUMs.H3_EnumHabilidade;
+import Modelo.ENUMs.H4_EnumTipo;
+import Modelo.ENUMs.H_EnumRaridade;
+
 public class C_Carta implements C3_AtivacaoCarta{
     private String nome;
     private String imagem;

@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.Exceptions;
 
 public class J4_InsufficientGemsException extends Exception {
     public J4_InsufficientGemsException() {

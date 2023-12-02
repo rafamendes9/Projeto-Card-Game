@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.ENUMs;
 public enum H3_EnumHabilidade {
     AMEDRONTAR,  
     ATROPELAR,   

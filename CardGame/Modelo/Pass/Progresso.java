@@ -1,4 +1,6 @@
-package Modelo;
+package Modelo.Pass;
+
+import Modelo.USER.A_Usuario;
 
 public abstract class Progresso {
     private int premiacaoAtual; // Contador de premiações
@@ -14,7 +16,7 @@ public abstract class Progresso {
     public abstract void progresso(A_Usuario jogador);
     
     // Método para obter o índice da premiação atual
-    protected int getPremiacaoAtual() {
+    public int getPremiacaoAtual() {
         return premiacaoAtual;
     }
     public void setPremiacaoAtual(int premiacaoAtual) {

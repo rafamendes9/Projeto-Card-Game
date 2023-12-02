@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.Exceptions;
 
 public class J2_IrregularDeckException extends Exception{
     public J2_IrregularDeckException() {

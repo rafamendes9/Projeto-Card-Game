@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.ENUMs;
 public enum H2_EnumIMG {
     monster1("img\\monster1.gif"),
     monster2("img\\monster2.gif"),

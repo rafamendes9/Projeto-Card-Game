@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.ENUMs;
 public enum H4_EnumTipo {
     
     FOGO,

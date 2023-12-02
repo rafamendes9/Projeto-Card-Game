@@ -1,9 +1,13 @@
-package Modelo;
+package Modelo.USER;
 
 import java.util.List;
 import java.util.Random;
 
 import com.google.gson.Gson;
+
+import Modelo.Cards.C_Carta;
+import Modelo.Cards.Deck.D_Deck;
+import Modelo.Cards.Inventory.B_Inventario;
 
 public class A_Usuario {
     private String nome;

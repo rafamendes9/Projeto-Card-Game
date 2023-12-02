@@ -1,8 +1,14 @@
-package Modelo;
+package Controlador;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
+import Modelo.Cards.Deck.D_Deck;
+import Modelo.ENUMs.Skill.Magias.K2_Cronometro;
+import Modelo.ModoDeJogo.G1_ArenaPVP;
+import Modelo.ModoDeJogo.G2_Arena2V2;
+import Modelo.USER.A_Usuario;
 
 public class F_Lobby {
     private List<A_Usuario> usuarios;

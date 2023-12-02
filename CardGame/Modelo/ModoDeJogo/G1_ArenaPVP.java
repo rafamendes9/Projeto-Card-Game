@@ -1,5 +1,12 @@
-package Modelo;
+package Modelo.ModoDeJogo;
 import java.util.Random;
+
+import Modelo.Cards.C_Carta;
+import Modelo.Cards.Deck.D_Deck;
+import Modelo.ENUMs.Skill.Magias.K_Feitico;
+import Modelo.Pass.PasseComum;
+import Modelo.Pass.PassePremium;
+import Modelo.USER.A_Usuario;
 
 public class G1_ArenaPVP {
     private A_Usuario jogador1;
