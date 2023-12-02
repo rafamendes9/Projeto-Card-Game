@@ -29,7 +29,7 @@ public class A_Usuario {
     private List<C_Carta> mao;
 
     public A_Usuario(String nome, String cpf, String senha, String sexo, String email, int nivel, int cardCoins,
-            D_Deck[] indiceBaralho, B_Inventario inventario) {
+                    D_Deck[] indiceBaralho, B_Inventario inventario) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
@@ -44,33 +44,40 @@ public class A_Usuario {
 
     // metodo para adicionar decks
     public boolean adicionarDeck(D_Deck deck) {
+
         // Verifica se o usuário já possui o número máximo de decks permitidos (5)
         if (indiceBaralho.length >= 5) {
+
             System.out.println("Você já atingiu o número máximo de decks permitidos.");
             return false; // Não foi possível adicionar o deck
+
         }
 
         // Verifica se o deck já está na lista ( evita clone de deck)
         for (D_Deck existingDeck : indiceBaralho) {
             if (existingDeck != null && existingDeck.getNome().equals(deck.getNome())) {
+
                 System.out.println("Este deck já está na sua lista de decks.");
                 return false; // Não foi possível adicionar o deck
+
             }
         }
 
         // Encontra um espaço vazio no vetor de decks ( remodelado para evitar criar um vetor de vazios ao editar decks novos)
         for (int i = 0; i < indiceBaralho.length; i++) {
             if (indiceBaralho[i] == null) {
+
                 indiceBaralho[i] = deck; // Adiciona o deck ao vetor de decks
                 System.out.println("Deck adicionado com sucesso.");
                 return true; // Deck adicionado com sucesso
+
             }
         }
 
         return false; // Não foi possível adicionar o deck (nenhum espaço vazio encontrado)
     }
 
-     // Método para validar CPF (modelo simples, vai ser trocado por uma melhor na segunda fase
+    // Método para validar CPF (modelo simples, vai ser trocado por uma melhor na segunda fase
     public boolean validarCPF(String cpf) {
         // Lógica de validação de CPF aqui (vai ser mais elaborada)
         return cpf != null && cpf.matches("\\d{11}");
@@ -98,20 +105,19 @@ public class A_Usuario {
         return true;
     }
   
-   
     public void atualizarNivel(int pontuacao) {
-           if (pontuacao >= 1000) { // Exemplo: Quando a pontuação atinge 1000 pontos, aumente o nível
+
+        if (pontuacao >= 1000) { // Exemplo: Quando a pontuação atinge 1000 pontos, aumente o nível
             nivel++; // Aumente o nível em 1
         }
     }
-
   
     public void adicionarCardCoins(int x){
         cardCoins += x;
     }
 
-
     public C_Carta[] escolherCartasDoIndiceBaralho(int i) {
+
         if (i >= 0 && i <= 4) {
             switch (i) {
                 case 0:
@@ -132,9 +138,10 @@ public class A_Usuario {
         return null;  
     }
 
-
     public C_Carta retornarCartaParaDeck(int posicao) {
+
         if (posicao >= 0 && posicao < mao.size()) {
+
             // Pega a carta da mão na posição especificada
             C_Carta carta = mao.get(posicao);
 
@@ -151,8 +158,8 @@ public class A_Usuario {
         }
     }
 
-    
     public C_Carta sacarCartaAleatoriaDoDeckREROLL() {
+
         Random random = new Random();
         int tamanhoDoDeck = deck.size();
         
@@ -210,7 +217,6 @@ public class A_Usuario {
         this.idade = idade;
     }
 
-
     public int getNivel() {
         return nivel;
     }
@@ -239,13 +245,13 @@ public class A_Usuario {
         this.wins = wins;
     }
 
-    // indice baralho
+    // indice baralhoNovo
     public void setIndiceBaralhoNovo(int indice, D_Deck novoBaralho) {
         if (indice >= 0 && indice < 5) {
             indiceBaralho[indice] = novoBaralho;
         }
     }
-
+    
     // indice baralho
     public D_Deck getIndiceBaralho(int indice) {
         if (indice >= 0 && indice < 5) {
@@ -264,7 +270,6 @@ public class A_Usuario {
     public B_Inventario getInventario() {
         return inventario;
     }
-
     public void setInventario(B_Inventario inventario) {
         this.inventario = inventario;
     }
@@ -280,7 +285,6 @@ public class A_Usuario {
     public int getPontosVida() {
         return pontosVida;
     }
-
     public void setPontosVida(int pontosVida) {
         this.pontosVida = pontosVida;
     }
@@ -293,7 +297,6 @@ public class A_Usuario {
     public int getNumeroTime() {
         return numeroTime;
     }
-
     public void setNumeroTime(int numeroTime) {
         this.numeroTime = numeroTime;
     }
@@ -305,9 +308,7 @@ public class A_Usuario {
     public int getManaDoJogador() {
         return manaDoJogador;
     }
-
     public void setManaDoJogador(int manaDoJogador) {
         this.manaDoJogador = manaDoJogador;
-    }
-    
+    }   
 }

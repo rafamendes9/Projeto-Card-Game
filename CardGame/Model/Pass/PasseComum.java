@@ -6,6 +6,7 @@ public class PasseComum extends Progresso{
     
     @Override
     public void entregarPremiacao(A_Usuario jogador) {
+
         // Entrega um booster especial para níveis múltiplos de 3
         System.out.println("Nível múltiplo de 3. Entregando booster comum.");
         packCardCoins(jogador);
@@ -13,15 +14,18 @@ public class PasseComum extends Progresso{
         ganhoDeXP(jogador);
         adicionarBoostMana(jogador);
         progresso(jogador);
+
     }
 
     @Override
     public void progresso(A_Usuario jogador) {
+
         // Incrementa o progresso (nível) do passe comum
         // Ganhar uma partida representa um passe ganho
         // O usuário avança um nível em cada vitória
         setPremiacaoAtual(getPremiacaoAtual() + 1);
         System.out.println("Ganhou uma partida. Avançou um nível.");
+        
     }
 
     public void packCardCoins(A_Usuario jogador){

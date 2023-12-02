@@ -66,11 +66,11 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
 
         return jogadorSorteado;
     }
-
     
     // Método para iniciar a partida com 4 jogadores
     @Override
     public void iniciarPartida() {
+
         System.out.println("A partida está começando!");
 
         escolherMaoDoUsuario(super.getJogador1(), 2);
@@ -81,6 +81,7 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
         A_Usuario jogadorAtual = sortearTurnosDoPrimeiroJogador();
 
         while (!super.verificarVitoria()) {
+
             System.out.println(jogadorAtual.getNome() + " está jogando...");
 
             if (jogadorAtual == super.getJogador1() || jogadorAtual == super.getJogador2()) {
@@ -98,17 +99,13 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
         determinarVencedor();
     }
 
-
-
     public void escolherMaoDoUsuario(A_Usuario jogador, int a){
         jogador.escolherCartasDoIndiceBaralho(a);
     }
 
-
-
     public boolean verificarVitoria() {
         return super.getJogador1().getPontosVida() <= 0 || super.getJogador2().getPontosVida() <= 0 ||
-        jogador3.getPontosVida() <= 0 || jogador4.getPontosVida() <= 0;
+                jogador3.getPontosVida() <= 0 || jogador4.getPontosVida() <= 0;
     }
 
     // metodo isso aqui mata a carta e leva pro cemiterio 
@@ -118,36 +115,44 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
             // Encontre a primeira posição vazia no cemitério do jogador 1
             for (int i = 0; i < super.getcampoJogador1().length; i++) {
                 if (super.getCemiterioJogador1()[i] == null) {
+
                     // Coloque a carta no cemitério do jogador 1
                     super.getCemiterioJogador2()[i] = carta;
                     break; // Saia do loop depois de encontrar a primeira posição vazia
+
                 }
             }
         }else if (jogador == super.getJogador2()) {
             // Encontre a primeira posição vazia no cemitério do jogador 2
             for (int i = 0; i < super.getcampoJogador2().length; i++) {
                 if (super.getCemiterioJogador2()[i] == null) {
+
                     // Coloque a carta no cemitério do jogador 2
                     super.getCemiterioJogador2()[i] = carta;
                     break; // Saia do loop depois de encontrar a primeira posição vazia
+
                 }
             }
         }else if (jogador == jogador3) {
             // Encontre a primeira posição vazia no cemitério do jogador 2
             for (int i = 0; i < campoJogador3.length; i++) {
                 if (super.getCemiterioJogador2()[i] == null) {
+
                     // Coloque a carta no cemitério do jogador 2
                     super.getCemiterioJogador2()[i] = carta;
                     break; // Saia do loop depois de encontrar a primeira posição vazia
+
                 }
             }
         }else if (jogador == super.getJogador2()) {
             // Encontre a primeira posição vazia no cemitério do jogador 2
             for (int i = 0; i < super.getcampoJogador2().length; i++) {
                 if (super.getCemiterioJogador2()[i] == null) {
+
                     // Coloque a carta no cemitério do jogador 2
                     super.getCemiterioJogador2()[i] = carta;
                     break; // Saia do loop depois de encontrar a primeira posição vazia
+
                 }
             }
         }
@@ -156,6 +161,7 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
     // Método para realizar o turno com aliados
     @Override
     public void turno(A_Usuario jogadorAtual, A_Usuario outroJogador) {//toda essa loucura faz parte de (TURNO) até (moverCartaParaCemiterio)
+
         System.out.println(jogadorAtual.getNome() + " está jogando...");
         
         //cada turno jogador deve ganhar + 1 de mana para usar
@@ -182,12 +188,16 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
     @Override
      //saque e sub metodos de saque ( colados )   
     public void saque(A_Usuario jogador) {
+
         int numCartasRetornadas = 0;
      
         // Seleciona 7 cartas aleatórias do deck
         for (int i = 0; i < 7; i++) {
+
             C_Carta[] carta = jogador.getIndiceBaralho(i).getCartas();
+
             if (carta != null) {
+
                 // Encontra a próxima posição vazia na mão do jogador
                 int posicaoNaMao = encontrarProximaPosicaoVaziaNaMaoJogador(jogador);
      
@@ -199,23 +209,29 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
      
          // O jogador pode TROCAR (retornar) até 5 cartas (da sua mao) para o deck
         while (numCartasRetornadas < 5 && contarCartasNaMao(jogador) > 0) {
-                // Escolhe aleatoriamente uma carta da mão para retornar ao deck
+
+            // Escolhe aleatoriamente uma carta da mão para retornar ao deck
             C_Carta cartaRetornada = jogador.retornarCartaParaDeck(escolherPosicaoDaCartaQueVaiRetornarParaDeck(jogador));
  
             if (cartaRetornada != null) {
+
                 // Sacar uma nova carta aleatória
                 C_Carta novaCarta = jogador.sacarCartaAleatoriaDoDeckREROLL();
  
                 if (novaCarta != null) {
+
                     // Adiciona a carta à mão do jogador com base no jogador
                     adicionarCartaTrocadaNaMaoJogador(jogador, novaCarta, numCartasRetornadas);
                     numCartasRetornadas++;
+
                 }
             }
         }
     }
- // Método para encontrar a próxima posição vazia na mão do jogador 1
+
+    // Método para encontrar a próxima posição vazia na mão do jogador 1
     public int encontrarProximaPosicaoVaziaNaMaoJogador(A_Usuario jogador) {
+
         C_Carta[] maoJogador1 = (jogador == super.getJogador1()) ? super.getMaoJogador1() : super.getMaoJogador2();
 
         C_Carta[] maoJogador2 = (jogador == jogador3) ? maoJogador3 : maoJogador4;
@@ -231,9 +247,11 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
                 return i; // Encontrou uma posição vazia
             }
         }
+
         return -1; // Nenhuma posição vazia encontrada
     }
-//Método que adiciona a carta na mao do jogador em especifico
+
+    //Método que adiciona a carta na mao do jogador em especifico
     public C_Carta[] escolherMaoDoTime1(A_Usuario jogador) {
         return (jogador == getJogador1()) ? super.getMaoJogador1() : super.getMaoJogador2();
     }
@@ -242,8 +260,9 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
         return (jogador == jogador3) ? maoJogador3 : maoJogador4;
     }
 
-//Método adiciona a cara para a mao
+    //Método adiciona a cara para a mao
     public void adicionarCartaNaMaoJogador(A_Usuario jogador, C_Carta[] cartas, int posicaoNaMao) {
+
         // Obtem a mão do jogador com base no jogador passado como argumento
         C_Carta[] maoDoJogador = escolherMaoDoJogador(jogador);
      
@@ -255,7 +274,9 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
                 for (int i = 0; i < cartas.length; i++) {
                     maoDoJogador[posicaoNaMao + i] = cartas[i];
                 }
+
                 System.out.println("Cartas adicionadas à mão do jogador " + jogador.getNome());
+
             } else {
                 System.out.println("Posição na mão do jogador já ocupada.");
             }
@@ -264,16 +285,16 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
         }
     }
 
-//Método conta o numero de cartas na mão
+    //Método conta o numero de cartas na mão
     public int contarCartasNaMao(A_Usuario jogador) {
         C_Carta[] maoJogador = (jogador == super.getJogador1()) ? super.getMaoJogador1() : super.getMaoJogador2();
         C_Carta[] maoJogador2 = (jogador == jogador3) ? maoJogador3 : maoJogador4;
         int numCartas = 0;
      
         for (C_Carta carta : maoJogador) {
-             if (carta != null) {
-                 numCartas++;
-             }
+            if (carta != null) {
+                numCartas++;
+            }
         }
 
         for (C_Carta carta : maoJogador2) {
@@ -285,8 +306,9 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
         return numCartas;
     }
 
-//Método especifico para adicionar a carta na mao do jogador ( dentro do while de SAQUE) esse metodo coloca as cartas trocadas
+    //Método especifico para adicionar a carta na mao do jogador ( dentro do while de SAQUE) esse metodo coloca as cartas trocadas
     public void adicionarCartaTrocadaNaMaoJogador(A_Usuario jogador, C_Carta carta, int posicaoNaMao) {
+
         // Implementação específica para adicionar uma única carta trocada à mão do jogador
         C_Carta[] maoDoJogador = escolherMaoDoJogador(jogador);
     
@@ -294,8 +316,10 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
         if (posicaoNaMao >= 0 && posicaoNaMao < maoDoJogador.length && maoDoJogador != null) {
             // Verifica se a posição já está ocupada na mão do jogador
             if (maoDoJogador[posicaoNaMao] == null) {
+
                 maoDoJogador[posicaoNaMao] = carta;
                 System.out.println("Carta trocada adicionada à mão do jogador " + jogador.getNome());
+
             } else {
                 System.out.println("Posição na mão do jogador já ocupada.");
             }
@@ -304,16 +328,19 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
         }
     }
 
-//Metodo pega o indice do vetor mao e retorna ele para escolher quais cartas vao retornar ( cartas vao dar REROLL)
+    //Metodo pega o indice do vetor mao e retorna ele para escolher quais cartas vao retornar ( cartas vao dar REROLL)
     public int escolherPosicaoDaCartaQueVaiRetornarParaDeck(A_Usuario jogador) {
+
         // Obtém o número de cartas na mão do jogador
        int numCartasNaMao = contarCartasNaMao(jogador);
  
         if (numCartasNaMao > 0) {
+
             // Escolhe aleatoriamente um índice válido na mão do jogador
             Random random = new Random();
             int posicaoEscolhida = random.nextInt(numCartasNaMao);
             return posicaoEscolhida;
+
         } else {
             // Se não houver cartas na mão do jogador, retorne -1 para indicar que não há cartas para retornar
             return -1;
@@ -323,22 +350,30 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
     // Método para realizar o ataque com aliados
     @Override
     public void atacar(A_Usuario jogadorAlvo, A_Usuario jogadorAtacante) {
+
         //escolhe os jogador correspondente               
         C_Carta[][] campoJogadorAlvo = new C_Carta[2][5];
         C_Carta[][] campoJogadorAtacante = new C_Carta[2][5];
+
         if (jogadorAlvo == super.getJogador1()) {
+
             jogadorAtacante = super.getJogador2();
             campoJogadorAlvo = super.getcampoJogador1();
             campoJogadorAtacante = super.getcampoJogador2(); 
+
         }else if(jogadorAlvo == super.getJogador2()){
+
             jogadorAtacante = super.getJogador1();
             campoJogadorAlvo = super.getcampoJogador2();
             campoJogadorAtacante = super.getcampoJogador1();
+
         }
     
         for (int linha = 0; linha < campoJogadorAtacante.length; linha++) {
             for (int coluna = 0; coluna < campoJogadorAtacante[linha].length; coluna++) {
+
                 C_Carta cartaAtacante = campoJogadorAtacante[linha][coluna];
+
                 if (cartaAtacante != null) {
                     
                     C_Carta cartaAlvo = encontrarCartaAlvo(campoJogadorAlvo, linha, coluna);
@@ -346,18 +381,24 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
                     if (cartaAlvo != null) {
                                             
                         K_Feitico.ativarHabilidade(cartaAtacante.getHabilidade(), cartaAtacante);
+
                         // Reduz os pontos de vida da carta alvo com o dano calculado
                         if (cartaAtacante instanceof C2_CartaShiny) {
+
                             C2_CartaShiny cartaShiny = (C2_CartaShiny) cartaAtacante;
                             K_Feitico.ativarHabilidade(cartaShiny.getHabilidadeExtra(), cartaShiny);
+
                         }
+
                         cartaAlvo.calculoDeDiminuirPontosVidaCarta(cartaAtacante.getAtaque());
     
                         // Verifique se a carta alvo chegou a 0 ou menos pontos de vida
                         //criar atributo pontos de vida para Cartas
                         if (cartaAlvo.getpontoVidaCarta() <= 0) {
+
                             // Mova a carta alvo para o cemitério (pode haver métodos específicos para isso)
                             moverCartaParaCemiterio(cartaAlvo, jogadorAlvo);
+
                         }
                     }
                 }
@@ -368,8 +409,8 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
     public C_Carta encontrarCartaAlvo(C_Carta[][] campoJogadorAlvo, int linhaAtacante, int colunaAtacante) {
         // Verifique se a posição de ataque é válida
         if (linhaAtacante >= 0 && linhaAtacante < campoJogadorAlvo.length) {
+
             // A linha de ataque é válida
-    
             // Obtenha a carta na mesma posição (mesma linha) do campo do jogador alvo
             C_Carta cartaAlvo = campoJogadorAlvo[linhaAtacante][colunaAtacante];
     
@@ -387,42 +428,46 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
     public void removerCartasComMenosDeUmPonto(C_Carta[][] campoJogador, A_Usuario jogador) {
         for (int linha = 0; linha < campoJogador.length; linha++) {
             for (int coluna = 0; coluna < campoJogador[linha].length; coluna++) {
+
                 C_Carta carta = campoJogador[linha][coluna];
                 
                 // Verifica se há uma carta na posição atual do campo
                 if (carta != null) {
-
                     if (jogador == super.getJogador1()) {
                         // Verifica se a carta tem menos de um ponto de vida
                         if (carta.getpontoVidaCarta() < 1) {
+
                             // Move a carta para o cemitério (assumindo que você tem um vetor para o cemitério)
                             moverCartaParaCemiterio(carta, super.getJogador1());
                         
                             // Remove a carta do campo
                             campoJogador[linha][coluna] = null;
+
                         }
 
-                    }else if (jogador == super.getJogador2()) {
+                    } else if (jogador == super.getJogador2()) {
                         // Verifica se a carta tem menos de um ponto de vida
                         if (carta.getpontoVidaCarta() < 1) {
+
                             // Move a carta para o cemitério (assumindo que você tem um vetor para o cemitério)
                             moverCartaParaCemiterio(carta, super.getJogador2());
                         
                             // Remove a carta do campo
                             campoJogador[linha][coluna] = null;
-                        }
 
-                    }else if (jogador == jogador3) {
+                        }
+                    } else if (jogador == jogador3) {
                         // Verifica se a carta tem menos de um ponto de vida
                         if (carta.getpontoVidaCarta() < 1) {
+
                             // Move a carta para o cemitério (assumindo que você tem um vetor para o cemitério)
                             moverCartaParaCemiterio(carta, jogador3);
                         
                             // Remove a carta do campo
                             campoJogador[linha][coluna] = null;
-                        }
 
-                    }else if (jogador == jogador4) {
+                        }
+                    } else if (jogador == jogador4) {
                         // Verifica se a carta tem menos de um ponto de vida
                         if (carta.getpontoVidaCarta() < 1) {
                             // Move a carta para o cemitério (assumindo que você tem um vetor para o cemitério)
@@ -431,7 +476,6 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
                             // Remove a carta do campo
                             campoJogador[linha][coluna] = null;
                         }
-
                     }
                 }
             }
@@ -440,6 +484,7 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
     
     //metodo determinar quem ganhou o jogo quando sai do LOOP da PARTIDA
     public A_Usuario determinarVencedor() {
+
         A_Usuario vencedor = null;
     
         if (super.getJogador1().getPontosVida() > jogador3.getPontosVida() || super.getJogador1().getPontosVida() > jogador4.getPontosVida()) {
@@ -462,13 +507,17 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
             // Vencedores ganham 100 card coins
             //Entrega dos passes
             if (super.getJogador1().getWins() % 7 == 0) {
+
                 PassePremium passePremium = new PassePremium();
                 passePremium.entregarPremiacao(super.getJogador2());
                 passePremium.setPremiacaoAtual(passePremium.getPremiacaoAtual() + 1);
+
             } else if(super.getJogador1().getWins() % 3 == 0){
+
                 PasseComum passeComum = new PasseComum();
                 passeComum.entregarPremiacao(super.getJogador2());
                 passeComum.setPremiacaoAtual(passeComum.getPremiacaoAtual() + 1);
+
             }
 
             super.getJogador2().adicionarCardCoins(100);
@@ -477,13 +526,17 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
 
             //Entrega dos passes
             if (super.getJogador1().getWins() % 7 == 0) {
+
                 PassePremium passePremium = new PassePremium();
                 passePremium.entregarPremiacao(super.getJogador1());
                 passePremium.setPremiacaoAtual(passePremium.getPremiacaoAtual() + 1);
+
             } else if(super.getJogador1().getWins() % 3 == 0){
+
                 PasseComum passeComum = new PasseComum();
                 passeComum.entregarPremiacao(super.getJogador1());
                 passeComum.setPremiacaoAtual(passeComum.getPremiacaoAtual() + 1);
+
             }
 
             super.getJogador1().adicionarCardCoins(100);
@@ -503,28 +556,37 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
             // Vencedores ganham 100 card coins
             //Entrega dos passes
             if (jogador3.getWins() % 7 == 0) {
+
                 PassePremium passePremium = new PassePremium();
                 passePremium.entregarPremiacao(jogador3);
                 passePremium.setPremiacaoAtual(passePremium.getPremiacaoAtual() + 1);
+
             } else if(jogador3.getWins() % 3 == 0){
+
                 PasseComum passeComum = new PasseComum();
                 passeComum.entregarPremiacao(jogador3);
                 passeComum.setPremiacaoAtual(passeComum.getPremiacaoAtual() + 1);
+
             }
+
             jogador3.adicionarCardCoins(100);
             jogador3.atualizarNivel(1000);
             jogador3.setWins(jogador3.getWins() + 1);
 
             //Entrega dos passes
             if (jogador4.getWins() % 7 == 0) {
+
                 PassePremium passePremium = new PassePremium();
                 passePremium.entregarPremiacao(jogador4);
                 passePremium.setPremiacaoAtual(passePremium.getPremiacaoAtual() + 1);
+
             } else if(jogador4.getWins() % 3 == 0){
+
                 PasseComum passeComum = new PasseComum();
                 passeComum.entregarPremiacao(jogador4);
                 passeComum.setPremiacaoAtual(passeComum.getPremiacaoAtual() + 1);
             }
+
             jogador4.adicionarCardCoins(100);
             jogador4.atualizarNivel(1000);
             jogador4.setWins(jogador4.getWins() + 1);
@@ -537,8 +599,8 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
             super.getJogador2().atualizarNivel(500);
         }
 
-          //chama o metodo para salvar o vencendor
-          logVitoria(vencedor);
+        //chama o metodo para salvar o vencendor
+        logVitoria(vencedor);
         return vencedor;
     }
 
@@ -559,17 +621,7 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
         } catch (IOException e) {
             System.out.println("Erro ao salvar o Log de vitoria:  " + e.getMessage());
         }
-    
     }
-
-
-
-
-
-
-
-
-
     
     // get e set
     public A_Usuario getJogador3() {
@@ -579,10 +631,9 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
         this.jogador3 = jogador3;
     }
 
-      public A_Usuario getJogador4() {
+    public A_Usuario getJogador4() {
         return jogador4;
     }
-
     public void setJogador4(A_Usuario jogador4) {
         this.jogador4 = jogador4;
     }

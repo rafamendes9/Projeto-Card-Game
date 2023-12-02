@@ -21,5 +21,3 @@ public enum H_EnumRaridade {
         return dropProbabilidade;
     }
 }
-
-

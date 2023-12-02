@@ -1,6 +1,5 @@
 package Model.ENUMs;
 public enum H4_EnumTipo {
-    
     FOGO,
     AGUA,
     METAL,
@@ -9,5 +8,4 @@ public enum H4_EnumTipo {
     RAIO,
     LUZ,
     TREVAS;
-
 }

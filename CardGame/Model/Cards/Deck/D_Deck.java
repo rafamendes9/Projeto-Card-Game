@@ -44,13 +44,14 @@ public class D_Deck {
         
     }
 
-
     // metodo para verificar se o deck( baralho)se repete mais de 3 vezes
     public boolean maximasRepeticoes(C_Carta carta) {
         if (carta.getNome().equals("mana")) {
             return false; 
         }
+
         int contador = 0;
+
         for (int i = 0; i < qtdCartas; i++) { // compara carta recebida com as outras que já estão no vetor
             contador++;
             if (contador >= 3) {
@@ -91,7 +92,6 @@ public class D_Deck {
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -99,7 +99,6 @@ public class D_Deck {
     public int getQtdCartas() {
         return qtdCartas;
     }
-
     public void setQtdCartas(int qtdCartas) {
         this.qtdCartas = qtdCartas;
     }
@@ -107,7 +106,6 @@ public class D_Deck {
     public boolean getDisponibilidade() {
         return disponibilidade;
     }
-
     public void setDisponibilidade(boolean disponibilidade) {
         this.disponibilidade = disponibilidade;
     }
@@ -115,11 +113,7 @@ public class D_Deck {
     public C_Carta[] getCartas() {
         return cartas;
     }
-
     public void setCarta(C_Carta[] cartas) {
         this.cartas = cartas;
     }
-
- 
-
 }

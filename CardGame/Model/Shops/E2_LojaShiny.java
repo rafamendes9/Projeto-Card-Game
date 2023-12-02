@@ -25,33 +25,30 @@ public class E2_LojaShiny extends E_Loja {
                 int quantidadeCartasBooster = 12; // Um booster contém 12 cartas aleatórias
 
                 for (int i = 0; i < quantidadeCartasBooster; i++) {
-                // Simula obtenção de cartas aleatórias com base nas probabilidades de raridade
-                C_Carta novaCarta = gerarCartaAleatoria();
+                    // Simula obtenção de cartas aleatórias com base nas probabilidades de raridade
+                    C_Carta novaCarta = gerarCartaAleatoria();
 
 
-                // Verificar se a carta é única com 1% de probabilidade
-                Random random = new Random();
-                if (random.nextDouble() <= 0.01) {
-                // Crie uma carta aleatória normal
-                C_Carta novaCartaNormal  = gerarCartaAleatoria(); 
+                    // Verificar se a carta é única com 1% de probabilidade
+                    Random random = new Random();
+                    if (random.nextDouble() <= 0.01) {
+                        // Crie uma carta aleatória normal
+                        C_Carta novaCartaNormal  = gerarCartaAleatoria(); 
 
 
-                    C2_CartaShiny novaCartaShiny = new C2_CartaShiny(
-                    novaCartaNormal.getNome(),
-                    novaCartaNormal.getImagem(),
-                    novaCartaNormal.getTipo(),
-                    novaCartaNormal.getRaridade(),
-                    novaCartaNormal.getAtaque(),
-                    novaCartaNormal.getDefesa(),
-                    novaCartaNormal.getCusto(),
-                    novaCartaNormal.getpontoVidaCarta(),
-                    novaCartaNormal.getCustoMana()
-                    );
-            
-            
-                    usuario.getInventario().adicionarCartaShiny(novaCartaShiny);
-
-            
+                            C2_CartaShiny novaCartaShiny = new C2_CartaShiny(
+                            novaCartaNormal.getNome(),
+                            novaCartaNormal.getImagem(),
+                            novaCartaNormal.getTipo(),
+                            novaCartaNormal.getRaridade(),
+                            novaCartaNormal.getAtaque(),
+                            novaCartaNormal.getDefesa(),
+                            novaCartaNormal.getCusto(),
+                            novaCartaNormal.getpontoVidaCarta(),
+                            novaCartaNormal.getCustoMana()
+                            );
+                    
+                            usuario.getInventario().adicionarCartaShiny(novaCartaShiny);
                     } else {
                         // Adicionar a carta ao inventário do usuário
                         usuario.getInventario().adicionarCarta(novaCarta);

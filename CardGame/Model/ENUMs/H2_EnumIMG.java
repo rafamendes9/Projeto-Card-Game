@@ -47,7 +47,6 @@ public enum H2_EnumIMG {
 
     private String imagePath; // Caminho relativo da imagem
     
-
     // Construtor privado para associar o caminho da imagem e a probabilidade
     private H2_EnumIMG(String imagePath) {
         this.imagePath = imagePath;

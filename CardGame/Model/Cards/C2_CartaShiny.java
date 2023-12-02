@@ -12,7 +12,7 @@ public class C2_CartaShiny extends C_Carta{
     
 
     public C2_CartaShiny(String nome, String imagem, H4_EnumTipo tipo, H_EnumRaridade raridade,
-            int ataque, int defesa, int custo, int pontoVidaCarta, int mana) {
+                        int ataque, int defesa, int custo, int pontoVidaCarta, int mana) {
         super(nome, imagem, tipo, raridade, null, ataque + 1, defesa + 1, custo, pontoVidaCarta +2, mana - 1);
         this.habilidadeExtra = gerarHabilidadeAleatoriaExtra();
         nomearShiny();    
@@ -34,7 +34,7 @@ public class C2_CartaShiny extends C_Carta{
         super.setQuantidadee(aux);
     }
 
-     public H3_EnumHabilidade gerarHabilidadeAleatoriaExtra() {
+    public H3_EnumHabilidade gerarHabilidadeAleatoriaExtra() {
         Random random = new Random();
         int valorHabilidade = random.nextInt(6); // 0 a 5, representando habilidades
 
@@ -72,7 +72,6 @@ public class C2_CartaShiny extends C_Carta{
     public H3_EnumHabilidade getHabilidadeExtra() {
         return habilidadeExtra;
     }
-
     public void setHabilidadeExtra(H3_EnumHabilidade habilidadeExtra) {
         this.habilidadeExtra = habilidadeExtra;
     }

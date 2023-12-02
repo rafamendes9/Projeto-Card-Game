@@ -30,12 +30,14 @@ public class B_Inventario {
         if (novaCarta != null) {
             // Encontre uma posição vazia no inventário
             for (int i = 0; i < cartas.length; i++) {
+
                 if (cartas[i] == null) {
                    
-                   if(possuiMaximoCarta(novaCarta))
-                    // Adicione nova carta à posição disponível
-                    cartas[i] = novaCarta;
-                    return true;
+                   if(possuiMaximoCarta(novaCarta)){
+                        // Adicione nova carta à posição disponível
+                        cartas[i] = novaCarta;
+                        return true;
+                   }
                 }
             }
             // O inventário cheio, não é possível adicionar mais cartas
@@ -77,27 +79,27 @@ public class B_Inventario {
 
    //metodo usado para apagar carta definitiva do inventario ( ainda não implementado por falta da class interface) 
    //metodo ao apagar retorna um valor em dinheiro para o usuario
-   public C_Carta apagarCarta(String nome, A_Usuario usuario) {
-    for (int i = 0; i < cartas.length; i++) {
-        if (cartas[i] != null && cartas[i].getNome().equals(nome)) {
-            C_Carta cartaRemovida = cartas[i];
-            cartaRemovida = null;
-            
-            // Compacta o vetor após a remoção ( tira espaços vazios )
-            for (int j = i; j < cartas.length - 1; j++) {
-                cartas[j] = cartas[j + 1];
-            }
-            cartas[cartas.length - 1] = null; // Define o último elemento como null
-            
-            // Adiciona valor em cardcoins ao usuário
-            int valorCardcoins = 10; // Define o valor a ser adicionado em cardcoins
-            usuario.setCardCoins(usuario.getCardGems() + valorCardcoins);
+    public C_Carta apagarCarta(String nome, A_Usuario usuario) {
+        for (int i = 0; i < cartas.length; i++) {
+            if (cartas[i] != null && cartas[i].getNome().equals(nome)) {
+                C_Carta cartaRemovida = cartas[i];
+                cartaRemovida = null;
+                
+                // Compacta o vetor após a remoção ( tira espaços vazios )
+                for (int j = i; j < cartas.length - 1; j++) {
+                    cartas[j] = cartas[j + 1];
+                }
+                cartas[cartas.length - 1] = null; // Define o último elemento como null
+                
+                // Adiciona valor em cardcoins ao usuário
+                int valorCardcoins = 10; // Define o valor a ser adicionado em cardcoins
+                usuario.setCardCoins(usuario.getCardGems() + valorCardcoins);
 
-            return cartaRemovida;
+                return cartaRemovida;
+            }
         }
+        return null;  // Carta não encontrada
     }
-    return null;  // Carta não encontrada
-}
     
 
     // Método para aumentar o tamanho do vetor 

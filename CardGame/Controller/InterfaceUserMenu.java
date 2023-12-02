@@ -41,10 +41,10 @@ public class InterfaceUserMenu {
                 case 2:
                     logar(scanner, usuario);
                     break;
-                    case 3:
+                case 3:
                     sair = true;
                     break;
-                    default:
+                default:
                     System.out.println("Opção inválida!");
                     break;
                 }
@@ -98,11 +98,7 @@ public class InterfaceUserMenu {
         try (FileWriter writer = new FileWriter("CardGame\\DataBase\\DadoUsuario\\DataUser.txt", true);
              BufferedWriter dadoTXT = new BufferedWriter(writer)) {
             // Escrever os dados no arquivo de texto
-            dadoTXT.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() + ","
-                    + usuario.getSexo() + "," + usuario.getEmail() + "," + usuario.getNivel() + "," + usuario.getCardCoins() + "\n");
-
-            
-         
+            dadoTXT.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() + "," + usuario.getSexo() + "," + usuario.getEmail() + "," + usuario.getNivel() + "," + usuario.getCardCoins() + "\n");
             System.out.println("Usuário criado com sucesso!");
         } catch (IOException e) {
             System.out.println("Erro ao salvar o usuário: " + e.getMessage());
@@ -110,8 +106,6 @@ public class InterfaceUserMenu {
     }
     
     //****************************************************** FIM DE CADASTRO + DADOS (.TXT) **************************************************
-
-
     //metodo de login para checar dados ao validar login
     public static List<A_Usuario> carregarUsuarios() {
         List<A_Usuario> usuarios = new ArrayList<>();
@@ -127,7 +121,6 @@ public class InterfaceUserMenu {
         } catch (FileNotFoundException e) {
             System.out.println("Arquivo não encontrado: " + e.getMessage());
         }
-
         return usuarios;
     }
 
@@ -163,7 +156,7 @@ public class InterfaceUserMenu {
         if (nomeEncontrado && usuarioEncontrado != null) {
             System.out.println("Usuário encontrado. Digite sua senha:");
             senhaTemp = scanner.nextLine();
-    
+
             if (usuarioEncontrado.getSenha().equals(senhaTemp)) {
                 System.out.println("Login bem-sucedido!");
                 
@@ -179,10 +172,10 @@ public class InterfaceUserMenu {
     
                     switch (escolha) {
                         case 1:
-                        entrarNumaPartida(scanner, usuarioEncontrado);
-                        break;
+                            entrarNumaPartida(scanner, usuarioEncontrado);
+                            break;
                         case 2:
-                        entrarNaLoja(scanner, usuarioEncontrado);
+                            entrarNaLoja(scanner, usuarioEncontrado);
                             break;
                         case 3:
                             sair = true;
@@ -235,8 +228,6 @@ public class InterfaceUserMenu {
             }
         }
     }
-
-
 
     //entra na loja para comprar os boosters de carta pela primeira vez
     public static void entrarNaLoja(Scanner scanner, A_Usuario usuario) throws J1_InsufficientCoinsException, J4_InsufficientGemsException{
