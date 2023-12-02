@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.google.gson.Gson;
+
 public class C4_UserMenu {
 
 
     //testando o cadastro para colocar JSON
-    public static void cadastro() {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean sair = false;
 
@@ -46,6 +48,9 @@ public class C4_UserMenu {
         String nome = scanner.nextLine();
         usuario.setNome(nome);
         
+        System.out.print("Digite seu CPF: ");
+        String cpf = scanner.nextLine();
+        usuario.setCpf(cpf);
 
         System.out.print("Crie uma senha: ");
         String senha = scanner.nextLine();
@@ -54,31 +59,32 @@ public class C4_UserMenu {
         System.out.print("Digite seu sexo: ");
         String sexo = scanner.nextLine();
         usuario.setSexo(sexo);
-
-        System.out.print("Digite seu CPF: ");
-        String cpf = scanner.nextLine();
-        usuario.setCpf(cpf);
-
+        
         System.out.print("Digite seu email: ");
         String email = scanner.nextLine();
         usuario.setEmail(email);
+        
+
 
         // Chama o método para salvar no arquivo
-        salvarUsuario(nome, senha);
+        salvarUsuario(usuario );
     }
 
 
 
-    private static void salvarUsuario(String nome, String senha) {
+    // salvar em dois arquivos singulares, DadosLocal.TXT & Json
+    private static void salvarUsuario(A_Usuario usuario) {
         try {
-            FileWriter writer = new FileWriter("Arena.txt", true); // Abre o arquivo para escrita
-            List writerJson = new ArrayList<>();
-
+            FileWriter writer = new FileWriter("DadosLocal.txt", true); // Abre o arquivo para escrita
+            List<A_Usuario> writerJson = new ArrayList<A_Usuario>();
+            String DADOS = new Gson().toJson(usuario);
             // Escreve os dados no arquivo
-            writer.write(nome + "," + senha + "\n");
-            writerJson.ArrayList (nome);
+            writer.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() +"," + usuario.getSexo() +"," + usuario.getEmail() + "\n");
+            
 
             writer.close(); // Fecha o arquivo após a escrita
+
+            System.out.println();
 
             System.out.println("Usuário criado com sucesso!");
         } catch (IOException e) {
@@ -95,7 +101,7 @@ public class C4_UserMenu {
 
        
 
-
+ List<A_Usuario> users = new ArrayList<A_Usuario>();
 
         List<A_Usuario> users = new ArrayList<A_Usuario>();
         users.add(user1);
