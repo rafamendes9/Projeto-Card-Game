@@ -77,14 +77,18 @@ public class C4_UserMenu {
         try {
             FileWriter writer = new FileWriter("DadosLocal.txt", true); // Abre o arquivo para escrita
             List<A_Usuario> writerJson = new ArrayList<A_Usuario>();
-            String DADOS = new Gson().toJson(usuario);
+
+            writerJson.add(usuario);
+
+
+            String DADOS = new Gson().toJson(writerJson);
             // Escreve os dados no arquivo
             writer.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() +"," + usuario.getSexo() +"," + usuario.getEmail() + "\n");
             
 
             writer.close(); // Fecha o arquivo após a escrita
 
-            System.out.println();
+            System.out.println(""+ DADOS);
 
             System.out.println("Usuário criado com sucesso!");
         } catch (IOException e) {
