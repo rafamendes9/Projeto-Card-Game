@@ -64,6 +64,10 @@ public class InterfaceUserMenu {
         String cpf = scanner.nextLine();
         usuario.setCpf(cpf);
 
+        System.out.println("Digite sua idade: ");
+        int idade = scanner.nextInt();
+        usuario.setIdade(idade);
+
         System.out.print("Crie uma senha: ");
         String senha = scanner.nextLine();
         usuario.setSenha(senha);

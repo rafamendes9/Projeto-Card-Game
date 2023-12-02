@@ -85,6 +85,9 @@ public class A_Usuario {
         }else if (idade < 14) {
             System.out.println("É necessário ser maior de 14 anos para se cadastrar no jogo");
             return false;
+        }else if (idade > 95) {
+            System.out.println("Qual é, se tu tiver essa idade msm tu nem enxargar o game vai");
+            return false;
         }else if (senha.length() < 8) {
             // Validação de senha (por exemplo, exigindo uma senha com pelo menos 8 caracteres)
             System.out.println("A senha deve ter pelo menos 8 caracteres.");
