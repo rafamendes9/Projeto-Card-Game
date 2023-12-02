@@ -17,8 +17,6 @@ import Model.Shops.E_Loja;
 import Model.USER.A_Usuario;
 
 public class InterfaceUserMenu {
-
-
     //interface para fluxo do Usuario "jogar"
     public static void main(String[] args) throws J1_InsufficientCoinsException, J4_InsufficientGemsException {
         Scanner scanner = new Scanner(System.in);
@@ -40,8 +38,7 @@ public class InterfaceUserMenu {
 
             //case para fluxo de cadastro ou logar ou sair do programa
             switch (escolha) {
-                case 1:
-                    
+                case 1:   
                     criarNovoUsuario(scanner, usuario);
                     break;
                 case 2:
@@ -86,6 +83,8 @@ public class InterfaceUserMenu {
         if (usuario.validacoes()) {
             // Chama o método para salvar no arquivo
             salvarUsuario(usuario);
+            System.out.println("Como bônus de cadastro, você ganhou 2000 cardcoins. Parabéns!");
+            usuario.setCardCoins(usuario.getCardCoins()+2000);
         } else {
             System.out.println("Não foi possível criar um jogador!.");
         }
@@ -187,18 +186,6 @@ public class InterfaceUserMenu {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     //inicar fluxo de partida
     public static void entrarNumaPartida(Scanner scanner, A_Usuario usuario){
         boolean sair = false;
@@ -263,7 +250,4 @@ public class InterfaceUserMenu {
             }
         }
     }
-
-   
- 
 }
