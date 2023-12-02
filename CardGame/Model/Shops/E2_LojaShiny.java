@@ -1,5 +1,6 @@
 package Model.Shops;
 import java.util.Random;
+import java.util.Scanner;
 
 import Model.Cards.C2_CartaShiny;
 import Model.Cards.C_Carta;
@@ -66,4 +67,32 @@ public class E2_LojaShiny extends E_Loja {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }}
+    }
+
+    @Override
+    public void compras(Scanner scanner, A_Usuario usuario) throws J4_InsufficientGemsException {
+        boolean sair = false;
+
+        while (!sair) {
+            System.out.println("\n--- Menu de Inicial de Loja ---");
+            System.out.println("1. Comprar Booster Especial");
+            System.out.println("2. Sair");
+
+            System.out.print("Escolha uma opção: ");
+            int escolha = scanner.nextInt();
+            scanner.nextLine(); // Limpar o buffer
+
+            switch (escolha) {
+                case 1:
+                    boosterEspecial(usuario);
+                    break;
+                case 2:
+                    sair = true;
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
+        }
+    }    
+}

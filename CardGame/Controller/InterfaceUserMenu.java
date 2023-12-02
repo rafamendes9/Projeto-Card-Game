@@ -7,7 +7,15 @@ import java.util.List;
 import java.util.Scanner;
 import com.google.gson.Gson;
 
+<<<<<<< Updated upstream:CardGame/Controller/InterfaceUserMenu.java
 import Model.USER.A_Usuario;
+=======
+import Modelo.Exceptions.J1_InsufficientCoinsException;
+import Modelo.Exceptions.J4_InsufficientGemsException;
+import Modelo.Shops.E2_LojaShiny;
+import Modelo.Shops.E_Loja;
+import Modelo.USER.A_Usuario;
+>>>>>>> Stashed changes:CardGame/Controlador/InterfaceUserMenu.java
 
 public class InterfaceUserMenu {
 
@@ -28,12 +36,15 @@ public class InterfaceUserMenu {
             int escolha = scanner.nextInt();
             scanner.nextLine(); // Limpar o buffer
 
+            A_Usuario usuario = new A_Usuario(null, null, null, null, null, 0, 0, null, null);
+
             switch (escolha) {
                 case 1:
-                    criarNovoUsuario(scanner);
+                    
+                    criarNovoUsuario(scanner, usuario);
                     break;
                 case 2:
-                    logar(scanner);
+                    logar(scanner, usuario);
                     break;
                 case 3:
                     sair = true;
@@ -47,8 +58,7 @@ public class InterfaceUserMenu {
         scanner.close();
     }
 
-    private static void criarNovoUsuario(Scanner scanner) {
-        A_Usuario usuario = new A_Usuario(null, null, null, null, null, 0, 0, null, null);
+    public static void criarNovoUsuario(Scanner scanner, A_Usuario usuario) {
         System.out.print("Digite o nome do usuário: ");
         String nome = scanner.nextLine();
         usuario.setNome(nome);
@@ -68,15 +78,18 @@ public class InterfaceUserMenu {
         System.out.print("Digite seu email: ");
         String email = scanner.nextLine();
         usuario.setEmail(email);
-        
 
-
-        // Chama o método para salvar no arquivo
-        salvarUsuario(usuario);
+        usuario.validarCPF(cpf);
+        if (usuario.validacoes()) {
+            // Chama o método para salvar no arquivo
+            salvarUsuario(usuario);
+        } else {
+            System.out.println("Não foi possível criar um jogador!.");
+        }
     }
     // FIM DE CADASTRO
 
-    private static void logar(Scanner scanner){
+    public static void logar(Scanner scanner, A_Usuario usuario){
         String nomeTeste;
         String senhaTeste;
         boolean sair = false;
@@ -109,7 +122,7 @@ public class InterfaceUserMenu {
                     entrarNumaPartida(scanner, usuario);
                     break;
                 case 2:
-                    entrarNaLoja(scanner);
+                    entrarNaLoja(scanner, usuario);
                     break;
                 case 3:
                     sair = true;
@@ -121,13 +134,45 @@ public class InterfaceUserMenu {
         }
     }
 
-    private static void entrarNumaPartida(Scanner scanner, A_Usuario usuario){
+    public static void entrarNumaPartida(Scanner scanner, A_Usuario usuario){
+        boolean sair = false;
+
+        while (!sair) {
+            System.out.println("\n--- Menu de Inicial de Lobby ---");
+            System.out.println("1. Entrar numa partida PVP");
+            System.out.println("2. Entrar numa partida 2V2");
+            System.out.println("3. Sair");
+
+            System.out.print("Escolha uma opção: ");
+            int escolha = scanner.nextInt();
+            scanner.nextLine(); // Limpar o buffer
+            F_Lobby lobby = new F_Lobby();
+
+            switch (escolha) {
+                case 1:
+                    lobby.adicionarUsuario(usuario);
+                    break;
+                case 2:
+                    usuario.setEmTime(true);
+                    lobby.adicionarUsuario(usuario);
+                    break;
+                case 3:
+                    sair = true;
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
+        }
+    }
+
+    public static void entrarNaLoja(Scanner scanner, A_Usuario usuario) throws J1_InsufficientCoinsException, J4_InsufficientGemsException{
         boolean sair = false;
 
         while (!sair) {
             System.out.println("\n--- Menu de Inicial de Loja ---");
-            System.out.println("1. Entrar numa partida PVP");
-            System.out.println("2. Entrar numa partida 2V2");
+            System.out.println("1. Entrar numa Loja Comum");
+            System.out.println("2. Entrar numa Loja Shiny");
             System.out.println("3. Sair");
 
             System.out.print("Escolha uma opção: ");
@@ -136,11 +181,12 @@ public class InterfaceUserMenu {
 
             switch (escolha) {
                 case 1:
-                    F_Lobby lobby = new F_Lobby();
-                    lobby.adicionarUsuario(usuario);
+                    E_Loja lojaComum = new E_Loja(null, null);
+                    lojaComum.compras(scanner, usuario);
                     break;
                 case 2:
-                    logar(scanner, usuario);
+                    E2_LojaShiny lojaShiny = new E2_LojaShiny(null, null);
+                    lojaShiny.compras(scanner, usuario);
                     break;
                 case 3:
                     sair = true;
@@ -150,17 +196,10 @@ public class InterfaceUserMenu {
                     break;
             }
         }
-
     }
-
-    private static void entrarNaLoja(Scanner scanner){
-
-    }
-
-
 
     // salvar em dois arquivos singulares, DadosLocal.TXT & Json
-    private static void salvarUsuario(A_Usuario usuario) {
+    public static void salvarUsuario(A_Usuario usuario) {
         try {
             FileWriter writer = new FileWriter("CardGame\\Recursos\\DadosLocal.txt", true); // Abre o arquivo para escrita
             List<A_Usuario> writerJson = new ArrayList<A_Usuario>();

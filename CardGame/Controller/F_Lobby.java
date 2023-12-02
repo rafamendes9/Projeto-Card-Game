@@ -64,8 +64,7 @@ public class F_Lobby {
 
                 // Encontrou um oponente com deck e modo de jogo correspondentes
                 if (usuario.getEmTime() == true && usuario.getEmTime() == true) {
-                    criarPartida2v2(usuario, null, oponente, null);
-                    
+                    criarPartida2v2(usuario, null, oponente, null);   
                 } else {
                     criarPartida(usuario, oponente);
                     return; // Pare de procurar por oponentes após emparelhar

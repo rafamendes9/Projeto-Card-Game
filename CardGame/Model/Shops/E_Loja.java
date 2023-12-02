@@ -1,6 +1,8 @@
 package Model.Shops;
 import java.util.Random;
+import java.util.Scanner;
 
+<<<<<<< Updated upstream:CardGame/Model/Shops/E_Loja.java
 import Model.Cards.C_Carta;
 import Model.Cards.Inventory.B_Inventario;
 import Model.ENUMs.H2_EnumIMG;
@@ -9,6 +11,17 @@ import Model.ENUMs.H4_EnumTipo;
 import Model.ENUMs.H_EnumRaridade;
 import Model.Exceptions.J1_InsufficientCoinsException;
 import Model.USER.A_Usuario;
+=======
+import Modelo.Cards.C_Carta;
+import Modelo.Cards.Inventory.B_Inventario;
+import Modelo.ENUMs.H2_EnumIMG;
+import Modelo.ENUMs.H3_EnumHabilidade;
+import Modelo.ENUMs.H4_EnumTipo;
+import Modelo.ENUMs.H_EnumRaridade;
+import Modelo.Exceptions.J1_InsufficientCoinsException;
+import Modelo.Exceptions.J4_InsufficientGemsException;
+import Modelo.USER.A_Usuario;
+>>>>>>> Stashed changes:CardGame/Modelo/Shops/E_Loja.java
 
 
 public class E_Loja {
@@ -22,6 +35,32 @@ public class E_Loja {
     public E_Loja(String numeroCartao, String codigoVerificador) {
         this.numeroCartao = numeroCartao;
         this.codigoVerificador = codigoVerificador;
+    }
+
+    public void compras(Scanner scanner, A_Usuario usuario) throws J1_InsufficientCoinsException, J4_InsufficientGemsException {
+        boolean sair = false;
+
+        while (!sair) {
+            System.out.println("\n--- Menu de Inicial de Loja ---");
+            System.out.println("1. Comprar Booster");
+            System.out.println("2. Sair");
+
+            System.out.print("Escolha uma opção: ");
+            int escolha = scanner.nextInt();
+            scanner.nextLine(); // Limpar o buffer
+
+            switch (escolha) {
+                case 1:
+                    compraDeBooster(usuario);
+                    break;
+                case 2:
+                    sair = true;
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
+        }
     }
 
     // metodo compra booster
@@ -185,11 +224,11 @@ public H4_EnumTipo gerarTipoAleatorio() {
         
         //METODO PAY 2 WIN hahahahaha
         // metodo que chama outro metodo em inventario, ele aumenta o tamnho do vetor "inventario de cartas" em 30 e custa um valor em card coins
-        public void aumentarTamanhoDoInventario(B_Inventario inventario, int novoTamanho, A_Usuario usuario) {
-            novoTamanho = 30;// define o aumento em 30 o tamanho do vetor
-           int valorDaCompra = 1000;// define o valor a se pagar 
+    public void aumentarTamanhoDoInventario(B_Inventario inventario, int novoTamanho, A_Usuario usuario) {
+        novoTamanho = 30;// define o aumento em 30 o tamanho do vetor
+        int valorDaCompra = 1000;// define o valor a se pagar 
             // Verifica se o usuário possui cardcoins suficientes
-            if (usuario.getCardGems() >= valorDaCompra) {
+        if (usuario.getCardGems() >= valorDaCompra) {
             // Subtrai o custo do aumento do tamanho dos cardcoins do usuário
             usuario.setCardCoins(usuario.getCardGems() - valorDaCompra);
 
@@ -197,8 +236,8 @@ public H4_EnumTipo gerarTipoAleatorio() {
             inventario.aumentarTamanhoDoVetor(novoTamanho);
         } else {
             System.out.println("Você não possui cardcoins suficientes para aumentar o tamanho do inventário.");
-}
-}
+        }
+    }
 
 
 
@@ -235,8 +274,4 @@ public H4_EnumTipo gerarTipoAleatorio() {
     public void setPromocao(boolean promocao) {
         this.promocao = promocao;
     }
-
-
-
-
 }
