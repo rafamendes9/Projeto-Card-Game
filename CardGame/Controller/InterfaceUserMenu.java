@@ -110,7 +110,7 @@ public class InterfaceUserMenu {
 
 
     //metodo de login para checar dados ao validar login
-    private static List<A_Usuario> carregarUsuarios() {
+    public static List<A_Usuario> carregarUsuarios() {
         List<A_Usuario> usuarios = new ArrayList<>();
         try (Scanner scanner = new Scanner(new File("CardGame\\DataBase\\DadoUsuario\\DataUser.txt"))) {
             // Ler dados do arquivo de texto
