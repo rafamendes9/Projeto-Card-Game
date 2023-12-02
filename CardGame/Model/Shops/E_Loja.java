@@ -40,9 +40,13 @@ public class E_Loja {
 
             switch (escolha) {
                 case 1:
-                    compraDeBooster(usuario);
-                    System.out.println("Parabens !!!!!!");
-                    System.out.println("VOCE COMPROU UM BOOSTER DE CARTAS NORMAL");
+                    try {
+                        compraDeBooster(usuario);
+                        System.out.println("Parabens !!!!!!");
+                        System.out.println("VOCE COMPROU UM BOOSTER DE CARTAS NORMAL");
+                    } catch (J1_InsufficientCoinsException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 2:
                     sair = true;
@@ -59,7 +63,7 @@ public class E_Loja {
     public void compraDeBooster(A_Usuario usuario) throws J1_InsufficientCoinsException {
         // Verificar se o usuário possui cardcoins suficientes para comprar um booster
         
-        int cardcoinsDoUsuario = usuario.getCardGems();
+        int cardcoinsDoUsuario = usuario.getCardCoins();
         try {
             if (cardcoinsDoUsuario >= precoBoosterComum) { // verifica se o usuário tem cardcoins suficientes para comprar um booster
 
@@ -83,6 +87,7 @@ public class E_Loja {
             // Deduzir preço do booster dos cardcoins do usuário
             cardcoinsDoUsuario -= precoBoosterComum;
             usuario.setCardCoins(cardcoinsDoUsuario);
+            System.out.println(usuario.getCardCoins());
 
             System.out.println("Compra bem-sucedida! Você recebeu " + quantidadeCartasBooster + " cartas no seu inventário.");
         }
