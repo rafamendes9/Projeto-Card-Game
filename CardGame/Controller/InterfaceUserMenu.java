@@ -1,10 +1,8 @@
 package Controller;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -80,11 +78,13 @@ public class InterfaceUserMenu {
         usuario.setEmail(email);
 
         usuario.validarCPF(cpf);
+
         if (usuario.validacoes()) {
+
             // Chama o método para salvar no arquivo
             salvarUsuario(usuario);
             System.out.println("Como bônus de cadastro, você ganhou 2000 cardcoins. Parabéns!");
-            usuario.setCardCoins(usuario.getCardCoins()+2000);
+            usuario.setCardCoins(2000);
         } else {
             System.out.println("Não foi possível criar um jogador!.");
         }
@@ -112,7 +112,7 @@ public class InterfaceUserMenu {
     //metodo de login para checar dados ao validar login
     private static List<A_Usuario> carregarUsuarios() {
         List<A_Usuario> usuarios = new ArrayList<>();
-        try (Scanner scanner = new Scanner(new File("CardGame\\Recursos\\DadosLocal.txt"))) {
+        try (Scanner scanner = new Scanner(new File("CardGame\\DataBase\\DadoUsuario\\DataUser.txt"))) {
             // Ler dados do arquivo de texto
             while (scanner.hasNextLine()) {
                 String[] dados = scanner.nextLine().split(",");
@@ -176,10 +176,10 @@ public class InterfaceUserMenu {
     
                     switch (escolha) {
                         case 1:
-                        entrarNaLoja(scanner, usuarioEncontrado);
+                        entrarNumaPartida(scanner, usuarioEncontrado);
                         break;
                         case 2:
-                        entrarNumaPartida(scanner, usuarioEncontrado);
+                        entrarNaLoja(scanner, usuarioEncontrado);
                             break;
                         case 3:
                             sair = true;
@@ -197,20 +197,6 @@ public class InterfaceUserMenu {
             System.out.println("Usuário não encontrado.");
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

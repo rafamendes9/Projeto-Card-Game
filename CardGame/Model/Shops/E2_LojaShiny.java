@@ -85,6 +85,9 @@ public class E2_LojaShiny extends E_Loja {
             switch (escolha) {
                 case 1:
                     boosterEspecial(usuario);
+                    System.out.println("Parabens !!!!!!");
+                    System.out.println("VOCE COMPROU UM BOOSTER DE CARTAS SHINY");
+                    System.out.println("VOCE É O BRABO !!!!!!!!!!");
                     break;
                 case 2:
                     sair = true;

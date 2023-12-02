@@ -41,6 +41,8 @@ public class E_Loja {
             switch (escolha) {
                 case 1:
                     compraDeBooster(usuario);
+                    System.out.println("Parabens !!!!!!");
+                    System.out.println("VOCE COMPROU UM BOOSTER DE CARTAS NORMAL");
                     break;
                 case 2:
                     sair = true;
