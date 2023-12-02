@@ -10,9 +10,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import Model.Exceptions.J1_InsufficientCoinsException;
 import Model.Exceptions.J4_InsufficientGemsException;
 import Model.Shops.E2_LojaShiny;
@@ -50,18 +47,20 @@ public class InterfaceUserMenu {
                 case 2:
                     logar(scanner, usuario);
                     break;
-                case 3:
+                    case 3:
                     sair = true;
                     break;
-                default:
+                    default:
                     System.out.println("Opção inválida!");
                     break;
+                }
             }
+            
+            scanner.close();
         }
-
-        scanner.close();
-    }
-
+        
+    
+    //****************************************************** COMEÇO DE CADASTRO + DADOS (.TXT)**************************************************
     public static void criarNovoUsuario(Scanner scanner, A_Usuario usuario) {
         System.out.print("Digite o nome do usuário: ");
         String nome = scanner.nextLine();
@@ -110,7 +109,7 @@ public class InterfaceUserMenu {
         }
     }
     
-    // FIM DE CADASTRO + DADOS (.TXT)
+    //****************************************************** FIM DE CADASTRO + DADOS (.TXT)**************************************************
 
 
     //metodo de login para checar dados ao validar login
