@@ -19,8 +19,8 @@ import Model.USER.A_Usuario;
 public class InterfaceUserMenu {
 
 
-    //testando o cadastro para colocar JSON
-    public static void main(String[] args) {
+    //interface para fluxo do Usuario "jogar"
+    public static void main(String[] args) throws J1_InsufficientCoinsException, J4_InsufficientGemsException {
         Scanner scanner = new Scanner(System.in);
         boolean sair = false;
 
@@ -37,6 +37,8 @@ public class InterfaceUserMenu {
 
             A_Usuario usuario = new A_Usuario(null, null, null, null, null, 0, 0, null, null);
 
+
+            //case para fluxo de cadastro ou logar ou sair do programa
             switch (escolha) {
                 case 1:
                     
@@ -120,7 +122,7 @@ public class InterfaceUserMenu {
 
 
 
-    public static void logar(Scanner scanner, A_Usuario usuario){
+    public static void logar(Scanner scanner, A_Usuario usuario) throws J1_InsufficientCoinsException, J4_InsufficientGemsException{
         String nomeTeste;
         String senhaTeste;
         boolean sair = false;
@@ -165,11 +167,11 @@ public class InterfaceUserMenu {
 
 
 
-        if (nomeTeste == nomeJson && senhaTeste == senhaJson) {
+      /*   if (nomeTeste == nomeJson && senhaTeste == senhaJson) {
             
         } else {
             System.out.println("Usuário não existente.");
-        }
+        }*/
         
 
 
