@@ -42,8 +42,8 @@ public class E_Loja {
                 case 1:
                     try {
                         compraDeBooster(usuario);
-                        System.out.println("Parabens !!!!!!");
-                        System.out.println("VOCE COMPROU UM BOOSTER DE CARTAS NORMAL");
+                        //System.out.println("Parabens !!!!!!");
+                        //System.out.println("VOCE COMPROU UM BOOSTER DE CARTAS NORMAL");
                     } catch (J1_InsufficientCoinsException e) {
                         System.out.println(e.getMessage());
                     }
@@ -62,6 +62,8 @@ public class E_Loja {
 
     public void compraDeBooster(A_Usuario usuario) throws J1_InsufficientCoinsException {
         // Verificar se o usuário possui cardcoins suficientes para comprar um booster
+
+        System.out.println("ti aqyu");
         
         int cardcoinsDoUsuario = usuario.getCardCoins();
         try {
