@@ -17,8 +17,6 @@ import Model.Shops.E_Loja;
 import Model.USER.A_Usuario;
 
 public class InterfaceUserMenu {
-
-
     //interface para fluxo do Usuario "jogar"
     public static void main(String[] args) throws J1_InsufficientCoinsException, J4_InsufficientGemsException {
         Scanner scanner = new Scanner(System.in);
@@ -94,8 +92,8 @@ public class InterfaceUserMenu {
 
      // salvar em dois arquivos singulares, DadosLocal.TXT & Json
     public static void salvarUsuario(A_Usuario usuario) {
-        try (FileWriter writer = new FileWriter("CardGame\\Recursos\\DadosLocal.txt", true);
-             BufferedWriter txtWriter = new BufferedWriter(writer)) {
+        try (FileWriter writer = new FileWriter("CardGame\\DataBase\\UsersData\\DadosLocal.txt", true);
+            BufferedWriter txtWriter = new BufferedWriter(writer)) {
             // Escrever os dados no arquivo de texto
             txtWriter.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() + ","
                     + usuario.getSexo() + "," + usuario.getEmail() + "\n");
@@ -182,18 +180,6 @@ public class InterfaceUserMenu {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     //inicar fluxo de partida
     public static void entrarNumaPartida(Scanner scanner, A_Usuario usuario){
         boolean sair = false;
@@ -258,7 +244,4 @@ public class InterfaceUserMenu {
             }
         }
     }
-
-   
- 
 }

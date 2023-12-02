@@ -21,7 +21,6 @@ public class A_Usuario {
     private int wins = 0;
 
     // atributos adicionais
-    private int idade;
     private int pontosVida; // Atributo para armazenar vida do jogador usado em ARENA
     private boolean emTime; // Atributo utilizado no novo modo de Jogo 2Px2P
     private int numeroTime; // Atributo utilizado no novo modo de Jogo 2Px2P
@@ -82,12 +81,6 @@ public class A_Usuario {
         // Validação de CPF
         if (!validarCPF(cpf)) {
             System.out.println("CPF inválido.");
-            return false;
-        }
-
-        // Validação de idade ( maior de idade para jogar)
-        if (idade < 18) {
-            System.out.println("Você deve ter pelo menos 18 anos para criar uma conta.");
             return false;
         }
 
