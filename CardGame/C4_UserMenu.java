@@ -13,6 +13,7 @@ public class C4_UserMenu {
         boolean sair = false;
 
         while (!sair) {
+            //add funções de logar e dentro de logar, acessar a loja, jogar = entrar no lobby para jogar só ou em dupla e sair.
             System.out.println("\n--- Menu de Criação de Usuários ---");
             System.out.println("1. Criar novo usuário");
             System.out.println("2. Sair");
@@ -44,9 +45,21 @@ public class C4_UserMenu {
         usuario.setNome(nome);
         
 
-        System.out.print("Digite a senha: ");
+        System.out.print("Crie uma senha: ");
         String senha = scanner.nextLine();
         usuario.setSenha(senha);
+
+        System.out.print("Digite seu sexo: ");
+        String sexo = scanner.nextLine();
+        usuario.setSexo(sexo);
+
+        System.out.print("Digite seu CPF: ");
+        String cpf = scanner.nextLine();
+        usuario.setCpf(cpf);
+
+        System.out.print("Digite seu email: ");
+        String email = scanner.nextLine();
+        usuario.setEmail(email);
 
         // Chama o método para salvar no arquivo
         salvarUsuario(nome, senha);
