@@ -1,6 +1,9 @@
 package Controller;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -91,16 +94,12 @@ public class InterfaceUserMenu {
 
      // salvar em dois arquivos singulares, DadosLocal.TXT & Json
     public static void salvarUsuario(A_Usuario usuario) {
-        try {
-            FileWriter writer = new FileWriter("CardGame\\Recursos\\DadosLocal.txt", true); // Abre o arquivo para escrita
-            List<A_Usuario> writerJson = new ArrayList<A_Usuario>();
+        try (FileWriter writer = new FileWriter("CardGame\\Recursos\\DadosLocal.txt", true);
+             BufferedWriter txtWriter = new BufferedWriter(writer)) {
+            // Escrever os dados no arquivo de texto
+            txtWriter.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() + ","
+                    + usuario.getSexo() + "," + usuario.getEmail() + "\n");
 
-            writerJson.add(usuario);
-
-
-            String DADOS = new Gson().toJson(writerJson);
-            // Escreve os dados no arquivo
-            writer.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() +"," + usuario.getSexo() +"," + usuario.getEmail() + "\n");
             
 
             writer.close(); // Fecha o arquivo após a escrita
@@ -110,8 +109,28 @@ public class InterfaceUserMenu {
             System.out.println("Erro ao salvar o usuário: " + e.getMessage());
         }
     }
-    // FIM DE CADASTRO + DADOS (JSON, TXT)
+    
+    // FIM DE CADASTRO + DADOS (.TXT)
 
+
+    //metodo de login para checar dados ao validar login
+    private static List<A_Usuario> carregarUsuarios() {
+        List<A_Usuario> usuarios = new ArrayList<>();
+        try (Scanner scanner = new Scanner(new File("CardGame\\Recursos\\DadosLocal.txt"))) {
+            // Ler dados do arquivo de texto
+            while (scanner.hasNextLine()) {
+                String[] dados = scanner.nextLine().split(",");
+                if (dados.length == 5) {
+                    A_Usuario usuario = new A_Usuario(dados[0], dados[1], dados[2], dados[3], dados[4], 0, 0, null, null);
+                    usuarios.add(usuario);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Arquivo não encontrado: " + e.getMessage());
+        }
+
+        return usuarios;
+    }
 
 
     
@@ -123,76 +142,15 @@ public class InterfaceUserMenu {
 
 
     public static void logar(Scanner scanner, A_Usuario usuario) throws J1_InsufficientCoinsException, J4_InsufficientGemsException{
-        String nomeTeste;
-        String senhaTeste;
+        String nomeTemp;
+        String senhaTemp;
         boolean sair = false;
 
         System.out.println("Digite seu nome:");
-        nomeTeste = scanner.nextLine();
-
-
-
-        /*o scan vai dar check com uma variavel aux q receber valor de  
-         writer.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() +"," + usuario.getSexo() +"," + usuario.getEmail() + "\n");
-         bla bla bla
-         puxa nome
-            */
-
-        /*ai tu ( variavel aux) vai puxar de outra classe ou ate msm do proprio DATABase de LOGIN */
-        // json.nome
-        // aux = json.nome
-
-
-
-
-
-
-        //OK    if scan . equals aux = true
-        //OK      else = false + print 
-
+        nomeTemp = scanner.nextLine();
 
         System.out.println("Digite sua senha:");
-        senhaTeste = scanner.nextLine();
-
-
-
-         /*o scan vai dar check com uma variavel aux q receber valor de  
-         writer.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() +"," + usuario.getSexo() +"," + usuario.getEmail() + "\n");
-         bla bla bla
-         puxa senha
-            */
-
-
-
-
-
-
-      /*   if (nomeTeste == nomeJson && senhaTeste == senhaJson) {
-            
-        } else {
-            System.out.println("Usuário não existente.");
-        }*/
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        senhaTemp = scanner.nextLine();
 
 
         // ocorre apos o login bem sucedido
@@ -224,19 +182,19 @@ public class InterfaceUserMenu {
         }
     }
 
-    //metodo de login para checar dados ao validar login
-     private static List<A_Usuario> carregarUsuarios() {
-        // Carregar dados do arquivo JSON
-        try (BufferedReader br = new BufferedReader(new FileReader("CardGame\\Recursos\\DadosLocal.txt"))) {
-            Gson gson = new Gson();
-            List<A_Usuario> usuarios = gson.fromJson(br, new TypeToken<List<A_Usuario>>() {}.getType());
-            return usuarios != null ? usuarios : new ArrayList<>();
-        } catch (IOException e) {
-            System.out.println("Erro ao carregar usuários: " + e.getMessage());
-            return new ArrayList<>();
-        }
-    }
 
+
+
+
+
+
+
+
+
+
+
+
+    //inicar fluxo de partida
     public static void entrarNumaPartida(Scanner scanner, A_Usuario usuario){
         boolean sair = false;
 

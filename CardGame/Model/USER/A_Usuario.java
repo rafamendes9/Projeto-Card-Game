@@ -2,9 +2,7 @@ package Model.USER;
 
 import java.util.List;
 import java.util.Random;
-
 import com.google.gson.Gson;
-
 import Model.Cards.C_Carta;
 import Model.Cards.Deck.D_Deck;
 import Model.Cards.Inventory.B_Inventario;
