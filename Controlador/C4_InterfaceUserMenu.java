@@ -141,7 +141,7 @@ public class C4_InterfaceUserMenu {
                     lobby.adicionarUsuario(usuario);
                     break;
                 case 2:
-                    logar(scanner);
+                    logar(scanner, usuario);
                     break;
                 case 3:
                     sair = true;

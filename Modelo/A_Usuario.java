@@ -20,7 +20,6 @@ public class A_Usuario {
 
     // atributos adicionais
     private int idade;
-    private String ModoDeJogo; // Atributo para armazenar a modalidade de LOBBY / MODO DE JOGO / mudar para classe lobby
     private int pontosVida; // Atributo para armazenar vida do jogador usado em ARENA
     private boolean emTime; // Atributo utilizado no novo modo de Jogo 2Px2P
     private int numeroTime; // Atributo utilizado no novo modo de Jogo 2Px2P
@@ -276,12 +275,12 @@ public class A_Usuario {
         this.inventario = inventario;
     }
 
-    public String getModoDeJogo() {
-        return ModoDeJogo;
+    public boolean getEmTime() {
+        return emTime;
     }
 
-    public void setModoDeJogo(String modalidade) {
-        this.ModoDeJogo = modalidade;
+    public void setEmTime(boolean emTime) {
+        this.emTime = emTime;
     }
 
     public int getPontosVida() {
@@ -295,10 +294,6 @@ public class A_Usuario {
     //Modo em Dupla 2Px2P
     public boolean isEmTime() {
         return emTime;
-    }
-
-    public void setEmTime(boolean emTime) {
-        this.emTime = emTime;
     }
 
     public int getNumeroTime() {

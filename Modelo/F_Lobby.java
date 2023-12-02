@@ -54,12 +54,17 @@ public class F_Lobby {
     public void emparelharUsuarios(A_Usuario usuario) {
         adicionarCronometro(); // Adiciona o cronômetro ao iniciar a procura por oponente
         for (A_Usuario oponente : usuarios) {
-            if (oponente != usuario && oponente.getNivel() == usuario.getNivel()//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ver possibilidade para alterar nivel de igual para + nivel aproximado!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    && oponente.getModoDeJogo().equals(usuario.getModoDeJogo())) {
+            if (oponente != usuario && oponente.getNivel() == usuario.getNivel()) {
 
-                // Encontrou um oponente com deck e ModoDeJogo correspondentes
-                criarPartida(usuario, oponente);
-                return; // Pare de procurar por oponentes após emparelhar
+                // Encontrou um oponente com deck e modo de jogo correspondentes
+                if (usuario.getEmTime() == true && usuario.getEmTime() == true) {
+                    criarPartida2v2(usuario, null, oponente, null);
+                    
+                } else {
+                    criarPartida(usuario, oponente);
+                    return; // Pare de procurar por oponentes após emparelhar
+                }
+                
             }
             // Se nenhum oponente foi encontrado, aguarde até que um esteja disponível
             System.out.println("Aguardando oponente...");
@@ -124,7 +129,7 @@ public class F_Lobby {
     }
 
     
-     // Método para criar partidas em dupla aleatoriamente.
+    // Método para criar partidas em dupla aleatoriamente.
      
     public void criarPartidasEmDuplaAleatoriamente() {
         if (usuarios.size() >= 4) {
