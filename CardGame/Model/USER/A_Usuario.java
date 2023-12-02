@@ -2,7 +2,6 @@ package Model.USER;
 
 import java.util.List;
 import java.util.Random;
-import com.google.gson.Gson;
 import Model.Cards.C_Carta;
 import Model.Cards.Deck.D_Deck;
 import Model.Cards.Inventory.B_Inventario;
@@ -21,7 +20,6 @@ public class A_Usuario {
     private int wins = 0;
 
     // atributos adicionais
-    private int idade;
     private int pontosVida; // Atributo para armazenar vida do jogador usado em ARENA
     private boolean emTime; // Atributo utilizado no novo modo de Jogo 2Px2P
     private int numeroTime; // Atributo utilizado no novo modo de Jogo 2Px2P
@@ -85,12 +83,7 @@ public class A_Usuario {
             return false;
         }
 
-        // Validação de idade ( maior de idade para jogar)
-        if (idade < 18) {
-            System.out.println("Você deve ter pelo menos 18 anos para criar uma conta.");
-            return false;
-        }
-
+       
         // Validação de senha (por exemplo, exigindo uma senha com pelo menos 8
         // caracteres)
         if (senha.length() < 8) {
@@ -155,18 +148,6 @@ public class A_Usuario {
         }
     }
 
-    // Método para converter um objeto A_Usuario em uma representação JSON
-    public String toJson() {
-        Gson gson = new Gson();
-        return gson.toJson(this);
-    }
-
-    //Tentativa 2 de implementar o Json
-    // Método estático para criar um objeto A_Usuario a partir de uma string JSON
-    public static A_Usuario fromJson(String json) {
-        Gson gson = new Gson();
-        return gson.fromJson(json, A_Usuario.class);
-    }
     
     public C_Carta sacarCartaAleatoriaDoDeckREROLL() {
         Random random = new Random();

@@ -93,16 +93,14 @@ public class InterfaceUserMenu {
 
      // salvar em dois arquivos singulares, DadosLocal.TXT & Json
     public static void salvarUsuario(A_Usuario usuario) {
-        try (FileWriter writer = new FileWriter("CardGame\\Recursos\\DadosLocal.txt", true);
-             BufferedWriter txtWriter = new BufferedWriter(writer)) {
+        try (FileWriter writer = new FileWriter("CardGame\\DataBase\\DadoUsuario\\DataUser.txt", true);
+             BufferedWriter dadoTXT = new BufferedWriter(writer)) {
             // Escrever os dados no arquivo de texto
-            txtWriter.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() + ","
+            dadoTXT.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() + ","
                     + usuario.getSexo() + "," + usuario.getEmail() + "\n");
 
             
-
-            writer.close(); // Fecha o arquivo após a escrita
-
+         
             System.out.println("Usuário criado com sucesso!");
         } catch (IOException e) {
             System.out.println("Erro ao salvar o usuário: " + e.getMessage());
@@ -132,24 +130,32 @@ public class InterfaceUserMenu {
     }
 
 
-    
-   
-
-
-
-
-
 
     public static void logar(Scanner scanner, A_Usuario usuario) throws J1_InsufficientCoinsException, J4_InsufficientGemsException{
         String nomeTemp;
         String senhaTemp;
-        boolean sair = false;
+        
 
         System.out.println("Digite seu nome:");
         nomeTemp = scanner.nextLine();
 
+        // Carregar dados do arquivo
+        List<A_Usuario> usuarios = carregarUsuarios();
+
         System.out.println("Digite sua senha:");
         senhaTemp = scanner.nextLine();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // ocorre apos o login bem sucedido
