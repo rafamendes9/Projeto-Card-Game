@@ -133,58 +133,86 @@ public class InterfaceUserMenu {
     public static void logar(Scanner scanner, A_Usuario usuario) throws J1_InsufficientCoinsException, J4_InsufficientGemsException{
         String nomeTemp;
         String senhaTemp;
-        
-
+        boolean sair = false;
+    
+        // Pede o nome para login
         System.out.println("Digite seu nome:");
         nomeTemp = scanner.nextLine();
-
+    
         // Carregar dados do arquivo
         List<A_Usuario> usuarios = carregarUsuarios();
-
-        System.out.println("Digite sua senha:");
-        senhaTemp = scanner.nextLine();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // ocorre apos o login bem sucedido
-
-        while (!sair) {
-            System.out.println("\n--- Menu de Inicial do Lobby ---");
-            System.out.println("1. Entrar numa partida");
-            System.out.println("2. Entrar na Loja");
-            System.out.println("3. Sair");
-
-            System.out.print("Escolha uma opção: ");
-            int escolha = scanner.nextInt();
-            scanner.nextLine(); // Limpar o buffer
-
-            switch (escolha) {
-                case 1:
-                    entrarNumaPartida(scanner, usuario);
-                    break;
-                case 2:
-                    entrarNaLoja(scanner, usuario);
-                    break;
-                case 3:
-                    sair = true;
-                    break;
-                default:
-                    System.out.println("Opção inválida!");
-                    break;
+    
+        // Verificar se o nome está nos dados carregados
+        boolean nomeEncontrado = false;
+        A_Usuario usuarioEncontrado = null;
+    
+        //nesse loop ele busca tudo que tem no "usuarios" no caso em especifico, ele busca o nome e retorna como true
+        for (A_Usuario user : usuarios) {
+            if (user.getNome().equals(nomeTemp)) {
+                nomeEncontrado = true;
+                //converte user para (usuarioEncontrado) para ser validado em senha
+                usuarioEncontrado = user;
+                break;
             }
         }
+    
+        // Verificar se a senha está nos dados carregados
+        if (nomeEncontrado && usuarioEncontrado != null) {
+            System.out.println("Usuário encontrado. Digite sua senha:");
+            senhaTemp = scanner.nextLine();
+    
+            if (usuarioEncontrado.getSenha().equals(senhaTemp)) {
+                System.out.println("Login bem-sucedido!");
+                
+                while (!sair) {
+                    System.out.println("\n--- Menu de Inicial do Lobby ---");
+                    System.out.println("1. Entrar numa partida");
+                    System.out.println("2. Entrar na Loja");
+                    System.out.println("3. Sair");
+    
+                    System.out.print("Escolha uma opção: ");
+                    int escolha = scanner.nextInt();
+                    scanner.nextLine(); // Limpar o buffer
+    
+                    switch (escolha) {
+                        case 1:
+                        entrarNaLoja(scanner, usuarioEncontrado);
+                        break;
+                        case 2:
+                        entrarNumaPartida(scanner, usuarioEncontrado);
+                            break;
+                        case 3:
+                            sair = true;
+                            break;
+                        default:
+                            System.out.println("Opção inválida!");
+                            break;
+                    }
+                }
+    
+            } else {
+                System.out.println("Senha incorreta.");
+            }
+        } else {
+            System.out.println("Usuário não encontrado.");
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //inicar fluxo de partida
     public static void entrarNumaPartida(Scanner scanner, A_Usuario usuario){
@@ -219,6 +247,9 @@ public class InterfaceUserMenu {
         }
     }
 
+
+
+    //entra na loja para comprar os boosters de carta pela primeira vez
     public static void entrarNaLoja(Scanner scanner, A_Usuario usuario) throws J1_InsufficientCoinsException, J4_InsufficientGemsException{
         boolean sair = false;
 
