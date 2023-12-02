@@ -33,7 +33,6 @@ public class InterfaceUserMenu {
 
             A_Usuario usuario = new A_Usuario(null, null, null, null, null, 0, 0, null, null);
 
-
             //case para fluxo de cadastro ou logar ou sair do programa
             switch (escolha) {
                 case 1:   
@@ -81,10 +80,10 @@ public class InterfaceUserMenu {
 
         if (usuario.validacoes()) {
 
-            // Chama o método para salvar no arquivo
-            salvarUsuario(usuario);
             System.out.println("Como bônus de cadastro, você ganhou 200 cardcoins. Parabéns!");
             usuario.setCardCoins(200);
+            // Chama o método para salvar no arquivo
+            salvarUsuario(usuario);
         } else {
             System.out.println("Não foi possível criar um jogador!.");
         }
@@ -96,7 +95,7 @@ public class InterfaceUserMenu {
              BufferedWriter dadoTXT = new BufferedWriter(writer)) {
             // Escrever os dados no arquivo de texto
             dadoTXT.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() + ","
-                    + usuario.getSexo() + "," + usuario.getEmail() + usuario.getNivel() +"," + usuario.getCardCoins() + "\n");
+                    + usuario.getSexo() + "," + usuario.getEmail() + "," + usuario.getNivel() + "," + usuario.getCardCoins() + "\n");
 
             
          
@@ -116,7 +115,7 @@ public class InterfaceUserMenu {
             // Ler dados do arquivo de texto
             while (scanner.hasNextLine()) {
                 String[] dados = scanner.nextLine().split(",");
-                if (dados.length == 5) {
+                if (dados.length == 7) {
                     A_Usuario usuario = new A_Usuario(dados[0], dados[1], dados[2], dados[3], dados[4], 1, 0, null, null);
                     usuarios.add(usuario);
                 }
