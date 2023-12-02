@@ -75,7 +75,7 @@ public class C4_InterfaceUserMenu {
     // salvar em dois arquivos singulares, DadosLocal.TXT & Json
     private static void salvarUsuario(A_Usuario usuario) {
         try {
-            FileWriter writer = new FileWriter("DadosLocal.txt", true); // Abre o arquivo para escrita
+            FileWriter writer = new FileWriter("CardGame\\Recursos\\DadosLocal.txt", true); // Abre o arquivo para escrita
             List<A_Usuario> writerJson = new ArrayList<A_Usuario>();
 
             writerJson.add(usuario);
