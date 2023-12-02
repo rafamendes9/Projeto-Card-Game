@@ -6,7 +6,9 @@ import java.util.Scanner;
 
 public class C4_UserMenu {
 
-    public static void main(String[] args) {
+
+    //testando o cadastro para colocar JSON
+    public static void cadastro() {
         Scanner scanner = new Scanner(System.in);
         boolean sair = false;
 
@@ -50,6 +52,8 @@ public class C4_UserMenu {
         salvarUsuario(nome, senha);
     }
 
+
+
     private static void salvarUsuario(String nome, String senha) {
         try {
             FileWriter writer = new FileWriter("Arena.txt", true); // Abre o arquivo para escrita
@@ -63,4 +67,24 @@ public class C4_UserMenu {
             System.out.println("Erro ao salvar o usuário: " + e.getMessage());
         }
     }
+
+    // json + gson
+
+
+
+/*  A_Usuario user1 = new A_Usuario("rafa","12345678901", null, null, null, 9, 40000, null, null);
+        A_Usuario user2 = new A_Usuario("vitinho",null, null, null, null, 5, 50, null, null);
+
+       
+
+
+
+        List<A_Usuario> users = new ArrayList<A_Usuario>();
+        users.add(user1);
+        users.add(user2);
+
+        String DADOS = new Gson().toJson(users);
+         */
+
+
 }
