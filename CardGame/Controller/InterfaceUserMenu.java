@@ -1,11 +1,14 @@
 package Controller;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import Model.Exceptions.J1_InsufficientCoinsException;
 import Model.Exceptions.J4_InsufficientGemsException;
@@ -100,14 +103,21 @@ public class InterfaceUserMenu {
 
             writer.close(); // Fecha o arquivo após a escrita
 
-            System.out.println("Dados guardados do Json --->   "+ DADOS);
-
             System.out.println("Usuário criado com sucesso!");
         } catch (IOException e) {
             System.out.println("Erro ao salvar o usuário: " + e.getMessage());
         }
     }
     // FIM DE CADASTRO + DADOS (JSON, TXT)
+
+
+
+    
+   
+
+
+
+
 
 
     public static void logar(Scanner scanner, A_Usuario usuario){
@@ -118,8 +128,42 @@ public class InterfaceUserMenu {
         System.out.println("Digite seu nome:");
         nomeTeste = scanner.nextLine();
 
+
+
+        /*o scan vai dar check com uma variavel aux q receber valor de  
+         writer.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() +"," + usuario.getSexo() +"," + usuario.getEmail() + "\n");
+         bla bla bla
+         puxa nome
+            */
+
+        /*ai tu ( variavel aux) vai puxar de outra classe ou ate msm do proprio DATABase de LOGIN */
+        // json.nome
+        // aux = json.nome
+
+
+
+
+
+
+        //OK    if scan . equals aux = true
+        //OK      else = false + print 
+
+
         System.out.println("Digite sua senha:");
         senhaTeste = scanner.nextLine();
+
+
+
+         /*o scan vai dar check com uma variavel aux q receber valor de  
+         writer.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() +"," + usuario.getSexo() +"," + usuario.getEmail() + "\n");
+         bla bla bla
+         puxa senha
+            */
+
+
+
+
+
 
         if (nomeTeste == nomeJson && senhaTeste == senhaJson) {
             
@@ -127,6 +171,29 @@ public class InterfaceUserMenu {
             System.out.println("Usuário não existente.");
         }
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // ocorre apos o login bem sucedido
 
         while (!sair) {
             System.out.println("\n--- Menu de Inicial do Lobby ---");
@@ -152,6 +219,19 @@ public class InterfaceUserMenu {
                     System.out.println("Opção inválida!");
                     break;
             }
+        }
+    }
+
+    //metodo de login para checar dados ao validar login
+     private static List<A_Usuario> carregarUsuarios() {
+        // Carregar dados do arquivo JSON
+        try (BufferedReader br = new BufferedReader(new FileReader("CardGame\\Recursos\\DadosLocal.txt"))) {
+            Gson gson = new Gson();
+            List<A_Usuario> usuarios = gson.fromJson(br, new TypeToken<List<A_Usuario>>() {}.getType());
+            return usuarios != null ? usuarios : new ArrayList<>();
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar usuários: " + e.getMessage());
+            return new ArrayList<>();
         }
     }
 
