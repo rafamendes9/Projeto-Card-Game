@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import com.google.gson.Gson;
 
-public class C4_UserMenu {
+public class C4_InterfaceUserMenu {
 
 
     //testando o cadastro para colocar JSON
@@ -88,7 +88,7 @@ public class C4_UserMenu {
 
             writer.close(); // Fecha o arquivo após a escrita
 
-            System.out.println(""+ DADOS);
+            System.out.println("Dados guardados do Json --->   "+ DADOS);
 
             System.out.println("Usuário criado com sucesso!");
         } catch (IOException e) {
