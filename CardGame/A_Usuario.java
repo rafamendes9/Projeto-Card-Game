@@ -263,8 +263,6 @@ public class A_Usuario {
         }
     }
 
-   
-
     // Adiciona metodo para obter todos os baralhos do jogador
     public D_Deck[] getTodosBaralhos() {
         return indiceBaralho;
@@ -292,10 +290,6 @@ public class A_Usuario {
 
     public void setPontosVida(int pontosVida) {
         this.pontosVida = pontosVida;
-    }
-
-    public Object getDeckJogador() {
-        return null;
     }
 
     //Modo em Dupla 2Px2P

@@ -151,11 +151,16 @@ public class F_Lobby {
             usuarios.remove(jogador3);
             usuarios.remove(jogador4);
 
-            // Crie duas partidas em dupla com esses jogadores
-            criarPartida(jogador1, jogador2);
-            criarPartida(jogador3, jogador4);
+            // Crie uma partida em dupla com esses jogadores
+            criarPartida2v2(jogador1, jogador2, jogador3, jogador4);
+
         } else {
             System.out.println("Não há jogadores suficientes para criar partidas em dupla.");
         }
+    }
+
+    private void criarPartida2v2(A_Usuario jogador1, A_Usuario jogador2, A_Usuario jogador3, A_Usuario jogador4) {
+        G2_Arena2V2 arena2v2 = new G2_Arena2V2(jogador1, jogador2, jogador3, jogador4, null, null, null, null, null, null, 0, 0);
+        arena2v2.iniciarPartida();
     }
 }

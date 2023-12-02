@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import com.google.gson.Gson;
 
 public class C4_InterfaceUserMenu {
@@ -86,10 +85,10 @@ public class C4_InterfaceUserMenu {
         System.out.println("Digite sua senha:");
         senhaTeste = scanner.nextLine();
 
-        if () {
+        if (nomeTeste == nomeJson && senhaTeste == senhaJson) {
             
         } else {
-            
+            System.out.println("Usuário não existente.");
         }
         
 

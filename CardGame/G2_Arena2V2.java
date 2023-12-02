@@ -23,7 +23,7 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
 
     public G2_Arena2V2(A_Usuario jogador1, A_Usuario jogador2, A_Usuario jogador3, A_Usuario jogador4,
             D_Deck deckJogador1, D_Deck deckJogador2, D_Deck deckJogador3, D_Deck deckJogador4, C_Carta[][] campoJogador3,
-            C_Carta[][] campoJogador4, int pontosVidaJogador3, int pontosVidaJogador4, F_Lobby lobby) {
+            C_Carta[][] campoJogador4, int pontosVidaJogador3, int pontosVidaJogador4) {
         super(jogador1, jogador2, deckJogador1, deckJogador2);
         this.jogador3 = jogador3;
         this.jogador4 = jogador4;
@@ -33,7 +33,6 @@ public class G2_Arena2V2 extends G1_ArenaPVP{
         this.campoJogador4 = new C_Carta[2][5];
         this.pontosVidaJogador3 = 20;
         this.pontosVidaJogador4 = 20;
-        this.lobby = lobby; // Injete a referência do lobby no construtor
     }
 
     //POSSIVELMENTE O ATRIBUTO DEVA VIRAR PROTECTED
