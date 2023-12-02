@@ -14,6 +14,7 @@ public class A_Usuario {
     private String email;
     private int nivel = 1;
     private int cardCoins = 0;
+    private int idade;
     private int cardGems = 0;
     private D_Deck[] indiceBaralho = new D_Deck[5];
     private B_Inventario inventario;
@@ -81,12 +82,11 @@ public class A_Usuario {
         if (!validarCPF(cpf)) {
             System.out.println("CPF inválido.");
             return false;
-        }
-
-       
-        // Validação de senha (por exemplo, exigindo uma senha com pelo menos 8
-        // caracteres)
-        if (senha.length() < 8) {
+        }else if (idade < 14) {
+            System.out.println("É necessário ser maior de 14 anos para se cadastrar no jogo");
+            return false;
+        }else if (senha.length() < 8) {
+            // Validação de senha (por exemplo, exigindo uma senha com pelo menos 8 caracteres)
             System.out.println("A senha deve ter pelo menos 8 caracteres.");
             return false;
         }
@@ -199,6 +199,14 @@ public class A_Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public int getIdade() {
+        return idade;
+    }
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
 
     public int getNivel() {
         return nivel;
