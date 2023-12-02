@@ -67,7 +67,7 @@ public class C4_InterfaceUserMenu {
 
 
         // Chama o método para salvar no arquivo
-        salvarUsuario(usuario );
+        salvarUsuario(usuario);
     }
 
 
