@@ -11,6 +11,8 @@ import java.nio.file.Paths;
 
 import com.google.gson.Gson; // converte Json em objeto
 
+import Modelo.A_Usuario;
+
 public class akjqwjrfp0owejftgweojtgwTestMainTestMain {
     public static void main(String[] args) {
 

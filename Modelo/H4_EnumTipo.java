@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 public enum H4_EnumTipo {
     
     FOGO,

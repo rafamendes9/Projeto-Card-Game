@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 public enum H3_EnumHabilidade {
     AMEDRONTAR,  
     ATROPELAR,   

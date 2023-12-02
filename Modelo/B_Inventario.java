@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 public class B_Inventario {
     private C_Carta[] cartas; // Alterado o tipo String para C_Carta , inicialmente com 360 espaços( o jogador mais ter mais cartas + cartas reservas para cada deck) + fução para aumentar o espaço
     private int nivelAtual = 1;

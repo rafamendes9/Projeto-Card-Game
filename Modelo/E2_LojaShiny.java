@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 import java.util.Random;
 
 public class E2_LojaShiny extends E_Loja {

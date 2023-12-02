@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 
 public class K2_Cronometro {
     private int minutos;

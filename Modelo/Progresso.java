@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 
 public abstract class Progresso {
     private int premiacaoAtual; // Contador de premiações

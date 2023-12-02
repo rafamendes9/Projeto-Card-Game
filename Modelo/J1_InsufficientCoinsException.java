@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 
 public class J1_InsufficientCoinsException extends Exception {
     public J1_InsufficientCoinsException() {

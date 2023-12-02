@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 import java.util.Random;
 
 public class G1_ArenaPVP {

@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 
 public class K_Feitico {
     public static void ativarHabilidade(H3_EnumHabilidade habilidade, C_Carta carta) {

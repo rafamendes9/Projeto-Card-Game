@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 
 public class J2_IrregularDeckException extends Exception{
     public J2_IrregularDeckException() {

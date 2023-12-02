@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 public class C_Carta implements C3_AtivacaoCarta{
     private String nome;
     private String imagem;

@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 
 public class J3_TimeOutException extends Exception{
     public J3_TimeOutException() {

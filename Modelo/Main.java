@@ -1,4 +1,4 @@
-package CardGame;
+package Modelo;
 
 public class Main {
     /*
