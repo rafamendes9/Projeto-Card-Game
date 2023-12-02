@@ -2,6 +2,8 @@ package CardGame;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class C4_UserMenu {
@@ -57,11 +59,14 @@ public class C4_UserMenu {
     private static void salvarUsuario(String nome, String senha) {
         try {
             FileWriter writer = new FileWriter("Arena.txt", true); // Abre o arquivo para escrita
+            List writerJson = new ArrayList<>();
 
             // Escreve os dados no arquivo
             writer.write(nome + "," + senha + "\n");
+            writerJson.ArrayList (nome);
 
             writer.close(); // Fecha o arquivo após a escrita
+
             System.out.println("Usuário criado com sucesso!");
         } catch (IOException e) {
             System.out.println("Erro ao salvar o usuário: " + e.getMessage());
