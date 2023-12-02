@@ -2,7 +2,6 @@ package Model.Shops;
 import java.util.Random;
 import java.util.Scanner;
 
-<<<<<<< Updated upstream:CardGame/Model/Shops/E_Loja.java
 import Model.Cards.C_Carta;
 import Model.Cards.Inventory.B_Inventario;
 import Model.ENUMs.H2_EnumIMG;
@@ -10,18 +9,8 @@ import Model.ENUMs.H3_EnumHabilidade;
 import Model.ENUMs.H4_EnumTipo;
 import Model.ENUMs.H_EnumRaridade;
 import Model.Exceptions.J1_InsufficientCoinsException;
+import Model.Exceptions.J4_InsufficientGemsException;
 import Model.USER.A_Usuario;
-=======
-import Modelo.Cards.C_Carta;
-import Modelo.Cards.Inventory.B_Inventario;
-import Modelo.ENUMs.H2_EnumIMG;
-import Modelo.ENUMs.H3_EnumHabilidade;
-import Modelo.ENUMs.H4_EnumTipo;
-import Modelo.ENUMs.H_EnumRaridade;
-import Modelo.Exceptions.J1_InsufficientCoinsException;
-import Modelo.Exceptions.J4_InsufficientGemsException;
-import Modelo.USER.A_Usuario;
->>>>>>> Stashed changes:CardGame/Modelo/Shops/E_Loja.java
 
 
 public class E_Loja {

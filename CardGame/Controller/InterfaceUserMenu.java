@@ -7,15 +7,11 @@ import java.util.List;
 import java.util.Scanner;
 import com.google.gson.Gson;
 
-<<<<<<< Updated upstream:CardGame/Controller/InterfaceUserMenu.java
+import Model.Exceptions.J1_InsufficientCoinsException;
+import Model.Exceptions.J4_InsufficientGemsException;
+import Model.Shops.E2_LojaShiny;
+import Model.Shops.E_Loja;
 import Model.USER.A_Usuario;
-=======
-import Modelo.Exceptions.J1_InsufficientCoinsException;
-import Modelo.Exceptions.J4_InsufficientGemsException;
-import Modelo.Shops.E2_LojaShiny;
-import Modelo.Shops.E_Loja;
-import Modelo.USER.A_Usuario;
->>>>>>> Stashed changes:CardGame/Controlador/InterfaceUserMenu.java
 
 public class InterfaceUserMenu {
 
@@ -87,7 +83,32 @@ public class InterfaceUserMenu {
             System.out.println("Não foi possível criar um jogador!.");
         }
     }
-    // FIM DE CADASTRO
+
+     // salvar em dois arquivos singulares, DadosLocal.TXT & Json
+    public static void salvarUsuario(A_Usuario usuario) {
+        try {
+            FileWriter writer = new FileWriter("CardGame\\Recursos\\DadosLocal.txt", true); // Abre o arquivo para escrita
+            List<A_Usuario> writerJson = new ArrayList<A_Usuario>();
+
+            writerJson.add(usuario);
+
+
+            String DADOS = new Gson().toJson(writerJson);
+            // Escreve os dados no arquivo
+            writer.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() +"," + usuario.getSexo() +"," + usuario.getEmail() + "\n");
+            
+
+            writer.close(); // Fecha o arquivo após a escrita
+
+            System.out.println("Dados guardados do Json --->   "+ DADOS);
+
+            System.out.println("Usuário criado com sucesso!");
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar o usuário: " + e.getMessage());
+        }
+    }
+    // FIM DE CADASTRO + DADOS (JSON, TXT)
+
 
     public static void logar(Scanner scanner, A_Usuario usuario){
         String nomeTeste;
@@ -198,29 +219,6 @@ public class InterfaceUserMenu {
         }
     }
 
-    // salvar em dois arquivos singulares, DadosLocal.TXT & Json
-    public static void salvarUsuario(A_Usuario usuario) {
-        try {
-            FileWriter writer = new FileWriter("CardGame\\Recursos\\DadosLocal.txt", true); // Abre o arquivo para escrita
-            List<A_Usuario> writerJson = new ArrayList<A_Usuario>();
-
-            writerJson.add(usuario);
-
-
-            String DADOS = new Gson().toJson(writerJson);
-            // Escreve os dados no arquivo
-            writer.write(usuario.getNome() + "," + usuario.getCpf() + "," + usuario.getSenha() +"," + usuario.getSexo() +"," + usuario.getEmail() + "\n");
-            
-
-            writer.close(); // Fecha o arquivo após a escrita
-
-            System.out.println("Dados guardados do Json --->   "+ DADOS);
-
-            System.out.println("Usuário criado com sucesso!");
-        } catch (IOException e) {
-            System.out.println("Erro ao salvar o usuário: " + e.getMessage());
-        }
-    }
-
+   
  
 }
